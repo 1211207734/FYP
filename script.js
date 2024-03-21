@@ -1,7 +1,7 @@
 (function ($) {
 
   "use strict";
-sasaasasassa
+
   var initSlider = function () {
     var swiper = new Swiper(".main-swiper", {
       slidesPerView: 3,
