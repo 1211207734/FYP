@@ -1,0 +1,43 @@
+/* CSS for FAQ page */
+
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* FAQ styles */
+.faq-list {
+    margin-top: 20px;
+}
+
+.faq-item {
+    margin-bottom: 40px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 20px;
+}
+
+.faq-item:last-child {
+    border-bottom: none;
+}
+
+.faq-item h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.faq-item p {
+    line-height: 1.6;
+}

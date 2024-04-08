@@ -1,0 +1,39 @@
+/* CSS for Blog page */
+
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Blog Post styles */
+.blog-post {
+    margin-bottom: 40px;
+}
+
+.blog-post h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.blog-post .date {
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.blog-post p {
+    line-height: 1.6;
+}
+
