@@ -5,6 +5,12 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    
+    background-image: url('/images/jbplogo.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-position: middle;
+    background-size: 40%;
 }
 
 .container {
