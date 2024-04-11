@@ -102,13 +102,15 @@ a {
 .dropdown-menu {
   --bs-dropdown-border-radius: 0;
   --bs-dropdown-border-width: 0;
+  animation: fadeIn 5s;
+  -webkit-animation: fadeIn 5s;
 }
 
 .dropdown-item {
   --bs-dropdown-item-padding-y: 0.25rem;
   --bs-dropdown-item-padding-x: 1rem;
   --bs-dropdown-link-color: var(--bs-black);
-  --bs-dropdown-item-border-radius: 0;
+  --bs-dropdown-item-border-radius: 0
 }
 
 .dropdown-item.active,
