@@ -2,27 +2,24 @@
 CREATE DATABASE JBP;
 USE JBP;
 
--- Admin Table
 CREATE TABLE Admin (
     Admin_ID INT AUTO_INCREMENT PRIMARY KEY,
     Admin_username VARCHAR(50) NOT NULL,
     Admin_password VARCHAR(50) NOT NULL
 );
 
--- Insert data into Admin table
+
 INSERT INTO Admin (Admin_username, Admin_password) 
 VALUES ('admin1', 'password1');
 
--- Categories Table
+
 CREATE TABLE Categories (
     Category_ID INT AUTO_INCREMENT PRIMARY KEY,
     Category_name VARCHAR(50) NOT NULL
 );
 
--- Insert data into Categories table
 INSERT INTO Categories (Category_name) VALUES ('Smartphones'), ('Tablets'), ('Accessories'), ('Wearables'), ('Earphones'), ('Powerbanks'), ('Speakers'), ('Phone stands'), ('Storage extender'), ('Mobile Photography accessories');
 
--- Customer Table
 CREATE TABLE Customer (
     Customer_ID INT AUTO_INCREMENT PRIMARY KEY,
     Customer_name VARCHAR(50) NOT NULL,
@@ -32,7 +29,6 @@ CREATE TABLE Customer (
     Customer_address VARCHAR(100) NOT NULL
 );
 
--- Insert data into Customer table
 INSERT INTO Customer (Customer_name, Customer_email, Customer_password, Customer_HP, Customer_address) 
 VALUES ('John Doe', 'john.doe@example.com', 'john123', '123456789', '123 Main St'),
        ('Jane Smith', 'jane.smith@example.com', 'jane456', '987654321', '456 Oak Ave'),
@@ -45,8 +41,7 @@ VALUES ('John Doe', 'john.doe@example.com', 'john123', '123456789', '123 Main St
        ('Kevin Martinez', 'kevin.martinez@example.com', 'kevin789', '741852963', '147 Ash St'),
        ('Laura Garcia', 'laura.garcia@example.com', 'laura123', '852963741', '369 Pine St');
 
--- Order Table
-CREATE TABLE Order (
+CREATE TABLE ooder (
     Order_ID INT AUTO_INCREMENT PRIMARY KEY,
     Order_date DATE NOT NULL,
     Total_price FLOAT(7,2) NOT NULL,
@@ -54,8 +49,7 @@ CREATE TABLE Order (
     FOREIGN KEY (Customer_ID) REFERENCES Customer(Customer_ID)
 );
 
--- Insert data into Order table
-INSERT INTO `Order` (Order_date, Total_price, Customer_ID) 
+INSERT INTO ooder (Order_date, Total_price, Customer_ID) 
 VALUES ('2024-04-01', 299.99, 1),
        ('2024-04-02', 499.99, 2),
        ('2024-04-03', 799.99, 3),
@@ -67,7 +61,6 @@ VALUES ('2024-04-01', 299.99, 1),
        ('2024-04-09', 499.99, 9),
        ('2024-04-10', 699.99, 10);
 
--- Products Table
 CREATE TABLE Products (
     Product_ID INT AUTO_INCREMENT PRIMARY KEY,
     Product_name VARCHAR(50) NOT NULL,
@@ -78,7 +71,6 @@ CREATE TABLE Products (
     FOREIGN KEY (Category_ID) REFERENCES Categories(Category_ID)
 );
 
--- Insert products into the Products table for Smartphones category
 INSERT INTO Products (Product_name, Product_details, Product_stock, Product_price, Category_ID) 
 VALUES ('iPhone 13', 'Newest iPhone model', 50, 999.99, 1),
        ('Samsung Galaxy S21 Ultra', 'Flagship Android smartphone', 30, 1199.99, 1),
@@ -91,7 +83,6 @@ VALUES ('iPhone 13', 'Newest iPhone model', 50, 999.99, 1),
        ('Google Pixel 5a', 'Affordable Google phone', 55, 449.99, 1),
        ('OnePlus Nord 2', 'Budget-friendly OnePlus device', 30, 399.99, 1);
 
--- Insert products into the Products table for Tablets category
 INSERT INTO Products (Product_name, Product_details, Product_stock, Product_price, Category_ID) 
 VALUES ('iPad Pro 12.9-inch (2022)', 'Powerful iPad for professionals', 20, 1099.99, 2),
        ('Samsung Galaxy Tab S8+', 'Premium Android tablet', 15, 899.99, 2),
@@ -104,7 +95,6 @@ VALUES ('iPad Pro 12.9-inch (2022)', 'Powerful iPad for professionals', 20, 1099
        ('Microsoft Surface Go 3', 'Affordable Windows tablet', 45, 399.99, 2),
        ('Amazon Fire HD 8', 'Budget-friendly Amazon tablet', 60, 89.99, 2);
 
--- Insert products into the Products table for Accessories category
 INSERT INTO Products (Product_name, Product_details, Product_stock, Product_price, Category_ID) 
 VALUES ('iPhone 13 Case', 'Protective case for iPhone 13', 100, 19.99, 3),
        ('Samsung Galaxy S21 Ultra Case', 'Rugged case for Samsung Galaxy S21 Ultra', 80, 24.99, 3),
@@ -117,7 +107,6 @@ VALUES ('iPhone 13 Case', 'Protective case for iPhone 13', 100, 19.99, 3),
        ('Google Pixel 5a Power Bank', 'Portable power bank for Google Pixel 5a', 130, 49.99, 3),
        ('OnePlus Nord 2 USB-C Cable', 'Durable USB-C cable for OnePlus Nord 2', 140, 14.99, 3);
 
--- Insert products into the Products table for Wearables category
 INSERT INTO Products (Product_name, Product_details, Product_stock, Product_price, Category_ID) 
 VALUES ('Apple Watch Series 7', 'Latest Apple smartwatch', 20, 399.99, 4),
        ('Samsung Galaxy Watch 4', 'Premium Android smartwatch', 15, 299.99, 4),
@@ -130,7 +119,6 @@ VALUES ('Apple Watch Series 7', 'Latest Apple smartwatch', 20, 399.99, 4),
        ('Jabra Elite 85t', 'True wireless earbuds with ANC', 60, 199.99, 4),
        ('Samsung Galaxy Buds Pro', 'True wireless earbuds with 360 Audio', 55, 199.99, 4);
 
--- Insert products into the Products table for Powerbanks category
 INSERT INTO Products (Product_name, Product_details, Product_stock, Product_price, Category_ID) 
 VALUES ('Anker PowerCore 10000', 'Portable power bank with 10000mAh capacity', 70, 29.99, 5),
        ('RAVPower PD Pioneer 20000', 'High-capacity power bank with Power Delivery', 80, 49.99, 5),
@@ -143,7 +131,6 @@ VALUES ('Anker PowerCore 10000', 'Portable power bank with 10000mAh capacity', 7
        ('Samsung Wireless Charger Portable Battery', 'Wireless charging power bank with 10000mAh capacity', 65, 69.99, 5),
        ('RAVPower Ace 22000', 'Ultra-high-capacity power bank with 22000mAh capacity', 110, 59.99, 5);
 
--- Insert products into the Products table for Speakers category
 INSERT INTO Products (Product_name, Product_details, Product_stock, Product_price, Category_ID) 
 VALUES ('JBL Flip 5', 'Portable Bluetooth speaker with IPX7 waterproof rating', 30, 99.99, 6),
        ('Sony SRS-XB33', 'Portable speaker with Extra Bass and party lights', 25, 149.99, 6),
@@ -156,7 +143,6 @@ VALUES ('JBL Flip 5', 'Portable Bluetooth speaker with IPX7 waterproof rating', 
        ('Harman Kardon Onyx Studio 7', 'Wireless Bluetooth speaker with premium design and sound', 60, 249.99, 6),
        ('Marshall Stockwell II', 'Portable Bluetooth speaker with classic Marshall design', 65, 199.99, 6);
 
--- Insert products into the Products table for Phone stands category
 INSERT INTO Products (Product_name, Product_details, Product_stock, Product_price, Category_ID) 
 VALUES ('Adjustable Phone Stand', 'Foldable phone stand for desk or travel', 80, 14.99, 7),
        ('Ugreen Phone Holder', 'Desktop phone stand with adjustable angle', 90, 9.99, 7),
@@ -169,7 +155,6 @@ VALUES ('Adjustable Phone Stand', 'Foldable phone stand for desk or travel', 80,
        ('JETech Adjustable Tablet Stand', 'Multi-angle tablet stand compatible with smartphones', 150, 8.99, 7),
        ('Syncwire Cell Phone Ring Holder', 'Rotating phone ring holder and stand', 160, 7.99, 7);
 
--- Insert products into the Products table for Storage extender category
 INSERT INTO Products (Product_name, Product_details, Product_stock, Product_price, Category_ID) 
 VALUES ('Samsung T7 Portable SSD', 'External SSD with USB 3.2 Gen 2 interface', 50, 99.99, 9),
        ('SanDisk Extreme Portable SSD', 'Rugged external SSD with USB-C and USB-A connectors', 60, 119.99, 9),
@@ -182,7 +167,6 @@ VALUES ('Samsung T7 Portable SSD', 'External SSD with USB 3.2 Gen 2 interface', 
        ('Lexar JumpDrive F35 Fingerprint USB 3.0 Flash Drive', 'Secure USB flash drive with fingerprint authentication', 130, 49.99, 9),
        ('Samsung FIT Plus USB 3.1 Flash Drive', 'Ultra-compact USB flash drive for easy portability', 140, 19.99, 9);
 
--- Insert products into the Products table for Mobile Photography accessories category
 INSERT INTO Products (Product_name, Product_details, Product_stock, Product_price, Category_ID) 
 VALUES ('Moment Wide Lens', 'Wide-angle lens attachment for smartphones', 40, 119.99, 10),
        ('Joby GripTight GorillaPod Stand', 'Flexible tripod with smartphone mount', 50, 39.99, 10),
@@ -196,7 +180,6 @@ VALUES ('Moment Wide Lens', 'Wide-angle lens attachment for smartphones', 40, 11
        ('Anker PowerPort Solar Charger', 'Solar charger for USB devices', 65, 49.99, 10);
 
 
--- Payment Table
 CREATE TABLE Payment (
     Payment_ID INT AUTO_INCREMENT PRIMARY KEY,
     Payment_date DATE NOT NULL,
@@ -204,7 +187,6 @@ CREATE TABLE Payment (
     Payment_total FLOAT(7,2) NOT NULL
 );
 
--- Insert data into Payment table
 INSERT INTO Payment (Payment_date, Payment_method, Payment_total) 
 VALUES ('2024-04-01', 'Credit Card', 299.99),
        ('2024-04-02', 'PayPal', 499.99),
@@ -217,7 +199,6 @@ VALUES ('2024-04-01', 'Credit Card', 299.99),
        ('2024-04-09', 'Credit Card', 499.99),
        ('2024-04-10', 'PayPal', 699.99);
 
--- Deliveries Table
 CREATE TABLE Deliveries (
     Delivery_ID INT AUTO_INCREMENT PRIMARY KEY,
     Customer_ID INT,
@@ -226,7 +207,6 @@ CREATE TABLE Deliveries (
     FOREIGN KEY (Customer_ID) REFERENCES Customer(Customer_ID)
 );
 
--- Insert data into Deliveries table
 INSERT INTO Deliveries (Customer_ID, Delivery_company, Date_of_delivery) 
 VALUES (1, 'UPS', '2024-04-05'),
        (2, 'FedEx', '2024-04-06'),
@@ -239,7 +219,6 @@ VALUES (1, 'UPS', '2024-04-05'),
        (9, 'UPS', '2024-04-13'),
        (10, 'FedEx', '2024-04-14');
 
--- Transaction Report Table
 CREATE TABLE Transaction_Report (
     Report_ID INT AUTO_INCREMENT PRIMARY KEY,
     Customer_ID INT,
@@ -247,12 +226,11 @@ CREATE TABLE Transaction_Report (
     Product_ID INT,
     Payment_ID INT,
     FOREIGN KEY (Customer_ID) REFERENCES Customer(Customer_ID),
-    FOREIGN KEY (Order_ID) REFERENCES `Order`(Order_ID),
+    FOREIGN KEY (Order_ID) REFERENCES ooder(Order_ID),
     FOREIGN KEY (Product_ID) REFERENCES Products(Product_ID),
     FOREIGN KEY (Payment_ID) REFERENCES Payment(Payment_ID)
 );
 
--- Insert data into Transaction_Report table
 INSERT INTO Transaction_Report (Customer_ID, Order_ID, Product_ID, Payment_ID) 
 VALUES (1, 1, 1, 1),
        (2, 2, 2, 2),
