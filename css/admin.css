@@ -70,3 +70,8 @@ footer {
     text-align: center;
     padding: 20px 0;
 }
+button{
+    color:black;
+    text-align: center;
+    font-weight: bold;
+}
