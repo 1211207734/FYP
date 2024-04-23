@@ -1,5 +1,5 @@
 <?php
 
-$connect= mysqli_connect("localhost","root","","penang");// fill out database name
+$connect= mysqli_connect("localhost","root","","jbp");// fill out database name
 
 ?>

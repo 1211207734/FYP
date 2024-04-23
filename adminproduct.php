@@ -40,7 +40,7 @@ body{
             <th>Order Date</th>
         </tr>
         <?php
-        $query = "SELECT * FROM orders";
+        $query = "SELECT * FROM product";
         $result = mysqli_query($connect, $query);
         while ($row = mysqli_fetch_assoc($result)) {
             echo "<tr>";
