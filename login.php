@@ -1,4 +1,7 @@
-<?php include('database.php');
+<?php 
+include('database.php');
+
+$error_message = ''; // Define error message variable
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
@@ -6,7 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Corrected SQL query syntax and added prepared statement
     $query = "SELECT Customer_email, Customer_password FROM customer WHERE Customer_email = ?";
-
+    
     $stmt = mysqli_prepare($connect, $query);
     mysqli_stmt_bind_param($stmt, "s", $email);
     mysqli_stmt_execute($stmt);
@@ -28,7 +31,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 ?>
-
 
 <!doctype html>
 <html lang="en">
@@ -70,7 +72,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                             <p class="mb-0 mt-4 text-center"><a href="https://www.web-leb.com/code" class="link">Forgot your password?</a></p>
                                         </form>
                                         <?php
-                                        if (isset($error_message)) {
+                                        if (!empty($error_message)) {
                                             echo '<p class="text-danger">' . $error_message . '</p>';
                                         }
                                         ?>
