@@ -1,29 +1,34 @@
-<?php include('database.php');?>
+<?php include('database.php');
 
-<?php
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $email = $_POST['email'];
-        $password = $_POST['password'];
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $email = $_POST['email'];
+    $password = $_POST['password'];
 
-        $query = "SELECT Customer_email, Customer_password FROM customer WHERE Customer_email = '$email', Customer_password = '$password'";
-        $result = mysqli_query($connect, $query);
+    // Corrected SQL query syntax and added prepared statement
+    $query = "SELECT Customer_email, Customer_password FROM customer WHERE Customer_email = ?";
 
-        if (mysqli_num_rows($result) == 1) {
-            $row = mysqli_fetch_assoc($result);
-            $hashed_password = $row['Customer_password'];
-            if (password_verify($password, $hashed_password)) {
-                // Login successful
-                // Redirect to home page or perform other actions
-                header("Location: index.html");
-                exit();
-            } else {
-                $error_message = "Invalid password.";
-            }
+    $stmt = mysqli_prepare($connect, $query);
+    mysqli_stmt_bind_param($stmt, "s", $email);
+    mysqli_stmt_execute($stmt);
+    $result = mysqli_stmt_get_result($stmt);
+
+    if (mysqli_num_rows($result) == 1) {
+        $row = mysqli_fetch_assoc($result);
+        $hashed_password = $row['Customer_password'];
+        if (password_verify($password, $hashed_password)) {
+            // Login successful
+            // Redirect to home page or perform other actions
+            header("Location: index.html");
+            exit();
         } else {
-            $error_message = "Invalid email.";
+            $error_message = "Invalid password.";
         }
+    } else {
+        $error_message = "Invalid email.";
     }
+}
 ?>
+
 
 <!doctype html>
 <html lang="en">
