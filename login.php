@@ -61,7 +61,7 @@
                                             </div>
                                             <button type="submit" class="btn mt-4">Login</button>
                                             <br>
-                                            <a href="index.html" class="btn mt-4">Back to home</a>
+                                            <!-- Removed redirecting back to index.html -->
                                             <p class="mb-0 mt-4 text-center"><a href="https://www.web-leb.com/code" class="link">Forgot your password?</a></p>
                                         </form>
                                         <?php
