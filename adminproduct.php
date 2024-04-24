@@ -28,32 +28,16 @@ body{
     </div>
     <table>
         <tr>
-            <th>Order ID</th>
-            <th>Product ID</th>
-            <th>Product Name</th>
-            <th>Product Price</th>
-            <th>Product Quantity</th>
-            <th>Customer Name</th>
-            <th>Customer Email</th>
-            <th>Customer Phone</th>
-            <th>Customer Address</th>
-            <th>Order Date</th>
+            <th>Customer_email</th>
+            <th>Customer_password</th>
         </tr>
         <?php
-        $query = "SELECT * FROM product";
+        $query = "SELECT Customer_email,Customer_password FROM customer";
         $result = mysqli_query($connect, $query);
         while ($row = mysqli_fetch_assoc($result)) {
             echo "<tr>";
-            echo "<td>{$row['id']}</td>";
-            echo "<td>{$row['product_id']}</td>";
-            echo "<td>{$row['product_name']}</td>";
-            echo "<td>{$row['product_price']}</td>";
-            echo "<td>{$row['product_quantity']}</td>";
-            echo "<td>{$row['customer_name']}</td>";
-            echo "<td>{$row['customer_email']}</td>";
-            echo "<td>{$row['customer_phone']}</td>";
-            echo "<td>{$row['customer_address']}</td>";
-            echo "<td>{$row['order_date']}</td>";
+            echo "<td>{$row['Customer_email']}</td>";
+            echo "<td>{$row['Customer_password']}</td>";
             echo "</tr>";
         }
         ?>
