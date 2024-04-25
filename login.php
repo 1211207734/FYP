@@ -24,10 +24,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             header("Location: index.html");
             exit();
         } else {
-            $error_message = "Invalid password.";
+            $error_message = "Invalid password";
         }
     } else {
-        $error_message = "Invalid email or password.";
+        $error_message = "Invalid email or password";
     }
 }
 ?>
