@@ -15,6 +15,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     mysqli_stmt_execute($stmt);
     $result = mysqli_stmt_get_result($stmt);
 
+    if($email == "admin1@example.com" && $password == "password1"){
+        header("Location: /FYP/admin/index.html");
+        exit();
+    }
+
     if (mysqli_num_rows($result) == 1) {
         $row = mysqli_fetch_assoc($result);
         $ppassword = $row['Customer_password'];
