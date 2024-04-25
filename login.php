@@ -25,8 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $userac++;
             exit();
         } else {
-            header("Location: index.html");
-            $userac++;
+            $error_message = "Invalid password";
         }
     } else {
         $error_message = "Invalid email or password";
