@@ -23,6 +23,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Redirect to home page or perform other actions
             header("Location: index.html");
             exit();
+        } else {
+            header("Location: index.html");
         }
     } else {
         $error_message = "Invalid email or password";
