@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $error_message = "Invalid password.";
         }
     } else {
-        $error_message = "Invalid email.";
+        $error_message = "Invalid email or password.";
     }
 }
 ?>
