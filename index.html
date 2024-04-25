@@ -265,10 +265,10 @@
                   <a class="nav-link" href="#">My Account</a>
                 </li>
                 <li class="nav-item">
-                  if(userc=0)
-                  {
-                    <a class="nav-link" href="login.php">Login Account</a>
-                  }
+                  <?php if ($userc == 0): ?>
+                  <a class="nav-link" href="login.php">Login Account</a>
+                  <?php endif; ?>
+
                 </li>
               </ul>
             </div>
