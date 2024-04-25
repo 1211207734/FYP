@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Login successful
             // Redirect to home page or perform other actions
             header("Location: index.html");
-            userc++;
+            $userc++;
             exit();
         } else {
             header("Location: index.html");
