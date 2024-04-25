@@ -17,8 +17,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (mysqli_num_rows($result) == 1) {
         $row = mysqli_fetch_assoc($result);
-        $hashed_password = $row['Customer_password'];
-        if (password_verify($password, $hashed_password)) {
+        $ppassword = $row['Customer_password'];
+        if ($password == $ppassword) {
             // Login successful
             // Redirect to home page or perform other actions
             header("Location: index.html");
