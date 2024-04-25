@@ -7,6 +7,8 @@
  // GITHUB: https://github.com/themefisher/
 -->
 
+
+
 <html lang="en" dir="ltr">
   <head>
   <meta charset="utf-8" />
@@ -1145,19 +1147,19 @@
       <li class="nav-item">
         <a class="nav-link" href="#">
           <span class="h5 d-block">1503</span>
-          <span class="text-color d-block">Friends</span>
+          <span class="text-color d-block">Customer on hold</span>
         </a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">
           <span class="h5 d-block">2905</span>
-          <span class="text-color d-block">Followers</span>
+          <span class="text-color d-block">project completed</span>
         </a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">
           <span class="h5 d-block">1200</span>
-          <span class="text-color d-block">Following</span>
+          <span class="text-color d-block">project progress</span>
         </a>
       </li>
 
@@ -1260,6 +1262,43 @@
         </form>
       </div>
     </div>
+    <?php
+    include('databse.php');
+// Check if form is submitted
+  if(isset($_POST['submit'])) {
+    // Retrieve form data
+    $firstName = $_POST['firstName'];
+    $lastName = $_POST['lastName'];
+    $userName = $_POST['userName'];
+    $email = $_POST['email'];
+    $newPassword = $_POST['newPassword'];
+    $conPassword = $_POST['conPassword'];
+
+    // Validate and sanitize form data (you may need more validation)
+    // Connect to your MySQL database
+
+    
+
+    // Prepare SQL statement
+    $sql = "UPDATE admin SET Fn=?, Ln=?, Un=?, email=?, np=? WHERE id=1211208820";
+
+    // Prepare and bind parameters
+    $stmt = $mysqli->prepare($sql);
+    $stmt->bind_param("sssssi", $firstName, $lastName, $userName, $email, $newPassword, $id);
+
+    // Execute the statement
+    if ($stmt->execute()) {
+        echo "Profile updated successfully";
+    } else {
+        echo "Error updating profile: " . $stmt->error;
+    }
+
+    // Close statement and database connection
+    $stmt->close();
+    $mysqli->close();
+}
+?>
+
 
 
 
