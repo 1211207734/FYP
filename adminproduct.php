@@ -2,18 +2,40 @@
 
 <html>
 <head>
-<title>Oder Manage</title>
+<title>Order Manage</title>
 <style>
-body{
-  background-image: url("./photo/bg2.jpg");
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-  vertical-align: bottom;
-}
+    body{
+    background-image: url("./photo/bg2.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    vertical-align: bottom;
+    }
+
+    header {
+        background-color: #333;
+        color: #fff;
+        padding: 10px;
+        text-align: center;
+    }
+
+    .logo h1 {
+        font-size: 32px;
+        margin: 0;
+    }
+
+    .logo h1 span {
+        color: #f00; /* Change color as needed */
+        font-weight: bold;
+    }
 
 </style>
-
+<header>
+        <div class="logo">
+            <h1>JBP<span>STORE</span>admin</h1>
+        </div>
+       
+</header>
 </head>
 <body>
     <div class="group">
@@ -43,4 +65,7 @@ body{
         ?>
     </table>
 </body>
+<footer>
+        <p>&copy; 2024 JBPSTORE - Your Mobile Gadgets Shop. All rights reserved.</p>
+</footer>
 </html>
