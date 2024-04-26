@@ -113,38 +113,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                             <i class="input-icon uil uil-lock-alt"></i>
                                         </div>
                                         <a href="index.html" class="btn mt-4">Register</a><br>
-                                        <?php
-                                           include('databse.php');
-                                        // Check if form is submitted
-                                        if(isset($_POST['register'])) {
-                                            // Retrieve user registration data
-                                            $userName = $_POST['userName'];
-                                            $email = $_POST['email'];
-                                            $phone = $_POST['phone'];
-                                            $password = $_POST['password'];
-                                            $confirmPassword = $_POST['confirm_password'];
-                                            
-                                            // Check if passwords match
-                                            if($password !== $confirmPassword) {
-                                                $error_message = "Passwords do not match";
-                                            } else {
-                                                // Prepare SQL statement for insertion
-                                                $query = "INSERT INTO Customer (Customer_name, Customer_email, Customer_password, Customer_HP) VALUES (?, ?, ?, ?)";
-                                                
-                                                // Prepare and bind parameters
-                                                $stmt = mysqli_prepare($connect, $query);
-                                                mysqli_stmt_bind_param($stmt, "ssss", $userName, $email, $password, $phone);
-                                                
-                                                // Execute the statement
-                                                if(mysqli_stmt_execute($stmt)) {
-                                                    $error_message = "Registration successful";
-                                                } else {
-                                                    $error_message = "Error occurred while registering user";
-                                                }
-                                                
-                                                // Close statement
-                                                mysqli_stmt_close($stmt);
-                                            }
+                                        
                                         <a href="index.html" class="btn mt-4">Back to home</a>
 
 
