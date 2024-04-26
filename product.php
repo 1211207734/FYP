@@ -1,5 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+<header>
+        <div class="logo">
+            <h1>JBP<span>STORE</span></h1>
+        </div>      
+</header>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,8 +25,8 @@
             // Display products
             while ($row = mysqli_fetch_assoc($result)) {
                 echo "<div class='product'>";
-                echo "<h3>{$row['name']}</h3>";
-                echo "<p>Price: {$row['price']}</p>";
+                echo "<h3>{$row['Product_name']}</h3>";
+                echo "<p>Price: {$row['Product_price']}</p>";
                 echo "</div>";
             }
 
@@ -31,4 +36,7 @@
         </div>
     </div>
 </body>
+<footer>
+        <p>&copy; 2024 JBPSTORE - Your Mobile Gadgets Shop. All rights reserved.</p>
+</footer>
 </html>
