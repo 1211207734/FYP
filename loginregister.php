@@ -101,7 +101,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                         </div>
                                         <div class="form-group mt-2">
                                             <input type="text" class="form-style" placeholder="Phone Number">
-                                            <i class="input-icon uil uil-user"></i>
+                                            <i class="input-icon uil uil-phone"></i>
                                         </div>
 
                                         <div class="form-group mt-2">
