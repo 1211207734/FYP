@@ -87,6 +87,35 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 </div>
                             </div>
                             <!-- Rest of your HTML code for sign up section -->
+                            <div class="card-back">
+                                <div class="center-wrap">
+                                    <div class="section text-center">
+                                        <h4 class="mb-3 pb-3">Sign Up</h4>
+                                        <div class="form-group">
+                                            <input type="text" class="form-style" placeholder="Username">
+                                            <i class="input-icon uil uil-user"></i>
+                                        </div>
+                                        <div class="form-group mt-2">
+                                            <input type="email" class="form-style" placeholder="Email">
+                                            <i class="input-icon uil uil-at"></i>
+                                        </div>
+                                        <div class="form-group mt-2">
+                                            <input type="text" class="form-style" placeholder="Phone Number">
+                                            <i class="input-icon uil uil-user"></i>
+                                        </div>
+
+                                        <div class="form-group mt-2">
+                                            <input type="password" class="form-style" placeholder="Password">
+                                            <i class="input-icon uil uil-lock-alt"></i>
+                                        </div>
+                                        <div class="form-group mt-2">
+                                            <input type="confirm_password" class="form-style" placeholder="Confirm Password">
+                                            <i class="input-icon uil uil-lock-alt"></i>
+                                        </div>
+                                        <a href="index.html" class="btn mt-4">Register</a><br>
+                                        <a href="index.html" class="btn mt-4">Back to home</a>
+
+
                         </div>
                     </div>
                 </div>
