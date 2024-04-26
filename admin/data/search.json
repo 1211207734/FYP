@@ -288,7 +288,7 @@
 
   {
     "label": "User Account Settings",
-    "link": "user-account-settings.html",
+    "link": "user-account-settings.php",
     "tags": "",
     "location": "User"
   },
