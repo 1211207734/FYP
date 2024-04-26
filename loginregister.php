@@ -113,6 +113,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                             <i class="input-icon uil uil-lock-alt"></i>
                                         </div>
                                         <a href="index.html" class="btn mt-4">Register</a><br>
+                                        if(isset($_POST['submit'])) {
+                                        // Retrieve form data
+                                        $userName = $_POST['userName'];
+                                        $email = $_POST['email'];
+                                        $phone_num = $_POST['HP']；
+                                        $newPassword = $_POST['newPassword'];
+                                        $conPassword = $_POST['conPassword'];
+                                    }
                                         <a href="index.html" class="btn mt-4">Back to home</a>
 
 
