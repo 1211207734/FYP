@@ -100,7 +100,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                             <i class="input-icon uil uil-at"></i>
                                         </div>
                                         <div class="form-group mt-2">
-                                            <input type="text" class="form-style" placeholder="Username">
+                                            <input type="text" class="form-style" placeholder="Phone Number">
+                                            <i class="input-icon uil uil-user"></i>
+                                        </div>	
+
+                                        <div class="form-group mt-2">
+                                            <input type="text" class="form-style" placeholder="Phone Number">
                                             <i class="input-icon uil uil-user"></i>
                                         </div>	
 
