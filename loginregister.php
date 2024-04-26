@@ -87,10 +87,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 </div>
                             </div>
                             <!-- Rest of your HTML code for sign up section -->
-                            
-			      					</div>
-			      				</div>
-
                         </div>
                     </div>
                 </div>
