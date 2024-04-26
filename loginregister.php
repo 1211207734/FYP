@@ -116,7 +116,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                         <?php
                                            include('databse.php');
                                         // Check if form is submitted
-                                        elseif(isset($_POST['register'])) {
+                                        if(isset($_POST['register'])) {
                                             // Retrieve user registration data
                                             $userName = $_POST['userName'];
                                             $email = $_POST['email'];
