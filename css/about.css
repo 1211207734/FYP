@@ -59,3 +59,11 @@ h1 {
 .contact-method img {
     width: 50px; /* Adjust the size of the contact method images */
 }
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
