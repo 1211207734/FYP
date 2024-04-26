@@ -12,10 +12,10 @@
         <div class="products">
             <?php
             // Database connection
-            include
+            include('database.php');
             // Fetch products from the database
-            $query = "SELECT * FROM products";
-            $result = mysqli_query($conn, $query);
+            $query = "SELECT Product_name,Product_price FROM products";
+            $result = mysqli_query($connect, $query);
 
             // Display products
             while ($row = mysqli_fetch_assoc($result)) {
@@ -26,7 +26,7 @@
             }
 
             // Close database connection
-            mysqli_close($conn);
+            mysqli_close($connect);
             ?>
         </div>
     </div>
