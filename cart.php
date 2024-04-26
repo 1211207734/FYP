@@ -12,8 +12,7 @@
         <div class="products">
             <?php
             // Database connection
-            $conn = mysqli_connect('localhost', 'username', 'password', 'shopping_cart');
-
+            include
             // Fetch products from the database
             $query = "SELECT * FROM products";
             $result = mysqli_query($conn, $query);
