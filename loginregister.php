@@ -92,7 +92,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                     <div class="section text-center">
                                         <h4 class="mb-3 pb-3">Sign Up</h4>
                                         <div class="form-group">
-                                            <input type="text" class="form-style" placeholder="Full Name">
+                                            <input type="text" class="form-style" placeholder="Username">
                                             <i class="input-icon uil uil-user"></i>
                                         </div>
                                         <div class="form-group mt-2">
@@ -102,12 +102,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                         <div class="form-group mt-2">
                                             <input type="text" class="form-style" placeholder="Phone Number">
                                             <i class="input-icon uil uil-user"></i>
-                                        </div>	
-
-                                        <div class="form-group mt-2">
-                                            <input type="text" class="form-style" placeholder="Phone Number">
-                                            <i class="input-icon uil uil-user"></i>
-                                        </div>	
+                                        </div>
 
                                         <div class="form-group mt-2">
                                             <input type="password" class="form-style" placeholder="Password">
