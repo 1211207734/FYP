@@ -558,7 +558,7 @@
                         
                           
                             <li  class="active" >
-                              <a class="sidenav-item-link" href="user-account-settings.html">
+                              <a class="sidenav-item-link" href="user-account-settings.php">
                                 <span class="nav-text">User Account Settings</span>
                                 
                               </a>
@@ -773,7 +773,7 @@
               <div class="sidebar-footer-content">
                 <ul class="d-flex">
                   <li>
-                    <a href="user-account-settings.html" data-toggle="tooltip" title="Profile settings"><i class="mdi mdi-settings"></i></a></li>
+                    <a href="user-account-settings.php" data-toggle="tooltip" title="Profile settings"><i class="mdi mdi-settings"></i></a></li>
                   <li>
                     <a href="#" data-toggle="tooltip" title="No chat messages"><i class="mdi mdi-chat-processing"></i></a>
                   </li>
@@ -1108,7 +1108,7 @@
                       </li>
   
                       <li>
-                        <a class="dropdown-link-item" href="user-account-settings.html">
+                        <a class="dropdown-link-item" href="user-account-settings.php">
                           <i class="mdi mdi-settings"></i>
                           <span class="nav-text">Account Setting</span>
                         </a>
@@ -1197,7 +1197,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="user-account-settings.html">
+            <a class="nav-link active" href="user-account-settings.php">
               <i class="mdi mdi-settings-outline mr-1"></i> Account
             </a>
           </li>
