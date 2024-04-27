@@ -1263,9 +1263,8 @@
       </div>
     </div>
     <?php
-    include('databse.php');
 // Check if form is submitted
-  if(isset($_POST['submit'])) {
+  if($_SERVER["REQUEST_METHOD"] == "POST") {
     // Retrieve form data
     $firstName = $_POST['firstName'];
     $lastName = $_POST['lastName'];
@@ -1276,15 +1275,16 @@
 
     // Validate and sanitize form data (you may need more validation)
     // Connect to your MySQL database
+    $connect= mysqli_connect("localhost","root","","jbp");
 
     
 
     // Prepare SQL statement
-    $sql = "UPDATE admin SET Fn=?, Ln=?, Un=?, email=?, np=? WHERE id=1211208820";
+    $sql = "UPDATE aadmin SET Fn=$firstname, Ln=$lastname, Un=$username, email=$email, np=$newpassword WHERE id=1211208820";
 
     // Prepare and bind parameters
-    $stmt = $mysqli->prepare($sql);
-    $stmt->bind_param("sssssi", $firstName, $lastName, $userName, $email, $newPassword, $id);
+   // $stmt = $mysqli->prepare($sql);
+    //$stmt->bind_param("sssssi", $firstName, $lastName, $userName, $email, $newPassword, $id);
 
     // Execute the statement
     if ($stmt->execute()) {
