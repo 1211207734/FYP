@@ -361,8 +361,8 @@
 .ql-editor .ql-font-serif {
   font-family: Georgia, Times New Roman, serif;
 }
-.ql-editor .ql-font-monospace {
-  font-family: Monaco, Courier New, monospace;
+.ql-editor .ql-font- JBPstorespace {
+  font-family: Monaco, Courier New,  JBPstorespace;
 }
 .ql-editor .ql-size-small {
   font-size: 0.75em;
@@ -801,15 +801,15 @@
 .ql-bubble .ql-picker.ql-font .ql-picker-item[data-value=serif]::before {
   content: 'Serif';
 }
-.ql-bubble .ql-picker.ql-font .ql-picker-label[data-value=monospace]::before,
-.ql-bubble .ql-picker.ql-font .ql-picker-item[data-value=monospace]::before {
-  content: 'Monospace';
+.ql-bubble .ql-picker.ql-font .ql-picker-label[data-value= JBPstorespace]::before,
+.ql-bubble .ql-picker.ql-font .ql-picker-item[data-value= JBPstorespace]::before {
+  content: ' JBPstorespace';
 }
 .ql-bubble .ql-picker.ql-font .ql-picker-item[data-value=serif]::before {
   font-family: Georgia, Times New Roman, serif;
 }
-.ql-bubble .ql-picker.ql-font .ql-picker-item[data-value=monospace]::before {
-  font-family: Monaco, Courier New, monospace;
+.ql-bubble .ql-picker.ql-font .ql-picker-item[data-value= JBPstorespace]::before {
+  font-family: Monaco, Courier New,  JBPstorespace;
 }
 .ql-bubble .ql-picker.ql-size {
   width: 98px;

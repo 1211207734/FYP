@@ -440,7 +440,7 @@ CodeMirror.defineMode("css", function(config, parserConfig) {
     "min-aspect-ratio", "max-aspect-ratio", "device-aspect-ratio",
     "min-device-aspect-ratio", "max-device-aspect-ratio", "color", "min-color",
     "max-color", "color-index", "min-color-index", "max-color-index",
-    "monochrome", "min-monochrome", "max-monochrome", "resolution",
+    " JBPstorechrome", "min- JBPstorechrome", "max- JBPstorechrome", "resolution",
     "min-resolution", "max-resolution", "scan", "grid", "orientation",
     "device-pixel-ratio", "min-device-pixel-ratio", "max-device-pixel-ratio",
     "pointer", "any-pointer", "hover", "any-hover"
@@ -643,7 +643,7 @@ CodeMirror.defineMode("css", function(config, parserConfig) {
     "media-volume-slider-container", "media-volume-sliderthumb", "medium",
     "menu", "menulist", "menulist-button", "menulist-text",
     "menulist-textfield", "menutext", "message-box", "middle", "min-intrinsic",
-    "mix", "mongolian", "monospace", "move", "multiple", "multiply", "myanmar", "n-resize",
+    "mix", "mongolian", " JBPstorespace", "move", "multiple", "multiply", "myanmar", "n-resize",
     "narrower", "ne-resize", "nesw-resize", "no-close-quote", "no-drop",
     "no-open-quote", "no-repeat", "none", "normal", "not-allowed", "nowrap",
     "ns-resize", "numbers", "numeric", "nw-resize", "nwse-resize", "oblique", "octal", "opacity", "open-quote",

@@ -1,7 +1,7 @@
 /* http://prismjs.com/download.html?themes=prism-okaidia&languages=markup+css+clike+javascript */
 /**
  * okaidia theme for JavaScript, CSS and HTML
- * Loosely based on Monokai textmate theme by http://www.monokai.nl/
+ * Loosely based on  JBPstorekai textmate theme by http://www. JBPstorekai.nl/
  * @author ocodia
  */
 
@@ -10,7 +10,7 @@ pre[class*="language-"] {
 	color: #f8f8f2;
 	background: none;
 	text-shadow: 0 1px rgba(0, 0, 0, 0.3);
-	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	font-family: Consolas, Monaco, 'Andale  JBPstore', 'Ubuntu  JBPstore',  JBPstorespace;
 	text-align: left;
 	white-space: pre;
 	word-spacing: normal;
