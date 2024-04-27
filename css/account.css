@@ -1,7 +1,7 @@
 body
 {
     background-color: #4d4f6b;
-    color: #02040f;
+    color: #ffffff;
     margin: 0;
     line-height: 1.8;
 }
@@ -40,6 +40,13 @@ body
     .btn-success-soft {
         color: #1ed849;
         background-color: rgba(40, 167, 69, 0.1);
+        transition-duration: 0.1s;
+    }
+
+    .btn-success-soft:hover{
+        background-color: #2dcc8f;
+        color: #fafafd;
+        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
     }
     .btn-danger-soft {
         color: #dc3545;
@@ -47,7 +54,7 @@ body
     }
     .form-control {
         display: block;
-        width: 60%;
+        width: 20%;
         padding: 0.5rem 1rem;
         font-size: 0.9rem;
         font-weight: 400;
@@ -91,7 +98,19 @@ body
     }
 
     .but {
-
+        background-color: #e7e7e7;
         border-radius: 10px;
+        font-size: 16px;
+        padding: 12px 28px;
+        border: #29292e;
+        transition-duration: 0.2s;
+        display: block;
+        margin: auto;
         
+    }
+
+    .but:hover{
+        background-color: #2dcc8f;
+        color: #fafafd;
+        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
     }
