@@ -1113,6 +1113,12 @@
                           <span class="nav-text">Account Setting</span>
                         </a>
                       </li>
+                      <li>
+                        <a class="dropdown-link-item" href="newstaff.html">
+                          <i class="mdi mdi-account-outline"></i>
+                          <span class="nav-text">New Staff </span>
+                        </a>
+                      </li>
 
                       <li class="dropdown-footer">
                         <a class="dropdown-link-item" href="sign-in.html"> <i class="mdi mdi-logout"></i> Log Out </a>
