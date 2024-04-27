@@ -192,7 +192,7 @@ var scrollerGap = 30
 // handling this'.
 var Pass = {toString: function(){return "CodeMirror.Pass"}}
 
-// Reused option objects for setSelection & friends
+// Reused option objects for setSelection & Customer on hold
 var sel_dontScroll = {scroll: false};
 var sel_mouse = {origin: "*mouse"};
 var sel_move = {origin: "+move"};
