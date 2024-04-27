@@ -1,9 +1,18 @@
-body{margin-top:20px;
-    color: #9b9ca1;
-    }
-    .bg-secondary-soft {
-        background-color: rgba(208, 212, 217, 0.1) !important;
-    }
+body
+{
+    background-color: #4d4f6b;
+    color: #02040f;
+    margin: 0;
+    line-height: 1.8;
+}
+.title {
+    text-align: center;
+    padding: 1px;
+    background-color: #6c66a3;
+    font-size: 20px ;
+    font-weight: bold;
+}
+
     .rounded {
         border-radius: 5px !important;
     }
@@ -17,19 +26,19 @@ body{margin-top:20px;
     }
     .file-upload .square {
         height: 250px;
-        width: 250px;
+        width: 250px;         
         margin: auto;
         vertical-align: middle;
         border: 1px solid #e5dfe4;
-        background-color: #fff;
+        background-color: #ffffff;
         border-radius: 5px;
     }
     .text-secondary {
-        --bs-text-opacity: 1;
-        color: rgba(208, 212, 217, 0.5) !important;
+        --bs-text-opacity: ;
+        color: rgba(49, 107, 182, 0.5) !important;
     }
     .btn-success-soft {
-        color: #28a745;
+        color: #1ed849;
         background-color: rgba(40, 167, 69, 0.1);
     }
     .btn-danger-soft {
@@ -38,20 +47,45 @@ body{margin-top:20px;
     }
     .form-control {
         display: block;
-        width: 100%;
+        width: 80%;
         padding: 0.5rem 1rem;
-        font-size: 0.9375rem;
+        font-size: 0.9rem;
         font-weight: 400;
-        line-height: 1.6;
+        line-height: 1.8;
         color: #29292e;
-        background-color: #fff;
+        background-color: #8d9caa;
         background-clip: padding-box;
-        border: 1px solid #e5dfe4;
+        border: 2px solid #e5dfe4;
         -webkit-appearance: none;
         -moz-appearance: none;
         appearance: none;
-        border-radius: 5px;
+        border-radius: 10px;
         -webkit-transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
         transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
         transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
         transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+    }
+
+    header {
+        background-color: #333;
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+    }
+    
+    .logo h1 {
+        font-size: 32px;
+        margin: 0;
+    }
+    
+    .logo h1 span {
+        color: #f00; /* Change color as needed */
+        font-weight: bold;
+    }
+    
+    footer {
+        background-color: #333;
+        color: #fff;
+        padding: 10px;
+        text-align: center;
+    }
