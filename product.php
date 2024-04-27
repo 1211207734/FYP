@@ -68,7 +68,7 @@ footer {
 
             // Display products
             while ($row = mysqli_fetch_assoc($result)) {
-                echo "<div class='product'>";
+                echo "<div class='products'>";
                 echo "<h3>{$row['Product_name']}</h3>";
                 echo "<p>Price: {$row['Product_price']}</p>";
                 echo "</div>";
