@@ -1222,41 +1222,40 @@
             <div class="col-lg-6">
               <div class="form-group">
                 <label for="firstName">First name</label>
-                <input type="text" class="form-control" id="firstName" >
+                <input type="text" class="form-control" id="firstName" name="firstName" >
               </div>
             </div>
 
             <div class="col-lg-6">
               <div class="form-group">
                 <label for="lastName">Last name</label>
-                <input type="text" class="form-control" id="lastName">
+                <input type="text" class="form-control" id="lastName" name="lastName">
               </div>
             </div>
           </div>
 
           <div class="form-group mb-4">
             <label for="userName">User name</label>
-            <input type="text" class="form-control" id="userName">
-            <span class="d-block mt-1">Accusamus nobis at omnis consequuntur culpa tempore saepe animi.</span>
+            <input type="text" class="form-control" id="userName" name="userName">
           </div>
 
           <div class="form-group mb-4">
             <label for="email">Email</label>
-            <input type="email" class="form-control" id="email">
+            <input type="email" class="form-control" id="email" name="email">
           </div>
 
           <div class="form-group mb-4">
             <label for="newPassword">New password</label>
-            <input type="password" class="form-control" id="newPassword">
+            <input type="password" class="form-control" id="newPassword" name="newPassword">
           </div>
 
           <div class="form-group mb-4">
             <label for="conPassword">Confirm password</label>
-            <input type="password" class="form-control" id="conPassword">
+            <input type="password" class="form-control" id="conPassword" name="conPassword">
           </div>
 
           <div class="d-flex justify-content-end mt-6">
-            <button type="submit" class="btn btn-primary mb-2 btn-pill">Update Profile</button>
+            <button type="submit" name="update" class="btn btn-primary mb-2 btn-pill">Update Profile</button>
           </div>
 
         </form>
@@ -1264,30 +1263,38 @@
     </div>
     <?php
 // Check if form is submitted
-  if($_SERVER["REQUEST_METHOD"] == "POST") {
+  if(isset($_POST['update'])) {
     // Retrieve form data
-    $firstName = $_POST['firstName'];
-    $lastName = $_POST['lastName'];
-    $userName = $_POST['userName'];
+    $f = $_POST['firstName'];
+    $l = $_POST['lastName'];
+    $u = $_POST['userName'];
     $email = $_POST['email'];
-    $newPassword = $_POST['newPassword'];
-    $conPassword = $_POST['conPassword'];
+    $np = $_POST['newPassword'];
+    $cp = $_POST['conPassword'];
 
     // Validate and sanitize form data (you may need more validation)
     // Connect to your MySQL database
     $connect= mysqli_connect("localhost","root","","jbp");
 
-    
+    if($cp != $np) {
+      echo '<script type="text/javascript">
+      alert("Password does not match");
+      </script>';
+      exit();
+    }
 
     // Prepare SQL statement
-    $sql = "UPDATE aadmin SET Fn='$firstname', Ln='$lastname', Un='$username', email='$email', np='$newpassword' WHERE id=1211208820";
+    $sql = "UPDATE aadmin SET Fn='$f', Ln='$l', Un='$u', email='$email', np='$np' WHERE id=1211208820";
       mysqli_query($connect,$sql);
     if (mysqli_query($connect, $sql)) {
-      echo "SQL statement executed successfully.";
+      echo '<script type="text/javascript">
+    alert("SQL statement executed successfully.");
+    </script>';
     } else {
-      echo "Error executing SQL statement: " . mysqli_error($connect);
+      echo '<script type="text/javascript">
+    alert("Error executing SQL statement: " . mysqli_error($connect));
+    </script>';
     }
-    $mysqli->close();
 }
 ?>
 
