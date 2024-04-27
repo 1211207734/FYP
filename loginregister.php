@@ -38,6 +38,41 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
 }
 ?>
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])) {
+    // Establish connection to the database
+    $servername = "localhost";
+    $username = "username"; // Replace with your MySQL username
+    $password = "password"; // Replace with your MySQL password
+    $dbname = "JBP"; // Replace with your database name
+    $conn = new mysqli($servername, $username, $password, $dbname);
+
+    // Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    // Prepare and bind parameters
+    $stmt = $conn->prepare("INSERT INTO Customer (Customer_name, Customer_email, Customer_password, Customer_HP, Customer_address) VALUES (?, ?, ?, ?, ?)");
+    $stmt->bind_param("sssss", $fullname, $email, $password, $phone, $address);
+
+    // Set parameters and execute
+    $fullname = $_POST['fullname'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    // Hash password for security
+    $password = password_hash($password, PASSWORD_DEFAULT);
+    $phone = $_POST['phone'];
+    $address = $_POST['address'];
+    $stmt->execute();
+
+    echo "Registration successful";
+
+    // Close statement and connection
+    $stmt->close();
+    $conn->close();
+}
+?>
 
 <!doctype html>
 <html lang="en">
