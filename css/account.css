@@ -47,7 +47,7 @@ body
     }
     .form-control {
         display: block;
-        width: 80%;
+        width: 60%;
         padding: 0.5rem 1rem;
         font-size: 0.9rem;
         font-weight: 400;
@@ -88,4 +88,10 @@ body
         color: #fff;
         padding: 10px;
         text-align: center;
+    }
+
+    .but {
+
+        border-radius: 10px;
+        
     }
