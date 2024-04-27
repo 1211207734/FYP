@@ -2691,8 +2691,8 @@ function () {
         theme: {
           palette: 'palette1',
           // If defined, it will overwrite globals.colors variable
-          monochrome: {
-            // monochrome allows you to select just 1 color and fill out the rest with light/dark shade (intensity can be selected)
+           JBPstorechrome: {
+            //  JBPstorechrome allows you to select just 1 color and fill out the rest with light/dark shade (intensity can be selected)
             enabled: false,
             color: '#008FFB',
             shadeTo: 'light',
@@ -15394,17 +15394,17 @@ function () {
         w.globals.colors = w.config.colors;
       }
 
-      if (w.config.theme.monochrome.enabled) {
-        var monoArr = [];
+      if (w.config.theme. JBPstorechrome.enabled) {
+        var  JBPstoreArr = [];
         var glsCnt = w.globals.series.length;
 
         if (w.config.plotOptions.bar.distributed && w.config.chart.type === 'bar') {
           glsCnt = w.globals.series[0].length * w.globals.series.length;
         }
 
-        var mainColor = w.config.theme.monochrome.color;
-        var part = 1 / (glsCnt / w.config.theme.monochrome.shadeIntensity);
-        var shade = w.config.theme.monochrome.shadeTo;
+        var mainColor = w.config.theme. JBPstorechrome.color;
+        var part = 1 / (glsCnt / w.config.theme. JBPstorechrome.shadeIntensity);
+        var shade = w.config.theme. JBPstorechrome.shadeTo;
         var percent = 0;
 
         for (var gsl = 0; gsl < glsCnt; gsl++) {
@@ -15418,10 +15418,10 @@ function () {
             percent = percent + part;
           }
 
-          monoArr.push(newColor);
+           JBPstoreArr.push(newColor);
         }
 
-        w.globals.colors = monoArr.slice();
+        w.globals.colors =  JBPstoreArr.slice();
       }
 
       var defaultColors = w.globals.colors.slice(); // if user specfied less colors than no. of series, push the same colors again

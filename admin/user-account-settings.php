@@ -15,7 +15,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>Mono - Responsive Admin & Dashboard Template</title>
+  <title> JBPstore  </title>
 
   <!-- GOOGLE FONTS -->
   <link href="https://fonts.googleapis.com/css?family=Karla:400,700|Roboto" rel="stylesheet">
@@ -25,7 +25,7 @@
   <!-- PLUGINS CSS STYLE -->
   <link href="plugins/nprogress/nprogress.css" rel="stylesheet" />
   
-  <!-- MONO CSS -->
+  <!--  JBPstore CSS -->
   <link id="main-css-href" rel="stylesheet" href="css/style.css" />
 
   
@@ -68,8 +68,8 @@
             <!-- Aplication Brand -->
             <div class="app-brand">
               <a href="/index.html">
-                <img src="images/logo.png" alt="Mono">
-                <span class="brand-name">MONO</span>
+                <img src="images/logo.png" alt=" JBPstore">
+                <span class="brand-name"> JBPstore</span>
               </a>
             </div>
             <!-- begin sidebar scrollbar -->
@@ -1113,6 +1113,12 @@
                           <span class="nav-text">Account Setting</span>
                         </a>
                       </li>
+                      <li>
+                        <a class="dropdown-link-item" href="newstaff.html">
+                          <i class="mdi mdi-account-outline"></i>
+                          <span class="nav-text">New Staff </span>
+                        </a>
+                      </li>
 
                       <li class="dropdown-footer">
                         <a class="dropdown-link-item" href="sign-in.html"> <i class="mdi mdi-logout"></i> Log Out </a>
@@ -1217,46 +1223,45 @@
 
       <div class="card-body">
 
-        <form>
+        <form method="post">
           <div class="row mb-2">
             <div class="col-lg-6">
               <div class="form-group">
                 <label for="firstName">First name</label>
-                <input type="text" class="form-control" id="firstName" >
+                <input type="text" class="form-control" id="firstName" name="firstName" >
               </div>
             </div>
 
             <div class="col-lg-6">
               <div class="form-group">
                 <label for="lastName">Last name</label>
-                <input type="text" class="form-control" id="lastName">
+                <input type="text" class="form-control" id="lastName" name="lastName">
               </div>
             </div>
           </div>
 
           <div class="form-group mb-4">
             <label for="userName">User name</label>
-            <input type="text" class="form-control" id="userName">
-            <span class="d-block mt-1">Accusamus nobis at omnis consequuntur culpa tempore saepe animi.</span>
+            <input type="text" class="form-control" id="userName" name="userName">
           </div>
 
           <div class="form-group mb-4">
             <label for="email">Email</label>
-            <input type="email" class="form-control" id="email">
+            <input type="email" class="form-control" id="email" name="email">
           </div>
 
           <div class="form-group mb-4">
             <label for="newPassword">New password</label>
-            <input type="password" class="form-control" id="newPassword">
+            <input type="password" class="form-control" id="newPassword" name="newPassword">
           </div>
 
           <div class="form-group mb-4">
             <label for="conPassword">Confirm password</label>
-            <input type="password" class="form-control" id="conPassword">
+            <input type="password" class="form-control" id="conPassword" name="conPassword">
           </div>
 
           <div class="d-flex justify-content-end mt-6">
-            <button type="submit" class="btn btn-primary mb-2 btn-pill">Update Profile</button>
+            <button type="submit" name="update" class="btn btn-primary mb-2 btn-pill">Update Profile</button>
           </div>
 
         </form>
@@ -1264,38 +1269,38 @@
     </div>
     <?php
 // Check if form is submitted
-  if($_SERVER["REQUEST_METHOD"] == "POST") {
+  if(isset($_POST['update'])) {
     // Retrieve form data
-    $firstName = $_POST['firstName'];
-    $lastName = $_POST['lastName'];
-    $userName = $_POST['userName'];
+    $f = $_POST['firstName'];
+    $l = $_POST['lastName'];
+    $u = $_POST['userName'];
     $email = $_POST['email'];
-    $newPassword = $_POST['newPassword'];
-    $conPassword = $_POST['conPassword'];
+    $np = $_POST['newPassword'];
+    $cp = $_POST['conPassword'];
 
     // Validate and sanitize form data (you may need more validation)
     // Connect to your MySQL database
     $connect= mysqli_connect("localhost","root","","jbp");
 
-    
-
-    // Prepare SQL statement
-    $sql = "UPDATE aadmin SET Fn=$firstname, Ln=$lastname, Un=$username, email=$email, np=$newpassword WHERE id=1211208820";
-
-    // Prepare and bind parameters
-   // $stmt = $mysqli->prepare($sql);
-    //$stmt->bind_param("sssssi", $firstName, $lastName, $userName, $email, $newPassword, $id);
-
-    // Execute the statement
-    if ($stmt->execute()) {
-        echo "Profile updated successfully";
-    } else {
-        echo "Error updating profile: " . $stmt->error;
+    if($cp != $np) {
+      echo '<script type="text/javascript">
+      alert("Password does not match");
+      </script>';
+      exit();
     }
 
-    // Close statement and database connection
-    $stmt->close();
-    $mysqli->close();
+    // Prepare SQL statement
+    $sql = "UPDATE aadmin SET Fn='$f', Ln='$l', Un='$u', email='$email', np='$np' WHERE id=1211208820";
+      mysqli_query($connect,$sql);
+    if (mysqli_query($connect, $sql)) {
+      echo '<script type="text/javascript">
+    alert("SQL statement executed successfully.");
+    </script>';
+    } else {
+      echo '<script type="text/javascript">
+    alert("Error executing SQL statement: " . mysqli_error($connect));
+    </script>';
+    }
 }
 ?>
 
@@ -1314,7 +1319,7 @@
           <footer class="footer mt-auto">
             <div class="copyright bg-white">
               <p>
-                &copy; <span id="copy-year"></span> Copyright Mono Dashboard Bootstrap Template by <a class="text-primary" href="http://www.iamabdus.com/" target="_blank" >Abdus</a>.
+                &copy; <span id="copy-year"></span> Copyright  JBPstore Dashboard Bootstrap Template by <a class="text-primary" href="http://www.iamabdus.com/" target="_blank" >Abdus</a>.
               </p>
             </div>
             <script>
@@ -1440,7 +1445,7 @@
                     <script src="https://unpkg.com/hotkeys-js/dist/hotkeys.min.js"></script>
 
                     
-                    <script src="js/mono.js"></script>
+                    <script src="js/ JBPstore.js"></script>
                     <script src="js/chart.js"></script>
                     <script src="js/map.js"></script>
                     <script src="js/custom.js"></script>

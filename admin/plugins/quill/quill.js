@@ -6314,7 +6314,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 var config = {
   scope: _parchment2.default.Scope.INLINE,
-  whitelist: ['serif', 'monospace']
+  whitelist: ['serif', ' JBPstorespace']
 };
 
 var FontClass = new _parchment2.default.Attributor.Class('font', 'ql-font', config);
@@ -6662,7 +6662,7 @@ var ALIGNS = [false, 'center', 'right', 'justify'];
 
 var COLORS = ["#000000", "#e60000", "#ff9900", "#ffff00", "#008a00", "#0066cc", "#9933ff", "#ffffff", "#facccc", "#ffebcc", "#ffffcc", "#cce8cc", "#cce0f5", "#ebd6ff", "#bbbbbb", "#f06666", "#ffc266", "#ffff66", "#66b966", "#66a3e0", "#c285ff", "#888888", "#a10000", "#b26b00", "#b2b200", "#006100", "#0047b2", "#6b24b2", "#444444", "#5c0000", "#663d00", "#666600", "#003700", "#002966", "#3d1466"];
 
-var FONTS = [false, 'serif', 'monospace'];
+var FONTS = [false, 'serif', ' JBPstorespace'];
 
 var HEADERS = ['1', '2', '3', false];
 

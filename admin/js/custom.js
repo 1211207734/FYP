@@ -318,7 +318,7 @@ $(document).ready(function () {
       showMethod: "fadeIn",
       hideMethod: "fadeOut",
     };
-    toastr.success("Welcome to Mono Dashboard", "Howdy!");
+    toastr.success("Welcome to  JBPstore Dashboard", "Howdy!");
   }
 
   if (toaster.length != 0) {
@@ -354,13 +354,13 @@ $(document).ready(function () {
       };
       var thisId = $(this).attr("id");
       if (thisId === "toaster-info") {
-        toastr.info("Welcome to Mono", " Info message");
+        toastr.info("Welcome to  JBPstore", " Info message");
       } else if (thisId === "toaster-success") {
-        toastr.success("Welcome to Mono", "Success message");
+        toastr.success("Welcome to  JBPstore", "Success message");
       } else if (thisId === "toaster-warning") {
-        toastr.warning("Welcome to Mono", "Warning message");
+        toastr.warning("Welcome to  JBPstore", "Warning message");
       } else if (thisId === "toaster-danger") {
-        toastr.error("Welcome to Mono", "Danger message");
+        toastr.error("Welcome to  JBPstore", "Danger message");
       }
     });
   }

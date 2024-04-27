@@ -1652,7 +1652,7 @@
    * @argument {Element} element2
    * @returns {Element} common offset parent
    */
-  function findCommonOffsetParent(element1, element2) {
+  function findCom JBPstoreffsetParent(element1, element2) {
     // This check is needed to avoid errors in case one of the elements isn't defined for any reason
     if (!element1 || !element1.nodeType || !element2 || !element2.nodeType) {
       return document.documentElement;
@@ -1682,9 +1682,9 @@
     // one of the nodes is inside shadowDOM, find which one
     var element1root = getRoot(element1);
     if (element1root.host) {
-      return findCommonOffsetParent(element1root.host, element2);
+      return findCom JBPstoreffsetParent(element1root.host, element2);
     } else {
-      return findCommonOffsetParent(element1, getRoot(element2).host);
+      return findCom JBPstoreffsetParent(element1, getRoot(element2).host);
     }
   }
 
@@ -2021,7 +2021,7 @@
     // NOTE: 1 DOM access here
 
     var boundaries = { top: 0, left: 0 };
-    var offsetParent = fixedPosition ? getFixedPositionOffsetParent(popper) : findCommonOffsetParent(popper, reference);
+    var offsetParent = fixedPosition ? getFixedPositionOffsetParent(popper) : findCom JBPstoreffsetParent(popper, reference);
 
     // Handle viewport case
     if (boundariesElement === 'viewport') {
@@ -2147,8 +2147,8 @@
   function getReferenceOffsets(state, popper, reference) {
     var fixedPosition = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : null;
 
-    var commonOffsetParent = fixedPosition ? getFixedPositionOffsetParent(popper) : findCommonOffsetParent(popper, reference);
-    return getOffsetRectRelativeToArbitraryNode(reference, commonOffsetParent, fixedPosition);
+    var com JBPstoreffsetParent = fixedPosition ? getFixedPositionOffsetParent(popper) : findCom JBPstoreffsetParent(popper, reference);
+    return getOffsetRectRelativeToArbitraryNode(reference, com JBPstoreffsetParent, fixedPosition);
   }
 
   /**
