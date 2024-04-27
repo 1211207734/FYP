@@ -1217,7 +1217,7 @@
 
       <div class="card-body">
 
-        <form>
+        <form method="post">
           <div class="row mb-2">
             <div class="col-lg-6">
               <div class="form-group">
@@ -1280,21 +1280,13 @@
     
 
     // Prepare SQL statement
-    $sql = "UPDATE aadmin SET Fn=$firstname, Ln=$lastname, Un=$username, email=$email, np=$newpassword WHERE id=1211208820";
-
-    // Prepare and bind parameters
-   // $stmt = $mysqli->prepare($sql);
-    //$stmt->bind_param("sssssi", $firstName, $lastName, $userName, $email, $newPassword, $id);
-
-    // Execute the statement
-    if ($stmt->execute()) {
-        echo "Profile updated successfully";
+    $sql = "UPDATE aadmin SET Fn='$firstname', Ln='$lastname', Un='$username', email='$email', np='$newpassword' WHERE id=1211208820";
+      mysqli_query($connect,$sql);
+    if (mysqli_query($connect, $sql)) {
+      echo "SQL statement executed successfully.";
     } else {
-        echo "Error updating profile: " . $stmt->error;
+      echo "Error executing SQL statement: " . mysqli_error($connect);
     }
-
-    // Close statement and database connection
-    $stmt->close();
     $mysqli->close();
 }
 ?>
