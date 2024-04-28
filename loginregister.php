@@ -152,4 +152,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])) {
                                             <div class="form-group mt-2">
                                                 <input type="password" class="form-style" placeholder="Confirm Password" name="confirm_password" required>
                                                 <i class="input-icon uil uil-lock-alt"></i>
-                                           
+                                                </div>
+                                            <button type="submit" class="btn mt-4" name="register">Register</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
