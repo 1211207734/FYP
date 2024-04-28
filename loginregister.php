@@ -37,7 +37,44 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     
 }
+
+// Registration form submission handling
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])) {
+    // Establish connection to the database
+    $servername = "localhost";
+    $username = "username"; // Replace with your MySQL username
+    $password = "password"; // Replace with your MySQL password
+    $dbname = "JBP"; // Replace with your database name
+    $conn = new mysqli($servername, $username, $password, $dbname);
+
+    // Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    // Prepare and bind parameters
+    $stmt = $conn->prepare("INSERT INTO Customer (Customer_name, Customer_email, Customer_password, Customer_HP, Customer_address) VALUES (?, ?, ?, ?, ?)");
+    $stmt->bind_param("sssss", $fullname, $email, $password, $phone, $address);
+
+    // Set parameters and execute
+    $fullname = $_POST['fullname'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    // Hash password for security
+    $password = password_hash($password, PASSWORD_DEFAULT);
+    $phone = $_POST['phone'];
+    $address = $_POST['address']; // Make sure to add 'name' attribute to address input field in your HTML
+
+    $stmt->execute();
+
+    echo "Registration successful";
+
+    // Close statement and connection
+    $stmt->close();
+    $conn->close();
+}
 ?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -91,74 +128,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                     <div class="section text-center">
                                         <h4 class="mb-3 pb-3">Sign Up</h4>
                                         <!-- Sign Up section -->
-<div class="form-group">
-    <input type="text" class="form-style" placeholder="Full Name" name="fullname">
-    <i class="input-icon uil uil-user"></i>
-</div>
-<div class="form-group mt-2">
-    <input type="email" class="form-style" placeholder="Email" name="email">
-    <i class="input-icon uil uil-at"></i>
-</div>
-<div class="form-group mt-2">
-    <input type="text" class="form-style" placeholder="Phone Number" name="phone">
-    <i class="input-icon uil uil-phone"></i>
-</div>
-<div class="form-group mt-2">
-    <input type="password" class="form-style" placeholder="Password" name="password">
-    <i class="input-icon uil uil-lock-alt"></i>
-</div>
-<div class="form-group mt-2">
-    <input type="password" class="form-style" placeholder="Confirm Password" name="confirm_password">
-    <i class="input-icon uil uil-lock-alt"></i>
-</div>
-<button type="submit" class="btn mt-4" name="register">Register</button>
-
-<!-- PHP code to handle form submission -->
-<?php
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])) {
-    // Establish connection to the database
-    $servername = "localhost";
-    $username = "username"; // Replace with your MySQL username
-    $password = "password"; // Replace with your MySQL password
-    $dbname = "JBP"; // Replace with your database name
-    $conn = new mysqli($servername, $username, $password, $dbname);
-
-    // Check connection
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
-
-    // Prepare and bind parameters
-    $stmt = $conn->prepare("INSERT INTO Customer (Customer_name, Customer_email, Customer_password, Customer_HP, Customer_address) VALUES (?, ?, ?, ?, ?)");
-    $stmt->bind_param("sssss", $fullname, $email, $password, $phone, $address);
-
-    // Set parameters and execute
-    $fullname = $_POST['fullname'];
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-    // Hash password for security
-    $password = password_hash($password, PASSWORD_DEFAULT);
-    $phone = $_POST['phone'];
-    $address = $_POST['address']; // Make sure to add 'name' attribute to address input field in your HTML
-
-    $stmt->execute();
-
-    echo "Registration successful";
-
-    // Close statement and connection
-    $stmt->close();
-    $conn->close();
-}
-?>
-
-
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-</body>
-</html>
+                                        <form method="post" action="">
+                                            <div class="form-group">
+                                                <input type="text" class="form-style" placeholder="Full Name" name="fullname" required>
+                                                <i class="input-icon uil uil-user"></i>
+                                            </div>
+                                            <div class="form-group mt-2">
+                                                <input type="email" class="form-style" placeholder="Email" name="email" required>
+                                                <i class="input-icon uil uil-at"></i>
+                                            </div>
+                                            <div class="form-group mt-2">
+                                                <input type="text" class="form-style" placeholder="Phone Number" name="phone" required>
+                                                <i class="input-icon uil uil-phone"></i>
+                                            </div>
+                                            <div class="form-group mt-2">
+                                                <input type="text" class="form-style" placeholder="Address" name="address" required>
+                                                <i class="input-icon uil uil-location-point"></i>
+                                            </div>
+                                            <div class="form-group mt-2">
+                                                <input type="password" class="form-style" placeholder="Password" name="password" required>
+                                                <i class="input-icon uil uil-lock-alt"></i>
+                                            </div>
+                                            <div class="form-group mt-2">
+                                                <input type="password" class="form-style" placeholder="Confirm Password" name="confirm_password" required>
+                                                <i class="input-icon uil uil-lock-alt"></i>
+                                           
