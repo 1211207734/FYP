@@ -1290,7 +1290,7 @@
     }
 
     // Prepare SQL statement
-    $sql = "UPDATE aadmin SET Fn='$f', Ln='$l', Un='$u', email='$email', np='$np' WHERE id=1211208820";
+    $sql = "UPDATE `admin` SET Fn='$f', Ln='$l', Un='$u', email='$email', np='$np' WHERE id=1211208820";
       mysqli_query($connect,$sql);
     if (mysqli_query($connect, $sql)) {
       echo '<script type="text/javascript">
