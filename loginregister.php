@@ -110,6 +110,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])) {
                                                 <i class="input-icon uil uil-lock-alt"></i>
                                             </div>
                                             <button type="submit" class="btn mt-4">Login</button>
+                                            <script>
+                                                document.getElementById("loginButton").addEventListener("click", function(event) {
+                                                    // Prevent the default form submission behavior
+                                                    event.preventDefault();
+                                                    
+                                                    // Perform your login process, for example, sending an AJAX request to the server
+                                                    // Assume login is successful for demonstration purposes
+                                                    var useraccount = 1;
+                                                    
+                                                    // Store the useraccount value in session storage
+                                                    sessionStorage.setItem('useraccount', useraccount);
+                                                    
+                                                    // Redirect to the menu page or perform any other actions
+                                                    window.location.href = "menu.html";
+                                                });
+                                                </script>
                                             <br>
                                             <!-- Removed redirecting back to index.html -->
                                             <p class="mb-0 mt-4 text-center"><a href="https://www.web-leb.com/code" class="link">Forgot your password?</a></p>
