@@ -1114,7 +1114,7 @@
                         </a>
                       </li>
                       <li>
-                        <a class="dropdown-link-item" href="newstaff.html">
+                        <a class="dropdown-link-item" href=" newstaff.php">
                           <i class="mdi mdi-account-outline"></i>
                           <span class="nav-text">New Staff </span>
                         </a>
