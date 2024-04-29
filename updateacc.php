@@ -54,23 +54,23 @@
 								<!-- First Name -->
 								<div class="col-md-6">
 									<label class="form-label">Full Name *</label>
-									<input type="text" class="form-control" placeholder="" aria-label="First name"  required value="Scaralet">
+									<input type="text" class="form-control" placeholder="" aria-label="First name"  value="<?php echo $row['Customer_name']; ?>">
 								</div>	
 								<!-- Phone number -->
 								<div class="col-md-6">
 									<label class="form-label">Phone number *</label>
-									<input type="text" class="form-control" placeholder="" aria-label="Phone number" value="(333) 000 555">
+									<input type="text" class="form-control" placeholder="" aria-label="Phone number" value="<?php echo $row['Customer_HP']; ?>5">
 								</div>
 								<!-- Email -->
 								<div class="col-md-6">
 									<label for="inputEmail4" class="form-label">Email *</label>
-									<input type="email" class="form-control" id="inputEmail4" >
-									required value="<?php echo echo $row['Customer_email']; ?>"
+									<input type="email" class="form-control" id="inputEmail4" value="<?php echo $row['Customer_email']; ?>">
+									
 								</div>
 								<!-- Mobile number -->
 								<div class="col-md-6">
 									<label class="form-label">Address *</label>
-									<input type="text" class="form-control" placeholder="" aria-label="Address 1" value="+91 9852 8855 252">
+									<input type="text" class="form-control" placeholder="" aria-label="Address 1" value="<?php echo $row['Customer_address']; ?>">
 									<input type="text" class="form-control" placeholder="" aria-label="Address 2" value="+91 9852 8855 252">
 									<input type="text" class="form-control" placeholder="" aria-label="Poscode" value="00000">			
 								</div>
