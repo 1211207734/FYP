@@ -17,17 +17,11 @@
 				<hr>
 			</div>
             <?php
+				$connect= mysqli_connect("localhost","root","","jbp");
                 $result = mysqli_query($connect, "SELECT * FROM customer where Customer_ID=1");
                 while($row = mysqli_fetch_assoc($result)) {
             ?>
-                <tr>
-                    <td class="A"><input type="checkbox" class="cb" name="choose[]" value="<?php echo $row['StaffID']; ?>"></td>
-                    <td></td>
-                    <td><?php echo $row['Customer_HP']; ?></td>
-                    <td><?php echo $row['Customer_email']; ?></td>
-                    <td><?php echo $row['Customer_address']; ?></td>
-                </tr>
-            <?php } ?>
+                
 					<!-- Upload profile -->
 					<div class="col-xxl-4">
 						<div class="bg-secondary-soft px-4 py-5 rounded">
@@ -60,27 +54,28 @@
 								<h4 class="mb-4 mt-0">Account details</h4>
 								<!-- First Name -->
 								<div class="col-md-6">
-									<label class="form-label">Full Name *</label><br>
+									<label class="form-label">Full Name :</label><br>
 									<div><?php echo $row['Customer_name']; ?></div>
                                     
 								</div>	
 								<!-- Phone number -->
 								<div class="col-md-6">
-									<label class="form-label">Phone number *</label>
-									<input type="text" class="form-control" placeholder="" aria-label="Phone number" value="(333) 000 555">
+									<label class="form-label">Phone number :</label>
+									<div><?php echo $row['Customer_HP']; ?></div>
 								</div>
 								<!-- Email -->
 								<div class="col-md-6">
 									<label for="inputEmail4" class="form-label">Email *</label>
-									<input type="email" class="form-control" id="inputEmail4" value="example@homerealty.com">
-								</div>
+									<div><?php echo $row['Customer_email']; ?></div>								</div>
 								<!-- Mobile number -->
 								<div class="col-md-6">
-									<label class="form-label">Address *</label>
-									<input type="text" class="form-control" placeholder="" aria-label="Address 1" value="+91 9852 8855 252">
-									<input type="text" class="form-control" placeholder="" aria-label="Address 2" value="+91 9852 8855 252">
-									<input type="text" class="form-control" placeholder="" aria-label="Poscode" value="00000">			
-									<button type="button" class="but" >Save Changes</button>
+									<label class="form-label">Address :</label>
+									<div><?php echo $row['Customer_address']; ?></td></div>
+								</div>
+
+								<div>
+								<button type="button"class="fbut">Update Profile Details</button>
+								<button type="button"class="fbut">Change Password</button>
 								</div>
 								
 							</div>
@@ -88,7 +83,7 @@
 					</div>
 				</div>
 			</form>
-			
+			<?php } ?>
 <footer>
 	<p>&copy; 2024 JBPSTORE - Your Mobile Gadgets Shop. All rights reserved.</p>
 </footer>
