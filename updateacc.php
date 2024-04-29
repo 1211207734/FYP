@@ -11,6 +11,7 @@
 		<h1>JBP<span>STORE</span></h1>
 	</div>      
 	
+	
 </header>
 			<div class="title">
 				<h3>Update My Profile Details</h3>

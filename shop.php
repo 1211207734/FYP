@@ -12,6 +12,7 @@
             <h1>JBP<span>STORE</span></h1>
         </div>
     </header>
+    
     <nav>
         <a href="index.html">Home</a> | 
         <a href="about.html">About Us</a> | 

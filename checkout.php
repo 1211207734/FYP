@@ -6,6 +6,7 @@
     <title>Checkout - JBPSTORE</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <div class="container">
         <h1>JBPSTORE - Checkout</h1>

@@ -6,6 +6,7 @@
 	$mail_subject = "You have a message sent from your site";
 ?>
 
+
 <?php
 //If the form is submitted
 if(isset($_POST['name'])) {

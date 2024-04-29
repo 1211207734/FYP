@@ -7,6 +7,7 @@
     <title>Change Password</title>
     <link rel="stylesheet" href="css/account.css">
 </head>
+
 <header>
     <div class="logo">
         <h1>JBP<span>STORE</span></h1>

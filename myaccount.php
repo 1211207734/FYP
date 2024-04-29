@@ -12,6 +12,7 @@
 	</div>      
 	
 </header>
+
 			<div class="title">
 				<h3>My Profile Details</h3>
 				<hr>

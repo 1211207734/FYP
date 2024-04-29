@@ -4,6 +4,7 @@
 <head>
 <title>Order Manage</title>
 <style>
+    
     body{
     background-image: url("./photo/bg2.jpg");
     background-repeat: no-repeat;
