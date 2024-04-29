@@ -64,7 +64,8 @@
 								<!-- Email -->
 								<div class="col-md-6">
 									<label for="inputEmail4" class="form-label">Email *</label>
-									<input type="email" class="form-control" id="inputEmail4" >required value="<?php echo $e; ?>"
+									<input type="email" class="form-control" id="inputEmail4" >
+									required value="<?php echo echo $row['Customer_email']; ?>"
 								</div>
 								<!-- Mobile number -->
 								<div class="col-md-6">
