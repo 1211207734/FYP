@@ -79,21 +79,34 @@
                           <input type="password" class="form-control input-lg" id="password" name="password" placeholder="Password">
                         </div>
                         <div class="col-md-12">
-                          <div class="d-flex justify-content-between mb-3">
+                          
 
-                            <div class="custom-control custom-checkbox mr-3 mb-3">
-                              <input type="checkbox" class="custom-control-input" id="customCheck2">
-                              <label class="custom-control-label" for="customCheck2">I Agree the terms and conditions.</label>
-                            </div>
-
-                          </div>
-
-                          <button type="submit" class="btn btn-primary btn-pill mb-4">Add new staff</button>
+                          <button type="submit" name="sub" class="btn btn-primary btn-pill mb-4">Add new staff</button>
 
                         
                         </div>
                       </div>
                     </form>
+
+                    <?php
+                    if(isset($_POST['sub'])){
+                      $f=$_POST['f'];
+                      $l=$_POST['l'];
+                      $u=$_POST['u'];
+                      $email=$_POST['email'];
+                      $password=$_POST['password'];
+                      $con=mysqli_connect("localhost","root","","jbpstore");
+                      $sql="INSERT INTO staff (first_name,last_name,username,email,password) VALUES ('$f','$l','$u','$email','$password')";
+                      $res=mysqli_query($con,$sql);
+                      if($res){
+                        echo "<script>alert('New Staff Added Successfully')</script>";
+                      }
+                      else{
+                        echo "<script>alert('Failed to Add New Staff')</script>";
+                      }
+                    }
+                    ?>
+
 
                   </div>
                 </div>
