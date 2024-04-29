@@ -12,12 +12,17 @@
         <h1>JBP<span>STORE</span></h1>
     </div>      
 </header>
-<div class="container">
-<!-- change password -->
-					<div class="col-xxl-6">
+<div class="title">
+	<h3>Change My Password</h3>
+	<hr>
+</div>
+			<?php
+				$connect= mysqli_connect("localhost","root","","jbp");
+                $result = mysqli_query($connect, "SELECT * FROM customer where Customer_ID=1");
+                while($row = mysqli_fetch_assoc($result)) {
+            ?>					
 						<div class="bg-secondary-soft px-4 py-5 rounded">
 							<div class="row g-3">
-								<h4 class="title">Change Password</h4>
 								<!-- Old password -->
 								<div class="col-md-6">
 									<label for="exampleInputPassword1" class="form-label">Old password *</label>
@@ -33,10 +38,14 @@
 									<label for="exampleInputPassword3" class="form-label">Confirm Password *</label>
 									<input type="password" class="form-control" id="exampleInputPassword3">
 								</div>
+								<br>
+								<div>
+									<a href="myaccount.php"><button type="button"class="rbut" >Cancel</button></a>
+									<a href="changepw.php"><button type="button"class="fbut" >Save</button></a>
+								</div>
 							</div>
 						</div>
-					</div>
-	</div> <!-- Row END -->
-    <footer>
+			<?php } ?>						
+<footer>
         <p>&copy; 2024 JBPSTORE - Your Mobile Gadgets Shop. All rights reserved.</p>
 </footer>

@@ -45,10 +45,7 @@
 				 <!-- Row END -->				
 			
 			<!-- Form START -->
-			<form class="file-upload">
-				<div class="row mb-5 gx-5">
 					<!-- Contact detail -->
-					<div class="col-xxl-8 mb-5 mb-xxl-0">
 						<div class="bg-secondary-soft px-4 py-5 rounded">
 							<div class="row g-3">
 								<h4 class="mb-4 mt-0">Account details</h4>
@@ -65,24 +62,21 @@
 								</div>
 								<!-- Email -->
 								<div class="col-md-6">
-									<label for="inputEmail4" class="form-label">Email *</label>
+									<label for="inputEmail4" class="form-label">Email :</label>
 									<div><?php echo $row['Customer_email']; ?></div>								</div>
 								<!-- Mobile number -->
 								<div class="col-md-6">
 									<label class="form-label">Address :</label>
 									<div><?php echo $row['Customer_address']; ?></td></div>
 								</div>
-
+								<br>
 								<div>
-								<button type="button"class="fbut">Update Profile Details</button>
-								<button type="button"class="fbut">Change Password</button>
+									<a href="updateacc.php"><button type="button"class="fbut" >Update Profile Details</button></a>
+									<a href="changepw.php"><button type="button"class="fbut" >Change Password</button></a>
 								</div>
 								
 							</div>
-						</div> <!-- Row END -->
-					</div>
-				</div>
-			</form>
+						</div>
 			<?php } ?>
 <footer>
 	<p>&copy; 2024 JBPSTORE - Your Mobile Gadgets Shop. All rights reserved.</p>
