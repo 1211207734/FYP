@@ -269,19 +269,24 @@
                     sessionStorage.setItem('userc',);
                 </script>
                 
+                <!-- HTML for the login link -->
+                <a id="loginLink" class="nav-link" href="loginregister.php">Login Account</a>
+
                 <script>
-                  // Retrieve the useraccount value from session storage
-                  var useraccount = sessionStorage.getItem('useraccount');
-              
-                  // Check if useraccount is set and its value is 1
-                  if (useraccount && useraccount === '1') {
-                      // User is logged in, perform actions accordingly
-                      console.log("User is logged in");
-                      // For example, display a welcome message or enable certain features
-                  } else {
-                    <a id="loginLink" class="nav-link" href="loginregister.php">Login Account</a>
-                  }
-              </script>
+                    // Retrieve the useraccount value from session storage
+                    var useraccount = sessionStorage.getItem('useraccount');
+
+                    // Check if useraccount is set and its value is 1
+                    if (useraccount && useraccount === '1') {
+                        // User is logged in, perform actions accordingly
+                        console.log("User is logged in");
+                        // For example, display a welcome message or enable certain features
+
+                        // If the user is logged in, hide the login link
+                        document.getElementById('loginLink').style.display = 'none';
+                    }
+                </script>
+
                 </li>
               </ul>
             </div>
