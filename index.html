@@ -281,11 +281,12 @@
                         // User is logged in, perform actions accordingly
                         console.log("User is logged in");
                         // For example, display a welcome message or enable certain features
-
-                        // If the user is logged in, hide the login link
-                        document.getElementById('loginLink').style.display = 'none';
+                    } else {
+                        // User is not logged in, keep the login link visible
+                        console.log("User is not logged in");
                     }
                 </script>
+
 
                 </li>
               </ul>
