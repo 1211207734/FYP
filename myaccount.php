@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Update Profile</title>
+    <title>My Profile</title>
     <link rel="stylesheet" href="css/account.css">
 </head>
 <header>
@@ -13,14 +13,26 @@
 	
 </header>
 			<div class="title">
-				<h3>Update My Profile Details</h3>
+				<h3>My Profile Details</h3>
 				<hr>
 			</div>
+            <?php
+                $result = mysqli_query($connect, "SELECT * FROM customer where Customer_ID=1");
+                while($row = mysqli_fetch_assoc($result)) {
+            ?>
+                <tr>
+                    <td class="A"><input type="checkbox" class="cb" name="choose[]" value="<?php echo $row['StaffID']; ?>"></td>
+                    <td></td>
+                    <td><?php echo $row['Customer_HP']; ?></td>
+                    <td><?php echo $row['Customer_email']; ?></td>
+                    <td><?php echo $row['Customer_address']; ?></td>
+                </tr>
+            <?php } ?>
 					<!-- Upload profile -->
 					<div class="col-xxl-4">
 						<div class="bg-secondary-soft px-4 py-5 rounded">
 							<div class="row g-3">
-								<h4 class="mb-4 mt-0">Upload your profile photo</h4>
+								<h4 class="mb-4 mt-0">Your profile photo</h4>
 								<div class="text-center">
 									<!-- Image upload -->
 									<div class="square position-relative display-2 mb-3">
@@ -48,8 +60,9 @@
 								<h4 class="mb-4 mt-0">Account details</h4>
 								<!-- First Name -->
 								<div class="col-md-6">
-									<label class="form-label">Full Name *</label>
-									<input type="text" class="form-control" placeholder="" aria-label="First name"  required value="Scaralet">
+									<label class="form-label">Full Name *</label><br>
+									<div><?php echo $row['Customer_name']; ?></div>
+                                    
 								</div>	
 								<!-- Phone number -->
 								<div class="col-md-6">
