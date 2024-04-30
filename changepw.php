@@ -19,34 +19,77 @@
 </div>
 			<?php
 				$connect= mysqli_connect("localhost","root","","jbp");
-                $result = mysqli_query($connect, "SELECT * FROM customer where Customer_ID=1");
+                $result = mysqli_query($connect, "SELECT Customer_password FROM customer where Customer_ID=1");
                 while($row = mysqli_fetch_assoc($result)) {
-            ?>					
+            ?>			
+					<form method="post">
 						<div class="bg-secondary-soft px-4 py-5 rounded">
-							<div class="row g-3">
-								<!-- Old password -->
-								<div class="col-md-6">
-									<label for="exampleInputPassword1" class="form-label">Old password *</label>
-									<input type="password" class="form-control" id="exampleInputPassword1">
-								</div>
-								<!-- New password -->
-								<div class="col-md-6">
-									<label for="exampleInputPassword2" class="form-label">New password *</label>
-									<input type="password" class="form-control" id="exampleInputPassword2">
-								</div>
-								<!-- Confirm password -->
-								<div class="col-md-12">
-									<label for="exampleInputPassword3" class="form-label">Confirm Password *</label>
-									<input type="password" class="form-control" id="exampleInputPassword3">
-								</div>
-								<br>
-								<div>
-									<a href="myaccount.php"><button type="button"class="rbut" >Cancel</button></a>
-									<a href="changepw.php"><button type="button"class="fbut" >Save</button></a>
+								<div class="row g-3">
+									<!-- Old password -->
+									<div class="col-md-6">
+										<label for="exampleInputPassword1" class="form-label">Old password *</label>
+										<input type="password" class="form-control" id="password" name="password">
+									</div>
+									<!-- New password -->
+									<div class="col-md-6">
+										<label for="exampleInputPassword2" class="form-label">New password *</label>
+										<input type="password" class="form-control" id= "npassword" name="npassword">
+									</div>
+									<!-- Confirm password -->
+									<div class="col-md-12">
+										<label for="exampleInputPassword3" class="form-label">Confirm Password *</label>
+										<input type="password" class="form-control" id= "cpassword" name="cpassword">
+									</div>
+									<br>
+									<div>
+										<a href="myaccount.php"><button type="button"class="rbut" >Cancel</button></a>
+										<button type="submit" class="fbut" name="save" >Save</button>
+									</div>
 								</div>
 							</div>
-						</div>
-			<?php } ?>						
+					</form>
+			<?php 
+			$pw = $row['Customer_password'];}
+
+if(isset($_POST['save'])) {
+	// Retrieve form data
+	
+	$opw = $_POST['password'];
+	$npw = $_POST['npassword'];
+	$cpw = $_POST['cpassword'];
+
+	// Validate and sanitize form data (you may need more validation)
+	// Connect to your MySQL database
+	//$connect= mysqli_connect("localhost","root","","jbp");
+	if($opw != $pw) {
+		echo '<script type="text/javascript">
+		alert("Old Password does not match");
+		</script>';
+		exit();
+	  }
+
+	if($npw != $cpw) {
+		echo '<script type="text/javascript">
+		alert("Confirm Password does not match New Password");
+		</script>';
+		exit();
+	  }
+
+
+	// Prepare SQL statement
+	$sql = "UPDATE `customer` SET Customer_password='$npw' WHERE Customer_ID = 1";
+	mysqli_query($connect,$sql);
+	if (mysqli_query($connect, $sql)) {
+	echo '<script type="text/javascript">
+	alert("Password Updated Successfully.");
+	</script>';
+	header("myaccount.php");
+	} else {
+	echo '<script type="text/javascript">
+	alert("Error executing SQL statement: " . mysqli_error($connect));
+	</script>';
+	}	
+} ?>										
 <footer>
         <p>&copy; 2024 JBPSTORE - Your Mobile Gadgets Shop. All rights reserved.</p>
 </footer>

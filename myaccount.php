@@ -68,7 +68,9 @@
 								<!-- Mobile number -->
 								<div class="col-md-6">
 									<label class="form-label">Address :</label>
-									<div><?php echo $row['Customer_address']; ?></td></div>
+									<div><?php echo $row['Customer_address_1']; ?></div>
+									<div><?php echo $row['Customer_address_2']; ?></div>
+									<div><?php echo $row['Customer_poscode']; ?></td></div>
 								</div>
 								<br>
 								<div>

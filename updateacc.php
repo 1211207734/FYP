@@ -45,7 +45,7 @@
 				 <!-- Row END -->				
 			
 			<!-- Form START -->
-			<form class="file-upload">
+			<form class="file-upload" method="post">
 				<div class="row mb-5 gx-5">
 					<!-- Contact detail -->
 					<div class="col-xxl-8 mb-5 mb-xxl-0">
@@ -78,7 +78,7 @@
 								<br>
 								<div>
 									<a href="myaccount.php"><button type="button"class="rbut" >Cancel</button></a>
-									<button type="button" class="but" name="save" >Save Changes</button>
+									<button type="submit" class="but" name="save" >Save Changes</button>
 								</div>
 								
 							</div>
@@ -99,17 +99,18 @@
 
 		// Validate and sanitize form data (you may need more validation)
 		// Connect to your MySQL database
-		$connect= mysqli_connect("localhost","root","","jbp");
+		//$connect= mysqli_connect("localhost","root","","jbp");
 
 	
 
 		// Prepare SQL statement
-		$sql = "UPDATE `customer` SET Customer_name='$f', Customer_HP='$p', Customer_email='$email', Customer_address_1='$a1' Customer_address_2='$a2' Customer_poscode='$pos' WHERE Customer_ID=1";
+		$sql = "UPDATE `customer` SET Customer_name='$f', Customer_HP='$p', Customer_email='$email', Customer_address_1='$a1', Customer_address_2='$a2', Customer_poscode='$pos' WHERE Customer_ID = 1";
 		mysqli_query($connect,$sql);
 		if (mysqli_query($connect, $sql)) {
 		echo '<script type="text/javascript">
 		alert("Profile Updated Successfully.");
 		</script>';
+		header("myaccount.php");
 		} else {
 		echo '<script type="text/javascript">
 		alert("Error executing SQL statement: " . mysqli_error($connect));
