@@ -55,30 +55,30 @@
 								<!-- First Name -->
 								<div class="col-md-6">
 									<label class="form-label">Full Name *</label>
-									<input type="text" class="form-control" placeholder="" aria-label="First name"  value="<?php echo $row['Customer_name']; ?>">
+									<input type="text" class="form-control" placeholder="" aria-label="First name"  name="fullname"	value="<?php echo $row['Customer_name']; ?>">
 								</div>	
 								<!-- Phone number -->
 								<div class="col-md-6">
 									<label class="form-label">Phone number *</label>
-									<input type="text" class="form-control" placeholder="" aria-label="Phone number" value="<?php echo $row['Customer_HP']; ?>5">
+									<input type="text" class="form-control" placeholder="" aria-label="Phone number" name="phone" value="<?php echo $row['Customer_HP']; ?>5">
 								</div>
 								<!-- Email -->
 								<div class="col-md-6">
 									<label for="inputEmail4" class="form-label">Email *</label>
-									<input type="email" class="form-control" id="inputEmail4" value="<?php echo $row['Customer_email']; ?>">
+									<input type="email" class="form-control" id="inputEmail4" name="email" value="<?php echo $row['Customer_email']; ?>">
 									
 								</div>
 								<!-- Mobile number -->
 								<div class="col-md-6">
 									<label class="form-label">Address *</label>
-									<input type="text" class="form-control" placeholder="" aria-label="Address 1" value="<?php echo $row['Customer_address']; ?>">
-									<input type="text" class="form-control" placeholder="" aria-label="Address 2" value="+91 9852 8855 252">
-									<input type="text" class="form-control" placeholder="" aria-label="Poscode" value="00000">			
+									<input type="text" class="form-control" placeholder="" aria-label="Address 1" name="a1" value="<?php echo $row['Customer_address_1']; ?>">
+									<input type="text" class="form-control" placeholder="" aria-label="Address 2" name="a2" value="<?php echo $row['Customer_address_2']; ?>">
+									<input type="text" class="form-control" placeholder="" aria-label="Poscode" name="pos" value="<?php echo $row['Customer_poscode']; ?>">			
 								</div>
 								<br>
 								<div>
 									<a href="myaccount.php"><button type="button"class="rbut" >Cancel</button></a>
-									<button type="button" class="but" >Save Changes</button>
+									<button type="button" class="but" name="save" >Save Changes</button>
 								</div>
 								
 							</div>
@@ -86,7 +86,36 @@
 					</div>
 				</div>
 			</form>
-		<?php } ?>						
+		<?php } 
+	if(isset($_POST['save'])) {
+		// Retrieve form data
+		$f = $_POST['fullname'];
+		$p = $_POST['phone'];
+		$email = $_POST['email'];
+		$a1 = $_POST['a1'];
+		$a2 = $_POST['a2'];
+		$pos = $_POST['pos'];
+
+
+		// Validate and sanitize form data (you may need more validation)
+		// Connect to your MySQL database
+		$connect= mysqli_connect("localhost","root","","jbp");
+
+	
+
+		// Prepare SQL statement
+		$sql = "UPDATE `customer` SET Customer_name='$f', Customer_HP='$p', Customer_email='$email', Customer_address_1='$a1' Customer_address_2='$a2' Customer_poscode='$pos' WHERE Customer_ID=1";
+		mysqli_query($connect,$sql);
+		if (mysqli_query($connect, $sql)) {
+		echo '<script type="text/javascript">
+		alert("Profile Updated Successfully.");
+		</script>';
+		} else {
+		echo '<script type="text/javascript">
+		alert("Error executing SQL statement: " . mysqli_error($connect));
+		</script>';
+		}	
+	} ?>						
 	
 <footer>
 	<p>&copy; 2024 JBPSTORE - Your Mobile Gadgets Shop. All rights reserved.</p>
