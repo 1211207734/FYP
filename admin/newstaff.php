@@ -104,6 +104,7 @@
                       else{
                         echo "<script>alert('Failed to Add New Staff')</script>";
                       }
+                    header("Location: /FYP/admin/index.html");
                     }
                     ?>
 
