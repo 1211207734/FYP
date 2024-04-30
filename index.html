@@ -262,26 +262,34 @@
                   <a class="nav-link" href="cart.php">Checkout</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="account.html">My Account</a>
+                  <a class="nav-link" href="myaccount.php">My Account</a>
                 </li>
                 <li class="nav-item">
                   <script>
                     sessionStorage.setItem('userc',);
                 </script>
                 
+                
+                <!-- HTML for the login link -->
+                <a id="loginLink" class="nav-link" href="loginregister.php">Login Account</a>
+
                 <script>
-                  // Retrieve the useraccount value from session storage
-                  var useraccount = sessionStorage.getItem('useraccount');
-              
-                  // Check if useraccount is set and its value is 1
-                  if (useraccount && useraccount === '1') {
-                      // User is logged in, perform actions accordingly
-                      console.log("User is logged in");
-                      // For example, display a welcome message or enable certain features
-                  } else {
-                    <a id="loginLink" class="nav-link" href="loginregister.php">Login Account</a>
-                  }
-              </script>
+                    // Retrieve the useraccount value from session storage
+                    var useraccount = sessionStorage.getItem('useraccount');
+
+                    // Check if useraccount is set and its value is $userac
+                    if (useraccount && useraccount === '<?php echo $userac; ?>') {
+                        // User is logged in, perform actions accordingly
+                        console.log("User is logged in");
+                        // For example, display a welcome message or enable certain features
+                    } else {
+                        // User is not logged in, keep the login link visible
+                        console.log("User is not logged in");
+                    }
+                </script>
+
+
+
                 </li>
               </ul>
             </div>

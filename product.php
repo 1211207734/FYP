@@ -41,6 +41,7 @@ footer {
 
 </style>
 
+
 <header>
         <div class="logo">
             <h1>JBP<span>STORE</span></h1>

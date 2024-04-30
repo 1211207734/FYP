@@ -2,8 +2,8 @@ body
 {
     background-color: #4d4f6b;
     color: #ffffff;
-    margin: 0;
     line-height: 1.8;
+
 }
 .title {
     text-align: center;
@@ -105,12 +105,54 @@ body
         border: #29292e;
         transition-duration: 0.2s;
         display: block;
+        float:left;
         margin: auto;
-        
+        border: 1px solid black;
+
     }
 
     .but:hover{
         background-color: #2dcc8f;
+        color: #fafafd;
+        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    }
+
+    .fbut {
+        background-color: #e7e7e7;
+        border-radius: 10px;
+        font-size: 16px;
+        padding: 12px 28px;
+        border: #29292e;
+        transition-duration: 0.2s;
+        display: block;
+        margin: auto;
+        float:left;
+        border: 1px solid black;
+        
+    }
+
+    .fbut:hover{
+        background-color: #2dcc8f;
+        color: #fafafd;
+        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    }
+
+    .rbut {
+        background-color: #e7e7e7;
+        border-radius: 10px;
+        font-size: 16px;
+        padding: 12px 28px;
+        border: #29292e;
+        transition-duration: 0.2s;
+        display: block;
+        margin: auto;
+        float:left;
+        border: 1px solid black;
+        
+    }
+
+    .rbut:hover{
+        background-color: #eb0202;
         color: #fafafd;
         box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
     }
