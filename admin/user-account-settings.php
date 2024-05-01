@@ -1,11 +1,6 @@
 <!DOCTYPE html>
 
-<!--
- // WEBSITE: https://themefisher.com
- // TWITTER: https://twitter.com/themefisher
- // FACEBOOK: https://www.facebook.com/themefisher
- // GITHUB: https://github.com/themefisher/
--->
+  
 
 
 
@@ -31,8 +26,8 @@
   
 
 
-  <!-- FAVICON -->
-  <link href="images/favicon.png" rel="shortcut icon" />
+  <!-- jbplogo -->
+  <link href="images/jbplogo.png" rel="shortcut icon" />
 
   <!--
     HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries
@@ -68,7 +63,7 @@
             <!-- Aplication Brand -->
             <div class="app-brand">
               <a href="/index.html">
-                <img src="images/logo.png" alt=" JBPstore">
+                <img src="images/jbplogo.png" alt=" JBPstore">
                 <span class="brand-name"> JBPstore</span>
               </a>
             </div>
@@ -1131,7 +1126,12 @@
 
 
           </header>
-
+          <?php
+    $connect= mysqli_connect("localhost","root","","jbp");
+    $sql = "SELECT * FROM admin WHERE id=1211208820";
+    $result = mysqli_query($connect, $sql);
+    $row = mysqli_fetch_assoc($result);
+    ?>
         <!-- ====================================
         ——— CONTENT WRAPPER
         ===================================== -->
@@ -1145,8 +1145,8 @@
 
     <div class="profile-avata">
       <img class="rounded-circle" src="images/user/user-md-01.jpg" alt="Avata Image">
-      <a class="h5 d-block mt-3 mb-2" href="#">Albrecht Straub</a>
-      <a class="d-block text-color" href="#">albercht@example.com</a>
+      <a class="h5 d-block mt-3 mb-2" href="#"><?php echo $row['Fn']," ",$row['Ln']; ?></a>
+      <a class="d-block text-color" href="#"><?php echo $row['email'];?></a>
     </div>
 
     <ul class="nav nav-profile-follow">
@@ -1228,37 +1228,29 @@
             <div class="col-lg-6">
               <div class="form-group">
                 <label for="firstName">First name</label>
-                <input type="text" class="form-control" id="firstName" name="firstName" >
+                <input type="text" class="form-control" id="firstName" name="firstName" required value="<?php echo $row['Fn']; ?>" >
               </div>
             </div>
 
             <div class="col-lg-6">
               <div class="form-group">
                 <label for="lastName">Last name</label>
-                <input type="text" class="form-control" id="lastName" name="lastName">
+                <input type="text" class="form-control" id="lastName" name="lastName" required value="<?php echo $row['Ln']; ?>">
               </div>
             </div>
           </div>
 
           <div class="form-group mb-4">
             <label for="userName">User name</label>
-            <input type="text" class="form-control" id="userName" name="userName">
+            <input type="text" class="form-control" id="userName" name="userName" required value="<?php echo $row['Un']; ?>">
           </div>
 
           <div class="form-group mb-4">
             <label for="email">Email</label>
-            <input type="email" class="form-control" id="email" name="email">
+            <input type="email" class="form-control" id="email" name="email" required value="<?php echo $row['email']; ?>">
           </div>
 
-          <div class="form-group mb-4">
-            <label for="newPassword">New password</label>
-            <input type="password" class="form-control" id="newPassword" name="newPassword">
-          </div>
-
-          <div class="form-group mb-4">
-            <label for="conPassword">Confirm password</label>
-            <input type="password" class="form-control" id="conPassword" name="conPassword">
-          </div>
+         
 
           <div class="d-flex justify-content-end mt-6">
             <button type="submit" name="update" class="btn btn-primary mb-2 btn-pill">Update Profile</button>
@@ -1280,17 +1272,11 @@
 
     // Validate and sanitize form data (you may need more validation)
     // Connect to your MySQL database
-    $connect= mysqli_connect("localhost","root","","jbp");
 
-    if($cp != $np) {
-      echo '<script type="text/javascript">
-      alert("Password does not match");
-      </script>';
-      exit();
-    }
+    
 
     // Prepare SQL statement
-    $sql = "UPDATE `admin` SET Fn='$f', Ln='$l', Un='$u', email='$email', np='$np' WHERE id=1211208820";
+    $sql = "UPDATE `admin` SET Fn='$f', Ln='$l', Un='$u', email='$email' WHERE id=1211208820";
       mysqli_query($connect,$sql);
     if (mysqli_query($connect, $sql)) {
       echo '<script type="text/javascript">

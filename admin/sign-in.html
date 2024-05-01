@@ -1,11 +1,6 @@
 <!DOCTYPE html>
 
-<!--
- // WEBSITE: https://themefisher.com
- // TWITTER: https://twitter.com/themefisher
- // FACEBOOK: https://www.facebook.com/themefisher
- // GITHUB: https://github.com/themefisher/
--->
+  
 
 <html lang="en">
 <head>
@@ -30,8 +25,8 @@
   
 
 
-  <!-- FAVICON -->
-  <link href="images/favicon.png" rel="shortcut icon" />
+  <!-- jbplogo -->
+  <link href="images/jbplogo.png" rel="shortcut icon" />
 
   <!--
     HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries
@@ -54,7 +49,7 @@
                   <div class="card-header pb-0">
                     <div class="app-brand w-100 d-flex justify-content-center border-bottom-0">
                       <a class="w-auto pl-0" href="/index.html">
-                        <img src="images/logo.png" alt=" JBPstore">
+                        <img src="images/jbplogo.png" alt=" JBPstore">
                         <span class="brand-name text-dark"> JBPstore</span>
                       </a>
                     </div>

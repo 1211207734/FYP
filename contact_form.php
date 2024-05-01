@@ -705,7 +705,7 @@ if(isset($_POST['name'])) {
             <div class="shipping">
               <span>We ship with:</span>
               <img src="images/arct-icon.png" alt="icon">
-              <img src="images/dhl-logo.png" alt="icon">
+              <img src="images/dhl-jbplogo.png" alt="icon">
             </div>
             <div class="payment-option">
               <span>Payment Option:</span>

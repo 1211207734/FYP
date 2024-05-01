@@ -45,7 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])) {
     $servername = "localhost";
     $username = "root"; // Replace with your MySQL username
     $password = ""; // Replace with your MySQL password
-    $dbname = "JBP"; // Replace with your database name
+    $dbname = "jbp"; // Replace with your database name
     $conn = new mysqli($servername, $username, $password, $dbname);
 
     // Check connection

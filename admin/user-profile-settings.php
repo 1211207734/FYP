@@ -1,11 +1,6 @@
 <!DOCTYPE html>
 
-<!--
- // WEBSITE: https://themefisher.com
- // TWITTER: https://twitter.com/themefisher
- // FACEBOOK: https://www.facebook.com/themefisher
- // GITHUB: https://github.com/themefisher/
--->
+  
 
 <html lang="en" dir="ltr">
   <head>
@@ -29,8 +24,8 @@
   
 
 
-  <!-- FAVICON -->
-  <link href="images/favicon.png" rel="shortcut icon" />
+  <!-- jbplogo -->
+  <link href="images/jbplogo.png" rel="shortcut icon" />
 
   <!--
     HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries
@@ -66,7 +61,7 @@
             <!-- Aplication Brand -->
             <div class="app-brand">
               <a href="/index.html">
-                <img src="images/logo.png" alt=" JBPstore">
+                <img src="images/jbplogo.png" alt=" JBPstore">
                 <span class="brand-name"> JBPstore</span>
               </a>
             </div>
@@ -1129,7 +1124,12 @@
 
 
           </header>
-
+          <?php
+          $connect= mysqli_connect("localhost","root","","jbp");
+          $sql = "SELECT * FROM admin WHERE id=1211208820";
+          $result = mysqli_query($connect, $sql);
+          $row = mysqli_fetch_assoc($result);
+          ?>
         <!-- ====================================
         ——— CONTENT WRAPPER
         ===================================== -->
@@ -1143,8 +1143,8 @@
 
     <div class="profile-avata">
       <img class="rounded-circle" src="images/user/user-md-01.jpg" alt="Avata Image">
-      <a class="h5 d-block mt-3 mb-2" href="#">Albrecht Straub</a>
-      <a class="d-block text-color" href="#">albercht@example.com</a>
+      <a class="h5 d-block mt-3 mb-2" href="#"><?php echo $row['Fn']," ",$row['Ln']; ?></a>
+      <a class="d-block text-color" href="#"><?php echo $row['email'];?></a>
     </div>
 
     <ul class="nav nav-profile-follow">
