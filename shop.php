@@ -37,6 +37,7 @@
             echo "<p><b>Price: </b>RM {$row['Product_price']}</p>";
             echo "<button>Add to Cart</button>";
             echo "</div>";
+            <hr>
         }
 
         // Close database connection
