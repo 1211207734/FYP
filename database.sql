@@ -26,20 +26,22 @@ CREATE TABLE Customer (
     Customer_email VARCHAR(100) NOT NULL,
     Customer_password VARCHAR(50) NOT NULL,
     Customer_HP VARCHAR(15) NOT NULL,
-    Customer_address VARCHAR(100) NOT NULL
+    Customer_address_1 VARCHAR(100) NOT NULL,
+    Customer_address_2 VARCHAR(100) NOT NULL,
+    Customer_poscode INT(5) NOT NULL
 );
 
-INSERT INTO Customer (Customer_name, Customer_email, Customer_password, Customer_HP, Customer_address) 
-VALUES ('John Doe', 'john.doe@example.com', 'john123', '123456789', '123 Main St'),
-       ('Jane Smith', 'jane.smith@example.com', 'jane456', '987654321', '456 Oak Ave'),
-       ('Mike Johnson', 'mike.johnson@example.com', 'mike789', '789456123', '789 Elm St'),
-       ('Emily Davis', 'emily.davis@example.com', 'emily123', '321654987', '987 Pine St'),
-       ('David Brown', 'david.brown@example.com', 'david456', '456321789', '654 Cedar Ave'),
-       ('Sarah Wilson', 'sarah.wilson@example.com', 'sarah789', '654987321', '852 Maple St'),
-       ('Chris Lee', 'chris.lee@example.com', 'chris123', '987123654', '369 Birch St'),
-       ('Amy Taylor', 'amy.taylor@example.com', 'amy456', '321789654', '258 Walnut Ave'),
-       ('Kevin Martinez', 'kevin.martinez@example.com', 'kevin789', '741852963', '147 Ash St'),
-       ('Laura Garcia', 'laura.garcia@example.com', 'laura123', '852963741', '369 Pine St');
+INSERT INTO Customer (Customer_name, Customer_email, Customer_password, Customer_HP, Customer_address, Customer_address_1, Customer_address_2, Customer_poscode) 
+VALUES ('John Doe', 'john.doe@example.com', 'john123', '123456789', '123 Main St', '456 Oak Ave'),
+       ('Jane Smith', 'jane.smith@example.com', 'jane456', '987654321', '456 Oak Ave', '456 Oak Ave'),
+       ('Mike Johnson', 'mike.johnson@example.com', 'mike789', '789456123', '789 Elm St', '456 Oak Ave'),
+       ('Emily Davis', 'emily.davis@example.com', 'emily123', '321654987', '987 Pine St', '456 Oak Ave'),
+       ('David Brown', 'david.brown@example.com', 'david456', '456321789', '654 Cedar Ave', '456 Oak Ave'),
+       ('Sarah Wilson', 'sarah.wilson@example.com', 'sarah789', '654987321', '852 Maple St', '456 Oak Ave'),
+       ('Chris Lee', 'chris.lee@example.com', 'chris123', '987123654', '369 Birch St', '456 Oak Ave'),
+       ('Amy Taylor', 'amy.taylor@example.com', 'amy456', '321789654', '258 Walnut Ave', '456 Oak Ave'),
+       ('Kevin Martinez', 'kevin.martinez@example.com', 'kevin789', '741852963', '147 Ash St', '456 Oak Ave'),
+       ('Laura Garcia', 'laura.garcia@example.com', 'laura123', '852963741', '369 Pine St', '456 Oak Ave');
 
 CREATE TABLE ooder (
     Order_ID INT AUTO_INCREMENT PRIMARY KEY,
