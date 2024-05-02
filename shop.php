@@ -19,29 +19,30 @@
         <a href="about.html">Contact Us</a>
     </nav>
     <section id="featured-products">
-        <h2>Featured Products</h2>
-        <?php
-            // Database connection
-            include('database.php');
-            // Fetch featured products from the database
-            $query = "SELECT Product_name, Product_details, Product_price FROM Products WHERE Product_ID IN (1, 11, 21, 31, 41)";
-            $result = mysqli_query($connect, $query);
+    <h2>Featured Products</h2>
+    <?php
+        // Database connection
+        include('database.php');
+        // Fetch featured products from the database
+        $query = "SELECT Product_name, Product_details, Product_price, Product_image FROM Products WHERE Product_ID IN (1, 11, 21, 31, 41)";
+        $result = mysqli_query($connect, $query);
 
-            // Display featured products
-            while ($row = mysqli_fetch_assoc($result)) {
-                echo "<div class='product'>";
-                echo "<img src='product_image.jpg' alt='{$row['Product_name']}'>";
-                echo "<h3>{$row['Product_name']}</h3>";
-                echo "<p>{$row['Product_details']}</p>";
-                echo "<p>Price: $ {$row['Product_price']}</p>";
-                echo "<button>Add to Cart</button>";
-                echo "</div>";
-            }
+        // Display featured products
+        while ($row = mysqli_fetch_assoc($result)) {
+            echo "<div class='product'>";
+            echo "<img src='{$row['Product_image']}.jpg' alt='{$row['Product_name']}'>";
+            echo "<h3>{$row['Product_name']}</h3>";
+            echo "<p>{$row['Product_details']}</p>";
+            echo "<p>Price: $ {$row['Product_price']}</p>";
+            echo "<button>Add to Cart</button>";
+            echo "</div>";
+        }
 
-            // Close database connection
-            mysqli_close($connect);
-        ?>
-    </section>
+        // Close database connection
+        mysqli_close($connect);
+    ?>
+</section>
+
     <footer>
         <p>&copy; 2024 JBPSTORE - Your Mobile Gadgets Shop. All rights reserved.</p>
     </footer>
