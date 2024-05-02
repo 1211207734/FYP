@@ -22,10 +22,11 @@ header {
     font-weight: bold;
 }
 
-.img{
+.product img {
     width: 100px;
     height: auto;
 }
+
 
 nav {
     background-color: #444;
