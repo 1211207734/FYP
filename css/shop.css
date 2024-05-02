@@ -1,80 +1,47 @@
+/* General CSS styles */
 body {
+    font-family: Arial, sans-serif;
     margin: 0;
-    font-family: Roboto,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
-    font-size: .8125rem;
-    font-weight: 400;
-    line-height: 1.5385;
-    color: #333;
-    text-align: left;
-    background-color: #2196F3;
+    padding: 0;
 }
 
-.mt-50{
-
-    margin-top: 50px;
-}
-
-.mb-50{
-
-    margin-bottom: 50px;
-}
-
-
-
-.card {
-    position: relative;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    min-width: 0;
-    word-wrap: break-word;
-    background-color: #fff;
-    background-clip: border-box;
-    border: 1px solid rgba(0,0,0,.125);
-    border-radius: .1875rem;
-}
-
-.card-img-actions {
-    position: relative;
-}
-.card-body {
-    -ms-flex: 1 1 auto;
-    flex: 1 1 auto;
-    padding: 1.25rem;
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
     text-align: center;
 }
 
-.card-img{
-
-    width: 350px;
+.logo h1 {
+    font-size: 32px;
+    margin: 0;
 }
 
-.star{
-        color: red;
+.logo h1 span {
+    color: #f00; /* Change color as needed */
+    font-weight: bold;
 }
 
-.bg-cart {
-    background-color:orange;
-    color:#fff;
+img{
+    width: 100px;
+    height: auto;
 }
 
-.bg-cart:hover {
-    
-    color:#fff;
+nav {
+    background-color: #444;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
 }
 
-.bg-buy {
-    background-color:green;
-    color:#fff;
-    padding-right: 29px;
-}
-.bg-buy:hover {
-    
-    color:#fff;
+section {
+    padding: 20px;
+    text-align: center;
 }
 
-a{
-
-    text-decoration: none !important;
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
 }
