@@ -55,14 +55,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])) {
 
     // Prepare and bind parameters
     $stmt = $conn->prepare("INSERT INTO Customer (Customer_name, Customer_email, Customer_password, Customer_HP, Customer_address) VALUES (?, ?, ?, ?, ?)");
-    $stmt->bind_param("sssss", $fullname, $email, $password, $phone, $address);
+    $stmt->bind_param("sssss", $fullname, $email, $npassword, $phone, $address);
 
     // Set parameters and execute
     $fullname = $_POST['fullname'];
     $email = $_POST['email'];
-    $password = $_POST['password'];
+    $password = $_POST['npassword'];
     // Hash password for security
-    $password = password_hash($password, PASSWORD_DEFAULT);
+    $password = password_hash($npassword, PASSWORD_DEFAULT);
     $phone = $_POST['phone'];
     $address = $_POST['address']; // Make sure to add 'name' attribute to address input field in your HTML
 
