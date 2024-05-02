@@ -30,7 +30,7 @@
         // Display featured products
         while ($row = mysqli_fetch_assoc($result)) {
             echo "<div class='product'>";
-            echo "<img src='{$row['Product_image']}.jpg' alt='{$row['Product_name']}'>";
+            echo "<img src='{$row Product_name}.jpg' alt='{$row['Product_name']}'>";
             echo "<h3>{$row['Product_name']}</h3>";
             echo "<p>{$row['Product_details']}</p>";
             echo "<p>Price: $ {$row['Product_price']}</p>";
