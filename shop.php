@@ -24,7 +24,7 @@
         // Database connection
         include('database.php');
         // Fetch featured products from the database
-        $query = "SELECT Product_name, Product_details, Product_price FROM Products;
+        $query = "SELECT Product_name, Product_details, Product_price FROM Products";
         $result = mysqli_query($connect, $query);
 
         // Display featured products
