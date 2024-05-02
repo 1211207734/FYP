@@ -28,16 +28,16 @@
         $result = mysqli_query($connect, $query);
 
         // Display featured products
-        while ($row = mysqli_fetch_assoc($result)) {
-            echo "<div class='product'>";?>
-            <img src="images/<?php echo $row['Product_name']?>.jpg" alt="<?php echo $row['Product_name']?>">
+        while ($row = mysqli_fetch_assoc($result)) {?>
+            <div class="product">
+            <img src="images/<?php echo $row['Product_name']?>.jpg" alt="<?php echo $row['Product_name']?>" width="100" height="30">
             <?php
             echo "<h3>{$row['Product_name']}</h3>";
             echo "<p>{$row['Product_details']}</p>";
-            echo "<p><b>Price: </b>RM {$row['Product_price']}</p>";
-            echo "<button>Add to Cart</button>";
-            echo "</div>";
-        }
+            echo "<p><b>Price: </b>RM {$row['Product_price']}</p>";?>
+            <button>Add to Cart</button><br>
+            </div>
+       <?php }
 
         // Close database connection
         mysqli_close($connect);
