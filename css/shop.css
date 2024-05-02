@@ -13,7 +13,6 @@ header {
 }
 
 .logo h1 {
-    background-color: #333;
     font-size: 32px;
     margin: 0;
 }
@@ -23,7 +22,7 @@ header {
     font-weight: bold;
 }
 
-img{
+.img{
     width: 100px;
     height: auto;
 }
