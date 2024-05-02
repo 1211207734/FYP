@@ -22,6 +22,11 @@ header {
     font-weight: bold;
 }
 
+img{
+    width: 250px;
+    height: 250px;
+}
+
 nav {
     background-color: #444;
     color: #fff;
