@@ -24,13 +24,14 @@
         // Database connection
         include('database.php');
         // Fetch featured products from the database
-        $query = "SELECT Product_name, Product_details, Product_price FROM Products WHERE Product_ID IN (1, 11, 21, 31, 41)";
+        $query = "SELECT Product_name, Product_details, Product_price FROM Products WHERE Product_ID IN (2, 11, 21, 31, 41)";
         $result = mysqli_query($connect, $query);
 
         // Display featured products
         while ($row = mysqli_fetch_assoc($result)) {
-            echo "<div class='product'>";
-            echo "<img src='{$row['Product_name']}.jpg' alt='{$row['Product_name']}'>";
+            echo "<div class='product'>";?>
+            <img src="images/<?php echo $row['Product_name']?>.jpg" alt="<?php echo $row['Product_name']?>">
+            <?php
             echo "<h3>{$row['Product_name']}</h3>";
             echo "<p>{$row['Product_details']}</p>";
             echo "<p>Price: $ {$row['Product_price']}</p>";
