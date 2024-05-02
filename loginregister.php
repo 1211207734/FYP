@@ -62,7 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])) {
     $email = $_POST['email'];
     $password = $_POST['npassword'];
     // Hash password for security
-    $password = password_hash($password, PASSWORD_DEFAULT);
+    $password = password_hash($npassword, PASSWORD_DEFAULT);
     $phone = $_POST['phone'];
     $address = $_POST['address']; // Make sure to add 'name' attribute to address input field in your HTML
 
