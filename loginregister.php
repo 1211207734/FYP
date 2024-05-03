@@ -54,7 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])) {
     }
 
     // Prepare and bind parameters
-    $stmt = $conn->prepare("INSERT INTO Customer (Customer_name, Customer_email, Customer_password, Customer_HP, Customer_address) VALUES (?, ?, ?, ?, ?)");
+    $stmt = $conn->prepare("INSERT INTO Customer (Customer_name, Customer_email, Customer_password, Customer_HP, Customer_address_1) VALUES (?, ?, ?, ?, ?)");
     $stmt->bind_param("sssss", $fullname, $email, $npassword, $phone, $address);
 
     // Set parameters and execute

@@ -110,12 +110,13 @@
 		echo '<script type="text/javascript">
 		alert("Profile Updated Successfully.");
 		</script>';
-		header("myaccount.php");
+		
 		} else {
 		echo '<script type="text/javascript">
 		alert("Error executing SQL statement: " . mysqli_error($connect));
 		</script>';
 		}	
+		header("location:myaccount.php");
 	} ?>						
 	
 <footer>

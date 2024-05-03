@@ -63,14 +63,14 @@ if(isset($_POST['save'])) {
 	//$connect= mysqli_connect("localhost","root","","jbp");
 	if($opw != $pw) {
 		echo '<script type="text/javascript">
-		alert("Old Password does not match");
+		alert("Invalid Old Password!");
 		</script>';
 		exit();
 	  }
 
 	if($npw != $cpw) {
 		echo '<script type="text/javascript">
-		alert("Confirm Password does not match New Password");
+		alert("Confirm Password does not match with New Password");
 		</script>';
 		exit();
 	  }
