@@ -1273,8 +1273,7 @@
     $l = $_POST['lastName'];
     $u = $_POST['userName'];
     $email = $_POST['email'];
-    $np = $_POST['newPassword'];
-    $cp = $_POST['conPassword'];
+    
 
     // Validate and sanitize form data (you may need more validation)
     // Connect to your MySQL database

@@ -84,22 +84,23 @@
                     </form>
 
                     <?php
+                     $con=mysqli_connect("localhost","root","","jbp");
                     if(isset($_POST['sub'])){
                       $f=$_POST['f'];
                       $l=$_POST['l'];
                       $u=$_POST['u'];
                       $email=$_POST['email'];
                       $password=$_POST['password'];
-                      $con=mysqli_connect("localhost","root","","jbpstore");
-                      $sql="INSERT INTO staff (first_name,last_name,username,email,password) VALUES ('$f','$l','$u','$email','$password')";
-                      $res=mysqli_query($con,$sql);
-                      if($res){
+                     
+                      $sql="INSERT INTO admin (Fn,Ln,Un,email,np) VALUES ('$f','$l','$u','$email','$password')";
+                      mysqli_query($con,$sql);
+                      if(mysqli_query($con,$sql)){
                         echo "<script>alert('New Staff Added Successfully')</script>";
                       }
                       else{
                         echo "<script>alert('Failed to Add New Staff')</script>";
                       }
-                    header("Location: /FYP/admin/index.html");
+                    
                     }
                     ?>
 
