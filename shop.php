@@ -35,7 +35,7 @@
             echo "<h3>{$row['Product_name']}</h3>";
             echo "<p>{$row['Product_details']}</p>";
             echo "<p><b>Price: </b>RM {$row['Product_price']}</p>";?>
-            <button>Add to Cart</button><br>
+            <button>Add to Cart</button><br><br><br>
             </div>
        <?php }
 
