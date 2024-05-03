@@ -18,6 +18,16 @@
   <!-- PLUGINS CSS STYLE -->
   <link href="plugins/nprogress/nprogress.css" rel="stylesheet" />
   
+  
+  <link href="plugins/prism/prism.css" rel="stylesheet" />
+  
+  
+  
+  <link href="plugins/DataTables/DataTables-1.10.18/css/jquery.dataTables.min.css" rel="stylesheet" />
+  
+  
+  
+  
   <!--  JBPstore CSS -->
   <link id="main-css-href" rel="stylesheet" href="css/style.css" />
 
@@ -107,412 +117,19 @@
                       <span class="nav-text">Calendar</span>
                     </a>
                   </li>
-  
-                  <li class="section-title">
-                    UI Elements
-                  </li>
+ 
+                  
                 
 
                 
 
                 
-                  <li  class="has-sub" >
-                    <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#ui-elements"
-                      aria-expanded="false" aria-controls="ui-elements">
-                      <i class="mdi mdi-folder-outline"></i>
-                      <span class="nav-text">UI Components</span> <b class="caret"></b>
-                    </a>
-                    <ul  class="collapse"  id="ui-elements"
-                      data-parent="#sidebar-menu">
-                      <div class="sub-menu">
-                        
-                        
-                          
-                            <li >
-                              <a class="sidenav-item-link" href="alert.html">
-                                <span class="nav-text">Alert</span>
-                                
-                              </a>
-                            </li>
-                          
-                        
-
-                        
-                        
-                          
-                            <li >
-                              <a class="sidenav-item-link" href="badge.html">
-                                <span class="nav-text">Badge</span>
-                                
-                              </a>
-                            </li>
-                          
-                        
-
-                        
-                        
-                          
-                            <li >
-                              <a class="sidenav-item-link" href="breadcrumb.html">
-                                <span class="nav-text">Breadcrumb</span>
-                                
-                              </a>
-                            </li>
-                          
-                        
-
-                        
-                        
-                        <li  class="has-sub" >
-                          <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#buttons"
-                            aria-expanded="false" aria-controls="buttons">
-                            <span class="nav-text">Buttons</span> <b class="caret"></b>
-                          </a>
-                          <ul  class="collapse"  id="buttons">
-                            <div class="sub-menu">
-                              
-                              <li >
-                                <a href="button-default.html">Button Default</a>
-                              </li>
-                              
-                              <li >
-                                <a href="button-dropdown.html">Button Dropdown</a>
-                              </li>
-                              
-                              <li >
-                                <a href="button-group.html">Button Group</a>
-                              </li>
-                              
-                              <li >
-                                <a href="button-social.html">Button Social</a>
-                              </li>
-                              
-                              <li >
-                                <a href="button-loading.html">Button Loading</a>
-                              </li>
-                              
-                            </div>
-                          </ul>
-                        </li>
-                        
-
-                        
-                        
-                          
-                            <li >
-                              <a class="sidenav-item-link" href="card.html">
-                                <span class="nav-text">Card</span>
-                                
-                              </a>
-                            </li>
-                          
-                        
-
-                        
-                        
-                          
-                            <li >
-                              <a class="sidenav-item-link" href="carousel.html">
-                                <span class="nav-text">Carousel</span>
-                                
-                              </a>
-                            </li>
-                          
-                        
-
-                        
-                        
-                          
-                            <li >
-                              <a class="sidenav-item-link" href="collapse.html">
-                                <span class="nav-text">Collapse</span>
-                                
-                              </a>
-                            </li>
-                          
-                        
-
-                        
-                        
-                          
-                            <li >
-                              <a class="sidenav-item-link" href="editor.html">
-                                <span class="nav-text">Editor</span>
-                                
-                              </a>
-                            </li>
-                          
-                        
-
-                        
-                        
-                          
-                            <li >
-                              <a class="sidenav-item-link" href="list-group.html">
-                                <span class="nav-text">List Group</span>
-                                
-                              </a>
-                            </li>
-                          
-                        
-
-                        
-                        
-                          
-                            <li >
-                              <a class="sidenav-item-link" href="modal.html">
-                                <span class="nav-text">Modal</span>
-                                
-                              </a>
-                            </li>
-                          
-                        
-
-                        
-                        
-                          
-                            <li >
-                              <a class="sidenav-item-link" href="pagination.html">
-                                <span class="nav-text">Pagination</span>
-                                
-                              </a>
-                            </li>
-                          
-                        
-
-                        
-                        
-                          
-                            <li >
-                              <a class="sidenav-item-link" href="popover-tooltip.html">
-                                <span class="nav-text">Popover & Tooltip</span>
-                                
-                              </a>
-                            </li>
-                          
-                        
-
-                        
-                        
-                          
-                            <li >
-                              <a class="sidenav-item-link" href="progress-bar.html">
-                                <span class="nav-text">Progress Bar</span>
-                                
-                              </a>
-                            </li>
-                          
-                        
-
-                        
-                        
-                          
-                            <li >
-                              <a class="sidenav-item-link" href="spinner.html">
-                                <span class="nav-text">Spinner</span>
-                                
-                              </a>
-                            </li>
-                          
-                        
-
-                        
-                        
-                          
-                            <li >
-                              <a class="sidenav-item-link" href="switches.html">
-                                <span class="nav-text">Switches</span>
-                                
-                              </a>
-                            </li>
-                          
-                        
-
-                        
-                        
-                        <li  class="has-sub" >
-                          <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#tables"
-                            aria-expanded="false" aria-controls="tables">
-                            <span class="nav-text">Tables</span> <b class="caret"></b>
-                          </a>
-                          <ul  class="collapse"  id="tables">
-                            <div class="sub-menu">
-                              
-                              <li >
-                                <a href="bootstarp-tables.html">Bootstrap Tables</a>
-                              </li>
-                              
-                              <li >
-                                <a href="data-tables.html">Data Tables</a>
-                              </li>
-                              
-                            </div>
-                          </ul>
-                        </li>
-                        
-
-                        
-                        
-                          
-                            <li >
-                              <a class="sidenav-item-link" href="tab.html">
-                                <span class="nav-text">Tab</span>
-                                
-                              </a>
-                            </li>
-                          
-                        
-
-                        
-                        
-                          
-                            <li >
-                              <a class="sidenav-item-link" href="toaster.html">
-                                <span class="nav-text">Toaster</span>
-                                
-                              </a>
-                            </li>
-                          
-                        
-
-                        
-                        
-                        <li  class="has-sub" >
-                          <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#icons"
-                            aria-expanded="false" aria-controls="icons">
-                            <span class="nav-text">Icons</span> <b class="caret"></b>
-                          </a>
-                          <ul  class="collapse"  id="icons">
-                            <div class="sub-menu">
-                              
-                              <li >
-                                <a href="material-icons.html">Material Icon</a>
-                              </li>
-                              
-                              <li >
-                                <a href="flag-icons.html">Flag Icon</a>
-                              </li>
-                              
-                            </div>
-                          </ul>
-                        </li>
-                        
-
-                        
-                        
-                        <li  class="has-sub" >
-                          <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#forms"
-                            aria-expanded="false" aria-controls="forms">
-                            <span class="nav-text">Forms</span> <b class="caret"></b>
-                          </a>
-                          <ul  class="collapse"  id="forms">
-                            <div class="sub-menu">
-                              
-                              <li >
-                                <a href="basic-input.html">Basic Input</a>
-                              </li>
-                              
-                              <li >
-                                <a href="input-group.html">Input Group</a>
-                              </li>
-                              
-                              <li >
-                                <a href="checkbox-radio.html">Checkbox & Radio</a>
-                              </li>
-                              
-                              <li >
-                                <a href="form-validation.html">Form Validation</a>
-                              </li>
-                              
-                              <li >
-                                <a href="form-advance.html">Form Advance</a>
-                              </li>
-                              
-                            </div>
-                          </ul>
-                        </li>
-                        
-
-                        
-                        
-                        <li  class="has-sub" >
-                          <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#maps"
-                            aria-expanded="false" aria-controls="maps">
-                            <span class="nav-text">Maps</span> <b class="caret"></b>
-                          </a>
-                          <ul  class="collapse"  id="maps">
-                            <div class="sub-menu">
-                              
-                              <li >
-                                <a href="google-maps.html">Google Map</a>
-                              </li>
-                              
-                              <li >
-                                <a href="vector-maps.html">Vector Map</a>
-                              </li>
-                              
-                            </div>
-                          </ul>
-                        </li>
-                        
-
-                        
-                        
-                        <li  class="has-sub" >
-                          <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#widgets"
-                            aria-expanded="false" aria-controls="widgets">
-                            <span class="nav-text">Widgets</span> <b class="caret"></b>
-                          </a>
-                          <ul  class="collapse"  id="widgets">
-                            <div class="sub-menu">
-                              
-                              <li >
-                                <a href="widgets-general.html">General Widget</a>
-                              </li>
-                              
-                              <li >
-                                <a href="widgets-chart.html">Chart Widget</a>
-                              </li>
-                              
-                            </div>
-                          </ul>
-                        </li>
-                        
-
-                        
-                      </div>
-                    </ul>
-                  </li>
-                
+                 
 
                 
 
                 
-                  <li  class="has-sub" >
-                    <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#charts"
-                      aria-expanded="false" aria-controls="charts">
-                      <i class="mdi mdi-chart-pie"></i>
-                      <span class="nav-text">Charts</span> <b class="caret"></b>
-                    </a>
-                    <ul  class="collapse"  id="charts"
-                      data-parent="#sidebar-menu">
-                      <div class="sub-menu">
-                        
-                        
-                          
-                            <li >
-                              <a class="sidenav-item-link" href="apex-charts.html">
-                                <span class="nav-text">Apex Charts</span>
-                                
-                              </a>
-                            </li>
-                          
-                        
-
-                        
-                      </div>
-                    </ul>
-                  </li>
+                 
                 
 
                 
@@ -526,13 +143,13 @@
                 
 
                 
-                  <li  class="has-sub active expand" >
+                  <li  class="has-sub" >
                     <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#users"
                       aria-expanded="false" aria-controls="users">
                       <i class="mdi mdi-image-filter-none"></i>
                       <span class="nav-text">User</span> <b class="caret"></b>
                     </a>
-                    <ul  class="collapse show"  id="users"
+                    <ul  class="collapse"  id="users"
                       data-parent="#sidebar-menu">
                       <div class="sub-menu">
                         
@@ -544,7 +161,6 @@
                                 
                               </a>
                             </li>
-                          
                             <li >
                               <a class="sidenav-item-link" href="user-profile-settings.html">
                                 <span class="nav-text">User Profile Settings</span>
@@ -552,17 +168,12 @@
                               </a>
                             </li>
                           
-                        
-
-                        
-                        
-                          
                             <li >
                               <a class="sidenav-item-link" href="user-account-settings.php">
                                 <span class="nav-text">User Account Settings</span>
                                 
                               </a>
-                            </li>
+                            </li>             
                       </div>
                     </ul>
                   </li>
@@ -689,80 +300,6 @@
                 
 
                 
-
-                
-                  <li class="section-title">
-                    Documentation
-                  </li>
-                
-
-                
-
-                
-                  <li
-                   >
-                    <a class="sidenav-item-link" href="getting-started.html">
-                      <i class="mdi mdi-airplane"></i>
-                      <span class="nav-text">Getting Started</span>
-                    </a>
-                  </li>
-                
-
-                
-
-                
-                  <li  class="has-sub" >
-                    <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#customization"
-                      aria-expanded="false" aria-controls="customization">
-                      <i class="mdi mdi-square-edit-outline"></i>
-                      <span class="nav-text">Customization</span> <b class="caret"></b>
-                    </a>
-                    <ul  class="collapse"  id="customization"
-                      data-parent="#sidebar-menu">
-                      <div class="sub-menu">
-                        
-                        
-                          
-                            <li >
-                              <a class="sidenav-item-link" href="navbar-customization.html">
-                                <span class="nav-text">Navbar</span>
-                                
-                              </a>
-                            </li>
-                          
-                        
-
-                        
-                        
-                          
-                            <li >
-                              <a class="sidenav-item-link" href="sidebar-customization.html">
-                                <span class="nav-text">Sidebar</span>
-                                
-                              </a>
-                            </li>
-                          
-                        
-
-                        
-                        
-                          
-                            <li >
-                              <a class="sidenav-item-link" href="styling.html">
-                                <span class="nav-text">Styling</span>
-                                
-                              </a>
-                            </li>
-                          
-                        
-
-                        
-                      </div>
-                    </ul>
-                  </li>
-                
-
-                
               </ul>
 
             </div>
@@ -796,7 +333,7 @@
                 <span class="sr-only">Toggle navigation</span>
               </button>
 
-              <span class="page-title">user planing settings</span>
+              <span class="page-title">data tables</span>
 
               <div class="navbar-right ">
 
@@ -1104,7 +641,6 @@
                           <span class="nav-text">My Profile</span>
                         </a>
                       </li>
- 
                          <li>
                         <a class="dropdown-link-item" href="user-account-settings.php">
                           <i class="mdi mdi-settings"></i>
@@ -1134,195 +670,70 @@
         ——— CONTENT WRAPPER
         ===================================== -->
         <div class="content-wrapper">
-          <div class="content"><!-- Card Profile -->
-<div class="card card-default card-profile">
+          <div class="content"><!-- For Components documentaion -->
 
-  <div class="card-header-bg" style="background-image:url(assets/img/user/user-bg-01.jpg)"></div>
 
-  <div class="card-body card-profile-body">
+<!-- Products Inventory -->
+<div class="card card-default">
+  <div class="card-header">
+    <h2>Products Inventory</h2>
 
-    <div class="profile-avata">
-      <img class="rounded-circle" src="images/user/user-md-01.jpg" alt="Avata Image">
-      <a class="h5 d-block mt-3 mb-2" href="#">Albrecht Straub</a>
-      <a class="d-block text-color" href="#">albercht@example.com</a>
-    </div>
-
-    <ul class="nav nav-profile-follow">
-      <li class="nav-item">
-        <a class="nav-link" href="#">
-          <span class="h5 d-block">1503</span>
-          <span class="text-color d-block">Customer on hold</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">
-          <span class="h5 d-block">2905</span>
-          <span class="text-color d-block">Project completed</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">
-          <span class="h5 d-block">1200</span>
-          <span class="text-color d-block">Project in progress</span>
-        </a>
-      </li>
-
-    </ul>
-
- 
+    <a class="btn mdi mdi-code-tags" data-toggle="collapse" href="#collapse-data-tables" role="button" aria-expanded="false"
+      aria-controls="collapse-data-tables"> </a>
 
   </div>
+  
+    <table id="productsTable" class="table table-hover table-product" style="width:100%">
+      <thead>
+        <tr>
+          <th>Image</th>
+          <th>Product Name</th>
+          <th>ID</th>
+          <th>Price</th>
+          <th>In Stock</th>
+          <th>Category</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+      <?php
+    $connect= mysqli_connect("localhost","root","","jbp");
+    $sql = "SELECT Product_ID,Product_name,Product_price,Product_stock,Category_name FROM products INNER JOIN categories ON products.Category_ID=categories.Category_ID ";
+    $result = mysqli_query($connect, $sql);
+    while($row = mysqli_fetch_assoc($result)){
+    ?>
+        <tr>
+          <td class="py-0">
+            <img src="images/products/products-xs-01.jpg" alt="Product Image">
+          </td>
+          <td><?php echo $row['Product_name'];?></td>
+          <td><?php echo $row['Product_ID'];?></td>
+          <td><?php echo $row['Product_price'];?></td>
+          <td><?php echo $row['Product_stock'];?></td>
+          <td><?php echo $row['Product_ID'];?></td>
+          
+          <td>
+            <div class="dropdown">
+              <a class="dropdown-toggle icon-burger-mini" href="#" role="button" id="dropdownMenuLink"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
+              </a>
 
-  <div class="card-footer card-profile-footer">
-    <ul class="nav nav-border-top justify-content-center">
-      <li class="nav-item">
-        <a class="nav-link" href="user-profile.html">Profile</a>
-      </li>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <?php }?>
         
-      <li class="nav-item">
-        <a class="nav-link active" href="user-profile-settings.html">Settings</a>
-      </li>
 
-    </ul>
-  </div>
 
-</div>
-
-<div class="row">
-  <div class="col-xl-3">
-    <!-- Settings -->
-    <div class="card card-default">
-      <div class="card-header">
-        <h2>Settings</h2>
-      </div>
-
-      <div class="card-body pt-0">
-
-        <ul class="nav nav-settings">
-          <li class="nav-item">
-            <a class="nav-link" href="user-profile-settings.html">
-              <i class="mdi mdi-account-outline mr-1"></i> Profile
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="user-account-settings.php">
-              <i class="mdi mdi-settings-outline mr-1"></i> Account
-            </a>
-          </li>
-      </div>
-    </div>
-  </div>
-  <div class="col-xl-9">
-    <!-- Choose Your Plan -->
-    <div class="card card-default">
-      <div class="card-header">
-        <h2 class="mb-5">Choose Your Plan</h2>
-
-      </div>
-
-      <div class="card-body">
-        <div class="row justify-content-center">
-          <div class="col-lg-6 col-xl-4">
-            <div class="card card-default">
-              <div class="card-header align-items-center flex-column">
-                <h3 class="h2 mb-2">Starter</h3>
-                <p class="text-center">For those who want to look around</p>
-              </div>
-              <div class="card-body d-flex flex-column" style="min-height: 350px">
-                <ul class="d-flex flex-column align-items-center">
-                  <li class="h2 text-primary mb-5">$0.00 <span class="text-color h3">/ m</span></li>
-                  <li class="mb-3 text-dark font-weight-bold">
-                    <i class="mdi mdi-check text-primary"></i>
-                    1 User Acount
-                  </li>
-                  <li class="mb-3 text-dark font-weight-bold">
-                    <i class="mdi mdi-check text-primary"></i>
-                    1 Active Project
-                  </li>
-                  <li class="mb-3 text-dark font-weight-bold">
-                    <i class="mdi mdi-check text-primary"></i>
-                    1 GB Storage limit
-                  </li>
-                </ul>
-                <div class="d-flex justify-content-center mt-auto">
-                  <a href="#" class="btn btn-outline-primary btn-pill">Select plan</a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-6 col-xl-4">
-            <div class="card card-default">
-              <div class="card-header align-items-center flex-column">
-                <h3 class="h2 mb-2">Basic</h3>
-                <p class="text-center">For those who want to look around</p>
-              </div>
-              <div class="card-body d-flex flex-column" style="min-height: 350px">
-                <ul class="d-flex flex-column align-items-center">
-                  <li class="h2 text-primary mb-5">$50.00 <span class="text-color h3">/ m</span></li>
-                  <li class="mb-3 text-dark font-weight-bold">
-                    <i class="mdi mdi-check text-primary"></i>
-                    1 User Acount
-                  </li>
-                  <li class="mb-3 text-dark font-weight-bold">
-                    <i class="mdi mdi-check text-primary"></i>
-                    1 Active Project
-                  </li>
-                  <li class="mb-3 text-dark font-weight-bold">
-                    <i class="mdi mdi-check text-primary"></i>
-                    5GB Storage limit
-                  </li>
-                  <li class="mb-3 text-dark font-weight-bold">
-                    <i class="mdi mdi-check text-primary"></i>
-                    Email Support
-                  </li>
-
-                </ul>
-                <div class="d-flex justify-content-center mt-auto">
-                  <a href="#" class="btn btn-outline-primary btn-pill">Select plan</a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-6 col-xl-4">
-            <div class="card card-default">
-              <div class="card-header align-items-center flex-column">
-                <h3 class="h2 mb-2">Ultra</h3>
-                <p class="text-center">For those who want to look around</p>
-              </div>
-              <div class="card-body d-flex flex-column" style="min-height: 350px">
-                <ul class="d-flex flex-column align-items-center">
-                  <li class="h2 text-primary mb-5">$70.00 <span class="text-color h3">/ m</span></li>
-                  <li class="mb-3 text-dark font-weight-bold">
-                    <i class="mdi mdi-check text-primary"></i>
-                    1 User Acount
-                  </li>
-                  <li class="mb-3 text-dark font-weight-bold">
-                    <i class="mdi mdi-check text-primary"></i>
-                    1 Active Project
-                  </li>
-                  <li class="mb-3 text-dark font-weight-bold">
-                    <i class="mdi mdi-check text-primary"></i>
-                    25GB Storage limit
-                  </li>
-                  <li class="mb-3 text-dark font-weight-bold">
-                    <i class="mdi mdi-check text-primary"></i>
-                    Email & Phone Support
-                  </li>
-                </ul>
-                <div class="d-flex justify-content-center mt-auto">
-                  <a href="#" class="btn btn-outline-primary btn-pill">Select plan</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
+      </tbody>
+    </table>
 
   </div>
-
 </div>
 </div>
           
@@ -1457,6 +868,18 @@
                     <script src="plugins/simplebar/simplebar.min.js"></script>
                     <script src="https://unpkg.com/hotkeys-js/dist/hotkeys.min.js"></script>
 
+                    
+                    
+                    <script src="plugins/prism/prism.js"></script>
+                    
+                    
+                    
+                    <script src="plugins/DataTables/DataTables-1.10.18/js/jquery.dataTables.min.js"></script>
+                    
+                    
+                    
+                    <script src="plugins/apexcharts/apexcharts.js"></script>
+                    
                     
                     <script src="js/ JBPstore.js"></script>
                     <script src="js/chart.js"></script>
