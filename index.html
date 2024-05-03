@@ -278,14 +278,12 @@
                     // Retrieve the useraccount value from session storage
                     var useraccount = sessionStorage.getItem('useraccount');
 
-                    // Check if useraccount is set and its value is $userac
-                    if (useraccount && useraccount === '<?php echo $userac; ?>') {
-                        // User is logged in, perform actions accordingly
-                        console.log("User is logged in");
-                        // For example, display a welcome message or enable certain features
+                    // Check if useraccount is set and its value is 1
+                    if (useraccount && useraccount === '1') {
+                        // User is logged in, hide the login link
+                        document.getElementById('loginLink').style.display = 'none';
                     } else {
                         // User is not logged in, keep the login link visible
-                        console.log("User is not logged in");
                     }
                 </script>
 
@@ -331,7 +329,7 @@
                   <div class="col-md-10 pt-5">
                     <h2 class="display-1 ls-0 mt-5 pt-5 txt-fx slide-up">Buy Mobile Gadgets at Affordable Prices</h2>
                     <p class="caption">More gadgets make life easier</p>
-                    <a href="#" class="btn btn-outline-light text-uppercase rounded-3 px-4 py-3 mt-3">Shop Now</a>
+                    <a href="shop.php" class="btn btn-outline-light text-uppercase rounded-3 px-4 py-3 mt-3">Shop Now</a>
                   </div>
                 </div>
               </div>

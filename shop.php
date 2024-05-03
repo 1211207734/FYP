@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JBPSTORE - Your Mobile Gadgets Shop</title>
-    <link rel="stylesheet" href="/css/shop.css">
+    <link rel="stylesheet" href="css/shop.css">
 </head>
 <body>
     <header>
@@ -14,7 +14,7 @@
     </header>
     
     <nav>
-        <a href="index.html">Home</a> | 
+        <a href="index.html">⬅ Back To Homepage</a> | 
         <a href="about.html">About Us</a> | 
         <a href="about.html">Contact Us</a>
     </nav>
@@ -35,7 +35,7 @@
             echo "<h3>{$row['Product_name']}</h3>";
             echo "<p>{$row['Product_details']}</p>";
             echo "<p><b>Price: </b>RM {$row['Product_price']}</p>";?>
-            <button>Add to Cart</button><br>
+            <button>Add to Cart</button><br><br><br>
             </div>
        <?php }
 
