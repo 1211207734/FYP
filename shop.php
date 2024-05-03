@@ -14,7 +14,7 @@
     </header>
     
     <nav>
-        <a href="index.html">Home</a> | 
+        <a href="index.html">⬅ Back To Homepage</a> | 
         <a href="about.html">About Us</a> | 
         <a href="about.html">Contact Us</a>
     </nav>
