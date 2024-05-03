@@ -678,8 +678,7 @@
   <div class="card-header">
     <h2>Products Inventory</h2>
 
-    <a class="btn mdi mdi-code-tags" data-toggle="collapse" href="#collapse-data-tables" role="button" aria-expanded="false"
-      aria-controls="collapse-data-tables"> </a>
+   
 
   </div>
   
