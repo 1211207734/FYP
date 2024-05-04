@@ -40,31 +40,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 // Registration form submission handling
+// Registration form submission handling
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])) {
     // Establish connection to the database
-    $servername = "localhost";
-    $username = "root"; // Replace with your MySQL username
-    $password = ""; // Replace with your MySQL password
-    $dbname = "jbp"; // Replace with your database name
-    $conn = new mysqli($servername, $username, $password, $dbname);
-
-    // Check connection
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
+    include('database.php'); // Include your database connection file here
 
     // Prepare and bind parameters
-    $stmt = $conn->prepare("INSERT INTO Customer (Customer_name, Customer_email, Customer_password, Customer_HP, Customer_address_1) VALUES (?, ?, ?, ?, ?)");
-    $stmt->bind_param("sssss", $fullname, $email, $npassword, $phone, $address);
+    $stmt = $connect->prepare("INSERT INTO Customer (Customer_name, Customer_email, Customer_password, Customer_HP, Customer_address_1, Customer_address_2, Customer_postcode) VALUES (?, ?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("sssssss", $fullname, $email, $npassword, $phone, $address1, $address2, $postcode);
 
     // Set parameters and execute
     $fullname = $_POST['fullname'];
     $email = $_POST['email'];
-    $password = $_POST['npassword'];
+    $npassword = $_POST['password']; // Use $npassword instead of $password
     // Hash password for security
-    $password = password_hash($npassword, PASSWORD_DEFAULT);
+    $npassword = password_hash($npassword, PASSWORD_DEFAULT);
     $phone = $_POST['phone'];
-    $address = $_POST['address']; // Make sure to add 'name' attribute to address input field in your HTML
+    $address1 = $_POST['address1']; // Address Line 1
+    $address2 = $_POST['address2']; // Address Line 2
+    $postcode = $_POST['postcode']; // Postcode
 
     $stmt->execute();
 
@@ -72,7 +66,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])) {
 
     // Close statement and connection
     $stmt->close();
-    $conn->close();
+    $connect->close();
+
+    // Redirect to the login page
+    header("Location: login.php");
+    exit();
 }
 ?>
 
