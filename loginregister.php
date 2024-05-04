@@ -47,9 +47,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])) {
 
     // Prepare and bind parameters
     $stmt = $connect->prepare("INSERT INTO Customer (Customer_name, Customer_email, Customer_password, Customer_HP, Customer_address_1, Customer_address_2, Customer_poscode) VALUES (?, ?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("sssssss", $fullname, $email, $npassword, $phone, $address1, $address2, $poscode);
+    $stmt->bind_param("sssssss", $fullname, $email, $npassword, $phone, $address1, $address2, $postcode);
 
-    // Set parameters and execute
+    /// Set parameters and execute
     $fullname = $_POST['fullname'];
     $email = $_POST['email'];
     $npassword = $_POST['password']; // Use $npassword instead of $password
@@ -58,7 +58,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])) {
     $phone = $_POST['phone'];
     $address1 = $_POST['address1']; // Address Line 1
     $address2 = $_POST['address2']; // Address Line 2
-    $poscode = $_POST['poscode']; // Postcode
+    $postcode = $_POST['postcode']; // Postcode
+
 
     $stmt->execute();
 
@@ -178,6 +179,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])) {
                                             </div>
                                             <button type="submit" class="btn mt-4" name="register">Register</button>
                                         </form>
+
 
                                     </div>
                                 </div>

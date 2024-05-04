@@ -28,10 +28,10 @@ CREATE TABLE Customer (
     Customer_HP VARCHAR(15) NOT NULL,
     Customer_address_1 VARCHAR(100) NOT NULL,
     Customer_address_2 VARCHAR(100) NOT NULL,
-    Customer_poscode INT(5) NOT NULL
+    Customer_postcode INT(5) NOT NULL
 );
 
-INSERT INTO Customer (Customer_name, Customer_email, Customer_password, Customer_HP, Customer_address_1, Customer_address_2, Customer_poscode) 
+INSERT INTO Customer (Customer_name, Customer_email, Customer_password, Customer_HP, Customer_address_1, Customer_address_2, Customer_postcode) 
 VALUES ('Azlan Bin Abdul Rahman', 'azlan.abdulrahman@gmail.com', 'password123', '0121234567', 'No. 1, Jalan Suka Suka', 'Taman Sri Suka, 56000 Kuala Lumpur', '56000'),
        ('Siti Sarah Binti Ahmad', 'siti.sarah@gmail.com', 'password456', '0192345678', 'No. 2, Jalan Bunga Raya', 'Taman Bunga, 43650 Bandar Baru Bangi', '43650'),
        ('Mohd Fadhli Bin Mohd Zain', 'fadhli.mohdzain@gmail.com', 'password789', '0133456789', 'No. 3, Jalan Cenderawasih', 'Taman Cenderawasih, 81200 Johor Bahru', '81200'),
