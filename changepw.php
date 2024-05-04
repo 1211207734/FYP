@@ -80,10 +80,11 @@ if(isset($_POST['save'])) {
 	$sql = "UPDATE `customer` SET Customer_password='$npw' WHERE Customer_ID = 1";
 	mysqli_query($connect,$sql);
 	if (mysqli_query($connect, $sql)) {
-	echo '<script type="text/javascript">
-	alert("Password Updated Successfully.");
-	</script>';
-	header("myaccount.php");
+		echo '<script type="text/javascript">';
+		echo 'alert("Password Updated Successfully.");';
+		echo 'window.location.href = "myaccount.php";';
+		echo '</script>';
+	
 	} else {
 	echo '<script type="text/javascript">
 	alert("Error executing SQL statement: " . mysqli_error($connect));

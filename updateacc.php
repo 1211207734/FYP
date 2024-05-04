@@ -60,7 +60,7 @@
 								<!-- Phone number -->
 								<div class="col-md-6">
 									<label class="form-label">Phone number *</label>
-									<input type="text" class="form-control" placeholder="" aria-label="Phone number" name="phone" value="<?php echo $row['Customer_HP']; ?>5">
+									<input type="text" class="form-control" placeholder="" aria-label="Phone number" name="phone" value="<?php echo $row['Customer_HP']; ?>">
 								</div>
 								<!-- Email -->
 								<div class="col-md-6">
@@ -106,17 +106,21 @@
 		// Prepare SQL statement
 		$sql = "UPDATE `customer` SET Customer_name='$f', Customer_HP='$p', Customer_email='$email', Customer_address_1='$a1', Customer_address_2='$a2', Customer_poscode='$pos' WHERE Customer_ID = 1";
 		mysqli_query($connect,$sql);
-		if (mysqli_query($connect, $sql)) {
-		echo '<script type="text/javascript">
-		alert("Profile Updated Successfully.");
-		</script>';
+		if (mysqli_query($connect, $sql))
+		{
+		
+			echo '<script type="text/javascript">';
+			echo 'alert("Profile Updated Successfully.");';
+			echo 'window.location.href = "myaccount.php";';
+			echo '</script>';
 		
 		} else {
 		echo '<script type="text/javascript">
 		alert("Error executing SQL statement: " . mysqli_error($connect));
 		</script>';
 		}	
-		header("location:myaccount.php");
+		
+		
 	} ?>						
 	
 <footer>
