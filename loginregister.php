@@ -46,7 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])) {
     include('database.php'); // Include your database connection file here
 
     // Prepare and bind parameters
-    $stmt = $connect->prepare("INSERT INTO Customer (Customer_name, Customer_email, Customer_password, Customer_HP, Customer_address_1, Customer_address_2, Customer_postcode) VALUES (?, ?, ?, ?, ?, ?, ?)");
+    $stmt = $connect->prepare("INSERT INTO Customer (Customer_name, Customer_email, Customer_password, Customer_HP, Customer_address_1, Customer_address_2, Customer_poscode) VALUES (?, ?, ?, ?, ?, ?, ?)");
     $stmt->bind_param("sssssss", $fullname, $email, $npassword, $phone, $address1, $address2, $postcode);
 
     // Set parameters and execute
@@ -58,7 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])) {
     $phone = $_POST['phone'];
     $address1 = $_POST['address1']; // Address Line 1
     $address2 = $_POST['address2']; // Address Line 2
-    $postcode = $_POST['postcode']; // Postcode
+    $postcode = $_POST['poscode']; // Postcode
 
     $stmt->execute();
 
