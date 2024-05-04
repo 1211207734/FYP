@@ -9,15 +9,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Corrected SQL query syntax and added prepared statement
     $query = "SELECT Customer_email, Customer_password FROM customer WHERE Customer_email = ?";
+    $q="SELECT email, np FROM admin WHERE email = ?";
     
-    
+   
+
+
     $stmt = mysqli_prepare($connect, $query);
     mysqli_stmt_bind_param($stmt, "s", $email);
     mysqli_stmt_execute($stmt);
     $result = mysqli_stmt_get_result($stmt);
 
-    if($email == "admin1@example.com" && $password == "password1"){
-        header("Location: /FYP/admin/index.html");
+    if($email == "admin1@gmail.com" && $password == "admin1"){
+        header("Location: /FYP/admin/home.php?eml=".$email);
         exit();
     }
 
@@ -27,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($password == $ppassword) {
             // Login successful
             // Redirect to home page or perform other actions
-            header("Location: index.html");
+            header("Location: home.php?eml=".$email);
             $useraccount++;
             exit();
         } else {
