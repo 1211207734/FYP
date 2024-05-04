@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JBPSTORE - Your Mobile Gadgets Shop</title>
-    <link rel="stylesheet" href="css/shop.css">
+    <link rel="stylesheet" href="css/shop1.css">
 </head>
 <body>
     <header>
@@ -13,39 +13,80 @@
         </div>
     </header>
     
-    <nav>
-        <a href="index.html" class="button"><u>⬅ Back To Homepage</u></a> |
-        <a href="about.html" class="button"><u>About Us</u></a> |
-        <a href="contact.html" class="button"><u>Contact Us</u></a>
-        <hr color="black">
-    </nav>
-    
-    <section id="featured-products">
-        <h2>Featured Products</h2>
-        <div class="product-grid">
-            <?php
-                // Database connection
-                include('database.php');
-                // Fetch featured products from the database
-                $query = "SELECT Product_name, Product_details, Product_price FROM Products";
-                $result = mysqli_query($connect, $query);
-
-                // Display featured products
-                while ($row = mysqli_fetch_assoc($result)) {?>
-                    <div class="product">
-                        <img src="images/<?php echo $row['Product_name']?>.jpg" alt="<?php echo $row['Product_name']?>" class="product-image">
-                        <?php
-                        echo "<h3>{$row['Product_name']}</h3>";
-                        echo "<p>{$row['Product_details']}</p>";
-                        echo "<p><b>Price: </b>RM {$row['Product_price']}</p>";
-                        ?>
-                        <button>Add to Cart</button>
+    <section class="section-products">
+        <div class="container">
+            <div class="row justify-content-center text-center">
+                <div class="col-md-8 col-lg-6">
+                    <div class="header">
+                        <h3>Featured Product</h3>
+                        <h2>Popular Products</h2>
                     </div>
-                <?php }
-
-                // Close database connection
-                mysqli_close($connect);
-            ?>
+                </div>
+            </div>
+            <div class="row">
+                <!-- Category ID=1-->
+                <?php
+                    include('database.php');
+                    $query = "SELECT Product_name, Product_details, Product_price FROM Products WHERE category_id = 1";
+                    $result = mysqli_query($connect, $query);
+                    while ($row = mysqli_fetch_assoc($result)) {?>
+                        <div class="col-md-6 col-lg-4 col-xl-3">
+                            <div class="single-product">
+                                <div class="part-1">
+                                    <!-- Icons -->
+                                    <ul>
+                                        <li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
+                                        <li><a href="#"><i class="fas fa-heart"></i></a></li>
+                                        <li><a href="#"><i class="fas fa-plus"></i></a></li>
+                                        <li><a href="#"><i class="fas fa-expand"></i></a></li>
+                                    </ul>
+                                </div>
+                                <div class="part-2">
+                                    <!-- Product Details -->
+                                    <img src="images/<?php echo $row['Product_name']?>.jpg" alt="<?php echo $row['Product_name']?>" class="product-image">
+                                    <h3 class="product-title"><?php echo $row['Product_name']?></h3>
+                                    <p class="product-details"><?php echo $row['Product_details']?></p>
+                                    <p class="product-price">RM <?php echo $row['Product_price']?></p>
+                                    <button>Add to Cart</button>
+                                </div>
+                            </div>
+                        </div>
+                    <?php }
+                    mysqli_close($connect);
+                ?>
+            </div>
+            <div class="row">
+                <!-- Category ID=1-->
+                <?php
+                    include('database.php');
+                    $query = "SELECT Product_name, Product_details, Product_price FROM Products WHERE category_id = 1";
+                    $result = mysqli_query($connect, $query);
+                    while ($row = mysqli_fetch_assoc($result)) {?>
+                        <div class="col-md-6 col-lg-4 col-xl-3">
+                            <div class="single-product">
+                                <div class="part-1">
+                                    <!-- Icons -->
+                                    <ul>
+                                        <li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
+                                        <li><a href="#"><i class="fas fa-heart"></i></a></li>
+                                        <li><a href="#"><i class="fas fa-plus"></i></a></li>
+                                        <li><a href="#"><i class="fas fa-expand"></i></a></li>
+                                    </ul>
+                                </div>
+                                <div class="part-2">
+                                    <!-- Product Details -->
+                                    <h3 class="product-title"><?php echo $row['Product_name']?></h3>
+                                    <p class="product-details"><?php echo $row['Product_details']?></p>
+                                    <p class="product-price">RM <?php echo $row['Product_price']?></p>
+                                    <button>Add to Cart</button>
+                                </div>
+                            </div>
+                        </div>
+                    <?php }
+                    mysqli_close($connect);
+                ?>
+            </div>
+            
         </div>
     </section>
 
