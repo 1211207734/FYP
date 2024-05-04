@@ -13,10 +13,29 @@
 	
 	
 </header>
-			<div class="title">
-				<h3>Update My Profile Details</h3>
-				<hr>
-			</div>
+<style>
+  #imagePreview {
+    width: 200px;
+    height: 200px;
+    border: 2px dashed #aaa;
+    margin-top: 10px;
+    display: none;
+  }
+
+  #imagePreview img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+  #removeImageButton {
+    margin-top: 10px;
+    display: none;
+  }
+</style>
+<div class="title">
+	<h3>Update My Profile Details</h3>
+	<hr>
+</div>
 		<?php
 			$connect= mysqli_connect("localhost","root","","jbp");
 			$result = mysqli_query($connect, "SELECT * FROM customer where Customer_ID=1");
@@ -32,25 +51,47 @@
 									<div class="square position-relative display-2 mb-3">
 										<i class="fas fa-fw fa-user position-absolute top-50 start-50 translate-middle text-secondary"></i>
 									</div>
-									<!-- Button -->
-									<input type="file" id="customFile" name="file" hidden="">
-									<label class="btn btn-success-soft btn-block" for="customFile">Upload</label>
-									<button type="button" class="btn btn-danger-soft">Remove</button>
-									<!-- Content -->
-									<p class="text-muted mt-3 mb-0"><span class="me-1">Note:</span>Minimum size 300px x 300px</p>
+
+									<form method="post" enctype="multipart/form-data">
+										<body>
+											<div class="text-center">
+												<input type="file" id="uploadInput" name="profileImage" accept="image/*">
+												<div id="imagePreview"></div>
+												<button id="removeImageButton">Remove Image</button>
+											</div>
+											<script>
+												document.getElementById('uploadInput').addEventListener('change', function(event) {
+												const file = event.target.files[0];
+												const reader = new FileReader();
+
+												reader.onload = function(e) {
+													const imagePreview = document.getElementById('imagePreview');
+													imagePreview.innerHTML = `<img src="${e.target.result}" alt="Preview">`;
+													imagePreview.style.display = 'block';
+													document.getElementById('removeImageButton').style.display = 'block';
+												}
+
+												reader.readAsDataURL(file);
+												});
+
+												document.getElementById('removeImageButton').addEventListener('click', function() {
+												const imagePreview = document.getElementById('imagePreview');
+												imagePreview.innerHTML = '';
+												imagePreview.style.display = 'none';
+												document.getElementById('removeImageButton').style.display = 'none';
+												document.getElementById('uploadInput').value = ''; // Reset the file input
+												});
+											</script>
+										</body>
+										<!-- Content -->
+										<p class="text-muted mt-3 mb-0"><span class="me-1">Note:</span>Minimum size 300px x 300px</p>
+									</form>
 								</div>
 							</div>
 						</div>
 					</div>
-				 <!-- Row END -->				
-			
-			<!-- Form START -->
-			<form class="file-upload" method="post">
-				<div class="row mb-5 gx-5">
-					<!-- Contact detail -->
-					<div class="col-xxl-8 mb-5 mb-xxl-0">
+					<form>
 						<div class="bg-secondary-soft px-4 py-5 rounded">
-							<div class="row g-3">
 								<h4 class="mb-4 mt-0">Account details</h4>
 								<!-- First Name -->
 								<div class="col-md-6">
@@ -80,13 +121,9 @@
 									<a href="myaccount.php"><button type="button"class="rbut" >Cancel</button></a>
 									<button type="submit" class="but" name="save" >Save Changes</button>
 								</div>
-								
-							</div>
 						</div> <!-- Row END -->
-					</div>
-				</div>
-			</form>
-		<?php } 
+					</form>	
+	<?php }
 	if(isset($_POST['save'])) {
 		// Retrieve form data
 		$f = $_POST['fullname'];
@@ -110,8 +147,8 @@
 		{
 		
 			echo '<script type="text/javascript">';
-			echo 'alert("Profile Updated Successfully.");';
 			echo 'window.location.href = "myaccount.php";';
+			echo 'alert("Profile Updated Successfully.");';
 			echo '</script>';
 		
 		} else {
