@@ -59,8 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])) {
 
     $stmt->execute();
 
-    echo "Registration successful";
-
+    echo "<script>alert('Registration successful');</script>";
     // Close statement and connection
     $stmt->close();
     $connect->close();
