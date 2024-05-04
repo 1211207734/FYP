@@ -1,5 +1,5 @@
 header {
-    background-color: #333;
+    background-color: #0a0a0a;
     color: #fff;
     padding: 20px;
     text-align: center;
@@ -26,9 +26,6 @@ body {
 
 .button:hover {
     background-color: #333;
-}
-.spacer {
-    margin-right: 10px; /* Adjust the space between buttons as needed */
 }
 .mt-50 {
     margin-top: 100px;

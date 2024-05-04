@@ -14,13 +14,10 @@
     </header>
     
     <nav>
-    <a href="index.html" class="button">⬅ Back To Homepage</a>
-    <span class="spacer"></span>
-    <a href="about.html" class="button">About Us</a>
-    <span class="spacer"></span>
-    <a href="about.html" class="button">Contact Us</a>
-
-
+    <a href="index.html" class="button"><u>⬅ Back To Homepage     </u></a> |
+    <a href="about.html" class="button"><u>   About Us     </u></a> |
+    <a href="about.html" class="button"><u>   Contact Us </u></a>
+    <hr color="black">
     </nav>
     <section id="featured-products">
     <h2>Featured Products</h2>
