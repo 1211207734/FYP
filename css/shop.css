@@ -61,8 +61,8 @@ body {
 }
 
 .card-img {
-    width: 250px;
-    height: 250px;
+    width: 100px;
+    height: auto;
 }
 
 .star {
@@ -91,6 +91,35 @@ body {
 a {
     text-decoration: none !important;
 }
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.product {
+    text-align: center;
+}
+
+.product-image {
+    width: 150px; /* Set a specific width */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: black;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.button:hover {
+    background-color: #333;
+}
+
 footer {
     background-color: #333;
     color: #fff;

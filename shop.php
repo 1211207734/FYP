@@ -14,36 +14,40 @@
     </header>
     
     <nav>
-    <a href="index.html" class="button"><u>⬅ Back To Homepage     </u></a> |
-    <a href="about.html" class="button"><u>   About Us     </u></a> |
-    <a href="about.html" class="button"><u>   Contact Us </u></a>
-    <hr color="black">
+        <a href="index.html" class="button"><u>⬅ Back To Homepage</u></a> |
+        <a href="about.html" class="button"><u>About Us</u></a> |
+        <a href="contact.html" class="button"><u>Contact Us</u></a>
+        <hr color="black">
     </nav>
+    
     <section id="featured-products">
-    <h2>Featured Products</h2>
-    <?php
-        // Database connection
-        include('database.php');
-        // Fetch featured products from the database
-        $query = "SELECT Product_name, Product_details, Product_price FROM Products";
-        $result = mysqli_query($connect, $query);
-
-        // Display featured products
-        while ($row = mysqli_fetch_assoc($result)) {?>
-            <div class="product">
-            <img src="images/<?php echo $row['Product_name']?>.jpg" alt="<?php echo $row['Product_name']?>" width="100" height="30">
+        <h2>Featured Products</h2>
+        <div class="product-grid">
             <?php
-            echo "<h3>{$row['Product_name']}</h3>";
-            echo "<p>{$row['Product_details']}</p>";
-            echo "<p><b>Price: </b>RM {$row['Product_price']}</p>";?>
-            <button>Add to Cart</button><br><br><br>
-            </div>
-       <?php }
+                // Database connection
+                include('database.php');
+                // Fetch featured products from the database
+                $query = "SELECT Product_name, Product_details, Product_price FROM Products";
+                $result = mysqli_query($connect, $query);
 
-        // Close database connection
-        mysqli_close($connect);
-    ?>
-</section>
+                // Display featured products
+                while ($row = mysqli_fetch_assoc($result)) {?>
+                    <div class="product">
+                        <img src="images/<?php echo $row['Product_name']?>.jpg" alt="<?php echo $row['Product_name']?>" class="product-image">
+                        <?php
+                        echo "<h3>{$row['Product_name']}</h3>";
+                        echo "<p>{$row['Product_details']}</p>";
+                        echo "<p><b>Price: </b>RM {$row['Product_price']}</p>";
+                        ?>
+                        <button>Add to Cart</button>
+                    </div>
+                <?php }
+
+                // Close database connection
+                mysqli_close($connect);
+            ?>
+        </div>
+    </section>
 
     <footer>
         <p>&copy; 2024 JBPSTORE - Your Mobile Gadgets Shop. All rights reserved.</p>
