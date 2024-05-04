@@ -27,7 +27,9 @@ body {
 .button:hover {
     background-color: #333;
 }
-
+.spacer {
+    margin-right: 10px; /* Adjust the space between buttons as needed */
+}
 .mt-50 {
     margin-top: 100px;
 }
