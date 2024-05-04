@@ -137,7 +137,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])) {
                                     <div class="section text-center">
                                         <h4 class="mb-3 pb-3">Sign Up</h4>
                                         <!-- Sign Up section -->
-                                        <form method="post" action="">
+                                        <form method="post" action="" id="signupForm">
                                             <div class="form-group">
                                                 <input type="text" class="form-style" placeholder="Full Name" name="fullname" required>
                                                 <i class="input-icon uil uil-user"></i>
@@ -163,17 +163,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])) {
                                                 <i class="input-icon uil uil-location-point"></i>
                                             </div>
                                             <div class="form-group mt-2">
-                                                <input type="password" class="form-style" placeholder="Password" name="password" required>
+                                                <input type="password" class="form-style" placeholder="Password" name="password" id="password" required>
                                                 <i class="input-icon uil uil-lock-alt"></i>
                                             </div>
                                             <div class="form-group mt-2">
-                                                <input type="password" class="form-style" placeholder="Confirm Password" name="confirm_password" required>
+                                                <input type="password" class="form-style" placeholder="Confirm Password" name="confirm_password" id="confirmPassword" required>
                                                 <i class="input-icon uil uil-lock-alt"></i>
                                             </div>
                                             <button type="submit" class="btn mt-4" name="register">Register</button>
                                         </form>
 
+                                        <script>
+                                            document.getElementById('signupForm').addEventListener('submit', function(event) {
+                                                var password = document.getElementById('password').value;
+                                                var confirmPassword = document.getElementById('confirmPassword').value;
 
+                                                // Check if passwords match
+                                                if (password !== confirmPassword) {
+                                                    alert('Passwords do not match. Please try again.');
+                                                    event.preventDefault(); // Prevent form submission
+                                                }
+                                            });
+                                        </script>
                                     </div>
                                 </div>
                             </div>
