@@ -14,9 +14,9 @@
     </header>
     
     <nav>
-    <a href="index.html" class="button">⬅ Back To Homepage     </a> |
-    <a href="about.html" class="button">About Us     </a> |
-    <a href="contact.html" class="button">Contact Us</a>
+    <a href="index.html" class="button">⬅ Back To Homepage     <br></a> |
+    <a href="about.html" class="button">About Us     <br></a> |
+    <a href="about.html" class="button">Contact Us </a>
 
     </nav>
     <section id="featured-products">
