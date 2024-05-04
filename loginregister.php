@@ -1,18 +1,23 @@
 <?php 
 include('database.php');
 
-$error_message = ''; // Define error message variable
+$error_message = '';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    // Corrected SQL query syntax and added prepared statement
-    $query = "SELECT Customer_email, Customer_password FROM customer WHERE Customer_email = ?";
-    $stmt = mysqli_prepare($connect, $query);
-    mysqli_stmt_bind_param($stmt, "s", $email);
-    mysqli_stmt_execute($stmt);
-    $result = mysqli_stmt_get_result($stmt);
+    try {
+        // Corrected SQL query syntax and added prepared statement
+        $query = "SELECT Customer_email, Customer_password FROM customer WHERE Customer_email = ?";
+        $stmt = mysqli_prepare($connect, $query);
+        mysqli_stmt_bind_param($stmt, "s", $email);
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
+    } catch (mysqli_sql_exception $e) {
+        // Handle any database errors here
+        echo "MySQL Error: " . $e->getMessage();
+    }
 
     if($email == "admin1@example.com" && $password == "password1"){
         header("Location: /FYP/admin/index.html");
