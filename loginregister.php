@@ -6,7 +6,7 @@ $error_message = ''; // Define error message variable
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
     $password = $_POST['password'];
-    
+
     // Corrected SQL query syntax and added prepared statement
     $query = "SELECT Customer_email, Customer_password FROM customer WHERE Customer_email = ?";
     $stmt = mysqli_prepare($connect, $query);
@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (password_verify($password, $ppassword)) { // Compare hashed password with user input using password_verify
             // Login successful
             // Redirect to home page or perform other actions
-            header("Location: index.html");
+            header("Location: home.php");
             exit();
         } else {
             $error_message = "Invalid password";
@@ -56,7 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])) {
     $address1 = $_POST['address1']; // Address Line 1
     $address2 = $_POST['address2']; // Address Line 2
     $postcode = $_POST['postcode']; // Postcode
-    
+
     $stmt->execute();
 
     echo "Registration successful";
