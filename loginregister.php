@@ -32,10 +32,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Redirect to home page or perform other actions
             header("Location: home.php");
             exit();
-        } else {
-            $error_message = "Invalid password";
         }
-    } else {
+    } 
+    else 
+    {
         $error_message = "Invalid email or password";
     }
 
