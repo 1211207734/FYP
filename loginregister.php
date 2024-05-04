@@ -67,9 +67,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])) {
     // Close statement and connection
     $stmt->close();
     $connect->close();
-
-    // Redirect to the login page
-    header("Location: login.php");
     exit();
 }
 
