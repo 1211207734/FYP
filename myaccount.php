@@ -36,12 +36,7 @@
 									<div class="square position-relative display-2 mb-3">
 										<i class="fas fa-fw fa-user position-absolute top-50 start-50 translate-middle text-secondary"></i>
 									</div>
-									<!-- Button -->
-									<input type="file" id="customFile" name="file" hidden="">
-									<label class="btn btn-success-soft btn-block" for="customFile">Upload</label>
-									<button type="button" class="btn btn-danger-soft">Remove</button>
 									<!-- Content -->
-									<p class="text-muted mt-3 mb-0"><span class="me-1">Note:</span>Minimum size 300px x 300px</p>
 								</div>
 							</div>
 						</div>
@@ -67,7 +62,7 @@
 								<!-- Email -->
 								<div class="col-md-6">
 									<label for="inputEmail4" class="form-label">Email :</label>
-									<div><?php echo $row['Customer_email']; ?></div>								</div>
+									<div><?php echo $row['Customer_email']; ?></div>
 								<!-- Mobile number -->
 								<div class="col-md-6">
 									<label class="form-label">Address :</label>

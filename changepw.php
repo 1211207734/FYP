@@ -81,8 +81,8 @@ if(isset($_POST['save'])) {
 	mysqli_query($connect,$sql);
 	if (mysqli_query($connect, $sql)) {
 		echo '<script type="text/javascript">';
-		echo 'alert("Password Updated Successfully.");';
 		echo 'window.location.href = "myaccount.php";';
+		echo 'alert("Password Updated Successfully.");';
 		echo '</script>';
 	
 	} else {
