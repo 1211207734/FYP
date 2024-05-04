@@ -8,9 +8,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST['password'];
 
     // Corrected SQL query syntax and added prepared statement
+    // Corrected SQL query syntax and added prepared statement
     $query = "SELECT Customer_email, Customer_password FROM customer WHERE Customer_email = ?";
-    
-    
     $stmt = mysqli_prepare($connect, $query);
     mysqli_stmt_bind_param($stmt, "s", $email);
     mysqli_stmt_execute($stmt);
@@ -24,11 +23,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (mysqli_num_rows($result) == 1) {
         $row = mysqli_fetch_assoc($result);
         $ppassword = $row['Customer_password'];
-        if ($password == $ppassword) {
+        if (password_verify($password, $ppassword)) { // Compare hashed password with user input using password_verify
             // Login successful
             // Redirect to home page or perform other actions
             header("Location: index.html");
-            $useraccount++;
             exit();
         } else {
             $error_message = "Invalid password";
@@ -36,6 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         $error_message = "Invalid email or password";
     }
+
     
 }
 
@@ -58,15 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])) {
     $address1 = $_POST['address1']; // Address Line 1
     $address2 = $_POST['address2']; // Address Line 2
     $postcode = $_POST['postcode']; // Postcode
-    // Assuming $password contains the password entered by the user during login
-    if (password_verify($password, $stored_hash)) {
-    // Password is correct, proceed with login
-    } else {
-    // Password is incorrect
-    }
-
-
-
+    
     $stmt->execute();
 
     echo "Registration successful";
