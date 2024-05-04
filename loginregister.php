@@ -159,7 +159,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])) {
                                                 <i class="input-icon uil uil-phone"></i>
                                             </div>
                                             <div class="form-group mt-2">
-                                                <input type="text" class="form-style" placeholder="Address" name="address" required>
+                                                <input type="text" class="form-style" placeholder="Address Line 1" name="address1" required>
+                                                <i class="input-icon uil uil-location-point"></i>
+                                            </div>
+                                            <div class="form-group mt-2">
+                                                <input type="text" class="form-style" placeholder="Address Line 2" name="address2" required>
+                                                <i class="input-icon uil uil-location-point"></i>
+                                            </div>
+                                            <div class="form-group mt-2">
+                                                <input type="text" class="form-style" placeholder="Postcode" name="postcode" required>
                                                 <i class="input-icon uil uil-location-point"></i>
                                             </div>
                                             <div class="form-group mt-2">
@@ -169,9 +177,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])) {
                                             <div class="form-group mt-2">
                                                 <input type="password" class="form-style" placeholder="Confirm Password" name="confirm_password" required>
                                                 <i class="input-icon uil uil-lock-alt"></i>
-                                                </div>
+                                            </div>
                                             <button type="submit" class="btn mt-4" name="register">Register</button>
                                         </form>
+
                                     </div>
                                 </div>
                             </div>
