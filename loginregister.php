@@ -58,6 +58,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])) {
     $address1 = $_POST['address1']; // Address Line 1
     $address2 = $_POST['address2']; // Address Line 2
     $postcode = $_POST['postcode']; // Postcode
+    // Assuming $password contains the password entered by the user during login
+    if (password_verify($password, $stored_hash)) {
+    // Password is correct, proceed with login
+    } else {
+    // Password is incorrect
+    }
+
 
 
     $stmt->execute();
