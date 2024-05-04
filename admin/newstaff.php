@@ -28,14 +28,6 @@
   <!-- jbplogo -->
   <link href="images/jbplogo.png" rel="shortcut icon" />
 
-  <!--
-    HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries
-  -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
   <script src="plugins/nprogress/nprogress.js"></script>
 </head>
 
@@ -56,7 +48,7 @@
                   </div>
                   <div class="card-body px-5 pb-5 pt-0">
                     <h4 class="text-dark text-center mb-5">New Staff Details</h4>
-                    <form action="/index.html" method="post">
+                    <form method="post">
                       <div class="row">
                         <div class="form-group col-md-12 mb-4">
                           <input type="text" class="form-control input-lg" id="fn" name="f" aria-describedby="nameHelp" placeholder="First Name">
@@ -93,7 +85,6 @@
                       $password=$_POST['password'];
                      
                       $sql="INSERT INTO admin (Fn,Ln,Un,email,np) VALUES ('$f','$l','$u','$email','$password')";
-                      mysqli_query($con,$sql);
                       if(mysqli_query($con,$sql)){
                         echo "<script>alert('New Staff Added Successfully')</script>";
                       }

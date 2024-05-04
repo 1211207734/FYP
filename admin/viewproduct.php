@@ -709,7 +709,7 @@
           <td><?php echo $row['Product_ID'];?></td>
           <td><?php echo $row['Product_price'];?></td>
           <td><?php echo $row['Product_stock'];?></td>
-          <td><?php echo $row['Product_ID'];?></td>
+          <td><?php echo $row['Category_name'];?></td>
           
           <td>
             <div class="dropdown">
