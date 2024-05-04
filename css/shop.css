@@ -1,5 +1,5 @@
 header {
-    background-color: #333;
+    background-color: #0a0a0a;
     color: #fff;
     padding: 20px;
     text-align: center;
@@ -14,13 +14,25 @@ body {
     text-align: left;
     background-color: #657886;
 }
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: black;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-right: 10px;
+}
 
+.button:hover {
+    background-color: #333;
+}
 .mt-50 {
-    margin-top: 50px;
+    margin-top: 100px;
 }
 
 .mb-50 {
-    margin-bottom: 50px;
+    margin-bottom: 100px;
 }
 
 .card {
@@ -78,4 +90,10 @@ body {
 
 a {
     text-decoration: none !important;
+}
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
 }

@@ -18,8 +18,11 @@
 				<hr>
 			</div>
             <?php
+			if (isset($_GET['eml'])) {
+				$emml = $_GET['eml'];}
+
 				$connect= mysqli_connect("localhost","root","","jbp");
-                $result = mysqli_query($connect, "SELECT * FROM customer where Customer_ID=1");
+                $result = mysqli_query($connect, "SELECT * FROM customer where Customer_email='$emml'");
                 while($row = mysqli_fetch_assoc($result)) {
             ?>
                 
