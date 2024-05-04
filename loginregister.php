@@ -6,8 +6,7 @@ $error_message = ''; // Define error message variable
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
     $password = $_POST['password'];
-
-    // Corrected SQL query syntax and added prepared statement
+    
     // Corrected SQL query syntax and added prepared statement
     $query = "SELECT Customer_email, Customer_password FROM customer WHERE Customer_email = ?";
     $stmt = mysqli_prepare($connect, $query);
