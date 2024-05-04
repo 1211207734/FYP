@@ -2,6 +2,7 @@
 include('database.php');
 
 $error_message = ''; // Define error message variable
+$success_message = ''; // Define success message variable
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
@@ -9,11 +10,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Corrected SQL query syntax and added prepared statement
     $query = "SELECT Customer_email, Customer_password FROM customer WHERE Customer_email = ?";
-    $q="SELECT email, np FROM admin WHERE email = ?";
-    
-   
-
-
     $stmt = mysqli_prepare($connect, $query);
     mysqli_stmt_bind_param($stmt, "s", $email);
     mysqli_stmt_execute($stmt);
@@ -39,20 +35,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         $error_message = "Invalid email or password";
     }
-    
 }
-
-// Registration form submission handling
 // Registration form submission handling
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])) {
     // Establish connection to the database
-    include('database.php'); // Include your database connection file here
+    include('database.php');
 
     // Prepare and bind parameters
     $stmt = $connect->prepare("INSERT INTO Customer (Customer_name, Customer_email, Customer_password, Customer_HP, Customer_address_1, Customer_address_2, Customer_postcode) VALUES (?, ?, ?, ?, ?, ?, ?)");
     $stmt->bind_param("sssssss", $fullname, $email, $npassword, $phone, $address1, $address2, $postcode);
 
-    /// Set parameters and execute
+    // Set parameters and execute
     $fullname = $_POST['fullname'];
     $email = $_POST['email'];
     $npassword = $_POST['password']; // Use $npassword instead of $password
@@ -63,18 +56,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])) {
     $address2 = $_POST['address2']; // Address Line 2
     $postcode = $_POST['postcode']; // Postcode
 
-
     $stmt->execute();
 
-    echo "Registration successful";
+    // Set the success message
+    $success_message = "Register Successfully!";
 
     // Close statement and connection
     $stmt->close();
     $connect->close();
-
-    // Redirect to the login page
-    header("Location: login.php");
-    exit();
 }
 ?>
 
@@ -182,8 +171,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])) {
                                             </div>
                                             <button type="submit" class="btn mt-4" name="register">Register</button>
                                         </form>
-
-
                                     </div>
                                 </div>
                             </div>
