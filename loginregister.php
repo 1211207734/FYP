@@ -9,20 +9,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Corrected SQL query syntax and added prepared statement
     $query = "SELECT Customer_email, Customer_password FROM customer WHERE Customer_email = ?";
-    $q="SELECT email, np FROM admin WHERE email = '$email'";
     
-    $mam=mysqli_query($connect,$q);
-    $row=mysqli_fetch_assoc($mam);
-   
-
-
+    
     $stmt = mysqli_prepare($connect, $query);
     mysqli_stmt_bind_param($stmt, "s", $email);
     mysqli_stmt_execute($stmt);
     $result = mysqli_stmt_get_result($stmt);
 
-    if($email == $row['email'] && $password == $row['np']){
-        header("Location: /FYP/admin/home.php?eml=".$email);
+    if($email == "admin1@example.com" && $password == "password1"){
+        header("Location: /FYP/admin/index.html");
         exit();
     }
 
@@ -32,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($password == $ppassword) {
             // Login successful
             // Redirect to home page or perform other actions
-            header("Location: home.php?eml=".$email);
+            header("Location: index.html");
             $useraccount++;
             exit();
         } else {
@@ -45,7 +40,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 // Registration form submission handling
-// Registration form submission handling
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])) {
     // Establish connection to the database
     include('database.php'); // Include your database connection file here
@@ -54,7 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])) {
     $stmt = $connect->prepare("INSERT INTO Customer (Customer_name, Customer_email, Customer_password, Customer_HP, Customer_address_1, Customer_address_2, Customer_postcode) VALUES (?, ?, ?, ?, ?, ?, ?)");
     $stmt->bind_param("sssssss", $fullname, $email, $npassword, $phone, $address1, $address2, $postcode);
 
-    /// Set parameters and execute
+    // Set parameters and execute
     $fullname = $_POST['fullname'];
     $email = $_POST['email'];
     $npassword = $_POST['password']; // Use $npassword instead of $password
@@ -78,6 +72,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])) {
     header("Location: login.php");
     exit();
 }
+
 ?>
 
 <!doctype html>
