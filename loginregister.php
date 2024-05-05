@@ -57,9 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])) {
     /// Set parameters and execute
     $fullname = $_POST['fullname'];
     $email = $_POST['email'];
-    $npassword = $_POST['password']; // Use $npassword instead of $password
-    // Hash password for security
-    $npassword = password_hash($npassword, PASSWORD_DEFAULT);
+    $npassword = $_POST['password']; // Use $npassword instead of $passwor
     $phone = $_POST['phone'];
     $address1 = $_POST['address1']; // Address Line 1
     $address2 = $_POST['address2']; // Address Line 2
