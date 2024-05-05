@@ -490,7 +490,7 @@ if (isset($_GET['eml'])) {
                 <h5 class="fs-5 mt-3">
                   <a href="single-product.html">Phone Cover 5.6 inches</a>
                 </h5>
-                <span>$95.00</span>
+                <span>RM 95.00</span>
               </div>
             </div>
           </div>
@@ -506,7 +506,7 @@ if (isset($_GET['eml'])) {
                 <h5 class="fs-5 mt-3">
                   <a href="single-product.html">Smart Phone 128GB RAM</a>
                 </h5>
-                <a href="#" class="text-decoration-none" data-after="Add to cart"><span>$55.00</span></a>
+                <a href="#" class="text-decoration-none" data-after="Add to cart"><span>RM 55.00</span></a>
               </div>
             </div>
           </div>
@@ -522,7 +522,7 @@ if (isset($_GET['eml'])) {
                 <h5 class="fs-5 mt-3">
                   <a href="single-product.html">Smart Phone 128GB RAM</a>
                 </h5>
-                <a href="#" class="text-decoration-none" data-after="Add to cart"><span>$55.00</span></a>
+                <a href="#" class="text-decoration-none" data-after="Add to cart"><span>RM 55.00</span></a>
               </div>
             </div>
           </div>
@@ -538,7 +538,7 @@ if (isset($_GET['eml'])) {
                 <h5 class="fs-5 mt-3">
                   <a href="single-product.html">Smart Phone 128GB RAM</a>
                 </h5>
-                <a href="#" class="text-decoration-none" data-after="Add to cart"><span>$55.00</span></a>
+                <a href="#" class="text-decoration-none" data-after="Add to cart"><span>RM55.00</span></a>
               </div>
             </div>
           </div>
@@ -554,7 +554,7 @@ if (isset($_GET['eml'])) {
                 <h5 class="fs-5 mt-3">
                   <a href="single-product.html">22 Inch LED Display</a>
                 </h5>
-                <a href="#" class="text-decoration-none" data-after="Add to cart"><span>$65.00</span></a>
+                <a href="#" class="text-decoration-none" data-after="Add to cart"><span>RM 65.00</span></a>
               </div>
             </div>
           </div>
@@ -585,7 +585,7 @@ if (isset($_GET['eml'])) {
                 <h5 class="fs-5 mt-3">
                   <a href="single-product.html">Phone Cover 5.6 inches</a>
                 </h5>
-                <a href="#" class="text-decoration-none" data-after="Add to cart"><span>$95.00</span></a>
+                <a href="#" class="text-decoration-none" data-after="Add to cart"><span>RM 95.00</span></a>
               </div>
             </div>
           </div>
@@ -601,7 +601,7 @@ if (isset($_GET['eml'])) {
                 <h5 class="fs-5 mt-3">
                   <a href="single-product.html">Smart Phone 128GB RAM</a>
                 </h5>
-                <a href="#" class="text-decoration-none" data-after="Add to cart"><span>$55.00</span></a>
+                <a href="#" class="text-decoration-none" data-after="Add to cart"><span>RM 55.00</span></a>
               </div>
             </div>
           </div>
@@ -617,7 +617,7 @@ if (isset($_GET['eml'])) {
                 <h5 class="fs-5 mt-3">
                   <a href="single-product.html">Smart Phone 128GB RAM</a>
                 </h5>
-                <a href="#" class="text-decoration-none" data-after="Add to cart"><span>$55.00</span></a>
+                <a href="#" class="text-decoration-none" data-after="Add to cart"><span>RM 55.00</span></a>
               </div>
             </div>
           </div>
@@ -633,7 +633,7 @@ if (isset($_GET['eml'])) {
                 <h5 class="fs-5 mt-3">
                   <a href="single-product.html">Phone Cover 5.6 inches</a>
                 </h5>
-                <a href="#" class="text-decoration-none" data-after="Add to cart"><span>$95.00</span></a>
+                <a href="#" class="text-decoration-none" data-after="Add to cart"><span>RM 95.00</span></a>
               </div>
             </div>
           </div>
@@ -649,7 +649,7 @@ if (isset($_GET['eml'])) {
                 <h5 class="fs-5 mt-3">
                   <a href="single-product.html">Smart Phone 128GB RAM</a>
                 </h5>
-                <a href="#" class="text-decoration-none" data-after="Add to cart"><span>$55.00</span></a>
+                <a href="#" class="text-decoration-none" data-after="Add to cart"><span>RM 55.00</span></a>
               </div>
             </div>
           </div>
@@ -665,7 +665,7 @@ if (isset($_GET['eml'])) {
                 <h5 class="fs-5 mt-3">
                   <a href="single-product.html">Smart Phone 128GB RAM</a>
                 </h5>
-                <a href="#" class="text-decoration-none" data-after="Add to cart"><span>$55.00</span></a>
+                <a href="#" class="text-decoration-none" data-after="Add to cart"><span>RM 55.00</span></a>
               </div>
             </div>
           </div>
@@ -681,7 +681,7 @@ if (isset($_GET['eml'])) {
                 <h5 class="fs-5 mt-3">
                   <a href="single-product.html">Smart Phone 128GB RAM</a>
                 </h5>
-                <a href="#" class="text-decoration-none" data-after="Add to cart"><span>$55.00</span></a>
+                <a href="#" class="text-decoration-none" data-after="Add to cart"><span>RM 55.00</span></a>
               </div>
             </div>
           </div>
@@ -697,7 +697,7 @@ if (isset($_GET['eml'])) {
                 <h5 class="fs-5 mt-3">
                   <a href="single-product.html">22 Inch LED Display</a>
                 </h5>
-                <a href="#" class="text-decoration-none" data-after="Add to cart"><span>$65.00</span></a>
+                <a href="#" class="text-decoration-none" data-after="Add to cart"><span>RM 65.00</span></a>
               </div>
             </div>
           </div>
