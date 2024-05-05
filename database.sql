@@ -3,14 +3,16 @@ CREATE DATABASE jbp;
 USE jbp;
 
 CREATE TABLE Admin (
-    Admin_ID INT AUTO_INCREMENT PRIMARY KEY,
-    Admin_username VARCHAR(50) NOT NULL,
-    Admin_password VARCHAR(50) NOT NULL
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    Fn text NOT NULL,
+    Ln text NOT NULL,
+    Un text NOT NULL,
+	email text NOT NULL,
+    np text NOT NULL
 );
 
-
-INSERT INTO Admin (Admin_username, Admin_password) 
-VALUES ('admin1', 'password1');
+INSERT INTO Admin (Fn,Ln,Un,email,np) 
+VALUES (1211208820,'brand','on','noprob madam','bbran@example.com','jkjk');
 
 
 CREATE TABLE Categories (
