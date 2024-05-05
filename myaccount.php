@@ -13,6 +13,7 @@
 	
 </header>
 
+
 			<div class="title">
 				<h3>My Profile Details</h3>
 				<hr>
@@ -25,7 +26,7 @@
                 $result = mysqli_query($connect, "SELECT * FROM customer where Customer_email='$emml'");
                 while($row = mysqli_fetch_assoc($result)) {
             ?>
-                
+				<body>
 					<!-- Upload profile -->
 					<div class="col-xxl-4">
 						<div class="bg-secondary-soft px-4 py-5 rounded">
@@ -43,41 +44,43 @@
 					</div>
 				 <!-- Row END -->				
 			
-			<!-- Form START -->
+					<!-- Form START -->
 					<!-- Contact detail -->
-						<div class="bg-secondary-soft px-4 py-5 rounded">
+						
 							<div class="row g-3">
 								<h4 class="mb-4 mt-0">Account details</h4>
 								<!-- First Name -->
-								<div class="col-md-6">
-									<label class="form-label">Full Name :</label><br>
+								<div class="ti">
+									<label class="ti">Full Name :</label><br>
 									<div><?php echo $row['Customer_name']; ?></div>
                                     
 								</div>	
 								<!-- Phone number -->
 								<div class="col-md-6">
-									<label class="form-label">Phone number :</label>
+									<label class="ti">Phone number :</label>
 									<div><?php echo $row['Customer_HP']; ?></div>
 								</div>
 								<!-- Email -->
 								<div class="col-md-6">
-									<label for="inputEmail4" class="form-label">Email :</label>
+									<label for="inputEmail4" class="ti">Email :</label>
 									<div><?php echo $row['Customer_email']; ?></div>
 								<!-- Mobile number -->
 								<div class="col-md-6">
-									<label class="form-label">Address :</label>
+									<label class="ti">Address :</label>
 									<div><?php echo $row['Customer_address_1']; ?></div>
 									<div><?php echo $row['Customer_address_2']; ?></div>
-									<div><?php echo $row['Customer_poscode']; ?></td></div>
+									<div><?php echo $row['Customer_postcode']; ?></td></div>
 								</div>
 								<br>
 								<div>
-									<a href="updateacc.php"><button type="button"class="fbut" >Update Profile Details</button></a>
+									<a href="updateacc.php?eml=<?php echo $emml?>"><button type="button"class="fbut" >Update Profile Details</button></a>
 									<a href="changepw.php"><button type="button"class="fbut" >Change Password</button></a>
 								</div>
-								
+								<br>
+								<br>
 							</div>
-						</div>
+					
+				</body>						
 			<?php } ?>
 <footer>
 	<p>&copy; 2024 JBPSTORE - Your Mobile Gadgets Shop. All rights reserved.</p>
