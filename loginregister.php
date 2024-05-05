@@ -20,6 +20,9 @@ if (isset($_POST['login'])) {
     $result = mysqli_stmt_get_result($stmt);
 
     if($email == $row['email'] && $password == $row['np']){
+        echo '<script type="text/javascript">
+    alert("Login successfully.");
+    </script>';
         header("Location: /FYP/admin/home.php?eml=".$email);
         exit();
     }
@@ -29,6 +32,9 @@ if (isset($_POST['login'])) {
         $ppassword = $row['Customer_password'];
         if ($password == $ppassword) {
             // Login successful
+            echo '<script type="text/javascript">
+    alert("Login successfully.");
+    </script>';
             // Redirect to home page or perform other actions
             header("Location: home.php?eml=".$email);
             $useraccount++;
@@ -64,7 +70,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])) {
 
     $stmt->execute();
 
-    echo "Registration successful";
+    echo '<script type="text/javascript">
+    alert("Register successfully.");
+    </script>';
 
     // Close statement and connection
     $stmt->close();
