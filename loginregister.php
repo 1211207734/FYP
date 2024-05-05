@@ -14,8 +14,6 @@ if (isset($_POST['login'])) {
     $mam=mysqli_query($connect,$q);
     $row=mysqli_fetch_assoc($mam);
    
-
-
     $stmt = mysqli_prepare($connect, $query);
     mysqli_stmt_bind_param($stmt, "s", $email);
     mysqli_stmt_execute($stmt);
