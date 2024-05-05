@@ -3,7 +3,6 @@ body
     background-color: #4d4f6b;
     color: #ffffff;
     line-height: 1.8;
-
 }
 .title {
     text-align: center;
@@ -13,6 +12,12 @@ body
     font-weight: bold;
 }
 
+.ti {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 20px ;
+    font-weight: bold;
+
+}
     .rounded {
         border-radius: 5px !important;
     }

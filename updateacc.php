@@ -40,7 +40,14 @@
 			$connect= mysqli_connect("localhost","root","","jbp");
 			$result = mysqli_query($connect, "SELECT * FROM customer where Customer_ID=1");
 			while($row = mysqli_fetch_assoc($result)) {
-		?>			
+		?>
+		<?php
+			include('database.php');
+			if (isset($_GET['eml'])) {
+				$emml = $_GET['eml'];}
+
+		?>	
+				<body>		
 					<!-- Upload profile -->
 					<div class="col-xxl-4">
 						<div class="bg-secondary-soft px-4 py-5 rounded">
@@ -90,7 +97,7 @@
 							</div>
 						</div>
 					</div>
-					<form>
+					<form method="post">
 						<div class="bg-secondary-soft px-4 py-5 rounded">
 								<h4 class="mb-4 mt-0">Account details</h4>
 								<!-- First Name -->
@@ -114,15 +121,16 @@
 									<label class="form-label">Address *</label>
 									<input type="text" class="form-control" placeholder="" aria-label="Address 1" name="a1" value="<?php echo $row['Customer_address_1']; ?>">
 									<input type="text" class="form-control" placeholder="" aria-label="Address 2" name="a2" value="<?php echo $row['Customer_address_2']; ?>">
-									<input type="text" class="form-control" placeholder="" aria-label="Poscode" name="pos" value="<?php echo $row['Customer_poscode']; ?>">			
+									<input type="text" class="form-control" placeholder="" aria-label="Poscode" name="pos" value="<?php echo $row['Customer_postcode']; ?>">			
 								</div>
 								<br>
 								<div>
-									<a href="myaccount.php"><button type="button"class="rbut" >Cancel</button></a>
+									<a href="myaccount.php?eml=<?php echo $emml?>"><button type="button"class="rbut" >Cancel</button></a>
 									<button type="submit" class="but" name="save" >Save Changes</button>
 								</div>
 						</div> <!-- Row END -->
 					</form>	
+				</body>					
 	<?php }
 	if(isset($_POST['save'])) {
 		// Retrieve form data
@@ -141,7 +149,7 @@
 	
 
 		// Prepare SQL statement
-		$sql = "UPDATE `customer` SET Customer_name='$f', Customer_HP='$p', Customer_email='$email', Customer_address_1='$a1', Customer_address_2='$a2', Customer_poscode='$pos' WHERE Customer_ID = 1";
+		$sql = "UPDATE `customer` SET Customer_name='$f', Customer_HP='$p', Customer_email='$email', Customer_address_1='$a1', Customer_address_2='$a2', Customer_postcode='$pos' WHERE Customer_ID = 1";
 		mysqli_query($connect,$sql);
 		if (mysqli_query($connect, $sql))
 		{
