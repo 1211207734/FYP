@@ -1,47 +1,50 @@
 <?php 
 include('database.php');
 
-$error_message = '';
+$error_message = ''; // Define error message variable
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if (isset($_POST['login'])) {
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    try {
-        // Corrected SQL query syntax and added prepared statement
-        $query = "SELECT Customer_email, Customer_password FROM customer WHERE Customer_email = ?";
-        $stmt = mysqli_prepare($connect, $query);
-        mysqli_stmt_bind_param($stmt, "s", $email);
-        mysqli_stmt_execute($stmt);
-        $result = mysqli_stmt_get_result($stmt);
-    } catch (mysqli_sql_exception $e) {
-        // Handle any database errors here
-        echo "MySQL Error: " . $e->getMessage();
-    }
+    // Corrected SQL query syntax and added prepared statement
+    $query = "SELECT Customer_email, Customer_password FROM customer WHERE Customer_email = ?";
+    $q="SELECT email, np FROM admin WHERE email = '$email'";
+    
+    $mam=mysqli_query($connect,$q);
+    $row=mysqli_fetch_assoc($mam);
+   
 
-    if($email == "admin1@example.com" && $password == "password1"){
-        header("Location: /FYP/admin/index.html");
+
+    $stmt = mysqli_prepare($connect, $query);
+    mysqli_stmt_bind_param($stmt, "s", $email);
+    mysqli_stmt_execute($stmt);
+    $result = mysqli_stmt_get_result($stmt);
+
+    if($email == $row['email'] && $password == $row['np']){
+        header("Location: /FYP/admin/home.php?eml=".$email);
         exit();
     }
 
     if (mysqli_num_rows($result) == 1) {
         $row = mysqli_fetch_assoc($result);
         $ppassword = $row['Customer_password'];
-        if (password_verify($password, $ppassword)) { // Compare hashed password with user input using password_verify
+        if ($password == $ppassword) {
             // Login successful
             // Redirect to home page or perform other actions
-            header("Location: home.php");
+            header("Location: home.php?eml=".$email);
+            $useraccount++;
             exit();
+        } else {
+            $error_message = "Invalid password";
         }
-    } 
-    else 
-    {
+    } else {
         $error_message = "Invalid email or password";
     }
-
     
 }
 
+// Registration form submission handling
 // Registration form submission handling
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])) {
     // Establish connection to the database
@@ -49,28 +52,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])) {
 
     // Prepare and bind parameters
     $stmt = $connect->prepare("INSERT INTO Customer (Customer_name, Customer_email, Customer_password, Customer_HP, Customer_address_1, Customer_address_2, Customer_postcode) VALUES (?, ?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("sssssss", $fullname, $email, $hashed_password, $phone, $address1, $address2, $postcode);
+    $stmt->bind_param("sssssss", $fullname, $email, $npassword, $phone, $address1, $address2, $postcode);
 
-    // Set parameters and execute
+    /// Set parameters and execute
     $fullname = $_POST['fullname'];
     $email = $_POST['email'];
-    $plain_password = $_POST['password']; // Use $plain_password instead of $password
+    $npassword = $_POST['password']; // Use $npassword instead of $password
     // Hash password for security
-    $hashed_password = password_hash($plain_password, PASSWORD_DEFAULT); // Store the hashed password in a separate variable
+    $npassword = password_hash($npassword, PASSWORD_DEFAULT);
     $phone = $_POST['phone'];
     $address1 = $_POST['address1']; // Address Line 1
     $address2 = $_POST['address2']; // Address Line 2
     $postcode = $_POST['postcode']; // Postcode
 
+
     $stmt->execute();
 
-    echo "<script>alert('Registration successful');</script>";
+    echo "Registration successful";
+
     // Close statement and connection
     $stmt->close();
     $connect->close();
+
+    // Redirect to the login page
+    header("Location: loginregister.php");
     exit();
 }
-
 ?>
 
 <!doctype html>
@@ -107,7 +114,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])) {
                                                 <input type="password" class="form-style" placeholder="Password" name="password" required>
                                                 <i class="input-icon uil uil-lock-alt"></i>
                                             </div>
-                                            <button type="submit" class="btn mt-4">Login</button>
+                                            <button type="submit" name="login" class="btn mt-4">Login</button>
                                             <script>
                                                 document.getElementById("loginButton").addEventListener("click", function(event) {
                                                     // Prevent the default form submission behavior
@@ -142,7 +149,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])) {
                                     <div class="section text-center">
                                         <h4 class="mb-3 pb-3">Sign Up</h4>
                                         <!-- Sign Up section -->
-                                        <form method="post" action="" id="signupForm">
+                                        <form method="post" action="">
                                             <div class="form-group">
                                                 <input type="text" class="form-style" placeholder="Full Name" name="fullname" required>
                                                 <i class="input-icon uil uil-user"></i>
@@ -168,28 +175,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])) {
                                                 <i class="input-icon uil uil-location-point"></i>
                                             </div>
                                             <div class="form-group mt-2">
-                                                <input type="password" class="form-style" placeholder="Password" name="password" id="password" required>
+                                                <input type="password" class="form-style" placeholder="Password" name="password" required>
                                                 <i class="input-icon uil uil-lock-alt"></i>
                                             </div>
                                             <div class="form-group mt-2">
-                                                <input type="password" class="form-style" placeholder="Confirm Password" name="confirm_password" id="confirmPassword" required>
+                                                <input type="password" class="form-style" placeholder="Confirm Password" name="confirm_password" required>
                                                 <i class="input-icon uil uil-lock-alt"></i>
                                             </div>
                                             <button type="submit" class="btn mt-4" name="register">Register</button>
                                         </form>
 
-                                        <script>
-                                            document.getElementById('signupForm').addEventListener('submit', function(event) {
-                                                var password = document.getElementById('password').value;
-                                                var confirmPassword = document.getElementById('confirmPassword').value;
 
-                                                // Check if passwords match
-                                                if (password !== confirmPassword) {
-                                                    alert('Passwords do not match. Please try again.');
-                                                    event.preventDefault(); // Prevent form submission
-                                                }
-                                            });
-                                        </script>
                                     </div>
                                 </div>
                             </div>
