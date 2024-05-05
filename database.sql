@@ -6,11 +6,12 @@ CREATE TABLE Admin (
     id INT AUTO_INCREMENT PRIMARY KEY,
     Fn text NOT NULL,
     Ln text NOT NULL,
+    Un text NOT NULL,
 	email text NOT NULL,
     np text NOT NULL
 );
 
-INSERT INTO Admin (Fn,Ln,email,np) 
+INSERT INTO Admin (Fn,Ln,Un,email,np) 
 VALUES (1211208820,'brand','on','noprob madam','bbran@example.com','jkjk');
 
 
