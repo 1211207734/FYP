@@ -47,8 +47,6 @@ if (isset($_POST['login'])) {
     }
     
 }
-
-// Registration form submission handling
 // Registration form submission handling
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])) {
     // Establish connection to the database
