@@ -37,14 +37,14 @@
 	<hr>
 </div>
 		<?php
+		if (isset($_GET['eml'])) {
+			$emml = $_GET['eml'];}
 			$connect= mysqli_connect("localhost","root","","jbp");
-			$result = mysqli_query($connect, "SELECT * FROM customer where Customer_ID=1");
+			$result = mysqli_query($connect, "SELECT * FROM customer where Customer_email='$emml'");
 			while($row = mysqli_fetch_assoc($result)) {
-		?>
-		<?php
+		
 			include('database.php');
-			if (isset($_GET['eml'])) {
-				$emml = $_GET['eml'];}
+			
 
 		?>	
 				<body>		
@@ -156,7 +156,7 @@
 		
 			echo '<script type="text/javascript">
 			alert("Profile Updated Successfully.");</script>';
-			header("refresh:0.5; url=myaccount.php?eml=".$emml);
+			header("refresh:0.5; location=myaccount.php?eml=".$email);
 		
 		} else {
 		echo '<script type="text/javascript">
