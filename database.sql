@@ -11,7 +11,7 @@ CREATE TABLE Admin (
     np text NOT NULL
 );
 
-INSERT INTO Admin (Fn,Ln,Un,email,np) 
+INSERT INTO Admin (id,Fn,Ln,Un,email,np) 
 VALUES (1211208820,'brand','on','noprob madam','bbran@example.com','jkjk');
 
 
