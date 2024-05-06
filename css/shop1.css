@@ -9,7 +9,10 @@ body {
     color: #444444;
 }
 
-a,
+.product-image{
+    width: 50px;
+}
+
 a:hover {
     text-decoration: none;
     color: inherit;
