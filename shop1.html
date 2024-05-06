@@ -40,7 +40,10 @@
                                     <h3 class="product-title"><?php echo $row['Product_name']?></h3>
                                     <p class="product-details"><?php echo $row['Product_details']?></p>
                                     <p class="product-price">RM <?php echo $row['Product_price']?></p>
-                                    <button class="button">Add to Cart</button>
+                                    <button class="button-2" role="button">Add to Cart</button>
+                                    <br>
+                                    <br>
+                                    <br>
                                 </div>
                             </div>
                         </div>
@@ -52,6 +55,7 @@
                         <h2><u>Tablets</u></h2>
             <div class="product-grid">
                 <!-- Category ID=2-->
+                <br>
                 <?php
                     include('database.php');
                     $query = "SELECT Product_name, Product_details, Product_price FROM Products WHERE category_id = 2";
@@ -65,7 +69,10 @@
                                     <h3 class="product-title"><?php echo $row['Product_name']?></h3>
                                     <p class="product-details"><?php echo $row['Product_details']?></p>
                                     <p class="product-price">RM <?php echo $row['Product_price']?></p>
-                                    <button class="button">Add to Cart</button>
+                                    <button class="button-2" role="button">Add to Cart</button>
+                                    <br>
+                                    <br>
+                                    <br>
                                 </div>
                             </div>
                         </div>
@@ -77,6 +84,7 @@
                         <h2><u>Accessories</u></h2>
             <div class="product-grid">
                 <!-- Category ID=3-->
+                <br>
                 <?php
                     include('database.php');
                     $query = "SELECT Product_name, Product_details, Product_price FROM Products WHERE category_id = 3";
@@ -90,7 +98,10 @@
                                     <h3 class="product-title"><?php echo $row['Product_name']?></h3>
                                     <p class="product-details"><?php echo $row['Product_details']?></p>
                                     <p class="product-price">RM <?php echo $row['Product_price']?></p>
-                                    <button class="button">Add to Cart</button>
+                                    <button class="button-2" role="button">Add to Cart</button>
+                                    <br>
+                                    <br>
+                                    <br>
                                 </div>
                             </div>
                         </div>
@@ -102,6 +113,7 @@
                         <h2><u>Wearables</u></h2>
             <div class="product-grid">
                 <!-- Category ID=4-->
+                <br>
                 <?php
                     include('database.php');
                     $query = "SELECT Product_name, Product_details, Product_price FROM Products WHERE category_id = 4";
@@ -115,7 +127,10 @@
                                     <h3 class="product-title"><?php echo $row['Product_name']?></h3>
                                     <p class="product-details"><?php echo $row['Product_details']?></p>
                                     <p class="product-price">RM <?php echo $row['Product_price']?></p>
-                                    <button class="button">Add to Cart</button>
+                                    <button class="button-2" role="button">Add to Cart</button>
+                                    <br>
+                                    <br>
+                                    <br>
                                 </div>
                             </div>
                         </div>
@@ -127,6 +142,7 @@
                         <h2><u>Earphones</u></h2>
             <div class="product-grid">
                 <!-- Category ID=5-->
+                <br>
                 <?php
                     include('database.php');
                     $query = "SELECT Product_name, Product_details, Product_price FROM Products WHERE category_id = 5";
@@ -140,7 +156,10 @@
                                     <h3 class="product-title"><?php echo $row['Product_name']?></h3>
                                     <p class="product-details"><?php echo $row['Product_details']?></p>
                                     <p class="product-price">RM <?php echo $row['Product_price']?></p>
-                                    <button class="button">Add to Cart</button>
+                                    <button class="button-2" role="button">Add to Cart</button>
+                                    <br>
+                                    <br>
+                                    <br>
                                 </div>
                             </div>
                         </div>
@@ -152,6 +171,7 @@
                         <h2><u>Powerbanks</u></h2>
             <div class="product-grid">
                 <!-- Category ID=6-->
+                <br>
                 <?php
                     include('database.php');
                     $query = "SELECT Product_name, Product_details, Product_price FROM Products WHERE category_id = 6";
@@ -165,7 +185,10 @@
                                     <h3 class="product-title"><?php echo $row['Product_name']?></h3>
                                     <p class="product-details"><?php echo $row['Product_details']?></p>
                                     <p class="product-price">RM <?php echo $row['Product_price']?></p>
-                                    <button class="button">Add to Cart</button>
+                                    <button class="button-2" role="button">Add to Cart</button>
+                                    <br>
+                                    <br>
+                                    <br>
                                 </div>
                             </div>
                         </div>
@@ -177,6 +200,7 @@
                         <h2><u>Speakers</u></h2>
             <div class="product-grid">
                 <!-- Category ID=7-->
+                <br>
                 <?php
                     include('database.php');
                     $query = "SELECT Product_name, Product_details, Product_price FROM Products WHERE category_id = 7";
@@ -190,7 +214,10 @@
                                     <h3 class="product-title"><?php echo $row['Product_name']?></h3>
                                     <p class="product-details"><?php echo $row['Product_details']?></p>
                                     <p class="product-price">RM <?php echo $row['Product_price']?></p>
-                                    <button class="button">Add to Cart</button>
+                                    <button class="button-2" role="button">Add to Cart</button>
+                                    <br>
+                                    <br>
+                                    <br>
                                 </div>
                             </div>
                         </div>
@@ -202,6 +229,7 @@
                         <h2><u>Phone stands</u></h2>
             <div class="product-grid">
                 <!-- Category ID=8-->
+                <br>
                 <?php
                     include('database.php');
                     $query = "SELECT Product_name, Product_details, Product_price FROM Products WHERE category_id = 8";
@@ -215,7 +243,10 @@
                                     <h3 class="product-title"><?php echo $row['Product_name']?></h3>
                                     <p class="product-details"><?php echo $row['Product_details']?></p>
                                     <p class="product-price">RM <?php echo $row['Product_price']?></p>
-                                    <button class="button">Add to Cart</button>
+                                    <button class="button-2" role="button">Add to Cart</button>
+                                    <br>
+                                    <br>
+                                    <br>
                                 </div>
                             </div>
                         </div>
@@ -227,6 +258,7 @@
                         <h2><u>Storage extender</u></h2>
             <div class="product-grid">
                 <!-- Category ID=9-->
+                <br>
                 <?php
                     include('database.php');
                     $query = "SELECT Product_name, Product_details, Product_price FROM Products WHERE category_id = 9";
@@ -240,7 +272,10 @@
                                     <h3 class="product-title"><?php echo $row['Product_name']?></h3>
                                     <p class="product-details"><?php echo $row['Product_details']?></p>
                                     <p class="product-price">RM <?php echo $row['Product_price']?></p>
-                                    <button class="button">Add to Cart</button>
+                                    <button class="button-2" role="button">Add to Cart</button>
+                                    <br>
+                                    <br>
+                                    <br>
                                 </div>
                             </div>
                         </div>
@@ -252,6 +287,7 @@
                         <h2><u>Mobile Photography accessories</u></h2>
             <div class="product-grid">
                 <!-- Category ID=10-->
+                <br>
                 <?php
                     include('database.php');
                     $query = "SELECT Product_name, Product_details, Product_price FROM Products WHERE category_id = 10";
@@ -265,7 +301,10 @@
                                     <h3 class="product-title"><?php echo $row['Product_name']?></h3>
                                     <p class="product-details"><?php echo $row['Product_details']?></p>
                                     <p class="product-price">RM <?php echo $row['Product_price']?></p>
-                                    <button class="button">Add to Cart</button>
+                                    <button class="button-2" role="button">Add to Cart</button>
+                                    <br>
+                                    <br>
+                                    <br>
                                 </div>
                             </div>
                         </div>
