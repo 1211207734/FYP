@@ -46,7 +46,7 @@
 			
 			
 
-		?>	
+				?>
 				<body>		
 					<!-- Upload profile -->
 					<div class="col-xxl-4">
@@ -131,7 +131,8 @@
 						</div> <!-- Row END -->
 					</form>	
 				</body>					
-	<?php }
+
+				<?php }
 	if(isset($_POST['save'])) {
 		// Retrieve form data
 		$f = $_POST['fullname'];
@@ -156,7 +157,7 @@
 		
 			echo '<script type="text/javascript">
 			alert("Profile Updated Successfully.");</script>';
-			header("refresh:0.5; location=myaccount.php?eml=".$email);
+			header("location:myaccount.php?eml=.$email");
 		
 		} else {
 		echo "<script type='text/javascript'>

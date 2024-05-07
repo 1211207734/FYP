@@ -12,7 +12,7 @@
             <h1>JBP<span>STORE</span></h1>
         </div>
     </header>
-    
+<form method="post"> 
     <section class="section-products">
         <div class="container">
             <div class="row justify-content-center text-center">
@@ -36,11 +36,11 @@
                             <div class="card">
                                 <div class="card-body">
                                     <!-- Product Details -->
-                                    <img src="images/<?php echo $row['Product_name']?>.jpg" alt="<?php echo $row['Product_name']?>" class="product-image">
+                                    <img src="images/<?php echo $row['Product_name']?>.jpg" alt="<?php echo $row['Product_name']?>" class="product-image" $productName = "na">
                                     <h3 class="product-title"><?php echo $row['Product_name']?></h3>
                                     <p class="product-details"><?php echo $row['Product_details']?></p>
                                     <p class="product-price">RM <?php echo $row['Product_price']?></p>
-                                    <button class="button-2" role="button">Add to Cart</button>
+                                    <button class="button-2" role="button" name="add" >Add to Cart</button>
                                     <br>
                                     <br>
                                     <br>
@@ -65,11 +65,11 @@
                             <div class="card">
                                 <div class="card-body">
                                     <!-- Product Details -->
-                                    <img src="images/<?php echo $row['Product_name']?>.jpg" alt="<?php echo $row['Product_name']?>" class="product-image">
+                                    <img src="images/<?php echo $row['Product_name']?>.jpg" alt="<?php echo $row['Product_name']?>" class="product-image"name="na">
                                     <h3 class="product-title"><?php echo $row['Product_name']?></h3>
                                     <p class="product-details"><?php echo $row['Product_details']?></p>
                                     <p class="product-price">RM <?php echo $row['Product_price']?></p>
-                                    <button class="button-2" role="button">Add to Cart</button>
+                                    <button class="button-2" role="button" name="add" >Add to Cart</button>
                                     <br>
                                     <br>
                                     <br>
@@ -94,11 +94,11 @@
                             <div class="card">
                                 <div class="card-body">
                                     <!-- Product Details -->
-                                    <img src="images/<?php echo $row['Product_name']?>.jpg" alt="<?php echo $row['Product_name']?>" class="product-image">
+                                    <img src="images/<?php echo $row['Product_name']?>.jpg" alt="<?php echo $row['Product_name']?>" class="product-image"name="na">
                                     <h3 class="product-title"><?php echo $row['Product_name']?></h3>
                                     <p class="product-details"><?php echo $row['Product_details']?></p>
                                     <p class="product-price">RM <?php echo $row['Product_price']?></p>
-                                    <button class="button-2" role="button">Add to Cart</button>
+                                    <button class="button-2" role="button" name="add" >Add to Cart</button>
                                     <br>
                                     <br>
                                     <br>
@@ -123,7 +123,7 @@
                             <div class="card">
                                 <div class="card-body">
                                     <!-- Product Details -->
-                                    <img src="images/<?php echo $row['Product_name']?>.jpg" alt="<?php echo $row['Product_name']?>" class="product-image">
+                                    <img src="images/<?php echo $row['Product_name']?>.jpg" alt="<?php echo $row['Product_name']?>" class="product-image"name="na">
                                     <h3 class="product-title"><?php echo $row['Product_name']?></h3>
                                     <p class="product-details"><?php echo $row['Product_details']?></p>
                                     <p class="product-price">RM <?php echo $row['Product_price']?></p>
@@ -156,7 +156,7 @@
                                     <h3 class="product-title"><?php echo $row['Product_name']?></h3>
                                     <p class="product-details"><?php echo $row['Product_details']?></p>
                                     <p class="product-price">RM <?php echo $row['Product_price']?></p>
-                                    <button class="button-2" role="button">Add to Cart</button>
+                                    <button class="button-2" role="button" name="add" >Add to Cart</button>
                                     <br>
                                     <br>
                                     <br>
@@ -185,7 +185,7 @@
                                     <h3 class="product-title"><?php echo $row['Product_name']?></h3>
                                     <p class="product-details"><?php echo $row['Product_details']?></p>
                                     <p class="product-price">RM <?php echo $row['Product_price']?></p>
-                                    <button class="button-2" role="button">Add to Cart</button>
+                                    <button class="button-2" role="button" name="add" >Add to Cart</button>
                                     <br>
                                     <br>
                                     <br>
@@ -214,7 +214,7 @@
                                     <h3 class="product-title"><?php echo $row['Product_name']?></h3>
                                     <p class="product-details"><?php echo $row['Product_details']?></p>
                                     <p class="product-price">RM <?php echo $row['Product_price']?></p>
-                                    <button class="button-2" role="button">Add to Cart</button>
+                                    <button class="button-2" role="button" name="add" >Add to Cart</button>
                                     <br>
                                     <br>
                                     <br>
@@ -243,7 +243,7 @@
                                     <h3 class="product-title"><?php echo $row['Product_name']?></h3>
                                     <p class="product-details"><?php echo $row['Product_details']?></p>
                                     <p class="product-price">RM <?php echo $row['Product_price']?></p>
-                                    <button class="button-2" role="button">Add to Cart</button>
+                                    <button class="button-2" role="button" name="add" >Add to Cart</button>
                                     <br>
                                     <br>
                                     <br>
@@ -272,7 +272,7 @@
                                     <h3 class="product-title"><?php echo $row['Product_name']?></h3>
                                     <p class="product-details"><?php echo $row['Product_details']?></p>
                                     <p class="product-price">RM <?php echo $row['Product_price']?></p>
-                                    <button class="button-2" role="button">Add to Cart</button>
+                                    <button class="button-2" role="button" name="add" >Add to Cart</button>
                                     <br>
                                     <br>
                                     <br>
@@ -301,7 +301,7 @@
                                     <h3 class="product-title"><?php echo $row['Product_name']?></h3>
                                     <p class="product-details"><?php echo $row['Product_details']?></p>
                                     <p class="product-price">RM <?php echo $row['Product_price']?></p>
-                                    <button class="button-2" role="button">Add to Cart</button>
+                                    <button class="button-2" name="add" role="button">Add to Cart</button>
                                     <br>
                                     <br>
                                     <br>
@@ -314,7 +314,36 @@
             </div>
         </div>
     </section>
+</form>
+    <?php
 
+if (isset($_GET['eml'])) {
+	$emml = $_GET['eml'];}
+$connect= mysqli_connect("localhost","root","","jbp");
+if(isset($_POST['add'])) {
+	// Retrieve form data
+	$n = $_POST['na'];
+
+	// Prepare SQL statement
+	$sql = "INSERT INTO cart (cp_ID) values ('$n')";
+	
+	if (mysqli_query($connect, $sql))
+	{
+	
+		echo"<script type='text/javascript'>
+		alert('Product Added to Cart Succesfully!');</script>";
+		header("location:cart.php?eml=".$emml);
+		echo"<script>location.reload();</script>";
+		
+	
+	} else {
+	echo "<script type='text/javascript'>
+	alert('Error executing SQL statement:'.mysqli_error($connect));
+	</script>";
+	}	
+	
+		
+} ?>						
     <footer>
         <p>&copy; 2024 JBPSTORE - Your Mobile Gadgets Shop. All rights reserved.</p>
     </footer>
