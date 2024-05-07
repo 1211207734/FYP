@@ -149,16 +149,14 @@
 	
 
 		// Prepare SQL statement
-		$sql = "UPDATE `customer` SET Customer_name='$f', Customer_HP='$p', Customer_email='$email', Customer_address_1='$a1', Customer_address_2='$a2', Customer_postcode='$pos' WHERE Customer_email = '$emml'";
+		$sql = "UPDATE `customer` SET Customer_name='$f', Customer_HP='$p', Customer_email='$email', Customer_address_1='$a1', Customer_address_2='$a2', Customer_postcode='$pos' WHERE Customer_email='$emml'";
 		mysqli_query($connect,$sql);
 		if (mysqli_query($connect, $sql))
 		{
 		
-			echo"<script type='text/javascript'>
-			alert('Profile Updated Successfully.');</script>";
-			header("location:myaccount.php?eml=".$email);
-			echo"<script>location.reload();";
-			
+			echo '<script type="text/javascript">
+			alert("Profile Updated Successfully.");</script>';
+			header("refresh:0.5; location=myaccount.php?eml=".$email);
 		
 		} else {
 		echo "<script type='text/javascript'>

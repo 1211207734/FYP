@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <?php if (isset($_GET['eml'])) {
-					$emml = $_GET['eml'];}
-          ?>
+					$emml = $_GET['eml'];}?>
   
 
 <html lang="en" dir="ltr">
@@ -360,7 +359,7 @@
                 <span class="sr-only">Toggle navigation</span>
               </button>
 
-              <span class="page-title">Product</span>
+              <span class="page-title">Customer</span>
 
               <div class="navbar-right ">
 
@@ -705,7 +704,7 @@
 <!-- Products Inventory -->
 <div class="card card-default">
   <div class="card-header">
-    <h2>Products Inventory</h2>
+    <h2>Customer List</h2>
 
    
 
@@ -714,29 +713,27 @@
     <table id="productsTable" class="table table-hover table-product" style="width:100%">
       <thead>
         <tr>
-          <th>Image</th>
-          <th>Product Name</th>
-          <th>Price</th>
-          <th>In Stock</th>
-          <th>Category</th>
+          <th>Customer Name</th>
+          <th>Customer Email</th>
+          <th>Customer HP</th>
+          <th>Customer Address</th>
+          <th>Postcode</th>
           <th></th>
         </tr>
       </thead>
       <tbody>
       <?php
-    $sql = "SELECT Product_name,Product_price,Product_stock,Category_name FROM products INNER JOIN categories ON products.Category_ID=categories.Category_ID ";
+    $sql = "SELECT Customer_name,Customer_email,Customer_HP,Customer_address_1,Customer_address_2,Customer_postcode FROM customer";
     $result = mysqli_query($connect, $sql);
     while($row = mysqli_fetch_assoc($result)){
     ?>
         <tr>
-          <td class="py-0">
-            <img src="images/products/products-xs-01.jpg" alt="Product Image">
-          </td>
-          <td><?php echo $row['Product_name'];?></td>
-          <td><?php echo $row['Product_price'];?></td>
-          <td><?php echo $row['Product_stock'];?></td>
-          <td><?php echo $row['Category_name'];?></td>
           
+          <td><?php echo $row['Customer_name'];?></td>
+          <td><?php echo $row['Customer_email'];?></td>
+          <td><?php echo $row['Customer_HP'];?></td>
+          <td><?php echo $row['Customer_address_1']," ",$row['Customer_address_2'];?></td>
+          <td><?php echo $row['Customer_postcode'];?></td>
           <td>
             <div class="dropdown">
               <a class="dropdown-toggle icon-burger-mini" href="#" role="button" id="dropdownMenuLink"
