@@ -156,15 +156,14 @@
 		
 			echo '<script type="text/javascript">
 			alert("Profile Updated Successfully.");</script>';
-			header("Location: myaccount.php?eml=".$email);
-			//header( "refresh:.1; url=myaccount.php?eml=".$email);
-			
+			header("refresh:0.5; location=myaccount.php?eml=".$email);
 		
 		} else {
-		echo '<script type="text/javascript">
-		alert("Error executing SQL statement: " . mysqli_error($connect));
-		</script>';
+		echo "<script type='text/javascript'>
+		alert('Error executing SQL statement:'.mysqli_error($connect));
+		</script>";
 		}	
+		
 		
 		
 	} ?>						

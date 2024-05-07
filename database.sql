@@ -22,6 +22,10 @@ CREATE TABLE Categories (
 
 INSERT INTO Categories (Category_name) VALUES ('Smartphones'), ('Tablets'), ('Accessories'), ('Wearables'), ('Earphones'), ('Powerbanks'), ('Speakers'), ('Phone stands'), ('Storage extender'), ('Mobile Photography accessories');
 
+CREATE TABLE CART (
+    cp_ID INT PRIMARY KEY
+);
+
 CREATE TABLE Customer (
     Customer_ID INT AUTO_INCREMENT PRIMARY KEY,
     Customer_name VARCHAR(50) NOT NULL,

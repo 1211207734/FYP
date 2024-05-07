@@ -74,7 +74,7 @@
 								<br>
 								<div>
 									<a href="updateacc.php?eml=<?php echo $emml?>"><button type="button"class="fbut" >Update Profile Details</button></a>
-									<a href="changepw.php"><button type="button"class="fbut" >Change Password</button></a>
+									<a href="changepw.php?eml=<?php echo $emml?>"><button type="button"class="fbut" >Change Password</button></a>
 								</div>
 								<br>
 								<br>

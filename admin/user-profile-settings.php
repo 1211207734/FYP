@@ -45,6 +45,9 @@
       NProgress.start();
     </script>
 
+    <?php 				if (isset($_GET['eml'])) {
+					$emml = $_GET['eml'];}?>
+
     
 
     <!-- ====================================
@@ -60,7 +63,7 @@
           <div id="sidebar" class="sidebar sidebar-with-footer">
             <!-- Aplication Brand -->
             <div class="app-brand">
-              <a href="/index.html">
+              <a href="/index.php">
                 <img src="images/jbplogo.png" alt=" JBPstore">
                 <span class="brand-name"> JBPstore</span>
               </a>
@@ -74,7 +77,7 @@
                 
                   <li
                    >
-                    <a class="sidenav-item-link" href="index.html">
+                    <a class="sidenav-item-link" href="index.php">
                       <i class="mdi mdi-briefcase-account-outline"></i>
                       <span class="nav-text">Business Dashboard</span>
                     </a>
@@ -541,7 +544,7 @@
                         
                           
                             <li >
-                              <a class="sidenav-item-link" href="user-profile.html">
+                              <a class="sidenav-item-link" href="user-profile.php?eml=<?php echo $emml ?>">
                                 <span class="nav-text">User Profile</span>
                                 
                               </a>
@@ -637,6 +640,25 @@
                       <div class="sub-menu">
                         
                         
+                          
+                           <li>
+                              <a class="sidenav-item-link" href="viewproduct.php?eml=<?php echo $emml?>">
+                                <span class="nav-text">Product</span>
+                                
+                              </a>
+                            </li>
+                            <li>
+                              <a class="sidenav-item-link" href="viewcustomer.php?eml=<?php echo $emml?>">
+                                <span class="nav-text">Customer</span>
+                                
+                              </a>
+                            </li>
+                            <li>
+                              <a class="sidenav-item-link" href="viewstaff.php?eml=<?php echo $emml?>">
+                                <span class="nav-text">Staff</span>
+                                
+                              </a>
+                            </li>
                           
                             <li >
                               <a class="sidenav-item-link" href="invoice.html">
@@ -803,7 +825,7 @@
 
                 <!-- search form -->
                 <div class="search-form">
-                  <form action="index.html" method="get">
+                  <form action="index.php" method="get">
                     <div class="input-group input-group-sm" id="input-group-search">
                       <input type="text" autocomplete="off" name="query" id="search-input" class="form-control" placeholder="Search..." />
                       <div class="input-group-append">
@@ -814,16 +836,16 @@
                   <ul class="dropdown-menu dropdown-menu-search">
 
                     <li class="nav-item">
-                      <a class="nav-link" href="index.html">Morbi leo risus</a>
+                      <a class="nav-link" href="index.php">Morbi leo risus</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="index.html">Dapibus ac facilisis in</a>
+                      <a class="nav-link" href="index.php">Dapibus ac facilisis in</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="index.html">Porta ac consectetur ac</a>
+                      <a class="nav-link" href="index.php">Porta ac consectetur ac</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="index.html">Vestibulum at eros</a>
+                      <a class="nav-link" href="index.php">Vestibulum at eros</a>
                     </li>
 
                   </ul>
@@ -862,12 +884,12 @@
 
                             <div class="media media-sm bg-warning-10 p-4 mb-0">
                               <div class="media-sm-wrapper">
-                                <a href="user-profile.html">
+                                <a href="user-profile.php?eml=<?php echo $emml ?>">
                                   <img src="images/user/user-sm-02.jpg" alt="User Image">
                                 </a>
                               </div>
                               <div class="media-body">
-                                <a href="user-profile.html">
+                                <a href="user-profile.php?eml=<?php echo $emml ?>">
                                   <span class="title mb-0">  Brandon</span>
                                   <span class="discribe">Extremity sweetness difficult behaviour he of. On disposal of as landlord horrible. Afraid at highly months do things on at.</span>
                                   <span class="time">
@@ -879,12 +901,12 @@
 
                             <div class="media media-sm p-4 bg-light mb-0">
                               <div class="media-sm-wrapper bg-primary">
-                                <a href="user-profile.html">
+                                <a href="user-profile.php?eml=<?php echo $emml ?>">
                                   <i class="mdi mdi-calendar-check-outline"></i>
                                 </a>
                               </div>
                               <div class="media-body">
-                                <a href="user-profile.html">
+                                <a href="user-profile.php?eml=<?php echo $emml ?>">
                                   <span class="title mb-0">New event added</span>
                                   <span class="discribe">1/3/2014 (1pm - 2pm)</span>
                                   <span class="time">
@@ -896,12 +918,12 @@
 
                             <div class="media media-sm p-4 mb-0">
                               <div class="media-sm-wrapper">
-                                <a href="user-profile.html">
+                                <a href="user-profile.php?eml=<?php echo $emml ?>">
                                   <img src="images/user/user-sm-03.jpg" alt="User Image">
                                 </a>
                               </div>
                               <div class="media-body">
-                                <a href="user-profile.html">
+                                <a href="user-profile.php?eml=<?php echo $emml ?>">
                                   <span class="title mb-0">Sagge Hudson</span>
                                   <span class="discribe">On disposal of as landlord Afraid at highly months do things on at.</span>
                                   <span class="time">
@@ -913,12 +935,12 @@
 
                             <div class="media media-sm p-4 mb-0">
                               <div class="media-sm-wrapper bg-info-dark">
-                                <a href="user-profile.html">
+                                <a href="user-profile.php?eml=<?php echo $emml ?>">
                                   <i class="mdi mdi-account-multiple-check"></i>
                                 </a>
                               </div>
                               <div class="media-body">
-                                <a href="user-profile.html">
+                                <a href="user-profile.php?eml=<?php echo $emml ?>">
                                   <span class="title mb-0">Add request</span>
                                   <span class="discribe">Add Dany Jones as your contact.</span>
                                   <div class="buttons">
@@ -934,12 +956,12 @@
 
                             <div class="media media-sm p-4 mb-0">
                               <div class="media-sm-wrapper bg-info">
-                                <a href="user-profile.html">
+                                <a href="user-profile.php?eml=<?php echo $emml ?>">
                                   <i class="mdi mdi-playlist-check"></i>
                                 </a>
                               </div>
                               <div class="media-body">
-                                <a href="user-profile.html">
+                                <a href="user-profile.php?eml=<?php echo $emml ?>">
                                   <span class="title mb-0">Task complete</span>
                                   <span class="discribe">Afraid at highly months do things on at.</span>
                                   <span class="time">
@@ -955,12 +977,12 @@
 
                             <div class="media media-sm p-4 mb-0">
                               <div class="media-sm-wrapper">
-                                <a href="user-profile.html">
+                                <a href="user-profile.php?eml=<?php echo $emml ?>">
                                   <img src="images/user/user-sm-01.jpg" alt="User Image">
                                 </a>
                               </div>
                               <div class="media-body">
-                                <a href="user-profile.html">
+                                <a href="user-profile.php?eml=<?php echo $emml ?>">
                                   <span class="title mb-0">Selena Wagner</span>
                                   <span class="discribe">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>
                                   <span class="time">
@@ -972,12 +994,12 @@
 
                             <div class="media media-sm p-4 mb-0">
                               <div class="media-sm-wrapper">
-                                <a href="user-profile.html">
+                                <a href="user-profile.php?eml=<?php echo $emml ?>">
                                   <img src="images/user/user-sm-03.jpg" alt="User Image">
                                 </a>
                               </div>
                               <div class="media-body">
-                                <a href="user-profile.html">
+                                <a href="user-profile.php?eml=<?php echo $emml ?>">
                                   <span class="title mb-0">Sagge Hudson</span>
                                   <span class="discribe">On disposal of as landlord Afraid at highly months do things on at.</span>
                                   <span class="time">
@@ -989,12 +1011,12 @@
 
                             <div class="media media-sm bg-warning-10 p-4 mb-0">
                               <div class="media-sm-wrapper">
-                                <a href="user-profile.html">
+                                <a href="user-profile.php?eml=<?php echo $emml ?>">
                                   <img src="images/user/user-sm-02.jpg" alt="User Image">
                                 </a>
                               </div>
                               <div class="media-body">
-                                <a href="user-profile.html">
+                                <a href="user-profile.php?eml=<?php echo $emml ?>">
                                   <span class="title mb-0">  Brandon</span>
                                   <span class="discribe">Extremity sweetness difficult behaviour he of. On disposal of as landlord horrible. Afraid
                                     at highly months do things on at.</span>
@@ -1007,12 +1029,12 @@
 
                             <div class="media media-sm p-4 mb-0">
                               <div class="media-sm-wrapper">
-                                <a href="user-profile.html">
+                                <a href="user-profile.php?eml=<?php echo $emml ?>">
                                   <img src="images/user/user-sm-04.jpg" alt="User Image">
                                 </a>
                               </div>
                               <div class="media-body">
-                                <a href="user-profile.html">
+                                <a href="user-profile.php?eml=<?php echo $emml ?>">
                                   <span class="title mb-0">Albrecht Straub</span>
                                   <span class="discribe"> Beatae quia natus assumenda laboriosam, nisi perferendis aliquid consectetur expedita non tenetur.</span>
                                   <span class="time">
@@ -1027,12 +1049,12 @@
 
                             <div class="media media-sm p-4 bg-light mb-0">
                               <div class="media-sm-wrapper bg-primary">
-                                <a href="user-profile.html">
+                                <a href="user-profile.php?eml=<?php echo $emml ?>">
                                   <i class="mdi mdi-calendar-check-outline"></i>
                                 </a>
                               </div>
                               <div class="media-body">
-                                <a href="user-profile.html">
+                                <a href="user-profile.php?eml=<?php echo $emml ?>">
                                   <span class="title mb-0">New event added</span>
                                   <span class="discribe">1/3/2014 (1pm - 2pm)</span>
                                   <span class="time">
@@ -1044,12 +1066,12 @@
 
                             <div class="media media-sm p-4 mb-0">
                               <div class="media-sm-wrapper bg-info-dark">
-                                <a href="user-profile.html">
+                                <a href="user-profile.php?eml=<?php echo $emml ?>">
                                   <i class="mdi mdi-account-multiple-check"></i>
                                 </a>
                               </div>
                               <div class="media-body">
-                                <a href="user-profile.html">
+                                <a href="user-profile.php?eml=<?php echo $emml ?>">
                                   <span class="title mb-0">Add request</span>
                                   <span class="discribe">Add Dany Jones as your contact.</span>
                                   <div class="buttons">
@@ -1065,12 +1087,12 @@
 
                             <div class="media media-sm p-4 mb-0">
                               <div class="media-sm-wrapper bg-info">
-                                <a href="user-profile.html">
+                                <a href="user-profile.php?eml=<?php echo $emml ?>">
                                   <i class="mdi mdi-playlist-check"></i>
                                 </a>
                               </div>
                               <div class="media-body">
-                                <a href="user-profile.html">
+                                <a href="user-profile.php?eml=<?php echo $emml ?>">
                                   <span class="title mb-0">Task complete</span>
                                   <span class="discribe">Afraid at highly months do things on at.</span>
                                   <span class="time">
@@ -1100,7 +1122,7 @@
                     </button>
                     <ul class="dropdown-menu dropdown-menu-right">
                       <li>
-                        <a class="dropdown-link-item" href="user-profile.html">
+                        <a class="dropdown-link-item" href="user-profile.php?eml=<?php echo $emml ?>">
                           <i class="mdi mdi-account-outline"></i>
                           <span class="nav-text">My Profile</span>
                         </a>
@@ -1132,7 +1154,7 @@
           </header>
           <?php
           $connect= mysqli_connect("localhost","root","","jbp");
-          $sql = "SELECT * FROM admin WHERE id=1211208820";
+          $sql = "SELECT * FROM admin WHERE email='$emml'";
           $result = mysqli_query($connect, $sql);
           $row = mysqli_fetch_assoc($result);
           ?>
@@ -1181,7 +1203,7 @@
   <div class="card-footer card-profile-footer">
     <ul class="nav nav-border-top justify-content-center">
       <li class="nav-item">
-        <a class="nav-link" href="user-profile.html">Profile</a>
+        <a class="nav-link" href="user-profile.php?eml=<?php echo $emml ?>">Profile</a>
       </li>
         
       <li class="nav-item">
@@ -1312,13 +1334,13 @@
 
                         <div class="media media-sm">
                           <div class="media-sm-wrapper">
-                            <a href="user-profile.html">
+                            <a href="user-profile.php?eml=<?php echo $emml ?>">
                               <img src="images/user/user-sm-01.jpg" alt="User Image">
                               <span class="active bg-primary"></span>
                             </a>
                           </div>
                           <div class="media-body">
-                            <a href="user-profile.html">
+                            <a href="user-profile.php?eml=<?php echo $emml ?>">
                               <span class="title">Selena Wagner</span>
                               <span class="discribe">Designer</span>
                             </a>
@@ -1327,13 +1349,13 @@
 
                         <div class="media media-sm">
                           <div class="media-sm-wrapper">
-                            <a href="user-profile.html">
+                            <a href="user-profile.php?eml=<?php echo $emml ?>">
                               <img src="images/user/user-sm-02.jpg" alt="User Image">
                               <span class="active bg-primary"></span>
                             </a>
                           </div>
                           <div class="media-body">
-                            <a href="user-profile.html">
+                            <a href="user-profile.php?eml=<?php echo $emml ?>">
                               <span class="title">Walter Reuter</span>
                               <span>Developer</span>
                             </a>
@@ -1342,12 +1364,12 @@
 
                         <div class="media media-sm">
                           <div class="media-sm-wrapper">
-                            <a href="user-profile.html">
+                            <a href="user-profile.php?eml=<?php echo $emml ?>">
                               <img src="images/user/user-sm-03.jpg" alt="User Image">
                             </a>
                           </div>
                           <div class="media-body">
-                            <a href="user-profile.html">
+                            <a href="user-profile.php?eml=<?php echo $emml ?>">
                               <span class="title">Larissa Gebhardt</span>
                               <span>Cyber Punk</span>
                             </a>
@@ -1356,13 +1378,13 @@
 
                         <div class="media media-sm">
                           <div class="media-sm-wrapper">
-                            <a href="user-profile.html">
+                            <a href="user-profile.php?eml=<?php echo $emml ?>">
                               <img src="images/user/user-sm-04.jpg" alt="User Image">
                             </a>
 
                           </div>
                           <div class="media-body">
-                            <a href="user-profile.html">
+                            <a href="user-profile.php?eml=<?php echo $emml ?>">
                               <span class="title">Albrecht Straub</span>
                               <span>Photographer</span>
                             </a>
@@ -1371,13 +1393,13 @@
 
                         <div class="media media-sm">
                           <div class="media-sm-wrapper">
-                            <a href="user-profile.html">
+                            <a href="user-profile.php?eml=<?php echo $emml ?>">
                               <img src="images/user/user-sm-05.jpg" alt="User Image">
                               <span class="active bg-danger"></span>
                             </a>
                           </div>
                           <div class="media-body">
-                            <a href="user-profile.html">
+                            <a href="user-profile.php?eml=<?php echo $emml ?>">
                               <span class="title">Leopold Ebert</span>
                               <span>Fashion Designer</span>
                             </a>
@@ -1386,13 +1408,13 @@
 
                         <div class="media media-sm">
                           <div class="media-sm-wrapper">
-                            <a href="user-profile.html">
+                            <a href="user-profile.php?eml=<?php echo $emml ?>">
                               <img src="images/user/user-sm-06.jpg" alt="User Image">
                               <span class="active bg-primary"></span>
                             </a>
                           </div>
                           <div class="media-body">
-                            <a href="user-profile.html">
+                            <a href="user-profile.php?eml=<?php echo $emml ?>">
                               <span class="title">Selena Wagner</span>
                               <span>Photographer</span>
                             </a>

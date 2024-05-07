@@ -23,7 +23,7 @@ if (isset($_POST['login'])) {
         echo '<script type="text/javascript">
     alert("Login successfully.");
     </script>';
-        header("Location: /FYP/admin/home.php?eml=".$email);
+        header("Location: /FYP/admin/index.php?eml=".$email);
         exit();
     }
 
