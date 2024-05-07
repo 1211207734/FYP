@@ -43,7 +43,7 @@
 			$result = mysqli_query($connect, "SELECT * FROM customer where Customer_email='$emml'");
 			while($row = mysqli_fetch_assoc($result)) {
 		
-			include('database.php');
+			
 			
 
 		?>	
@@ -149,7 +149,7 @@
 	
 
 		// Prepare SQL statement
-		$sql = "UPDATE `customer` SET Customer_name='$f', Customer_HP='$p', Customer_email='$email', Customer_address_1='$a1', Customer_address_2='$a2', Customer_postcode='$pos' WHERE Customer_ID = 1";
+		$sql = "UPDATE `customer` SET Customer_name='$f', Customer_HP='$p', Customer_email='$email', Customer_address_1='$a1', Customer_address_2='$a2', Customer_postcode='$pos' WHERE Customer_email = '$emml'";
 		mysqli_query($connect,$sql);
 		if (mysqli_query($connect, $sql))
 		{
