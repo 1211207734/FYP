@@ -19,6 +19,8 @@
 </div>
 			<?php
 				$connect= mysqli_connect("localhost","root","","jbp");
+				if (isset($_GET['eml'])) {
+					$emml = $_GET['eml'];}
                 $result = mysqli_query($connect, "SELECT Customer_password FROM customer where Customer_ID=1");
                 while($row = mysqli_fetch_assoc($result)) {
             ?>			
@@ -42,7 +44,7 @@
 									</div>
 									<br>
 									<div>
-										<a href="myaccount.php"><button type="button"class="rbut" >Cancel</button></a>
+										<a href="myaccount.php?eml=<?php echo $emml ?>"><button type="button"class="rbut" >Cancel</button></a>
 										<button type="submit" class="fbut" name="save" >Save</button>
 									</div>
 								</div>

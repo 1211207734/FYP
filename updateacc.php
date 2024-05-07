@@ -154,15 +154,18 @@
 		if (mysqli_query($connect, $sql))
 		{
 		
-			echo '<script type="text/javascript">
-			alert("Profile Updated Successfully.");</script>';
-			header("refresh:0.5; location=myaccount.php?eml=".$email);
+			echo"<script type='text/javascript'>
+			alert('Profile Updated Successfully.');</script>";
+			header("location:myaccount.php?eml=".$email);
+			echo"<script>location.reload();";
+			
 		
 		} else {
-		echo '<script type="text/javascript">
-		alert("Error executing SQL statement: " . mysqli_error($connect));
-		</script>';
+		echo "<script type='text/javascript'>
+		alert('Error executing SQL statement:'.mysqli_error($connect));
+		</script>";
 		}	
+		
 		
 		
 	} ?>						
