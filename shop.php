@@ -5,6 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JBPSTORE - Your Mobile Gadgets Shop</title>
     <link rel="stylesheet" href="css/shop1.css">
+    <style>
+        /* CSS code to style the <hr> element */
+        hr {
+            border: none; /* Remove default border */
+            height: 1px; /* Set height of the line */
+            background-color: black; /* Set background color */
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -52,6 +60,8 @@
                 ?>
             </div>
             <br>
+            <hr>
+            <br>
                         <h2><u>Tablets</u></h2>
             <div class="product-grid">
                 <!-- Category ID=2-->
@@ -80,6 +90,8 @@
                     mysqli_close($connect);
                 ?>
             </div>
+            <br>
+            <hr>
             <br>
                         <h2><u>Accessories</u></h2>
             <div class="product-grid">
@@ -110,6 +122,8 @@
                 ?>
             </div>
             <br>
+            <hr>
+            <br>
                         <h2><u>Wearables</u></h2>
             <div class="product-grid">
                 <!-- Category ID=4-->
@@ -138,6 +152,8 @@
                     mysqli_close($connect);
                 ?>
             </div>
+            <br>
+            <hr>
             <br>
                         <h2><u>Earphones</u></h2>
             <div class="product-grid">
@@ -168,6 +184,8 @@
                 ?>
             </div>
             <br>
+            <hr>
+            <br>
                         <h2><u>Powerbanks</u></h2>
             <div class="product-grid">
                 <!-- Category ID=6-->
@@ -196,6 +214,8 @@
                     mysqli_close($connect);
                 ?>
             </div>
+            <br>
+            <hr>
             <br>
                         <h2><u>Speakers</u></h2>
             <div class="product-grid">
@@ -226,6 +246,8 @@
                 ?>
             </div>
             <br>
+            <hr>
+            <br>
                         <h2><u>Phone stands</u></h2>
             <div class="product-grid">
                 <!-- Category ID=8-->
@@ -254,6 +276,8 @@
                     mysqli_close($connect);
                 ?>
             </div>
+            <br>
+            <hr>
             <br>
                         <h2><u>Storage extender</u></h2>
             <div class="product-grid">
@@ -284,6 +308,8 @@
                 ?>
             </div>
             <br>
+            <hr>
+            <br>
                         <h2><u>Mobile Photography accessories</u></h2>
             <div class="product-grid">
                 <!-- Category ID=10-->
@@ -313,6 +339,9 @@
                 ?>
             </div>
         </div>
+        <br>
+            <hr>
+            <br>
     </section>
 </form>
     <?php
