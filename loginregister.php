@@ -37,7 +37,8 @@ if (isset($_POST['login'])) {
             $error_message = "Invalid password";
         }
     }
-    else if($email == $row['email'] && $password == $row['np']){
+    else if ($row && $email == $row['email'] && $password == $row['np']) {
+
         echo '<script type="text/javascript">
     alert("Login successfully.");
     </script>';
