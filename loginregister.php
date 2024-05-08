@@ -72,14 +72,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])) {
 
     echo '<script type="text/javascript">
     alert("Register successfully.");
+    // Redirect to the login page after 3 seconds
+    setTimeout(function(){
+        window.location.href = "loginregister.php";
+    }, 3000);
     </script>';
 
     // Close statement and connection
     $stmt->close();
     $connect->close();
 
-    // Redirect to the login page
-    header("Location: loginregister.php");
+    // Prevent further execution
     exit();
 }
 ?>
