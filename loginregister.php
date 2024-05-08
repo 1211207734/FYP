@@ -76,7 +76,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])) {
     // Redirect to the login page after 3 seconds
     setTimeout(function(){
         window.location.href = "loginregister.php";
-    }, 3000);
+    }, );
     </script>';
 
     // Close statement and connection
