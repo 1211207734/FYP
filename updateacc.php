@@ -43,10 +43,10 @@
 			$result = mysqli_query($connect, "SELECT * FROM customer where Customer_email='$emml'");
 			while($row = mysqli_fetch_assoc($result)) {
 		
-			include('database.php');
+			
 			
 
-		?>	
+				?>
 				<body>		
 					<!-- Upload profile -->
 					<div class="col-xxl-4">
@@ -131,7 +131,8 @@
 						</div> <!-- Row END -->
 					</form>	
 				</body>					
-	<?php }
+
+				<?php }
 	if(isset($_POST['save'])) {
 		// Retrieve form data
 		$f = $_POST['fullname'];
@@ -149,20 +150,21 @@
 	
 
 		// Prepare SQL statement
-		$sql = "UPDATE `customer` SET Customer_name='$f', Customer_HP='$p', Customer_email='$email', Customer_address_1='$a1', Customer_address_2='$a2', Customer_postcode='$pos' WHERE Customer_ID = 1";
+		$sql = "UPDATE `customer` SET Customer_name='$f', Customer_HP='$p', Customer_email='$email', Customer_address_1='$a1', Customer_address_2='$a2', Customer_postcode='$pos' WHERE Customer_email='$emml'";
 		mysqli_query($connect,$sql);
 		if (mysqli_query($connect, $sql))
 		{
 		
 			echo '<script type="text/javascript">
 			alert("Profile Updated Successfully.");</script>';
-			header("refresh:0.5; location=myaccount.php?eml=".$email);
+			header("location:myaccount.php?eml=.$email");
 		
 		} else {
-		echo '<script type="text/javascript">
-		alert("Error executing SQL statement: " . mysqli_error($connect));
-		</script>';
+		echo "<script type='text/javascript'>
+		alert('Error executing SQL statement:'.mysqli_error($connect));
+		</script>";
 		}	
+		
 		
 		
 	} ?>						

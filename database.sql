@@ -192,6 +192,12 @@ VALUES ('Moment Wide Lens', 'Wide-angle lens attachment for smartphones', 40, 11
        ('Manfrotto PIXI Mini Tripod', 'Compact tripod for smartphones and cameras', 55, 24.99, 10),
        ('Anker PowerPort Solar Charger', 'Solar charger for USB devices', 65, 49.99, 10);
 
+CREATE TABLE card (
+    Card_name VARCHAR(50) PRIMARY KEY,
+    Card_num INT NOT NULL,
+    Card_edate VARCHAR(5) NOT NULL,
+    Card_cv INT NOT NULL
+);
 
 CREATE TABLE Payment (
     Payment_ID INT AUTO_INCREMENT PRIMARY KEY,

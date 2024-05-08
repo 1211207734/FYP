@@ -257,7 +257,7 @@ if (isset($_GET['eml'])) {
                       <a href="account.php" class="dropdown-item item-anchor">My Account    </a>
                     </li>
                     <li>
-                      <a href="order-tracking.html" class="dropdown-item item-anchor">Order Tracking    </a>
+                      <a href="payment.php" class="dropdown-item item-anchor">Order Tracking    </a>
                     </li>
                   </ul>
                 </li>

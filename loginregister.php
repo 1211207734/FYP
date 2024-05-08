@@ -19,13 +19,7 @@ if (isset($_POST['login'])) {
     mysqli_stmt_execute($stmt);
     $result = mysqli_stmt_get_result($stmt);
 
-    if($email == $row['email'] && $password == $row['np']){
-        echo '<script type="text/javascript">
-    alert("Login successfully.");
-    </script>';
-        header("Location: /FYP/admin/home.php?eml=".$email);
-        exit();
-    }
+    
 
     if (mysqli_num_rows($result) == 1) {
         $row = mysqli_fetch_assoc($result);
@@ -42,7 +36,15 @@ if (isset($_POST['login'])) {
         } else {
             $error_message = "Invalid password";
         }
-    } else {
+    }
+    else if($email == $row['email'] && $password == $row['np']){
+        echo '<script type="text/javascript">
+    alert("Login successfully.");
+    </script>';
+        header("Location: /FYP/admin/index.php?eml=".$email);
+        exit();
+    }
+    else {
         $error_message = "Invalid email or password";
     }
     

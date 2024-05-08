@@ -267,7 +267,7 @@
 
   {
     "label": "User Profile",
-    "link": "user-profile.html",
+    "link": "user-profile.php?eml=<?php echo $emml ?>",
     "tags": "",
     "location": "User"
   },
