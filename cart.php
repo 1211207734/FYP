@@ -10,12 +10,10 @@
 
 </head>
 <?php
+include('database.php');
+if (isset($_GET['eml'])) {
+    $emml = $_GET['eml'];}
 
-	$connect= mysqli_connect("localhost","root","","jbp");
-	if (isset($_GET['eml'])) {
-		$emml = $_GET['eml'];}
-		$result = mysqli_query($connect, "SELECT Customer_password FROM customer where Customer_ID='$emml'");
-		while($row = mysqli_fetch_assoc($result)) 
 ?>
 	<body>
 		<main class="page">
