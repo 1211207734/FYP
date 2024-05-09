@@ -48,7 +48,7 @@
                                     <h3 class="product-title"><?php echo $row['Product_name']?></h3>
                                     <p class="product-details"><?php echo $row['Product_details']?></p>
                                     <p class="product-price">RM <?php echo $row['Product_price']?></p>
-                                    <input type='hidden' name='id' value='<?php echo $row['Product_ID'] ?>'>
+                                    <input type='hidden' name='id' value='<?php echo $row['Product_ID']; ?>'>
                                     <button class="button-2" role="button" name="add" >Add to Cart</button>
                                     <br>
                                     <br>
@@ -75,12 +75,14 @@
                         <div class="product">
                             <div class="card">
                                 <div class="card-body">
+                                    <form method="post">
                                     <!-- Product Details -->
                                     <img src="images/<?php echo $row['Product_name']?>.jpg" alt="<?php echo $row['Product_name']?>" class="product-image"name="na">
                                     <h3 class="product-title"><?php echo $row['Product_name']?></h3>
                                     <p class="product-details"><?php echo $row['Product_details']?></p>
                                     <p class="product-price">RM <?php echo $row['Product_price']?></p>
                                     <button class="button-2" role="button" name="add" >Add to Cart</button>
+                                    </form>
                                     <br>
                                     <br>
                                     <br>
