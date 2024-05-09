@@ -541,7 +541,7 @@
                           
                           
                             <li >
-                              <a class="sidenav-item-link" href="user-profile-settings.html">
+                              <a class="sidenav-item-link" href="user-profile-settings.php?eml=<?php echo $emml ?>">
                                 <span class="nav-text">User Profile Settings</span>
                                 
                               </a>
@@ -553,7 +553,7 @@
                         
                           
                             <li  class="active" >
-                              <a class="sidenav-item-link" href="user-account-settings.php">
+                              <a class="sidenav-item-link" href="user-account-settings.php?eml=<?php echo $emml ?>">
                                 <span class="nav-text">User Account Settings</span>
                                 
                               </a>
@@ -787,7 +787,7 @@
               <div class="sidebar-footer-content">
                 <ul class="d-flex">
                   <li>
-                    <a href="user-account-settings.php" data-toggle="tooltip" title="Profile settings"><i class="mdi mdi-settings"></i></a></li>
+                    <a href="user-account-settings.php?eml=<?php echo $emml ?>" data-toggle="tooltip" title="Profile settings"><i class="mdi mdi-settings"></i></a></li>
                   <li>
                     <a href="#" data-toggle="tooltip" title="No chat messages"><i class="mdi mdi-chat-processing"></i></a>
                   </li>
@@ -1122,19 +1122,19 @@
                       </li>
   
                          <li>
-                        <a class="dropdown-link-item" href="user-account-settings.php">
+                        <a class="dropdown-link-item" href="user-account-settings.php?eml=<?php echo $emml ?>">
                           <i class="mdi mdi-settings"></i>
                           <span class="nav-text">Account Setting</span>
                         </a>
                       </li>
                       <li>
-                        <a class="dropdown-link-item" href=" newstaff.php">
+                        <a class="dropdown-link-item" href=" newstaff.php?eml=<?php echo $emml ?>">
                           <i class="mdi mdi-account-outline"></i>
                           <span class="nav-text">New Staff </span>
                         </a>
                       </li>
                       <li>
-                        <a class="dropdown-link-item" href=" newstaff.php">
+                        <a class="dropdown-link-item" href=" newstaff.php?eml=<?php echo $emml ?>">
                           <i class="mdi mdi-account-outline"></i>
                           <span class="nav-text">New Staff </span>
                         </a>
@@ -1203,7 +1203,7 @@
         <a class="nav-link" href="user-profile.php?eml=<?php echo $emml ?>">Profile</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link active" href="user-profile-settings.html">Settings</a>
+        <a class="nav-link active" href="user-profile-settings.php?eml=<?php echo $emml ?>">Settings</a>
       </li>
 
     </ul>
@@ -1223,12 +1223,12 @@
 
         <ul class="nav nav-settings">
           <li class="nav-item">
-            <a class="nav-link" href="user-profile-settings.html">
+            <a class="nav-link" href="user-profile-settings.php?eml=<?php echo $emml ?>">
               <i class="mdi mdi-account-outline mr-1"></i> Profile
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="user-account-settings.php">
+            <a class="nav-link active" href="user-account-settings.php?eml=<?php echo $emml ?>">
               <i class="mdi mdi-settings-outline mr-1"></i> Account
             </a>
           </li>

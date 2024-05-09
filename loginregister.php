@@ -8,11 +8,13 @@ if (isset($_POST['login'])) {
     $password = $_POST['password'];
 
     // Corrected SQL query syntax and added prepared statement
-    $query = "SELECT Customer_email, Customer_password FROM customer WHERE Customer_email = ?";
-    $q="SELECT email, np FROM admin WHERE email = '$email'";
+    $query = "SELECT Customer_ID,Customer_email, Customer_password FROM customer WHERE Customer_email = ?";
+    $q="SELECT id,email, np FROM admin WHERE email = '$email'";
+    
     
     $mam=mysqli_query($connect,$q);
     $row=mysqli_fetch_assoc($mam);
+    $iii=$row['id'];
    
     $stmt = mysqli_prepare($connect, $query);
     mysqli_stmt_bind_param($stmt, "s", $email);
@@ -24,13 +26,14 @@ if (isset($_POST['login'])) {
     if (mysqli_num_rows($result) == 1) {
         $row = mysqli_fetch_assoc($result);
         $ppassword = $row['Customer_password'];
+        $ii=$row['Customer_ID'];
         if ($password == $ppassword) {
             // Login successful
             echo '<script type="text/javascript">
     alert("Login successfully.");
     </script>';
             // Redirect to home page or perform other actions
-            header("Location: home.php?eml=".$email);
+            header("Location: home.php?eml=".$ii);
             $useraccount++;
             exit();
         } else {
@@ -42,7 +45,7 @@ if (isset($_POST['login'])) {
         echo '<script type="text/javascript">
     alert("Login successfully.");
     </script>';
-        header("Location: /FYP/admin/index.php?eml=".$email);
+        header("Location: /FYP/admin/index.php?eml=".$iii);
         exit();
     }
     else {

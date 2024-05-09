@@ -23,7 +23,7 @@
 				$emml = $_GET['eml'];}
 
 				$connect= mysqli_connect("localhost","root","","jbp");
-                $result = mysqli_query($connect, "SELECT * FROM customer where Customer_email='$emml'");
+                $result = mysqli_query($connect, "SELECT * FROM customer where Customer_ID='$emml'");
                 while($row = mysqli_fetch_assoc($result)) {
             ?>
 				<body>

@@ -281,14 +281,14 @@
 
   {
     "label": "User Profile Settings",
-    "link": "user-profile-settings.html",
+    "link": "user-profile-settings.php?eml=<?php echo $emml ?>",
     "tags": "",
     "location": "User"
   },
 
   {
     "label": "User Account Settings",
-    "link": "user-account-settings.php",
+    "link": "user-account-settings.php?eml=<?php echo $emml ?>",
     "tags": "",
     "location": "User"
   },

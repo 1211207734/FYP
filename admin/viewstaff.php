@@ -164,14 +164,14 @@
                               </a>
                             </li>
                             <li >
-                              <a class="sidenav-item-link" href="user-profile-settings.html">
+                              <a class="sidenav-item-link" href="user-profile-settings.php?eml=<?php echo $emml ?>">
                                 <span class="nav-text">User Profile Settings</span>
                                 
                               </a>
                             </li>
                           
                             <li >
-                              <a class="sidenav-item-link" href="user-account-settings.php">
+                              <a class="sidenav-item-link" href="user-account-settings.php?eml=<?php echo $emml ?>">
                                 <span class="nav-text">User Account Settings</span>
                                 
                               </a>
@@ -228,7 +228,7 @@
                             </li>
 
                             <li >
-                              <a class="sidenav-item-link" href="newstaff.php">
+                              <a class="sidenav-item-link" href="newstaff.php?eml=<?php echo $emml ?>">
                                 <span class="nav-text">New Staff</span>
                                 
                               </a>
@@ -334,7 +334,7 @@
               <div class="sidebar-footer-content">
                 <ul class="d-flex">
                   <li>
-                    <a href="user-account-settings.php" data-toggle="tooltip" title="Profile settings"><i class="mdi mdi-settings"></i></a></li>
+                    <a href="user-account-settings.php?eml=<?php echo $emml ?>" data-toggle="tooltip" title="Profile settings"><i class="mdi mdi-settings"></i></a></li>
                   <li>
                     <a href="#" data-toggle="tooltip" title="No chat messages"><i class="mdi mdi-chat-processing"></i></a>
                   </li>
@@ -658,7 +658,7 @@
                   <?php				
                   
                       $connect= mysqli_connect("localhost","root","","jbp");
-                      $ll="SELECT * from admin WHERE email = '$emml'";
+                      $ll="SELECT * from admin WHERE id = '$emml'";
                       $result = mysqli_query($connect, $ll);
                       $r=mysqli_fetch_assoc($result);
                       ?>
@@ -675,7 +675,7 @@
                         </a>
                       </li>
                          <li>
-                        <a class="dropdown-link-item" href="user-account-settings.php">
+                        <a class="dropdown-link-item" href="user-account-settings.php?eml=<?php echo $emml ?>">
                           <i class="mdi mdi-settings"></i>
                           <span class="nav-text">Account Setting</span>
                         </a>

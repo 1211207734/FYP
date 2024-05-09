@@ -40,7 +40,7 @@
 		if (isset($_GET['eml'])) {
 			$emml = $_GET['eml'];}
 			$connect= mysqli_connect("localhost","root","","jbp");
-			$result = mysqli_query($connect, "SELECT * FROM customer where Customer_email='$emml'");
+			$result = mysqli_query($connect, "SELECT * FROM customer where Customer_ID='$emml'");
 			while($row = mysqli_fetch_assoc($result)) {
 		
 			
@@ -150,14 +150,14 @@
 	
 
 		// Prepare SQL statement
-		$sql = "UPDATE `customer` SET Customer_name='$f', Customer_HP='$p', Customer_email='$email', Customer_address_1='$a1', Customer_address_2='$a2', Customer_postcode='$pos' WHERE Customer_email='$emml'";
+		$sql = "UPDATE `customer` SET Customer_name='$f', Customer_HP='$p', Customer_email='$email', Customer_address_1='$a1', Customer_address_2='$a2', Customer_postcode='$pos' WHERE Customer_ID='$emml'";
 		mysqli_query($connect,$sql);
 		if (mysqli_query($connect, $sql))
 		{
 		
 			echo '<script type="text/javascript">
 			alert("Profile Updated Successfully.");</script>';
-			header("location:myaccount.php?eml=.$email");
+			header("location:myaccount.php?eml=.$emml");
 		
 		} else {
 		echo "<script type='text/javascript'>

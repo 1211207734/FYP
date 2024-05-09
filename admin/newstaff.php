@@ -54,7 +54,9 @@
       NProgress.configure({ showSpinner: false });
       NProgress.start();
     </script>
-
+    <?php
+		if (isset($_GET['eml'])) {
+			$emml = $_GET['eml'];}?>
     
 
     <!-- ====================================
@@ -162,14 +164,14 @@
                               </a>
                             </li>
                             <li >
-                              <a class="sidenav-item-link" href="user-profile-settings.html">
+                              <a class="sidenav-item-link" href="user-profile-settings.php?eml=<?php echo $emml ?>">
                                 <span class="nav-text">User Profile Settings</span>
                                 
                               </a>
                             </li>
                           
                             <li >
-                              <a class="sidenav-item-link" href="user-account-settings.php">
+                              <a class="sidenav-item-link" href="user-account-settings.php?eml=<?php echo $emml ?>">
                                 <span class="nav-text">User Account Settings</span>
                                 
                               </a>
@@ -327,7 +329,7 @@
               <div class="sidebar-footer-content">
                 <ul class="d-flex">
                   <li>
-                    <a href="user-account-settings.php" data-toggle="tooltip" title="Profile settings"><i class="mdi mdi-settings"></i></a></li>
+                    <a href="user-account-settings.php?eml=<?php echo $emml ?>" data-toggle="tooltip" title="Profile settings"><i class="mdi mdi-settings"></i></a></li>
                   <li>
                     <a href="#" data-toggle="tooltip" title="No chat messages"><i class="mdi mdi-chat-processing"></i></a>
                   </li>
@@ -647,11 +649,18 @@
                       </footer>
                     </div>
                   </li>
+                  <?php				
+                  
+                      $connect= mysqli_connect("localhost","root","","jbp");
+                      $ll="SELECT * from admin WHERE id = '$emml'";
+                      $result = mysqli_query($connect, $ll);
+                      $r=mysqli_fetch_assoc($result);
+                      ?>
                   <!-- User Account -->
                   <li class="dropdown user-menu">
                     <button class="dropdown-toggle nav-link" data-toggle="dropdown">
                       <img src="images/user/user-xs-01.jpg" class="user-image rounded-circle" alt="User Image" />
-                      <span class="d-none d-lg-inline-block">  Brandon</span>
+                      <span class="d-none d-lg-inline-block"><?php echo $r['Un'];?></span>
                     </button>
                     <ul class="dropdown-menu dropdown-menu-right">
                       <li>
@@ -661,13 +670,13 @@
                         </a>
                       </li>
                          <li>
-                        <a class="dropdown-link-item" href="user-account-settings.php">
+                        <a class="dropdown-link-item" href="user-account-settings.php?eml=<?php echo $emml ?>">
                           <i class="mdi mdi-settings"></i>
                           <span class="nav-text">Account Setting</span>
                         </a>
                       </li>
                       <li>
-                        <a class="dropdown-link-item" href=" newstaff.php">
+                        <a class="dropdown-link-item" href=" newstaff.php?eml=<?php echo $emml ?>">
                           <i class="mdi mdi-account-outline"></i>
                           <span class="nav-text">New Staff </span>
                         </a>
@@ -747,6 +756,7 @@
                       $sql="INSERT INTO admin (Fn,Ln,Un,email,np) VALUES ('$f','$l','$u','$email','$password')";
                       if(mysqli_query($con,$sql)){
                         echo "<script>alert('New Staff Added Successfully')</script>";
+                        header("location:viewstaff.php?eml=$emml");
                       }
                       else{
                         echo "<script>alert('Failed to Add New Staff')</script>";
