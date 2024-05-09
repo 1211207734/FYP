@@ -37,17 +37,18 @@
                 <!-- Category ID=1-->
                 <?php
                     include('database.php');
-                    $query = "SELECT Product_name, Product_details, Product_price FROM Products WHERE category_id = 1";
+                    $query = "SELECT Product_ID, Product_name, Product_details, Product_price FROM Products WHERE category_id = 1";
                     $result = mysqli_query($connect, $query);
                     while ($row = mysqli_fetch_assoc($result)) {?>
                         <div class="product">
                             <div class="card">
                                 <div class="card-body">
                                     <!-- Product Details -->
-                                    <img src="images/<?php echo $row['Product_name']?>.jpg" alt="<?php echo $row['Product_name']?>" class="product-image" $productName = "na">
+                                    <img src="images/<?php echo $row['Product_name']?>.jpg" alt="<?php echo $row['Product_name']?>" class="product-image">
                                     <h3 class="product-title"><?php echo $row['Product_name']?></h3>
                                     <p class="product-details"><?php echo $row['Product_details']?></p>
                                     <p class="product-price">RM <?php echo $row['Product_price']?></p>
+                                    <input type='hidden' name='id' value='<?php echo $row['Product_ID'] ?>'>
                                     <button class="button-2" role="button" name="add" >Add to Cart</button>
                                     <br>
                                     <br>
@@ -351,7 +352,7 @@ if (isset($_GET['eml'])) {
 $connect= mysqli_connect("localhost","root","","jbp");
 if(isset($_POST['add'])) {
 	// Retrieve form data
-	$n = $_POST['na'];
+	$n = $_POST['id'];
 
 	// Prepare SQL statement
 	$sql = "INSERT INTO cart (cp_ID) values ('$n')";
