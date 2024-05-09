@@ -50,6 +50,21 @@
                                     <p class="product-price">RM <?php echo $row['Product_price']?></p>
                                     <input type='hidden' name='id' value='<?php echo $row['Product_ID']; ?>'>
                                     <button class="button-2" role="button" name="add" >Add to Cart</button>
+                                    <script type="text/javascript">
+                                        function checkout() {
+                                            // Assuming you have some logic to check if the user is logged in
+                                            var isLoggedIn = false; // Update this with your actual check
+                                            if (!isLoggedIn) {
+                                                alert("Please login an account to continue.");
+                                                // Redirect to the login page after the alert is closed
+                                                setTimeout(function() {
+                                                    window.location.href = "loginregister.php";
+                                                }, 0); // Adjust the delay if needed, 0 means immediate redirection
+                                                return false; // Prevent the default link action
+                                            }
+                                            return true; // Allow the link action to proceed
+                                        }
+                                    </script>
                                     <br>
                                     <br>
                                     <br>
@@ -82,6 +97,21 @@
                                     <p class="product-details"><?php echo $row['Product_details']?></p>
                                     <p class="product-price">RM <?php echo $row['Product_price']?></p>
                                     <button class="button-2" role="button" name="add" >Add to Cart</button>
+                                    <script type="text/javascript">
+                                        function checkout() {
+                                            // Assuming you have some logic to check if the user is logged in
+                                            var isLoggedIn = false; // Update this with your actual check
+                                            if (!isLoggedIn) {
+                                                alert("Please login an account to continue.");
+                                                // Redirect to the login page after the alert is closed
+                                                setTimeout(function() {
+                                                    window.location.href = "loginregister.php";
+                                                }, 0); // Adjust the delay if needed, 0 means immediate redirection
+                                                return false; // Prevent the default link action
+                                            }
+                                            return true; // Allow the link action to proceed
+                                        }
+                                    </script>
                                     </form>
                                     <br>
                                     <br>
@@ -160,6 +190,21 @@
                                     <p class="product-details"><?php echo $row['Product_details']?></p>
                                     <p class="product-price">RM <?php echo $row['Product_price']?></p>
                                     <button class="button-2" role="button">Add to Cart</button>
+                                    <script type="text/javascript">
+                                        function checkout() {
+                                            // Assuming you have some logic to check if the user is logged in
+                                            var isLoggedIn = false; // Update this with your actual check
+                                            if (!isLoggedIn) {
+                                                alert("Please login an account to continue.");
+                                                // Redirect to the login page after the alert is closed
+                                                setTimeout(function() {
+                                                    window.location.href = "loginregister.php";
+                                                }, 0); // Adjust the delay if needed, 0 means immediate redirection
+                                                return false; // Prevent the default link action
+                                            }
+                                            return true; // Allow the link action to proceed
+                                        }
+                                    </script>
                                     <br>
                                     <br>
                                     <br>
@@ -191,6 +236,21 @@
                                     <p class="product-details"><?php echo $row['Product_details']?></p>
                                     <p class="product-price">RM <?php echo $row['Product_price']?></p>
                                     <button class="button-2" role="button" name="add" >Add to Cart</button>
+                                    <script type="text/javascript">
+                                        function checkout() {
+                                            // Assuming you have some logic to check if the user is logged in
+                                            var isLoggedIn = false; // Update this with your actual check
+                                            if (!isLoggedIn) {
+                                                alert("Please login an account to continue.");
+                                                // Redirect to the login page after the alert is closed
+                                                setTimeout(function() {
+                                                    window.location.href = "loginregister.php";
+                                                }, 0); // Adjust the delay if needed, 0 means immediate redirection
+                                                return false; // Prevent the default link action
+                                            }
+                                            return true; // Allow the link action to proceed
+                                        }
+                                    </script>
                                     <br>
                                     <br>
                                     <br>
@@ -222,6 +282,21 @@
                                     <p class="product-details"><?php echo $row['Product_details']?></p>
                                     <p class="product-price">RM <?php echo $row['Product_price']?></p>
                                     <button class="button-2" role="button" name="add" >Add to Cart</button>
+                                    <script type="text/javascript">
+                                        function checkout() {
+                                            // Assuming you have some logic to check if the user is logged in
+                                            var isLoggedIn = false; // Update this with your actual check
+                                            if (!isLoggedIn) {
+                                                alert("Please login an account to continue.");
+                                                // Redirect to the login page after the alert is closed
+                                                setTimeout(function() {
+                                                    window.location.href = "loginregister.php";
+                                                }, 0); // Adjust the delay if needed, 0 means immediate redirection
+                                                return false; // Prevent the default link action
+                                            }
+                                            return true; // Allow the link action to proceed
+                                        }
+                                    </script>
                                     <br>
                                     <br>
                                     <br>
@@ -253,6 +328,21 @@
                                     <p class="product-details"><?php echo $row['Product_details']?></p>
                                     <p class="product-price">RM <?php echo $row['Product_price']?></p>
                                     <button class="button-2" role="button" name="add" >Add to Cart</button>
+                                    <script type="text/javascript">
+                                        function checkout() {
+                                            // Assuming you have some logic to check if the user is logged in
+                                            var isLoggedIn = false; // Update this with your actual check
+                                            if (!isLoggedIn) {
+                                                alert("Please login an account to continue.");
+                                                // Redirect to the login page after the alert is closed
+                                                setTimeout(function() {
+                                                    window.location.href = "loginregister.php";
+                                                }, 0); // Adjust the delay if needed, 0 means immediate redirection
+                                                return false; // Prevent the default link action
+                                            }
+                                            return true; // Allow the link action to proceed
+                                        }
+                                    </script>
                                     <br>
                                     <br>
                                     <br>
@@ -284,6 +374,21 @@
                                     <p class="product-details"><?php echo $row['Product_details']?></p>
                                     <p class="product-price">RM <?php echo $row['Product_price']?></p>
                                     <button class="button-2" role="button" name="add" >Add to Cart</button>
+                                    <script type="text/javascript">
+                                        function checkout() {
+                                            // Assuming you have some logic to check if the user is logged in
+                                            var isLoggedIn = false; // Update this with your actual check
+                                            if (!isLoggedIn) {
+                                                alert("Please login an account to continue.");
+                                                // Redirect to the login page after the alert is closed
+                                                setTimeout(function() {
+                                                    window.location.href = "loginregister.php";
+                                                }, 0); // Adjust the delay if needed, 0 means immediate redirection
+                                                return false; // Prevent the default link action
+                                            }
+                                            return true; // Allow the link action to proceed
+                                        }
+                                    </script>
                                     <br>
                                     <br>
                                     <br>
@@ -315,6 +420,21 @@
                                     <p class="product-details"><?php echo $row['Product_details']?></p>
                                     <p class="product-price">RM <?php echo $row['Product_price']?></p>
                                     <button class="button-2" role="button" name="add" >Add to Cart</button>
+                                    <script type="text/javascript">
+                                        function checkout() {
+                                            // Assuming you have some logic to check if the user is logged in
+                                            var isLoggedIn = false; // Update this with your actual check
+                                            if (!isLoggedIn) {
+                                                alert("Please login an account to continue.");
+                                                // Redirect to the login page after the alert is closed
+                                                setTimeout(function() {
+                                                    window.location.href = "loginregister.php";
+                                                }, 0); // Adjust the delay if needed, 0 means immediate redirection
+                                                return false; // Prevent the default link action
+                                            }
+                                            return true; // Allow the link action to proceed
+                                        }
+                                    </script>
                                     <br>
                                     <br>
                                     <br>
@@ -346,6 +466,21 @@
                                     <p class="product-details"><?php echo $row['Product_details']?></p>
                                     <p class="product-price">RM <?php echo $row['Product_price']?></p>
                                     <button class="button-2" name="add" role="button">Add to Cart</button>
+                                    <script type="text/javascript">
+                                        function checkout() {
+                                            // Assuming you have some logic to check if the user is logged in
+                                            var isLoggedIn = false; // Update this with your actual check
+                                            if (!isLoggedIn) {
+                                                alert("Please login an account to continue.");
+                                                // Redirect to the login page after the alert is closed
+                                                setTimeout(function() {
+                                                    window.location.href = "loginregister.php";
+                                                }, 0); // Adjust the delay if needed, 0 means immediate redirection
+                                                return false; // Prevent the default link action
+                                            }
+                                            return true; // Allow the link action to proceed
+                                        }
+                                    </script>
                                     <br>
                                     <br>
                                     <br>
