@@ -155,9 +155,9 @@
 		if (mysqli_query($connect, $sql))
 		{
 		
-			echo '<script type="text/javascript">';
+			echo '<script type="text/javascript">
 			echo 'window.location.href = "myaccount.php?eml='.$emml.'";';
-			echo 'alert("Profile Updated Successfully.");</script>';
+			alert("Profile Updated Successfully.");</script>';
 		
 		} else {
 		echo "<script type='text/javascript'>
