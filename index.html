@@ -259,9 +259,25 @@
                   <a class="nav-link" href="about.html">About Us</a>
                 </li>
                 <hr>
-                <li class="nav-item"></li>
-                <a class="nav-link" href="loginregister.php" onclick="return checkout()">Checkout</a>
+                <li class="nav-item">
+                  <a class="nav-link" href="loginregister.php" onclick="return checkout()">Checkout</a>
               </li>
+              <script type="text/javascript">
+                  function checkout() {
+                      // Assuming you have some logic to check if the user is logged in
+                      var isLoggedIn = false; // Update this with your actual check
+                      if (!isLoggedIn) {
+                          alert("Please login an account to continue.");
+                          // Redirect to the login page after the alert is closed
+                          setTimeout(function() {
+                              window.location.href = "loginregister.php";
+                          }, 0); // Adjust the delay if needed, 0 means immediate redirection
+                          return false; // Prevent the default link action
+                      }
+                      return true; // Allow the link action to proceed
+                  }
+              </script>
+              
                 <li class="nav-item">
                   <a class="nav-link" href="myaccount.php">My Account</a>
                 </li>
