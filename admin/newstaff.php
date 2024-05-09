@@ -197,7 +197,7 @@
                         
                           
                             <li >
-                              <a class="sidenav-item-link" href="sign-in.html">
+                              <a class="sidenav-item-link" href="/FYP/loginregister.php">
                                 <span class="nav-text">Sign In</span>
                                 
                               </a>
@@ -675,15 +675,10 @@
                           <span class="nav-text">Account Setting</span>
                         </a>
                       </li>
-                      <li>
-                        <a class="dropdown-link-item" href=" newstaff.php?eml=<?php echo $emml ?>">
-                          <i class="mdi mdi-account-outline"></i>
-                          <span class="nav-text">New Staff </span>
-                        </a>
-                      </li>
+                      
 
                       <li class="dropdown-footer">
-                        <a class="dropdown-link-item" href="sign-in.html"> <i class="mdi mdi-logout"></i> Log Out </a>
+                        <a class="dropdown-link-item" href="/FYP//FYP/loginregister.php"> <i class="mdi mdi-logout"></i> Log Out </a>
                       </li>
                     </ul>
                   </li>
@@ -755,8 +750,8 @@
                      
                       $sql="INSERT INTO admin (Fn,Ln,Un,email,np) VALUES ('$f','$l','$u','$email','$password')";
                       if(mysqli_query($con,$sql)){
-                        echo "<script>alert('New Staff Added Successfully')</script>";
-                        header("location:viewstaff.php?eml=$emml");
+                        echo "<script>alert('New Staff Added Successfully');
+                        window.location.href = 'viewstaff.php?eml='.$emml.'';</script>";
                       }
                       else{
                         echo "<script>alert('Failed to Add New Staff')</script>";

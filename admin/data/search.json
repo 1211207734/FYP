@@ -316,7 +316,7 @@
 
   {
     "label": "Sign In",
-    "link": "sign-in.html",
+    "link": "/FYP/loginregister.php",
     "tags": "",
     "location": "Authentication"
   },
