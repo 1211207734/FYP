@@ -46,12 +46,10 @@ if(isset($_POST['save'])) {
 	
 	if (mysqli_query($connect, $sql))
 	{
-	
-		echo"<script type='text/javascript'>
-		alert('Card Save Successfully!');</script>";
-		header("location:cart.php?eml=".$emml);
-		echo"<script>location.reload();</script>";
-		
+		echo '<script type="text/javascript">';
+		echo 'window.location.href = "cart.php?eml='.$emml.'";';
+		echo 'alert("Card Save Successfully!");';
+		echo '</script>';
 	
 	} else {
 	echo "<script type='text/javascript'>

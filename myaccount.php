@@ -73,6 +73,7 @@
 								</div>
 								<br>
 								<div>
+									<a href="home.php?eml=<?php echo $emml?>"><button type="button"class="fbut" >Home</button></a>
 									<a href="updateacc.php?eml=<?php echo $emml?>"><button type="button"class="fbut" >Update Profile Details</button></a>
 									<a href="changepw.php?eml=<?php echo $emml?>"><button type="button"class="fbut" >Change Password</button></a>
 								</div>
