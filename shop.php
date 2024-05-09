@@ -362,16 +362,16 @@ if(isset($_POST['add'])) {
 	if (mysqli_query($connect, $sql))
 	{
 	
-		echo"<script type='text/javascript'>
-		alert('Product Added to Cart Succesfully!');</script>";
-		header("location:cart.php?eml=".$emml);
-		echo"<script>location.reload();</script>";
+		echo '<script type="text/javascript">';
+		echo 'alert("Product Added to Cart Succesfully!");';
+        echo 'window.location.href = "shop.php?eml='.$emml.'";';
+        echo '</script>';
 		
 	
 	} else {
-	echo "<script type='text/javascript'>
-	alert('Error executing SQL statement:'.mysqli_error($connect));
-	</script>";
+	echo '<script type="text/javascript">';
+	echo 'alert("Error executing SQL statement:".mysqli_error($connect));';
+	echo '</script>';
 	}	
 	
 		

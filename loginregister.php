@@ -14,7 +14,7 @@ if (isset($_POST['login'])) {
     
     $mam=mysqli_query($connect,$q);
     $row=mysqli_fetch_assoc($mam);
-    $iii=$row['id'];
+    $ii=$row['id'];
    
     $stmt = mysqli_prepare($connect, $query);
     mysqli_stmt_bind_param($stmt, "s", $email);
@@ -30,8 +30,8 @@ if (isset($_POST['login'])) {
         if ($password == $ppassword) {
             // Login successful
             echo '<script type="text/javascript">
-    alert("Login successfully.");
-    </script>';
+                alert("Login successfully.");
+                </script>';
             // Redirect to home page or perform other actions
             header("Location: home.php?eml=".$ii);
             $useraccount++;
@@ -43,8 +43,10 @@ if (isset($_POST['login'])) {
     else if ($row && $email == $row['email'] && $password == $row['np']) {
 
         echo '<script type="text/javascript">
-    alert("Login successfully.");
-    </script>';
+        alert("Login successfully.");
+         </script>';
+       // echo 'window.location.href = "myaccount.php?eml='.$emml.'";';
+
         header("Location: /FYP/admin/index.php?eml=".$iii);
         exit();
     }
