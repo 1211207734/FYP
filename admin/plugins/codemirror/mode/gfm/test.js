@@ -131,10 +131,10 @@
      "foo [link http://www.example.com/]. bar");
 
   MT("vanillaLinkExtension",
-     "foo [link http://www.example.com/index.php] bar");
+     "foo [link http://www.example.com/index.php?eml=<?php echo $emml ?>] bar");
 
   MT("vanillaLinkEmphasis",
-     "foo [em *][em&link http://www.example.com/index.php][em *] bar");
+     "foo [em *][em&link http://www.example.com/index.php?eml=<?php echo $emml ?>][em *] bar");
 
   MT("notALink",
      "foo asfd:asdf bar");

@@ -113,7 +113,7 @@
 								<!-- Email -->
 								<div class="col-md-6">
 									<label for="inputEmail4" class="form-label">Email *</label>
-									<input type="email" class="form-control" id="inputEmail4" name="email" value="<?php echo $row['Customer_email']; ?>">
+									<input readonly type="email" class="form-control" id="inputEmail4" name="email" value="<?php echo $row['Customer_email']; ?>">
 									
 								</div>
 								<!-- Mobile number -->

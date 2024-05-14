@@ -18,12 +18,12 @@
   <a href="http://codemirror.net"><h1>CodeMirror</h1><img id=logo src="../../doc/jbplogo.png"></a>
 
   <ul>
-    <li><a href="../../index.php">Home</a>
+    <li><a href="../../index.php?eml=<?php echo $emml ?>">Home</a>
     <li><a href="../../doc/manual.html">Manual</a>
     <li><a href="https://github.com/codemirror/codemirror">Code</a>
   </ul>
   <ul>
-    <li><a href="../index.php">Language modes</a>
+    <li><a href="../index.php?eml=<?php echo $emml ?>">Language modes</a>
     <li><a class=active href="#">Diff</a>
   </ul>
 </div>
@@ -31,10 +31,10 @@
 <article>
 <h2>Diff mode</h2>
 <form><textarea id="code" name="code">
-diff --git a/index.php b/index.php
+diff --git a/index.php?eml=<?php echo $emml ?> b/index.php?eml=<?php echo $emml ?>
 index c1d9156..7764744 100644
---- a/index.php
-+++ b/index.php
+--- a/index.php?eml=<?php echo $emml ?>
++++ b/index.php?eml=<?php echo $emml ?>
 @@ -95,7 +95,8 @@ StringStream.prototype = {
      <script>
        var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
