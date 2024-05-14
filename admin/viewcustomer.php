@@ -196,12 +196,17 @@
                         
                         
                           
-                            <li >
-                              <a class="sidenav-item-link" href="/FYP/loginregister.php">
+                             <li >
+                              <a class="sidenav-item-link" href="/FYP/loginregister.php" onclick="log()">
                                 <span class="nav-text">Sign In</span>
                                 
                               </a>
                             </li>
+                          <script type="text/javascript">
+                            function log(){
+                            alert("You have logout!");
+                            }
+                          </script>
                           
                         
 
@@ -227,7 +232,13 @@
                               </a>
                             </li>
 
-                            <li >
+                            <?php if($emml == 1){
+                              $o="";}
+                              else{
+                                $o="hidden";
+                              }
+                               ?>
+                            <li <?php echo $o ?> >
                               <a class="sidenav-item-link" href="newstaff.php?eml=<?php echo $emml ?>">
                                 <span class="nav-text">New Staff</span>
                                 

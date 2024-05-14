@@ -197,12 +197,16 @@
                         
                           
                             <li >
-                              <a class="sidenav-item-link" href="/FYP/loginregister.php">
+                              <a class="sidenav-item-link" href="/FYP/loginregister.php" onclick="log()">
                                 <span class="nav-text">Sign In</span>
                                 
                               </a>
                             </li>
-                          
+                          <script type="text/javascript">
+                            function log(){
+                            alert("You have logout!");
+                            }
+                          </script>
                         
 
                         
@@ -227,12 +231,20 @@
                               </a>
                             </li>
 
-                            <li >
+                            <?php if($emml == 1){
+                              $o="";}
+                              else{
+                                $o="hidden";
+                              }
+                               ?>
+                            <li <?php echo $o ?> >
                               <a class="sidenav-item-link" href="newstaff.php?eml=<?php echo $emml ?>">
                                 <span class="nav-text">New Staff</span>
                                 
                               </a>
                             </li>
+
+                            
                           
                         
 
@@ -721,15 +733,26 @@
       </thead>
       <tbody>
       <?php
-    $sql = "SELECT Fn,Ln,Un,email FROM admin";
+      if($emml == 1){
+      $sql = "SELECT id,Fn,Ln,Un,email,status FROM admin where id!=1 ";
+      $o="";
+      }
+      else{
+      $sql = "SELECT id,Fn,Ln,Un,email,status FROM admin where id!=1 and status='active'";
+      $o="hidden";
+    }
     $result = mysqli_query($connect, $sql);
     while($row = mysqli_fetch_assoc($result)){
     ?>
         <tr>
+          <?php 
           
+           $selectedid=$row['id'];?>
+           
           <td><?php echo $row['Fn']," ",$row['Ln'];?></td>
           <td><?php echo $row['Un'];?></td>
           <td><?php echo $row['email'];?></td>
+          <td><?php echo $row['status'];?></td>
           <td>
             <div class="dropdown">
               <a class="dropdown-toggle icon-burger-mini" href="#" role="button" id="dropdownMenuLink"
@@ -737,15 +760,35 @@
               </a>
 
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="#" onclick="return manageStaff(<?php echo $row['id']; ?>, 'delete')">Delete Staff</a>
+                <a <?php echo $o ?> class="dropdown-item" href="#" onclick="return manageStaff(<?php echo $row['id']; ?>, 'activate')">Activate Staff</a>
                 <a class="dropdown-item" href="#">Something else here</a>
               </div>
             </div>
           </td>
         </tr>
         <?php }?>
-        
+        <script type="text/javascript">
+                   function manageStaff(id, action) {
+        var confirmationMessage = action === 'delete' ? "Are you sure you want to delete this staff?" : "Are you sure you want to activate this staff?";
+        if (confirm(confirmationMessage)) {
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "manage_staff.php", true);
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    var response = JSON.parse(xhr.responseText);
+                    alert(response.message);
+                    if (response.success) {
+                        window.location.href = "viewstaff.php?eml=<?php echo $emml; ?>";
+                    }
+                }
+            };
+            xhr.send("id=" + id + "&action=" + action);
+        }
+        return false;
+    }
+</script>
 
 
       </tbody>

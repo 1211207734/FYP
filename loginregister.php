@@ -9,12 +9,12 @@ if (isset($_POST['login'])) {
 
     // Corrected SQL query syntax and added prepared statement
     $query = "SELECT Customer_ID,Customer_email, Customer_password FROM customer WHERE Customer_email = ?";
-    $q="SELECT id,email, np FROM admin WHERE email = '$email'";
+    $q="SELECT id,email,np,status FROM admin WHERE email = '$email' and status='active'";
     
     
     $mam=mysqli_query($connect,$q);
     $row=mysqli_fetch_assoc($mam);
-    $iii=$row['id'];
+    
    
     $stmt = mysqli_prepare($connect, $query);
     mysqli_stmt_bind_param($stmt, "s", $email);
@@ -22,6 +22,7 @@ if (isset($_POST['login'])) {
     $result = mysqli_stmt_get_result($stmt);
 
     if($row){
+        $iii=$row['id'];
         $ppassword = $row['np'];
         if ($password == $ppassword) {
             // Login successful

@@ -8,11 +8,13 @@ CREATE TABLE Admin (
     Ln text NOT NULL,
     Un text NOT NULL,
 	email text NOT NULL,
-    np text NOT NULL
+    np text NOT NULL,
+    status text NOT NULL
 );
 
-INSERT INTO Admin (id,Fn,Ln,Un,email,np) 
-VALUES (1211208820,'brand','on','noprob madam','bbran@example.com','jkjk');
+INSERT INTO Admin (id,Fn,Ln,Un,email,np,status) 
+VALUES (1211208820,'brand','on','noprob madam','bbran@example.com','jkjk','active'),
+        (1,'Super','Admin','Super Admin','admin@gmail.com','admin','active');
 
 
 CREATE TABLE Categories (
