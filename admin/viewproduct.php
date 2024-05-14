@@ -734,7 +734,7 @@
         </tr>
       </thead>
       <tbody>
-      <?php
+    <?php
     $sql = "SELECT Product_name,Product_price,Product_stock,Category_name FROM products INNER JOIN categories ON products.Category_ID=categories.Category_ID ";
     $result = mysqli_query($connect, $sql);
     while($row = mysqli_fetch_assoc($result)){
@@ -762,7 +762,7 @@
             </div>
           </td>
         </tr>
-        <?php }?>
+    <?php }?>
         
 
 

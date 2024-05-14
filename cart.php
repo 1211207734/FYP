@@ -14,8 +14,8 @@ include('database.php');
 if (isset($_GET['eml'])) {
     $emml = $_GET['eml'];}
 	$connect= mysqli_connect("localhost","root","","jbp");
-	$result = mysqli_query($connect, "SELECT * FROM cart where Customer_ID='$emml'");
-	while($row = mysqli_fetch_assoc($result)) {
+	$sql = "SELECT Product_name,Product_price,Product_stock,Product_details,Customer_ID FROM products INNER JOIN cart ON products.Product_ID=cart.Product_ID where Customer_ID='$emml'";
+	$result = mysqli_query($connect, $sql);
 
 ?>
 	<body>
@@ -28,6 +28,9 @@ if (isset($_GET['eml'])) {
 					</div>
 					<div class="content">
 						<div class="row">
+						<?php
+						while($row = mysqli_fetch_assoc($result)) {
+						?>
 							<div class="col-md-12 col-lg-8">
 								<div class="items">
 									<div class="product">
@@ -40,7 +43,7 @@ if (isset($_GET['eml'])) {
 													<div class="row">
 														<div class="col-md-5 product-name">
 															<div class="product-name">
-																<a href="#">Lorem Ipsum dolor</a>
+																<a href="#"><?php echo $row['Product_name']?></a>
 																<div class="product-info">
 																	<div>Display: <span class="value">5 inch</span></div>
 																	<div>RAM: <span class="value">4GB</span></div>
@@ -62,6 +65,7 @@ if (isset($_GET['eml'])) {
 									</div>
 								</div>
 							</div>
+						<?php}?>
 							<div class="col-md-12 col-lg-4">
 								<div class="summary">
 									<h3>Summary</h3>
@@ -79,7 +83,7 @@ if (isset($_GET['eml'])) {
 			</section>
 		</main>
 	</body>
-	<?php }
+	<?php 
 	if(isset($_POST['out'])) {
 		// Retrieve form data
 		$f = $_POST['fullname'];
