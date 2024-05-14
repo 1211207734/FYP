@@ -37,7 +37,7 @@
                 <!-- Category ID=1-->
                 <?php
                     include('database.php');
-                    $query = "SELECT Product_ID, Product_name, Product_details, Product_price FROM Products WHERE category_id = 1";
+                    $query = "SELECT Product_ID, Product_name, Product_details, Product_price FROM Products WHERE category_id = 1 and status = 'active'";
                     $result = mysqli_query($connect, $query);
                     while ($row = mysqli_fetch_assoc($result)) {?>
                         <div class="product">
@@ -84,7 +84,7 @@
                 <br>
                 <?php
                     include('database.php');
-                    $query = "SELECT Product_name, Product_details, Product_price FROM Products WHERE category_id = 2";
+                    $query = "SELECT Product_name, Product_details, Product_price FROM Products WHERE category_id = 2 and status = 'active'";
                     $result = mysqli_query($connect, $query);
                     while ($row = mysqli_fetch_assoc($result)) {?>
                         <div class="product">
@@ -132,7 +132,7 @@
                 <br>
                 <?php
                     include('database.php');
-                    $query = "SELECT Product_name, Product_details, Product_price FROM Products WHERE category_id = 3";
+                    $query = "SELECT Product_name, Product_details, Product_price FROM Products WHERE category_id = 3 and status = 'active'";
                     $result = mysqli_query($connect, $query);
                     while ($row = mysqli_fetch_assoc($result)) {?>
                         <div class="product">
@@ -178,7 +178,7 @@
                 <br>
                 <?php
                     include('database.php');
-                    $query = "SELECT Product_name, Product_details, Product_price FROM Products WHERE category_id = 4";
+                    $query = "SELECT Product_name, Product_details, Product_price FROM Products WHERE category_id = 4 and status = 'active'";
                     $result = mysqli_query($connect, $query);
                     while ($row = mysqli_fetch_assoc($result)) {?>
                         <div class="product">
@@ -224,7 +224,7 @@
                 <br>
                 <?php
                     include('database.php');
-                    $query = "SELECT Product_name, Product_details, Product_price FROM Products WHERE category_id = 5";
+                    $query = "SELECT Product_name, Product_details, Product_price FROM Products WHERE category_id = 5 and status = 'active'";
                     $result = mysqli_query($connect, $query);
                     while ($row = mysqli_fetch_assoc($result)) {?>
                         <div class="product">
@@ -270,7 +270,7 @@
                 <br>
                 <?php
                     include('database.php');
-                    $query = "SELECT Product_name, Product_details, Product_price FROM Products WHERE category_id = 6";
+                    $query = "SELECT Product_name, Product_details, Product_price FROM Products WHERE category_id = 6 and status = 'active'";
                     $result = mysqli_query($connect, $query);
                     while ($row = mysqli_fetch_assoc($result)) {?>
                         <div class="product">
@@ -316,7 +316,7 @@
                 <br>
                 <?php
                     include('database.php');
-                    $query = "SELECT Product_name, Product_details, Product_price FROM Products WHERE category_id = 7";
+                    $query = "SELECT Product_name, Product_details, Product_price FROM Products WHERE category_id = 7 and status = 'active'";
                     $result = mysqli_query($connect, $query);
                     while ($row = mysqli_fetch_assoc($result)) {?>
                         <div class="product">
@@ -362,7 +362,7 @@
                 <br>
                 <?php
                     include('database.php');
-                    $query = "SELECT Product_name, Product_details, Product_price FROM Products WHERE category_id = 8";
+                    $query = "SELECT Product_name, Product_details, Product_price FROM Products WHERE category_id = 8 and status = 'active'";
                     $result = mysqli_query($connect, $query);
                     while ($row = mysqli_fetch_assoc($result)) {?>
                         <div class="product">
@@ -408,7 +408,7 @@
                 <br>
                 <?php
                     include('database.php');
-                    $query = "SELECT Product_name, Product_details, Product_price FROM Products WHERE category_id = 9";
+                    $query = "SELECT Product_name, Product_details, Product_price FROM Products WHERE category_id = 9 and status = 'active'";
                     $result = mysqli_query($connect, $query);
                     while ($row = mysqli_fetch_assoc($result)) {?>
                         <div class="product">
@@ -454,7 +454,7 @@
                 <br>
                 <?php
                     include('database.php');
-                    $query = "SELECT Product_name, Product_details, Product_price FROM Products WHERE category_id = 10";
+                    $query = "SELECT Product_name, Product_details, Product_price FROM Products WHERE category_id = 10 and status = 'active'";
                     $result = mysqli_query($connect, $query);
                     while ($row = mysqli_fetch_assoc($result)) {?>
                         <div class="product">
