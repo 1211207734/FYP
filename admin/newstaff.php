@@ -196,12 +196,17 @@
                         
                         
                           
-                            <li >
-                              <a class="sidenav-item-link" href="/FYP/loginregister.php">
+                             <li >
+                              <a class="sidenav-item-link" href="/FYP/loginregister.php" onclick="log()">
                                 <span class="nav-text">Sign In</span>
                                 
                               </a>
                             </li>
+                          <script type="text/javascript">
+                            function log(){
+                            alert("You have logout!");
+                            }
+                          </script>
                           
                         
 
@@ -223,6 +228,19 @@
                             <li >
                               <a class="sidenav-item-link" href="reset-password.html">
                                 <span class="nav-text">Reset Password</span>
+                                
+                              </a>
+                            </li>
+
+                            <?php if($emml == 1){
+                              $o="";}
+                              else{
+                                $o="hidden";
+                              }
+                               ?>
+                            <li <?php echo $o ?> >
+                              <a class="sidenav-item-link" href="newstaff.php?eml=<?php echo $emml ?>">
+                                <span class="nav-text">New Staff</span>
                                 
                               </a>
                             </li>
@@ -748,10 +766,10 @@
                       $email=$_POST['email'];
                       $password=$_POST['password'];
                      
-                      $sql="INSERT INTO admin (Fn,Ln,Un,email,np) VALUES ('$f','$l','$u','$email','$password')";
+                      $sql="INSERT INTO admin (Fn,Ln,Un,email,np,status) VALUES ('$f','$l','$u','$email','$password','active')";
                       if(mysqli_query($con,$sql)){
-                        echo "<script>alert('New Staff Added Successfully');
-                        window.location.href = 'viewstaff.php?eml='.$emml.'';</script>";
+                        echo "<script>alert('New Staff Added Successfully');";
+                        echo 'window.location.href = "viewstaff.php?eml='.$emml.'";</script>';
                       }
                       else{
                         echo "<script>alert('Failed to Add New Staff')</script>";

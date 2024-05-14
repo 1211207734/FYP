@@ -613,12 +613,17 @@
                         
                         
                           
-                            <li >
-                              <a class="sidenav-item-link" href="/FYP/loginregister.php">
+                             <li >
+                              <a class="sidenav-item-link" href="/FYP/loginregister.php" onclick="log()">
                                 <span class="nav-text">Sign In</span>
                                 
                               </a>
                             </li>
+                          <script type="text/javascript">
+                            function log(){
+                            alert("You have logout!");
+                            }
+                          </script>
                           
                         
 
@@ -640,6 +645,18 @@
                             <li >
                               <a class="sidenav-item-link" href="reset-password.html">
                                 <span class="nav-text">Reset Password</span>
+                                
+                              </a>
+                            </li>
+                            <?php if($emml == 1){
+                              $o="";}
+                              else{
+                                $o="hidden";
+                              }
+                               ?>
+                            <li <?php echo $o ?> >
+                              <a class="sidenav-item-link" href="newstaff.php?eml=<?php echo $emml ?>">
+                                <span class="nav-text">New Staff</span>
                                 
                               </a>
                             </li>
@@ -679,6 +696,7 @@
                                 
                               </a>
                             </li>
+                            
                             <li>
                               <a class="sidenav-item-link" href="viewstaff.php?eml=<?php echo $emml ?>">
                                 <span class="nav-text">Staff</span>
@@ -1140,11 +1158,18 @@
                       </footer>
                     </div>
                   </li>
+                  <?php				
+                  
+                      $connect= mysqli_connect("localhost","root","","jbp");
+                      $ll="SELECT * from admin WHERE id = '$emml'";
+                      $result = mysqli_query($connect, $ll);
+                      $r=mysqli_fetch_assoc($result);
+                      ?>
                   <!-- User Account -->
                   <li class="dropdown user-menu">
                     <button class="dropdown-toggle nav-link" data-toggle="dropdown">
                       <img src="images/user/user-xs-01.jpg" class="user-image rounded-circle" alt="User Image" />
-                      <span class="d-none d-lg-inline-block">  Brandon</span>
+                      <span class="d-none d-lg-inline-block"><?php echo $r['Un'];?></span>
                     </button>
                     <ul class="dropdown-menu dropdown-menu-right">
                       <li>
@@ -1159,12 +1184,7 @@
                           <span class="nav-text">Account Setting</span>
                         </a>
                       </li>
-                      <li>
-                        <a class="dropdown-link-item" href=" newstaff.php?eml=<?php echo $emml ?>">
-                          <i class="mdi mdi-account-outline"></i>
-                          <span class="nav-text">New Staff </span>
-                        </a>
-                      </li>
+                       
 
                       <li class="dropdown-footer">
                         <a class="dropdown-link-item" href="/FYP/loginregister.php"> <i class="mdi mdi-logout"></i> Log Out </a>
