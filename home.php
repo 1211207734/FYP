@@ -278,23 +278,10 @@ if (isset($_GET['eml'])) {
                 
                 
                 <!-- HTML for the login link -->
-                <a id="loginLink" class="nav-link" href="index.html">LogOut</a>
-
-                <script>
-                    // Retrieve the useraccount value from session storage
-                    var useraccount = sessionStorage.getItem('useraccount');
-
-                    // Check if useraccount is set and its value is 1
-                    if (useraccount && useraccount === '1') {
-                        // User is logged in, hide the login link
-                        document.getElementById('loginLink').style.display = 'none';
-                    } else {
-                        // User is not logged in, keep the login link visible
-                    }
+                <a id="loginLink" class="nav-link" href="index.html">Log Out</a>
+                <script type="text/javascript">
+                alert("Login successfully.");
                 </script>
-
-
-
                 </li>
               </ul>
             </div>
