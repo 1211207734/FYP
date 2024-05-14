@@ -28,35 +28,35 @@ if (isset($_GET['eml'])) {
 					</div>
 					<div class="content">
 						<div class="row">
-						<?php
-						while($row = mysqli_fetch_assoc($result)) {
-						?>
-							<div class="col-md-12 col-lg-8">
-								<div class="items">
-									<div class="product">
-										<div class="row">
-											<div class="col-md-3">
-												<img class="img-fluid mx-auto d-block image" src="assets/img/image.jpg">
-											</div>
-											<div class="col-md-8">
-												<div class="info">
-													<div class="row">
-														<div class="col-md-5 product-name">
-															<div class="product-name">
-																<a href="#"><?php echo $row['Product_name']?></a>
-																<div class="product-info">
-																	<div>Display: <span class="value">5 inch</span></div>
-																	<div>RAM: <span class="value">4GB</span></div>
-																	<div>Memory: <span class="value">32GB</span></div>
+							<?php
+							while($row = mysqli_fetch_assoc($result)) {
+							?>
+								<div class="col-md-12 col-lg-8">
+									<div class="items">
+										<div class="product">
+											<div class="row">
+												<div class="col-md-3">
+													<img src="images/<?php echo $row['Product_name']?>.jpg" class="img-fluid mx-auto d-block image">
+												</div>
+												<div class="col-md-8">
+													<div class="info">
+														<div class="row">
+															<div class="col-md-5 product-name">
+																<div class="product-name">
+																	<a href="#"><?php echo $row['Product_name']?></a>
+																	<div class="product-info">
+																		<div>Details: </div>
+																		<div><?php echo $row['Product_details'];?></div>
+																	</div>
 																</div>
 															</div>
-														</div>
-														<div class="col-md-4 quantity">
-															<label for="quantity">Quantity:</label>
-															<input id="quantity" type="number" value ="1" class="form-control quantity-input">
-														</div>
-														<div class="col-md-3 price">
-															<span>$120</span>
+															<div class="col-md-4 quantity">
+																<label for="quantity">Quantity:</label>
+																<input id="quantity" type="number" value ="1" class="form-control quantity-input">
+															</div>
+															<div class="col-md-3 price">
+																<?php echo $row['Product_price'];?>
+															</div>
 														</div>
 													</div>
 												</div>
