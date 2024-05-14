@@ -253,12 +253,6 @@ if (isset($_GET['eml'])) {
                     <li>
                       <a href="checkout.php" class="dropdown-item item-anchor">Categories</a>
                     </li>
-                    <li>
-                      <a href="account.php" class="dropdown-item item-anchor">My Account    </a>
-                    </li>
-                    <li>
-                      <a href="payment.php?eml=<?php echo $emml?>" class="dropdown-item item-anchor">Order History   </a>
-                    </li>
                   </ul>
                 </li>
                 <li class="nav-item">
@@ -270,6 +264,9 @@ if (isset($_GET['eml'])) {
                 <hr>
                 <li class="nav-item">
                   <a class="nav-link" href="myaccount.php?eml=<?php echo $emml?>">My Account</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="orderhistory.php?eml=<?php echo $emml?>">Order History</a>
                 </li>
                 <li class="nav-item">
                   <script>
