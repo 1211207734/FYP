@@ -279,7 +279,7 @@ if (isset($_GET['eml'])) {
                 
                 <!-- HTML for the login link -->
                 <a id="loginLink" class="nav-link" href="index.html">Log Out</a>
-              
+                
                 </li>
               </ul>
             </div>
