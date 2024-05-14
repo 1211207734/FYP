@@ -47,36 +47,32 @@
 					<!-- Form START -->
 					<!-- Contact detail -->
 						
-							<div class="row g-3">
-								<h4 class="mb-4 mt-0">Account details</h4>
-								<!-- First Name -->
-								<div class="ti">
-									<label class="ti">Full Name :</label><br>
-									<div><?php echo $row['Customer_name']; ?></div>
-                                    
-								</div>	
-								<!-- Phone number -->
-								<div class="col-md-6">
-									<label class="ti">Phone number :</label>
-									<div><?php echo $row['Customer_HP']; ?></div>
-								</div>
-								<!-- Email -->
-								<div class="col-md-6">
-									<label for="inputEmail4" class="ti">Email :</label>
-									<div><?php echo $row['Customer_email']; ?></div>
-								<!-- Mobile number -->
-								<div class="col-md-6">
-									<label class="ti">Address :</label>
-									<div><?php echo $row['Customer_address_1']; ?></div>
+					<div class="text-center mt-3">
+                    <span class="bg-secondary p-1 px-4 rounded text-white">Account Details ：</span>
+                    <h5 class="mt-2 mb-0">Full Name : </h5>
+                    <div><?php echo $row['Customer_name']; ?></div>
+                    
+                    <h5 class="mt-2 mb-0">Phone Number : </h5>
+                  <div><?php echo $row['Customer_HP']; ?></div>
+                    <h5 class="mt-2 mb-0">Email : </h5>
+                  <div><?php echo $row['Customer_email']; ?></div>
+                    <h5 class="mt-2 mb-0">Address : </h5>
+                   <div><?php echo $row['Customer_address_1']; ?></div>
 									<div><?php echo $row['Customer_address_2']; ?></div>
-									<div><?php echo $row['Customer_postcode']; ?></td></div>
-								</div>
-								<br>
-								<div>
-									<a href="home.php?eml=<?php echo $emml?>"><button type="button"class="fbut" >Home</button></a>
-									<a href="updateacc.php?eml=<?php echo $emml?>"><button type="button"class="fbut" >Update Profile Details</button></a>
-									<a href="changepw.php?eml=<?php echo $emml?>"><button type="button"class="fbut" >Change Password</button></a>
-								</div>
+                   <h5 class="mt-2 mb-0">PostCode : </h5>
+                  <div><?php echo $row['Customer_postcode']; ?></td></div>
+                    </div>
+                    
+                    <div class="buttons">
+                        
+                 
+                        <a href="home.php?eml=<?php echo $emml?>"><button class="btn btn-primary px-4 ms-3">Home</button>
+                      <a href="updateacc.php?eml=<?php echo $emml?>"><button class="btn btn-primary px-4 ms-3">Update Profile Details</button>
+                      <a href="changepw.php?eml=<?php echo $emml?>"><button class="btn btn-primary px-4 ms-3">Change Password</button>
+                    </div>
+                    
+                    
+                </div>
 								<br>
 								<br>
 							</div>
