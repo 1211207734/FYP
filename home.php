@@ -257,7 +257,7 @@ if (isset($_GET['eml'])) {
                       <a href="account.php" class="dropdown-item item-anchor">My Account    </a>
                     </li>
                     <li>
-                      <a href="payment.php?eml=<?php echo $emml?>" class="dropdown-item item-anchor">Order Tracking    </a>
+                      <a href="payment.php?eml=<?php echo $emml?>" class="dropdown-item item-anchor">Order History   </a>
                     </li>
                   </ul>
                 </li>
@@ -268,9 +268,6 @@ if (isset($_GET['eml'])) {
                   <a class="nav-link" href="about.html">About Us</a>
                 </li>
                 <hr>
-                <li class="nav-item">
-                  <a class="nav-link" href="cart.php?eml=<?php echo $emml?>">Cart</a>
-                </li>
                 <li class="nav-item">
                   <a class="nav-link" href="myaccount.php?eml=<?php echo $emml?>">My Account</a>
                 </li>
@@ -306,12 +303,7 @@ if (isset($_GET['eml'])) {
         <div class="col-3 col-md-3 text-md-end">
           <ul class="list-unstyled d-flex justify-content-end m-0">
             <li>
-              <a href="wishlist.html" class="mx-2">
-                <svg width="24" height="24" viewBox="0 0 24 24"><use xlink:href="#heart"></use></svg>
-              </a>
-            </li>
-            <li>
-              <a href="cart.html" class="mx-2" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart" aria-controls="offcanvasCart">
+              <a href="cart.php?eml=<?php echo $emml?>" class="mx-2" >
                 <svg width="24" height="24" viewBox="0 0 24 24"><use xlink:href="#cart"></use></svg>
               </a>
             </li>
