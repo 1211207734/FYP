@@ -146,7 +146,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])) {
                                                 </script>
                                             <br>
                                             <!-- Removed redirecting back to index.html -->
-                                            <p class="mb-0 mt-4 text-center"><a href="https://www.web-leb.com/code" class="link">Forgot your password?</a></p>
+                                            <p class="mb-0 mt-4 text-center"><a href="forgot-password.php" class="link">Forgot your password?</a></p>
                                         </form>
                                         <?php
                                         if (!empty($error_message)) {
