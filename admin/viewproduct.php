@@ -73,7 +73,7 @@
           <div id="sidebar" class="sidebar sidebar-with-footer">
             <!-- Aplication Brand -->
             <div class="app-brand">
-              <a href="/index.php">
+              <a href="/index.php?eml=<?php echo $emml ?>">
                 <img src="images/jbplogo.png" alt=" JBPstore">
                 <span class="brand-name"> JBPstore</span>
               </a>
@@ -87,7 +87,7 @@
                 
                   <li
                    >
-                    <a class="sidenav-item-link" href="index.php">
+                    <a class="sidenav-item-link" href="index.php?eml=<?php echo $emml ?>">
                       <i class="mdi mdi-briefcase-account-outline"></i>
                       <span class="nav-text">Business Dashboard</span>
                     </a>
@@ -388,16 +388,16 @@
                   <ul class="dropdown-menu dropdown-menu-search">
 
                     <li class="nav-item">
-                      <a class="nav-link" href="index.php">Morbi leo risus</a>
+                      <a class="nav-link" href="index.php?eml=<?php echo $emml ?>">Morbi leo risus</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="index.php">Dapibus ac facilisis in</a>
+                      <a class="nav-link" href="index.php?eml=<?php echo $emml ?>">Dapibus ac facilisis in</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="index.php">Porta ac consectetur ac</a>
+                      <a class="nav-link" href="index.php?eml=<?php echo $emml ?>">Porta ac consectetur ac</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="index.php">Vestibulum at eros</a>
+                      <a class="nav-link" href="index.php?eml=<?php echo $emml ?>">Vestibulum at eros</a>
                     </li>
 
                   </ul>
@@ -714,62 +714,178 @@
 
 
 <!-- Products Inventory -->
-<div class="card card-default">
-  <div class="card-header">
-    <h2>Products Inventory</h2>
+      <div class="card card-default">
+        <div class="card-header">
+          <h2>Products Inventory</h2>
+          <a href="#" class="btn btn-primary btn-pill" data-toggle="modal" data-target="#modal-stock">Add Stock</a>
+        </div>
+      
+        <table id="productsTable" class="table table-hover table-product" style="width:100%">
+          <thead>
+            <tr>
+              <th>Image</th>
+              <th>Product Name</th>
+              <th>Price</th>
+              <th>In Stock</th>
+              <th>Category</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+          <?php
+        $sql = "SELECT Product_name,Product_price,Product_stock,Category_name FROM products INNER JOIN categories ON products.Category_ID=categories.Category_ID ";
+        $result = mysqli_query($connect, $sql);
+        while($row = mysqli_fetch_assoc($result)){
+        ?>
+            <tr>
+              <td class="py-0">
+                <img src="images/products/products-xs-01.jpg" alt="Product Image">
+              </td>
+              <td><?php echo $row['Product_name'];?></td>
+              <td><?php echo $row['Product_price'];?></td>
+              <td><?php echo $row['Product_stock'];?></td>
+              <td><?php echo $row['Category_name'];?></td>
+              
+              <td>
+                <div class="dropdown">
+                  <a class="dropdown-toggle icon-burger-mini" href="#" role="button" id="dropdownMenuLink"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
+                  </a>
 
-   
+                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <?php }?>
+            
 
-  </div>
-  
-    <table id="productsTable" class="table table-hover table-product" style="width:100%">
-      <thead>
-        <tr>
-          <th>Image</th>
-          <th>Product Name</th>
-          <th>Price</th>
-          <th>In Stock</th>
-          <th>Category</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-    <?php
-    $sql = "SELECT Product_name,Product_price,Product_stock,Category_name FROM products INNER JOIN categories ON products.Category_ID=categories.Category_ID ";
-    $result = mysqli_query($connect, $sql);
-    while($row = mysqli_fetch_assoc($result)){
-    ?>
-        <tr>
-          <td class="py-0">
-            <img src="images/products/products-xs-01.jpg" alt="Product Image">
-          </td>
-          <td><?php echo $row['Product_name'];?></td>
-          <td><?php echo $row['Product_price'];?></td>
-          <td><?php echo $row['Product_stock'];?></td>
-          <td><?php echo $row['Category_name'];?></td>
-          
-          <td>
-            <div class="dropdown">
-              <a class="dropdown-toggle icon-burger-mini" href="#" role="button" id="dropdownMenuLink"
-                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
-              </a>
 
-              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
+          </tbody>
+        </table>
+              
+              <!-- Stock Modal -->
+              <div class="modal fade modal-stock" id="modal-stock" aria-labelledby="modal-stock" aria-hidden="true">
+                <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+                  <form action="#">
+                    <div class="modal-content">
+                      <div class="modal-header align-items-center p3 p-md-5">
+                        <h2 class="modal-title" id="exampleModalGridTitle">Add Stock</h2>
+                        <div>
+                          <button type="button" class="btn btn-light btn-pill mr-1 mr-md-2" data-dismiss="modal"> cancel </button>
+                          <button type="submit" class="btn btn-primary  btn-pill" data-dismiss="modal"> save </button>
+                        </div>
+
+                      </div>
+                      <div class="modal-body p3 p-md-5">
+                        <div class="row">
+                          <div class="col-lg-8">
+                            <h3 class="h5 mb-5">Product Information</h3>
+                            <div class="form-group mb-5">
+                              <label for="new-product">Product Title</label>
+                              <input type="text" class="form-control" id="new-product" placeholder="Add Product">
+                            </div>
+                            <div class="form-row mb-4">
+                              <div class="col">
+                                <label for="price">Price</label>
+                                <div class="input-group">
+                                  <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon1">$</span>
+                                  </div>
+                                  <input type="text" class="form-control" id="price" placeholder="Price" aria-label="Price"
+                                    aria-describedby="basic-addon1">
+                                </div>
+                              </div>
+                              <div class="col">
+                                <label for="sale-price">Sale Price</label>
+                                <div class="input-group">
+                                  <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon1">$</span>
+                                  </div>
+                                  <input type="text" class="form-control" id="sale-price" placeholder="Sale Price" aria-label="SalePrice"
+                                    aria-describedby="basic-addon1">
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="product-type mb-3 ">
+                              <label class="d-block" for="sale-price">Product Type <i class="mdi mdi-help-circle-outline"></i> </label>
+                              <div>
+
+                                <div class="custom-control custom-radio d-inline-block mr-3 mb-3">
+                                  <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input" checked="checked">
+                                  <label class="custom-control-label" for="customRadio1">Physical Good</label>
+                                </div>
+
+                                <div class="custom-control custom-radio d-inline-block mr-3 mb-3">
+                                  <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
+                                  <label class="custom-control-label" for="customRadio2">Digital Good</label>
+                                </div>
+
+                                <div class="custom-control custom-radio d-inline-block mr-3 mb-3">
+                                  <input type="radio" id="customRadio3" name="customRadio" class="custom-control-input">
+                                  <label class="custom-control-label" for="customRadio3">Service</label>
+                                </div>
+
+                              </div>
+                            </div>
+
+                            <div class="editor">
+                              <label class="d-block" for="sale-price">Description <i class="mdi mdi-help-circle-outline"></i></label>
+                              <div id="standalone">
+                                <div id="toolbar">
+                                  
+                                  <span class="ql-formats">
+                                    <button class="ql-bold"></button>
+                                    <button class="ql-italic"></button>
+                                    <button class="ql-underline"></button>
+                                  </span>
+                                  <span class="ql-formats">
+                                    <select class="ql-color"></select>
+                                  </span>
+                                  <span class="ql-formats">
+                                    <button class="ql-blockquote"></button>
+                                  </span>
+                                  <span class="ql-formats">
+                                    <button class="ql-list" value="ordered"></button>
+                                    <button class="ql-list" value="bullet"></button>
+                                    <button class="ql-indent" value="-1"></button>
+                                    <button class="ql-indent" value="+1"></button>
+                                  </span>
+                                  <span class="ql-formats">
+                                    <button class="ql-direction" value="rtl"></button>
+                                    <select class="ql-align"></select>
+                                  </span>
+                                </div>
+                              </div>
+                              <div id="editor"></div>
+
+                              <div class="custom-control custom-checkbox d-inline-block mt-2">
+                                <input type="checkbox" class="custom-control-input" id="customCheck2">
+                                <label class="custom-control-label" for="customCheck2">Hide product from published site</label>
+                              </div>
+
+                            </div>
+
+                          </div>
+                          <div class="col-lg-4">
+                            <div class="custom-file">
+                              <input type="file" class="custom-file-input" id="customFile" placeholder="please imgae here">
+                              <span class="upload-image">Click here to <span class="text-primary">add product image.</span> </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+                  </form>
+                </div>
               </div>
-            </div>
-          </td>
-        </tr>
-    <?php }?>
-        
-
-
-      </tbody>
-    </table>
-
-  </div>
+      
+      </div>
 </div>
 </div>
           

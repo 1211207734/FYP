@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-
+<?php
+		if (isset($_GET['eml'])) {
+			$emml = $_GET['eml'];}?>
   
 
 
@@ -62,7 +64,7 @@
           <div id="sidebar" class="sidebar sidebar-with-footer">
             <!-- Aplication Brand -->
             <div class="app-brand">
-              <a href="/index.php">
+              <a href="/index.php?eml=<?php echo $emml ?>">
                 <img src="images/jbplogo.png" alt=" JBPstore">
                 <span class="brand-name"> JBPstore</span>
               </a>
@@ -76,7 +78,7 @@
                 
                   <li
                    >
-                    <a class="sidenav-item-link" href="index.php">
+                    <a class="sidenav-item-link" href="index.php?eml=<?php echo $emml ?>">
                       <i class="mdi mdi-briefcase-account-outline"></i>
                       <span class="nav-text">Business Dashboard</span>
                     </a>
@@ -557,7 +559,7 @@
                                 <span class="nav-text">User Account Settings</span>
                                 
                               </a>
-                            <
+                            </li>
 
                         
                       </div>
@@ -847,16 +849,16 @@
                   <ul class="dropdown-menu dropdown-menu-search">
 
                     <li class="nav-item">
-                      <a class="nav-link" href="index.php">Morbi leo risus</a>
+                      <a class="nav-link" href="index.php?eml=<?php echo $emml ?>">Morbi leo risus</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="index.php">Dapibus ac facilisis in</a>
+                      <a class="nav-link" href="index.php?eml=<?php echo $emml ?>">Dapibus ac facilisis in</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="index.php">Porta ac consectetur ac</a>
+                      <a class="nav-link" href="index.php?eml=<?php echo $emml ?>">Porta ac consectetur ac</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="index.php">Vestibulum at eros</a>
+                      <a class="nav-link" href="index.php?eml=<?php echo $emml ?>">Vestibulum at eros</a>
                     </li>
 
                   </ul>
@@ -1125,11 +1127,18 @@
                       </footer>
                     </div>
                   </li>
+                  <?php				
+                  
+                      $connect= mysqli_connect("localhost","root","","jbp");
+                      $ll="SELECT * from admin WHERE id = '$emml'";
+                      $result = mysqli_query($connect, $ll);
+                      $r=mysqli_fetch_assoc($result);
+                      ?>
                   <!-- User Account -->
                   <li class="dropdown user-menu">
                     <button class="dropdown-toggle nav-link" data-toggle="dropdown">
                       <img src="images/user/user-xs-01.jpg" class="user-image rounded-circle" alt="User Image" />
-                      <span class="d-none d-lg-inline-block">  Brandon</span>
+                      <span class="d-none d-lg-inline-block"><?php echo $r['Un'];?></span>
                     </button>
                     <ul class="dropdown-menu dropdown-menu-right">
                       <li>
@@ -1280,7 +1289,7 @@
 
           <div class="form-group mb-4">
             <label for="email">Email</label>
-            <input type="email" class="form-control" id="email" name="email" required value="<?php echo $row['email']; ?>">
+            <input readonly type="email" class="form-control" id="email" name="email" required value="<?php echo $row['email']; ?>">
           </div>
 
          
@@ -1308,7 +1317,7 @@
     
 
     // Prepare SQL statement
-    $sql = "UPDATE `admin` SET Fn='$f', Ln='$l', Un='$u', email='$email' WHERE id=1211208820";
+    $sql = "UPDATE `admin` SET Fn='$f', Ln='$l', Un='$u', email='$email' WHERE id='$emml'";
       mysqli_query($connect,$sql);
     if (mysqli_query($connect, $sql)) {
       echo '<script type="text/javascript">

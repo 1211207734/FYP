@@ -63,7 +63,7 @@
           <div id="sidebar" class="sidebar sidebar-with-footer">
             <!-- Aplication Brand -->
             <div class="app-brand">
-              <a href="/index.php">
+              <a href="/index.php?eml=<?php echo $emml ?>">
                 <img src="images/jbplogo.png" alt=" JBPstore">
                 <span class="brand-name"> JBPstore</span>
               </a>
@@ -77,7 +77,7 @@
                 
                   <li
                    >
-                    <a class="sidenav-item-link" href="index.php">
+                    <a class="sidenav-item-link" href="index.php?eml=<?php echo $emml ?>">
                       <i class="mdi mdi-briefcase-account-outline"></i>
                       <span class="nav-text">Business Dashboard</span>
                     </a>
@@ -854,16 +854,16 @@
                   <ul class="dropdown-menu dropdown-menu-search">
 
                     <li class="nav-item">
-                      <a class="nav-link" href="index.php">Morbi leo risus</a>
+                      <a class="nav-link" href="index.php?eml=<?php echo $emml ?>">Morbi leo risus</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="index.php">Dapibus ac facilisis in</a>
+                      <a class="nav-link" href="index.php?eml=<?php echo $emml ?>">Dapibus ac facilisis in</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="index.php">Porta ac consectetur ac</a>
+                      <a class="nav-link" href="index.php?eml=<?php echo $emml ?>">Porta ac consectetur ac</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="index.php">Vestibulum at eros</a>
+                      <a class="nav-link" href="index.php?eml=<?php echo $emml ?>">Vestibulum at eros</a>
                     </li>
 
                   </ul>
@@ -1132,11 +1132,18 @@
                       </footer>
                     </div>
                   </li>
+                  <?php				
+                  
+                      $connect= mysqli_connect("localhost","root","","jbp");
+                      $ll="SELECT * from admin WHERE id = '$emml'";
+                      $result = mysqli_query($connect, $ll);
+                      $r=mysqli_fetch_assoc($result);
+                      ?>
                   <!-- User Account -->
                   <li class="dropdown user-menu">
                     <button class="dropdown-toggle nav-link" data-toggle="dropdown">
                       <img src="images/user/user-xs-01.jpg" class="user-image rounded-circle" alt="User Image" />
-                      <span class="d-none d-lg-inline-block">  Brandon</span>
+                      <span class="d-none d-lg-inline-block"><?php echo $r['Un'];?></span>
                     </button>
                     <ul class="dropdown-menu dropdown-menu-right">
                       <li>
@@ -1165,12 +1172,7 @@
 
 
           </header>
-          <?php
-          $connect= mysqli_connect("localhost","root","","jbp");
-          $sql = "SELECT * FROM admin WHERE email='$emml'";
-          $result = mysqli_query($connect, $sql);
-          $row = mysqli_fetch_assoc($result);
-          ?>
+         
         <!-- ====================================
         ——— CONTENT WRAPPER
         ===================================== -->
@@ -1184,8 +1186,8 @@
 
     <div class="profile-avata">
       <img class="rounded-circle" src="images/user/user-md-01.jpg" alt="Avata Image">
-      <a class="h5 d-block mt-3 mb-2" href="#"><?php echo $row['Fn']," ",$row['Ln']; ?></a>
-      <a class="d-block text-color" href="#"><?php echo $row['email'];?></a>
+      <a class="h5 d-block mt-3 mb-2" href="#"><?php echo $r['Fn']," ",$r['Ln']; ?></a>
+      <a class="d-block text-color" href="#"><?php echo $r['email'];?></a>
     </div>
 
     <ul class="nav nav-profile-follow">

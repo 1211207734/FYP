@@ -72,7 +72,7 @@
           <div id="sidebar" class="sidebar sidebar-with-footer">
             <!-- Aplication Brand -->
             <div class="app-brand">
-              <a href="/index.php">
+              <a href="/index.php?eml=<?php echo $emml ?>">
                 <img src="images/jbplogo.png" alt=" JBPstore">
                 <span class="brand-name"> JBPstore</span>
               </a>
@@ -86,7 +86,7 @@
                 
                   <li
                    >
-                    <a class="sidenav-item-link" href="index.php">
+                    <a class="sidenav-item-link" href="index.php?eml=<?php echo $emml ?>">
                       <i class="mdi mdi-briefcase-account-outline"></i>
                       <span class="nav-text">Business Dashboard</span>
                     </a>
@@ -389,16 +389,16 @@
                   <ul class="dropdown-menu dropdown-menu-search">
 
                     <li class="nav-item">
-                      <a class="nav-link" href="index.php">Morbi leo risus</a>
+                      <a class="nav-link" href="index.php?eml=<?php echo $emml ?>">Morbi leo risus</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="index.php">Dapibus ac facilisis in</a>
+                      <a class="nav-link" href="index.php?eml=<?php echo $emml ?>">Dapibus ac facilisis in</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="index.php">Porta ac consectetur ac</a>
+                      <a class="nav-link" href="index.php?eml=<?php echo $emml ?>">Porta ac consectetur ac</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="index.php">Vestibulum at eros</a>
+                      <a class="nav-link" href="index.php?eml=<?php echo $emml ?>">Vestibulum at eros</a>
                     </li>
 
                   </ul>
@@ -722,7 +722,7 @@
                 <div class="card card-default mb-0">
                   <div class="card-header pb-0">
                     <div class="app-brand w-100 d-flex justify-content-center border-bottom-0">
-                      <a class="w-auto pl-0" href="/index.php">
+                      <a class="w-auto pl-0" href="/index.php?eml=<?php echo $emml ?>">
                         <img src="images/jbplogo.png" alt=" JBPstore">
                         <span class="brand-name text-dark"> JBPstore</span>
                       </a>
