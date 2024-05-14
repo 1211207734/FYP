@@ -65,7 +65,7 @@ if (isset($_GET['eml'])) {
 									</div>
 								</div>
 							</div>
-						<?php}?>
+						<?php } ?>
 							<div class="col-md-12 col-lg-4">
 								<div class="summary">
 									<h3>Summary</h3>

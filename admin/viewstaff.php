@@ -714,88 +714,89 @@
 
 
 <!-- Products Inventory -->
-<div class="card card-default">
-  <div class="card-header">
-    <h2>Staff List</h2>
+<div class="row">
+    <div class="col-12">
+        <div class="card card-default">
+        <div class="card-header">
+          <h2>Staff List</h2>
+          <a href="newstaff.php?eml=<?php echo $emml ?>" class="btn btn-primary btn-pill" >Add Staff</a>
+          </div>
+        
+          <table id="productsTable" class="table table-hover table-product" style="width:100%">
+            <thead>
+              <tr>
+                <th>Staff Name</th>
+                <th>Staff Username</th>
+                <th>Staff email</th>
+                <th>Status</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+            <?php
+            if($emml == 1){
+            $sql = "SELECT id,Fn,Ln,Un,email,status FROM admin where id!=1 ";
+            $o="";
+            }
+            else{
+            $sql = "SELECT id,Fn,Ln,Un,email,status FROM admin where id!=1 and status='active'";
+            $o="hidden";
+          }
+          $result = mysqli_query($connect, $sql);
+          while($row = mysqli_fetch_assoc($result)){
+          ?>
+              <tr>
+                <?php 
+                
+                $selectedid=$row['id'];?>
+                
+                <td><?php echo $row['Fn']," ",$row['Ln'];?></td>
+                <td><?php echo $row['Un'];?></td>
+                <td><?php echo $row['email'];?></td>
+                <td><?php echo $row['status'];?></td>
+                <td>
+                  <div class="dropdown">
+                    <a class="dropdown-toggle icon-burger-mini" href="#" role="button" id="dropdownMenuLink"
+                      data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
+                    </a>
 
-   
-
-  </div>
-  
-    <table id="productsTable" class="table table-hover table-product" style="width:100%">
-      <thead>
-        <tr>
-          <th>Staff Name</th>
-          <th>Staff Username</th>
-          <th>Staff email</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-      <?php
-      if($emml == 1){
-      $sql = "SELECT id,Fn,Ln,Un,email,status FROM admin where id!=1 ";
-      $o="";
-      }
-      else{
-      $sql = "SELECT id,Fn,Ln,Un,email,status FROM admin where id!=1 and status='active'";
-      $o="hidden";
-    }
-    $result = mysqli_query($connect, $sql);
-    while($row = mysqli_fetch_assoc($result)){
-    ?>
-        <tr>
-          <?php 
-          
-           $selectedid=$row['id'];?>
-           
-          <td><?php echo $row['Fn']," ",$row['Ln'];?></td>
-          <td><?php echo $row['Un'];?></td>
-          <td><?php echo $row['email'];?></td>
-          <td><?php echo $row['status'];?></td>
-          <td>
-            <div class="dropdown">
-              <a class="dropdown-toggle icon-burger-mini" href="#" role="button" id="dropdownMenuLink"
-                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
-              </a>
-
-              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-                <a class="dropdown-item" href="#" onclick="return manageStaff(<?php echo $row['id']; ?>, 'delete')">Delete Staff</a>
-                <a <?php echo $o ?> class="dropdown-item" href="#" onclick="return manageStaff(<?php echo $row['id']; ?>, 'activate')">Activate Staff</a>
-                <a class="dropdown-item" href="#">Something else here</a>
-              </div>
-            </div>
-          </td>
-        </tr>
-        <?php }?>
-        <script type="text/javascript">
-                   function manageStaff(id, action) {
-        var confirmationMessage = action === 'delete' ? "Are you sure you want to delete this staff?" : "Are you sure you want to activate this staff?";
-        if (confirm(confirmationMessage)) {
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", "manage_staff.php", true);
-            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState === 4 && xhr.status === 200) {
-                    var response = JSON.parse(xhr.responseText);
-                    alert(response.message);
-                    if (response.success) {
-                        window.location.href = "viewstaff.php?eml=<?php echo $emml; ?>";
-                    }
-                }
-            };
-            xhr.send("id=" + id + "&action=" + action);
-        }
-        return false;
-    }
-</script>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                      <a class="dropdown-item" href="#" onclick="return manageStaff(<?php echo $row['id']; ?>, 'delete')">Delete Staff</a>
+                      <a <?php echo $o ?> class="dropdown-item" href="#" onclick="return manageStaff(<?php echo $row['id']; ?>, 'activate')">Activate Staff</a>
+                      <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <?php }?>
+              <script type="text/javascript">
+                        function manageStaff(id, action) {
+              var confirmationMessage = action === 'delete' ? "Are you sure you want to delete this staff?" : "Are you sure you want to activate this staff?";
+              if (confirm(confirmationMessage)) {
+                  var xhr = new XMLHttpRequest();
+                  xhr.open("POST", "manage_staff.php", true);
+                  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                  xhr.onreadystatechange = function () {
+                      if (xhr.readyState === 4 && xhr.status === 200) {
+                          var response = JSON.parse(xhr.responseText);
+                          alert(response.message);
+                          if (response.success) {
+                              window.location.href = "viewstaff.php?eml=<?php echo $emml; ?>";
+                          }
+                      }
+                  };
+                  xhr.send("id=" + id + "&action=" + action);
+              }
+              return false;
+          }
+      </script>
 
 
-      </tbody>
-    </table>
+            </tbody>
+          </table>
 
-  </div>
-</div>
+        </div>
+    </div>
 </div>
           
         </div>
