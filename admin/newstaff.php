@@ -72,7 +72,7 @@
           <div id="sidebar" class="sidebar sidebar-with-footer">
             <!-- Aplication Brand -->
             <div class="app-brand">
-              <a href="/index.php?eml=<?php echo $emml ?>">
+              <a href="/FYP/admin/index.php?eml=<?php echo $emml ?>">
                 <img src="images/jbplogo.png" alt=" JBPstore">
                 <span class="brand-name"> JBPstore</span>
               </a>
@@ -98,7 +98,7 @@
                 
                   <li
                    >
-                    <a class="sidenav-item-link" href="analytics.html">
+                    <a class="sidenav-item-link" href="analytics.php?eml=<?php echo $emml ?>">
                       <i class="mdi mdi-chart-line"></i>
                       <span class="nav-text">Analytics Dashboard</span>
                     </a>

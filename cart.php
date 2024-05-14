@@ -14,7 +14,7 @@ include('database.php');
 if (isset($_GET['eml'])) {
     $emml = $_GET['eml'];}
 	$connect= mysqli_connect("localhost","root","","jbp");
-	$sql = "SELECT Product_name,Product_price,Product_stock,Product_details,Customer_ID FROM products INNER JOIN cart ON products.Product_ID=cart.Product_ID where Customer_ID='$emml'";
+	$sql = "SELECT Product_name,Product_price,Product_stock,Product_details FROM products INNER JOIN cart ON products.Product_ID=cart.Product_ID where Customer_ID='$emml'";
 	$result = mysqli_query($connect, $sql);
 
 ?>

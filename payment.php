@@ -12,17 +12,17 @@
 			<div class="card-info">
 				<div class="input_container">
 					<label class="input_label">Card holder name</label>
-					<input class="input_field" type="text" name="name" placeholder="Enter your full name">
+					<input class="input_field" type="text" name="name" placeholder="Enter your full name" required>
 				</div>
 				<div class="input_container">
 					<label class="input_label">Card Number</label>
-					<input class="input_field" type="number" name="num"placeholder="0000 0000 0000 0000">
+					<input class="input_field" type="number" name="num"placeholder="0000 0000 0000 0000" required>
 				</div>
 				<div class="input_container">
 					<label class="input_label">Expiry Date / CVV</label>
 					<div class="split">
-						<input class="input_field" style="width: 250px;" type="text" name="ed" placeholder="01/23">
-						<input class="input_field" style="width: 110px;" type="number" name="cv" placeholder="CVV">
+						<input class="input_field" style="width: 250px;" type="text" name="ed" placeholder="01/23" required>
+						<input class="input_field" style="width: 110px;" type="number" name="cv" placeholder="CVV" required>
 					</div>
 				</div>
 			</div>

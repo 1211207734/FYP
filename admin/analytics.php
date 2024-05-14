@@ -56,7 +56,9 @@
       NProgress.configure({ showSpinner: false });
       NProgress.start();
     </script>
-
+<?php if (isset($_GET['eml'])) {
+					$emml = $_GET['eml'];}
+          ?>
     
 
     <!-- ====================================
@@ -72,7 +74,7 @@
           <div id="sidebar" class="sidebar sidebar-with-footer">
             <!-- Aplication Brand -->
             <div class="app-brand">
-              <a href="/index.php?eml=<?php echo $emml ?>">
+              <a href="/FYP/admin/index.php?eml=<?php echo $emml ?>">
                 <img src="images/jbplogo.png" alt=" JBPstore">
                 <span class="brand-name"> JBPstore</span>
               </a>
@@ -99,7 +101,7 @@
                   <li
                    class="active"
                    >
-                    <a class="sidenav-item-link" href="analytics.html">
+                    <a class="sidenav-item-link" href="analytics.php?eml=<?php echo $emml ?>">
                       <i class="mdi mdi-chart-line"></i>
                       <span class="nav-text">Analytics Dashboard</span>
                     </a>
@@ -1164,7 +1166,7 @@
                        
 
                       <li class="dropdown-footer">
-                        <a class="dropdown-link-item" href="/FYP/loginregister.php"> <i class="mdi mdi-logout"></i> Log Out </a>
+                        <a class="dropdown-link-item" href="/FYP/loginregister.php" onclick="log()" > <i class="mdi mdi-logout"></i> Log Out </a>
                       </li>
                     </ul>
                   </li>
@@ -1183,39 +1185,7 @@
                 <div class="row justify-content-between mb-5 ">
                   <div class="col-lg-6">
                     <div class="row">
-                      <div class="col-md-4">
-                        <div class="mini-status">
-                          <div class="text-content">
-                            <span class="title">my income</span>
-                            <span class="status text-primary"><i class="mdi mdi-currency-usd"></i>47,171</span>
-                          </div>
-                          <div class="chart-content">
-                            <div id="status-sm-chart-01"></div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-md-4">
-                        <div class="mini-status">
-                          <div class="text-content ">
-                            <span class="title">site traffic</span>
-                            <span class="status text-success"><i class="mdi mdi-progress-upload"></i>45%</span>
-                          </div>
-                          <div class="chart-content">
-                            <div id="status-sm-chart-02"></div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-md-4">
-                        <div class="mini-status">
-                          <div class="text-content">
-                            <span class="title">site orders</span>
-                            <span class="status text-info"><i class="mdi mdi-cart"></i>2447</span>
-                          </div>
-                          <div class="chart-content">
-                            <div id="status-sm-chart-03"></div>
-                          </div>
-                        </div>
-                      </div>
+                      
                     </div>
                   </div>
                   <div class="col-lg-6 d-flex justify-content-xl-end flex-column flex-wrap align-items-lg-end">
@@ -1432,7 +1402,7 @@
                           </thead>
                           <tbody>
                             <tr>
-                              <td class="text-primary"><a class="link" href="analytics.html">/analytics.html</a></td>
+                              <td class="text-primary"><a class="link" href="analytics.php?eml=<?php echo $emml ?>">/analytics.php?eml=<?php echo $emml ?></a></td>
                               <td class="text-right px-3">521</td>
                               <td class="text-right">2m:14s</td>
                             </tr>

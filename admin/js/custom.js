@@ -318,7 +318,7 @@ $(document).ready(function () {
       showMethod: "fadeIn",
       hideMethod: "fadeOut",
     };
-    toastr.success("Welcome to  JBPstore Dashboard", "Howdy!");
+    toastr.success("Welcome to  JBPstore Dashboard", "Have a nice day!");
   }
 
   if (toaster.length != 0) {

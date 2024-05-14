@@ -5,8 +5,76 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    background-color: #333333df;
+
+}
+.logo h1 {
+    font-size: 32px;
+    margin: 0;
 }
 
+.logo h1 span {
+    color: #f00;
+    font-weight: bold;
+}
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+}
+header{
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    border-radius: 30px;
+}
+
+.group{
+    margin-top: 15pt;
+    background-color: #333;
+    display: flex;
+    align-items: center;
+    z-index: 10;
+}
+
+header ul{
+    position: relative;
+    display: flex;
+    gap: 30px;
+}
+
+header ul li{
+    list-style: none;
+}
+
+header ul li a{
+    position: relative;
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 1em;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+header ul li a::before{
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: #a7abce;
+    bottom: -2px;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.5s ease-in-out;
+}
+
+header ul li a:hover::before{
+    transform: scaleX(1);
+    transform-origin: left;
+}
 .container {
     max-width: 800px;
     margin: 0 auto;
@@ -42,13 +110,17 @@ h1 {
 
 .founder p {
     margin-top: 5px;
-    color: #666;
+    color: #0d3932;
+    font-weight: bold;
 }
 
 /* Contact Information styles */
 .contact-info {
     text-align: center;
     margin-top: 30px;
+    background-color: rgb(252, 252, 252);
+    padding: 20px;
+    border-radius: 3pt;
 }
 
 .contact-method {
@@ -58,6 +130,14 @@ h1 {
 
 .contact-method img {
     width: 50px; /* Adjust the size of the contact method images */
+}
+
+.shop-description {
+    text-align: center;
+    margin-top: 30px;
+    background-color: rgba(245, 245, 220, 0.06);
+    padding: 20px;
+    border-radius: 10px;
 }
 
 footer {
