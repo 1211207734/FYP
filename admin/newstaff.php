@@ -84,67 +84,25 @@
                 
 
                 
-                  <li
-                   >
+                  <li>
                     <a class="sidenav-item-link" href="index.php?eml=<?php echo $emml ?>">
                       <i class="mdi mdi-briefcase-account-outline"></i>
                       <span class="nav-text">Business Dashboard</span>
                     </a>
                   </li>
-                
 
-                
-
-                
-                  <li
-                   >
+                  <li>
                     <a class="sidenav-item-link" href="analytics.php?eml=<?php echo $emml ?>">
                       <i class="mdi mdi-chart-line"></i>
                       <span class="nav-text">Analytics Dashboard</span>
                     </a>
                   </li>
-                
-
-                
-
-                
-                  <li class="section-title">
-                    Apps
-                  </li>
-  
-                  <li
-                   >
-                    <a class="sidenav-item-link" href="calendar.html">
-                      <i class="mdi mdi-calendar-check"></i>
-                      <span class="nav-text">Calendar</span>
-                    </a>
-                  </li>
- 
-                  
-                
-
-                
-
-                
-                 
-
-                
-
-                
-                 
-                
-
-                
 
                 
                   <li class="section-title">
                     Pages
                   </li>
-                
-
-                
-
-                
+ 
                   <li  class="has-sub" >
                     <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#users"
                       aria-expanded="false" aria-controls="users">
@@ -266,9 +224,7 @@
                       data-parent="#sidebar-menu">
                       <div class="sub-menu">
                         
-                        
-                          
-                           <li>
+                             <li>
                               <a class="sidenav-item-link" href="viewproduct.php?eml=<?php echo $emml?>">
                                 <span class="nav-text">Product</span>
                                 
@@ -356,6 +312,7 @@
             </div>
           </div>
         </aside>
+
 
       
 
