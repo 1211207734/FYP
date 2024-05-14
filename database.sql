@@ -88,83 +88,123 @@ CREATE TABLE Products (
 );
 
 
-INSERT INTO Products (Product_name, Product_details, Product_stock, Product_netprice, Product_price, Category_ID, status)
-VALUES
-('iPhone 13', 'Newest iPhone model', 50, 399.99, 999.99, 1, 'active'),
-('Samsung Galaxy S21 Ultra', 'Flagship Android smartphone', 30, 599.99, 1199.99, 1, 'active'),
-('Google Pixel 6 Pro', 'High-end Android device', 20, 399.99, 899.99, 1, 'active'),
-('OnePlus 10 Pro', 'Premium Android phone', 40, 399.99, 899.99, 1, 'active'),
-('Xiaomi Mi 12', 'Affordable flagship phone', 60, 199.99, 699.99, 1, 'active'),
-('Sony Xperia 1 III', 'Powerful multimedia phone', 25, 599.99, 1099.99, 1, 'active'),
-('iPhone SE (2022)', 'Compact iOS device', 35, 99.99, 499.99, 1, 'active'),
-('Samsung Galaxy A52', 'Mid-range Android phone', 45, 99.99, 399.99, 1, 'active'),
-('Google Pixel 5a', 'Affordable Google phone', 55, 199.99, 449.99, 1, 'active'),
-('OnePlus Nord 2', 'Budget-friendly OnePlus device', 30, 99.99, 399.99, 1, 'active');
+INSERT INTO Products (Product_name, Product_details, Product_stock, Product_price, Category_ID, status) 
+VALUES 
+    ('iPhone 13', 'Newest iPhone model', 50, 999.99, 1, 'active'),
+    ('Samsung Galaxy S21 Ultra', 'Flagship Android smartphone', 30, 1199.99, 1, 'active'),
+    ('Google Pixel 6 Pro', 'High-end Android device', 20, 899.99, 1, 'active'),
+    ('OnePlus 10 Pro', 'Premium Android phone', 40, 899.99, 1, 'active'),
+    ('Xiaomi Mi 12', 'Affordable flagship phone', 60, 699.99, 1, 'active'),
+    ('Sony Xperia 1 III', 'Powerful multimedia phone', 25, 1099.99, 1, 'active'),
+    ('iPhone SE (2022)', 'Compact iOS device', 35, 499.99, 1, 'active'),
+    ('Samsung Galaxy A52', 'Mid-range Android phone', 45, 399.99, 1, 'active'),
+    ('Google Pixel 5a', 'Affordable Google phone', 55, 449.99, 1, 'active'),
+    ('OnePlus Nord 2', 'Budget-friendly OnePlus device', 30, 399.99, 1, 'active');
 
--- Insert tablets into Products table with status 'active'
-INSERT INTO Products (Product_name, Product_details, Product_stock, Product_netprice, Product_price, Category_ID, status)
-VALUES
-('iPad Pro 12.9-inch (2022)', 'Powerful iPad for professionals', 20, 164.99, 1099.99, 2, 'active'),
-('Samsung Galaxy Tab S8+', 'Premium Android tablet', 15, 134.99, 899.99, 2, 'active'),
-('Microsoft Surface Pro 8', 'Versatile Windows tablet', 25, 149.99, 999.99, 2, 'active'),
-('Amazon Fire HD 10', 'Affordable Android tablet', 50, 22.50, 149.99, 2, 'active'),
-('Lenovo Tab P11 Pro', 'Sleek Android tablet', 30, 75.00, 499.99, 2, 'active'),
-('Huawei MatePad Pro 12.6', 'High-end Huawei tablet', 10, 105.00, 699.99, 2, 'active'),
-('iPad Air (2022)', 'Versatile iPad with A15 Bionic chip', 40, 90.00, 599.99, 2, 'active'),
-('Samsung Galaxy Tab A7 Lite', 'Compact and lightweight tablet', 35, 30.00, 199.99, 2, 'active'),
-('Microsoft Surface Go 3', 'Affordable Windows tablet', 45, 60.00, 399.99, 2, 'active'),
-('Amazon Fire HD 8', 'Budget-friendly Amazon tablet', 60, 13.50, 89.99, 2, 'active');
+INSERT INTO Products (Product_name, Product_details, Product_stock, Product_price, Category_ID, status) 
+VALUES 
+    ('iPad Pro 12.9-inch (2022)', 'Powerful iPad for professionals', 20, 1099.99, 2, 'active'),
+    ('Samsung Galaxy Tab S8+', 'Premium Android tablet', 15, 899.99, 2, 'active'),
+    ('Microsoft Surface Pro 8', 'Versatile Windows tablet', 25, 999.99, 2, 'active'),
+    ('Amazon Fire HD 10', 'Affordable Android tablet', 50, 149.99, 2, 'active'),
+    ('Lenovo Tab P11 Pro', 'Sleek Android tablet', 30, 499.99, 2, 'active'),
+    ('Huawei MatePad Pro 12.6', 'High-end Huawei tablet', 10, 699.99, 2, 'active'),
+    ('iPad Air (2022)', 'Versatile iPad with A15 Bionic chip', 40, 599.99, 2, 'active'),
+    ('Samsung Galaxy Tab A7 Lite', 'Compact and lightweight tablet', 35, 199.99, 2, 'active'),
+    ('Microsoft Surface Go 3', 'Affordable Windows tablet', 45, 399.99, 2, 'active'),
+    ('Amazon Fire HD 8', 'Budget-friendly Amazon tablet', 60, 89.99, 2, 'active');
 
--- Insert phone accessories into Products table with status 'active'
-INSERT INTO Products (Product_name, Product_details, Product_stock, Product_netprice, Product_price, Category_ID, status)
-VALUES
-('iPhone 13 Case', 'Protective case for iPhone 13', 100, 3.00, 19.99, 3, 'active'),
-('Samsung Galaxy S21 Ultra Case', 'Rugged case for Samsung Galaxy S21 Ultra', 80, 3.75, 24.99, 3, 'active'),
-('Google Pixel 6 Pro Case', 'Slim case for Google Pixel 6 Pro', 70, 2.25, 14.99, 3, 'active'),
-('OnePlus 10 Pro Screen Protector', 'Tempered glass screen protector for OnePlus 10 Pro', 120, 1.50, 9.99, 3, 'active'),
-('Xiaomi Mi 12 Charger', 'Fast charging adapter for Xiaomi Mi 12', 150, 4.50, 29.99, 3, 'active'),
-('Sony Xperia 1 III Wireless Charger', 'Qi-compatible wireless charger for Sony Xperia 1 III', 90, 6.00, 39.99, 3, 'active'),
-('iPhone SE (2022) Earphones', 'Apple EarPods with Lightning connector', 110, 4.50, 29.99, 3, 'active'),
-('Samsung Galaxy A52 Car Mount', 'Universal car mount for Samsung Galaxy A52', 95, 3.00, 19.99, 3, 'active'),
-('Google Pixel 5a Power Bank', 'Portable power bank for Google Pixel 5a', 130, 7.50, 49.99, 3, 'active'),
-('OnePlus Nord 2 USB-C Cable', 'Durable USB-C cable for OnePlus Nord 2', 140, 2.25, 14.99, 3, 'active');
+INSERT INTO Products (Product_name, Product_details, Product_stock, Product_price, Category_ID, status) 
+VALUES 
+    ('iPhone 13 Case', 'Protective case for iPhone 13', 100, 19.99, 3, 'active'),
+    ('Samsung Galaxy S21 Ultra Case', 'Rugged case for Samsung Galaxy S21 Ultra', 80, 24.99, 3, 'active'),
+    ('Google Pixel 6 Pro Case', 'Slim case for Google Pixel 6 Pro', 70, 14.99, 3, 'active'),
+    ('OnePlus 10 Pro Screen Protector', 'Tempered glass screen protector for OnePlus 10 Pro', 120, 9.99, 3, 'active'),
+    ('Xiaomi Mi 12 Charger', 'Fast charging adapter for Xiaomi Mi 12', 150, 29.99, 3, 'active'),
+    ('Sony Xperia 1 III Wireless Charger', 'Qi-compatible wireless charger for Sony Xperia 1 III', 90, 39.99, 3, 'active'),
+    ('iPhone SE (2022) Earphones', 'Apple EarPods with Lightning connector', 110, 29.99, 3, 'active'),
+    ('Samsung Galaxy A52 Car Mount', 'Universal car mount for Samsung Galaxy A52', 95, 19.99, 3, 'active'),
+    ('Google Pixel 5a Power Bank', 'Portable power bank for Google Pixel 5a', 130, 49.99, 3, 'active'),
+    ('OnePlus Nord 2 USB-C Cable', 'Durable USB-C cable for OnePlus Nord 2', 140, 14.99, 3, 'active');
 
--- Insert smartwatches and earphones into Products table with status 'active'
-INSERT INTO Products (Product_name, Product_details, Product_stock, Product_netprice, Product_price, Category_ID, status)
-VALUES
-('Apple Watch Series 7', 'Latest Apple smartwatch', 20, 60.00, 399.99, 4, 'active'),
-('Samsung Galaxy Watch 4', 'Premium Android smartwatch', 15, 45.00, 299.99, 4, 'active'),
-('Fitbit Charge 5', 'Advanced fitness tracker', 25, 27.00, 179.99, 4, 'active'),
-('Garmin Venu 2', 'GPS smartwatch with health monitoring', 30, 52.50, 349.99, 4, 'active'),
-('Xiaomi Mi Band 6', 'Affordable fitness tracker', 40, 7.50, 49.99, 4, 'active'),
-('Fossil Gen 6', 'Stylish smartwatch with Wear OS', 35, 45.00, 299.99, 4, 'active'),
-('Apple AirPods Pro', 'Premium noise-cancelling earphones', 50, 37.50, 249.99, 4, 'active'),
-('Sony WF-1000XM4', 'High-resolution wireless earbuds', 45, 42.00, 279.99, 4, 'active'),
-('Jabra Elite 85t', 'True wireless earbuds with ANC', 60, 30.00, 199.99, 4, 'active'),
-('Samsung Galaxy Buds Pro', 'True wireless earbuds with 360 Audio', 55, 30.00, 199.99, 4, 'active');
+INSERT INTO Products (Product_name, Product_details, Product_stock, Product_price, Category_ID, status) 
+VALUES 
+    ('Apple Watch Series 7', 'Latest Apple smartwatch', 20, 399.99, 4, 'active'),
+    ('Samsung Galaxy Watch 4', 'Premium Android smartwatch', 15, 299.99, 4, 'active'),
+    ('Fitbit Charge 5', 'Advanced fitness tracker', 25, 179.99, 4, 'active'),
+    ('Garmin Venu 2', 'GPS smartwatch with health monitoring', 30, 349.99, 4, 'active'),
+    ('Xiaomi Mi Band 6', 'Affordable fitness tracker', 40, 49.99, 4, 'active'),
+    ('Fossil Gen 6', 'Stylish smartwatch with Wear OS', 35, 299.99, 4, 'active'),
+    ('Apple AirPods Pro', 'Premium noise-cancelling earphones', 50, 249.99, 4, 'active'),
+    ('Sony WF-1000XM4', 'High-resolution wireless earbuds', 45, 279.99, 4, 'active'),
+    ('Jabra Elite 85t', 'True wireless earbuds with ANC', 60, 199.99, 4, 'active'),
+    ('Samsung Galaxy Buds Pro', 'True wireless earbuds with 360 Audio', 55, 199.99, 4, 'active');
 
--- Insert power banks into Products table with status 'active'
-INSERT INTO Products (Product_name, Product_details, Product_stock, Product_netprice, Product_price, Category_ID, status)
-VALUES
-('Anker PowerCore 10000', 'Portable power bank with 10000mAh capacity', 70, 4.50, 29.99, 5, 'active'),
-('RAVPower PD Pioneer 20000', 'High-capacity power bank with Power Delivery', 80, 7.50, 49.99, 5, 'active'),
-('Mophie Powerstation Plus XL', 'Wireless charging power bank', 60, 12.00, 79.99, 5, 'active'),
-('Zendure SuperMini', 'Compact power bank with 10000mAh capacity', 90, 6.00, 39.99, 5, 'active'),
-('AUKEY Basix Pro', 'Slim power bank with Quick Charge 3.0', 100, 3.75, 24.99, 5, 'active'),
-('Anker PowerCore Slim 10000 PD', 'Ultra-slim power bank with Power Delivery', 85, 5.25, 34.99, 5, 'active'),
-('Belkin Boost Charge 10K', 'Portable power bank with 10000mAh capacity', 75, 6.00, 39.99, 5, 'active'),
-('Xiaomi Mi Power Bank 3 Pro', 'High-speed power bank with 20000mAh capacity', 95, 7.50, 49.99, 5, 'active'),
-('Samsung Wireless Charger Portable Battery', 'Wireless charging power bank with 10000mAh capacity', 65, 10.50, 69.99, 5, 'active'),
-('RAVPower Ace 22000', 'Ultra-high-capacity power bank with 22000mAh capacity', 110, 9.00, 59.99, 5, 'active');
+INSERT INTO Products (Product_name, Product_details, Product_stock, Product_price, Category_ID, status) 
+VALUES 
+    ('Anker PowerCore 10000', 'Portable power bank with 10000mAh capacity', 70, 29.99, 5, 'active'),
+    ('RAVPower PD Pioneer 20000', 'High-capacity power bank with Power Delivery', 80, 49.99, 5, 'active'),
+    ('Mophie Powerstation Plus XL', 'Wireless charging power bank', 60, 79.99, 5, 'active'),
+    ('Zendure SuperMini', 'Compact power bank with 10000mAh capacity', 90, 39.99, 5, 'active'),
+    ('AUKEY Basix Pro', 'Slim power bank with Quick Charge 3.0', 100, 24.99, 5, 'active'),
+    ('Anker PowerCore Slim 10000 PD', 'Ultra-slim power bank with Power Delivery', 85, 34.99, 5, 'active'),
+    ('Belkin Boost Charge 10K', 'Portable power bank with 10000mAh capacity', 75, 39.99, 5, 'active'),
+    ('Xiaomi Mi Power Bank 3 Pro', 'High-speed power bank with 20000mAh capacity', 95, 49.99, 5, 'active'),
+    ('Samsung Wireless Charger Portable Battery', 'Wireless charging power bank with 10000mAh capacity', 65, 69.99, 5, 'active'),
+    ('RAVPower Ace 22000', 'Ultra-high-capacity power bank with 22000mAh capacity', 110, 59.99, 5, 'active');
 
--- Insert Bluetooth speakers into Products table with status 'active'
-INSERT INTO Products (Product_name, Product_details, Product_stock, Product_netprice, Product_price, Category_ID, status)
-VALUES
-('JBL Flip 5', 'Portable Bluetooth speaker with IPX7 waterproof rating', 30, 15.00, 99.99, 6, 'active'),
-('Sony SRS-XB33', 'Portable speaker with Extra Bass and party lights', 25, 22.50, 149.99, 6, 'active'),
-('UE Boom 3', 'Bluetooth speaker with 360-degree sound and water resistance', 35, 19.50, 129.99, 6, 'active'),
-('Anker Soundcore Flare 2', 'Waterproof speaker with customizable LED lights', 40, 12.00, 79.99, 6, 'active'),
-('Bose SoundLink Revolve+', '360-degree Bluetooth speaker', 20, 30.00, 199.99, 6, 'active');
+INSERT INTO Products (Product_name, Product_details, Product_stock, Product_price, Category_ID, status) 
+VALUES 
+    ('JBL Flip 5', 'Portable Bluetooth speaker with IPX7 waterproof rating', 30, 99.99, 6, 'active'),
+    ('Sony SRS-XB33', 'Portable speaker with Extra Bass and party lights', 25, 149.99, 6, 'active'),
+    ('UE Boom 3', 'Bluetooth speaker with 360-degree sound and water resistance', 35, 129.99, 6, 'active'),
+    ('Anker Soundcore Flare 2', 'Waterproof speaker with customizable LED lights', 40, 79.99, 6, 'active'),
+    ('Bose SoundLink Revolve+', '360-degree Bluetooth speaker with deep, loud, and immersive sound', 45, 299.99, 6, 'active'),
+    ('JBL Charge 5', 'Portable Bluetooth speaker with built-in power bank', 20, 179.99, 6, 'active'),
+    ('Ultimate Ears MEGABOOM 3', 'Portable waterproof Bluetooth speaker', 50, 199.99, 6, 'active'),
+    ('Sony SRS-XB43', 'Extra Bass portable Bluetooth speaker', 55, 199.99, 6, 'active'),
+    ('Harman Kardon Onyx Studio 7', 'Wireless Bluetooth speaker with premium design and sound', 60, 249.99, 6, 'active'),
+    ('Marshall Stockwell II', 'Portable Bluetooth speaker with classic Marshall design', 65, 199.99, 6, 'active');
+
+    INSERT INTO Products (Product_name, Product_details, Product_stock, Product_price, Category_ID, status) 
+VALUES 
+    ('Adjustable Phone Stand', 'Foldable phone stand for desk or travel', 80, 14.99, 7, 'active'),
+    ('Ugreen Phone Holder', 'Desktop phone stand with adjustable angle', 90, 9.99, 7, 'active'),
+    ('Lamicall Cell Phone Stand', 'Sturdy aluminum phone stand with charging hole', 70, 19.99, 7, 'active'),
+    ('PopSockets PopGrip', 'Expandable phone grip and stand', 100, 9.99, 7, 'active'),
+    ('Nulaxy Adjustable Phone Stand', 'Height-adjustable phone stand with silicone pads', 110, 15.99, 7, 'active'),
+    ('UGREEN Cell Phone Holder', 'Universal phone stand with silicone base', 120, 12.99, 7, 'active'),
+    ('Humixx Phone Stand', 'Foldable phone stand with angle adjustment', 130, 11.99, 7, 'active'),
+    ('Anker PowerWave Stand', 'Wireless charging stand with adjustable viewing angle', 140, 29.99, 7, 'active'),
+    ('JETech Adjustable Tablet Stand', 'Multi-angle tablet stand compatible with smartphones', 150, 8.99, 7, 'active'),
+    ('Syncwire Cell Phone Ring Holder', 'Rotating phone ring holder and stand', 160, 7.99, 7, 'active');
+
+INSERT INTO Products (Product_name, Product_details, Product_stock, Product_price, Category_ID, status) 
+VALUES 
+    ('Samsung T7 Portable SSD', 'External SSD with USB 3.2 Gen 2 interface', 50, 99.99, 9, 'active'),
+    ('SanDisk Extreme Portable SSD', 'Rugged external SSD with USB-C and USB-A connectors', 60, 119.99, 9, 'active'),
+    ('WD My Passport Portable SSD', 'Slim and compact external SSD with password protection', 70, 89.99, 9, 'active'),
+    ('Seagate Expansion Portable HDD', 'High-capacity external HDD with USB 3.0 interface', 80, 69.99, 9, 'active'),
+    ('Samsung BAR Plus USB 3.1 Flash Drive', 'Durable and compact USB flash drive', 90, 24.99, 9, 'active'),
+    ('SanDisk Ultra Dual Drive USB Type-C', 'Dual-interface USB flash drive with USB Type-C and USB Type-A connectors', 100, 29.99, 9, 'active'),
+    ('Crucial X8 Portable SSD', 'External SSD with USB 3.2 Gen 2 interface and shock resistance', 110, 139.99, 9, 'active'),
+    ('LaCie Rugged Mini External HDD', 'Rugged external HDD with shock, rain, and pressure resistance', 120, 99.99, 9, 'active'),
+    ('Lexar JumpDrive F35 Fingerprint USB 3.0 Flash Drive', 'Secure USB flash drive with fingerprint authentication', 130, 49.99, 9, 'active'),
+    ('Samsung FIT Plus USB 3.1 Flash Drive', 'Ultra-compact USB flash drive for easy portability', 140, 19.99, 9, 'active');
+
+INSERT INTO Products (Product_name, Product_details, Product_stock, Product_price, Category_ID, status) 
+VALUES 
+    ('Moment Wide Lens', 'Wide-angle lens attachment for smartphones', 40, 119.99, 10, 'active'),
+    ('Joby GripTight GorillaPod Stand', 'Flexible tripod with smartphone mount', 50, 39.99, 10, 'active'),
+    ('Anker PowerCore Fusion 5000', 'Portable charger with built-in wall charger and USB port', 60, 39.99, 10, 'active'),
+    ('Sandmarc Pro Telephoto Lens', 'Telephoto lens attachment for smartphones', 30, 99.99, 10, 'active'),
+    ('DJI Osmo Mobile 4', 'Gimbal stabilizer for smartphones', 20, 149.99, 10, 'active'),
+    ('Moment Tele Lens', 'Telephoto lens attachment for smartphones', 35, 119.99, 10, 'active'),
+    ('Peak Design Capture Clip', 'Camera clip mount for backpacks or belts', 25, 69.99, 10, 'active'),
+    ('Xenvo Pro Lens Kit', 'Macro and wide-angle lens kit for smartphones', 45, 39.99, 10, 'active'),
+    ('Manfrotto PIXI Mini Tripod', 'Compact tripod for smartphones and cameras', 55, 24.99, 10, 'active'),
+    ('Anker PowerPort Solar Charger', 'Solar charger for USB devices', 65, 49.99, 10, 'active');
+
 
 
 CREATE TABLE card (
