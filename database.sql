@@ -169,9 +169,9 @@ VALUES
 
 CREATE TABLE card (
     Card_name VARCHAR(50) PRIMARY KEY,
-    Card_num INT NOT NULL,
+    Card_num INT(16) NOT NULL,
     Card_edate VARCHAR(5) NOT NULL,
-    Card_cv INT NOT NULL
+    Card_cv INT(3) NOT NULL
 );
 
 CREATE TABLE Payment (
