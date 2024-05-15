@@ -22,10 +22,12 @@ CREATE TABLE Categories (
     Category_name VARCHAR(50) NOT NULL
 );
 
-INSERT INTO Categories (Category_name) VALUES ('Smartphones'), ('Tablets'), ('Accessories'), ('Wearables'), ('Earphones'), ('Powerbanks'), ('Speakers'), ('Phone stands'), ('Storage extender'), ('Mobile Photography accessories');
+INSERT INTO Categories (Category_name)
+VALUES ('Smartphones'), ('Tablets'), ('Accessories'), ('Wearables'), ('Earphones'), ('Powerbanks'), ('Speakers'), ('Phone stands'), ('Storage extender'), ('Mobile Photography accessories');
 
 CREATE TABLE CART (
-    cp_ID INT PRIMARY KEY
+    Customer_ID INT(2) NOT NULL,
+    Product_ID INT(3) NOT NULL
 );
 
 CREATE TABLE Customer (
@@ -84,6 +86,7 @@ CREATE TABLE Products (
     Product_netprice FLOAT(7,2) NOT NULL,
     Product_price FLOAT(7,2) NOT NULL,
     Category_ID INT,
+    status text NOT NULL
     FOREIGN KEY (Category_ID) REFERENCES Categories(Category_ID)
 );
 
