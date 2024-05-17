@@ -12,6 +12,55 @@
             height: 1px; /* Set height of the line */
             background-color: black; /* Set background color */
         }
+
+.product-image {
+    width: 150px; /* Set a specific width */
+    height: 150px; /* Maintain aspect ratio */
+}
+        .group{
+    margin-top: 15pt;
+    background-color: #333;
+    display: flex;
+    float: left;
+    align-items: center;
+    z-index: 10;
+}
+
+ ul{
+    position: relative;
+    display: flex;
+    gap: 30px;
+}
+
+ li{
+    list-style: none;   
+}
+
+li a{
+    position: relative;
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 1em;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+li a::before{
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: #a7abce;
+    bottom: -2px;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.5s ease-in-out;
+}
+
+li a:hover::before{
+    transform: scaleX(1);
+    transform-origin: left;
+}
     </style>
 </head>
 <body>
