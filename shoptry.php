@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JBPSTORE - Your Mobile Gadgets Shop</title>
-    <link rel="stylesheet" href="css/shop1.css">
+    <link  href="css/shop1.css" rel="stylesheet">
     <style>
         /* CSS code to style the <hr> element */
         hr {
@@ -51,7 +51,7 @@
                             <h3>Featured Product</h3>
                             <h2>Popular Products</h2>
                             <div class="group">
-                                <ul class="navigation">
+                                <ul>
                                     <li><a href="shoptry.php?cid=1">Smartphones</a></li>
                                     <li><a href="shoptry.php?cid=2">Tablets</a></li>
                                     <li><a href="shoptry.php?cid=3">Accessories</a></li>
