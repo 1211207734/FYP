@@ -262,23 +262,24 @@ CREATE TABLE Transaction_Report (
     Order_ID INT,
     Product_ID INT,
     Payment_ID INT,
+    status text NOT NULL,
     FOREIGN KEY (Customer_ID) REFERENCES Customer(Customer_ID),
     FOREIGN KEY (Order_ID) REFERENCES ooder(Order_ID),
     FOREIGN KEY (Product_ID) REFERENCES Products(Product_ID),
     FOREIGN KEY (Payment_ID) REFERENCES Payment(Payment_ID)
 );
 
-INSERT INTO Transaction_Report (Customer_ID, Order_ID, Product_ID, Payment_ID) 
-VALUES (1, 1, 1, 1),
-       (2, 2, 2, 2),
-       (3, 3, 3, 3),
-       (4, 4, 4, 4),
-       (5, 5, 5, 5),
-       (6, 6, 6, 6),
-       (7, 7, 7, 7),
-       (8, 8, 8, 8),
-       (9, 9, 9, 9),
-       (10, 10, 10, 10);
+INSERT INTO Transaction_Report (Customer_ID, Order_ID, Product_ID, Payment_ID, status) 
+VALUES (1, 1, 1, 1, 'completed'),
+       (2, 2, 2, 2, 'completed'),
+       (3, 3, 3, 3, 'completed'),
+       (4, 4, 4, 4, 'completed'),
+       (5, 5, 5, 5, 'completed'),
+       (6, 6, 6, 6, 'uncompleted'),
+       (7, 7, 7, 7, 'uncompleted'),
+       (8, 8, 8, 8, 'uncompleted'),
+       (9, 9, 9, 9, 'uncompleted'),
+       (10, 10, 10, 10, 'uncompleted');
 
 CREATE TABLE `pass_reset` (
   `id` int(11) NOT NULL AUTO_INCREMENT,

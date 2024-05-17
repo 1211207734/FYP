@@ -259,6 +259,12 @@
                                 
                               </a>
                             </li>
+                            <li>
+                              <a class="sidenav-item-link" href="vieworder.php?eml=<?php echo $emml?>">
+                                <span class="nav-text">Order</span>
+                                
+                              </a>
+                            </li>
                           
                             <li >
                               <a class="sidenav-item-link" href="invoice.html">

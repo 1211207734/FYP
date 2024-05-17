@@ -21,7 +21,8 @@
   
   
   <link href="plugins/prism/prism.css" rel="stylesheet" />
-  
+  <link href="plugins/toaster/toastr.min.css" rel="stylesheet" />
+
   
   
   <link href="plugins/DataTables/DataTables-1.10.18/css/jquery.dataTables.min.css" rel="stylesheet" />
@@ -688,6 +689,8 @@
                 <th>Staff email</th>
                 <th>Status</th>
                 <th></th>
+                <th></th>
+                <th></th>
               </tr>
             </thead>
             <tbody>
@@ -712,6 +715,8 @@
                 <td><?php echo $row['Un'];?></td>
                 <td><?php echo $row['email'];?></td>
                 <td><?php echo $row['status'];?></td>
+                <td></td>
+                <td></td>
                 <td>
                   <div class="dropdown">
                     <a class="dropdown-toggle icon-burger-mini" href="#" role="button" id="dropdownMenuLink"

@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <?php if (isset($_GET['eml'])) {
-					$emml = $_GET['eml'];}?>
+					$emml = $_GET['eml'];}
+                    if (isset($_GET['sta'])) {
+                        $stat = $_GET['sta'];}    
+          ?>
   
 
 <html lang="en" dir="ltr">
@@ -21,7 +24,8 @@
   
   
   <link href="plugins/prism/prism.css" rel="stylesheet" />
-  
+  <link href="plugins/toaster/toastr.min.css" rel="stylesheet" />
+
   
   
   <link href="plugins/DataTables/DataTables-1.10.18/css/jquery.dataTables.min.css" rel="stylesheet" />
@@ -313,7 +317,6 @@
           </div>
         </aside>
 
-
       
 
       <!-- ====================================
@@ -329,301 +332,16 @@
                 <span class="sr-only">Toggle navigation</span>
               </button>
 
-              <span class="page-title">Customer</span>
+              <span class="page-title">Order</span>
 
               <div class="navbar-right ">
 
                 <!-- search form -->
-                <div class="search-form">
-                  <form action="index.php" method="get">
-                    <div class="input-group input-group-sm" id="input-group-search">
-                      <input type="text" autocomplete="off" name="query" id="search-input" class="form-control" placeholder="Search..." />
-                      <div class="input-group-append">
-                        <button class="btn" type="button">/</button>
-                      </div>
-                    </div>
-                  </form>
-                  <ul class="dropdown-menu dropdown-menu-search">
-
-                    <li class="nav-item">
-                      <a class="nav-link" href="index.php?eml=<?php echo $emml ?>">Morbi leo risus</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="index.php?eml=<?php echo $emml ?>">Dapibus ac facilisis in</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="index.php?eml=<?php echo $emml ?>">Porta ac consectetur ac</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="index.php?eml=<?php echo $emml ?>">Vestibulum at eros</a>
-                    </li>
-
-                  </ul>
-
-                </div>
+             
 
                 <ul class="nav navbar-nav">
                   <!-- Offcanvas -->
-                  <li class="custom-dropdown">
-                    <a class="offcanvas-toggler active custom-dropdown-toggler" data-offcanvas="contact-off" href="javascript:" >
-                      <i class="mdi mdi-contacts icon"></i>
-                    </a>
-                  </li>
-                  <li class="custom-dropdown">
-                    <button class="notify-toggler custom-dropdown-toggler">
-                      <i class="mdi mdi-bell-outline icon"></i>
-                      <span class="badge badge-xs rounded-circle">21</span>
-                    </button>
-                    <div class="dropdown-notify">
-
-                      <header>
-                        <div class="nav nav-underline" id="nav-tab" role="tablist">
-                          <a class="nav-item nav-link active" id="all-tabs" data-toggle="tab" href="#all" role="tab" aria-controls="nav-home"
-                            aria-selected="true">All (5)</a>
-                          <a class="nav-item nav-link" id="message-tab" data-toggle="tab" href="#message" role="tab" aria-controls="nav-profile"
-                            aria-selected="false">Msgs (4)</a>
-                          <a class="nav-item nav-link" id="other-tab" data-toggle="tab" href="#other" role="tab" aria-controls="nav-contact"
-                            aria-selected="false">Others (3)</a>
-                        </div>
-                      </header>
-
-                      <div class="" data-simplebar style="height: 325px;">
-                        <div class="tab-content" id="myTabContent">
-
-                          <div class="tab-pane fade show active" id="all" role="tabpanel" aria-labelledby="all-tabs">
-
-                            <div class="media media-sm bg-warning-10 p-4 mb-0">
-                              <div class="media-sm-wrapper">
-                                <a href="user-profile.php?eml=<?php echo $emml ?>">
-                                  <img src="images/user/user-sm-02.jpg" alt="User Image">
-                                </a>
-                              </div>
-                              <div class="media-body">
-                                <a href="user-profile.php?eml=<?php echo $emml ?>">
-                                  <span class="title mb-0">  Brandon</span>
-                                  <span class="discribe">Extremity sweetness difficult behaviour he of. On disposal of as landlord horrible. Afraid at highly months do things on at.</span>
-                                  <span class="time">
-                                    <time>Just now</time>...
-                                  </span>
-                                </a>
-                              </div>
-                            </div>
-
-                            <div class="media media-sm p-4 bg-light mb-0">
-                              <div class="media-sm-wrapper bg-primary">
-                                <a href="user-profile.php?eml=<?php echo $emml ?>">
-                                  <i class="mdi mdi-calendar-check-outline"></i>
-                                </a>
-                              </div>
-                              <div class="media-body">
-                                <a href="user-profile.php?eml=<?php echo $emml ?>">
-                                  <span class="title mb-0">New event added</span>
-                                  <span class="discribe">1/3/2014 (1pm - 2pm)</span>
-                                  <span class="time">
-                                    <time>10 min ago...</time>...
-                                  </span>
-                                </a>
-                              </div>
-                            </div>
-
-                            <div class="media media-sm p-4 mb-0">
-                              <div class="media-sm-wrapper">
-                                <a href="user-profile.php?eml=<?php echo $emml ?>">
-                                  <img src="images/user/user-sm-03.jpg" alt="User Image">
-                                </a>
-                              </div>
-                              <div class="media-body">
-                                <a href="user-profile.php?eml=<?php echo $emml ?>">
-                                  <span class="title mb-0">Sagge Hudson</span>
-                                  <span class="discribe">On disposal of as landlord Afraid at highly months do things on at.</span>
-                                  <span class="time">
-                                    <time>1 hrs ago</time>...
-                                  </span>
-                                </a>
-                              </div>
-                            </div>
-
-                            <div class="media media-sm p-4 mb-0">
-                              <div class="media-sm-wrapper bg-info-dark">
-                                <a href="user-profile.php?eml=<?php echo $emml ?>">
-                                  <i class="mdi mdi-account-multiple-check"></i>
-                                </a>
-                              </div>
-                              <div class="media-body">
-                                <a href="user-profile.php?eml=<?php echo $emml ?>">
-                                  <span class="title mb-0">Add request</span>
-                                  <span class="discribe">Add Dany Jones as your contact.</span>
-                                  <div class="buttons">
-                                    <a href="#" class="btn btn-sm btn-success shadow-none text-white">accept</a>
-                                    <a href="#" class="btn btn-sm shadow-none">delete</a>
-                                  </div>
-                                  <span class="time">
-                                    <time>6 hrs ago</time>...
-                                  </span>
-                                </a>
-                              </div>
-                            </div>
-
-                            <div class="media media-sm p-4 mb-0">
-                              <div class="media-sm-wrapper bg-info">
-                                <a href="user-profile.php?eml=<?php echo $emml ?>">
-                                  <i class="mdi mdi-playlist-check"></i>
-                                </a>
-                              </div>
-                              <div class="media-body">
-                                <a href="user-profile.php?eml=<?php echo $emml ?>">
-                                  <span class="title mb-0">Task complete</span>
-                                  <span class="discribe">Afraid at highly months do things on at.</span>
-                                  <span class="time">
-                                    <time>1 hrs ago</time>...
-                                  </span>
-                                </a>
-                              </div>
-                            </div>
-
-                          </div>
-
-                          <div class="tab-pane fade" id="message" role="tabpanel" aria-labelledby="message-tab">
-
-                            <div class="media media-sm p-4 mb-0">
-                              <div class="media-sm-wrapper">
-                                <a href="user-profile.php?eml=<?php echo $emml ?>">
-                                  <img src="images/user/user-sm-01.jpg" alt="User Image">
-                                </a>
-                              </div>
-                              <div class="media-body">
-                                <a href="user-profile.php?eml=<?php echo $emml ?>">
-                                  <span class="title mb-0">Selena Wagner</span>
-                                  <span class="discribe">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>
-                                  <span class="time">
-                                    <time>15 min ago</time>...
-                                  </span>
-                                </a>
-                              </div>
-                            </div>
-
-                            <div class="media media-sm p-4 mb-0">
-                              <div class="media-sm-wrapper">
-                                <a href="user-profile.php?eml=<?php echo $emml ?>">
-                                  <img src="images/user/user-sm-03.jpg" alt="User Image">
-                                </a>
-                              </div>
-                              <div class="media-body">
-                                <a href="user-profile.php?eml=<?php echo $emml ?>">
-                                  <span class="title mb-0">Sagge Hudson</span>
-                                  <span class="discribe">On disposal of as landlord Afraid at highly months do things on at.</span>
-                                  <span class="time">
-                                    <time>1 hrs ago</time>...
-                                  </span>
-                                </a>
-                              </div>
-                            </div>
-
-                            <div class="media media-sm bg-warning-10 p-4 mb-0">
-                              <div class="media-sm-wrapper">
-                                <a href="user-profile.php?eml=<?php echo $emml ?>">
-                                  <img src="images/user/user-sm-02.jpg" alt="User Image">
-                                </a>
-                              </div>
-                              <div class="media-body">
-                                <a href="user-profile.php?eml=<?php echo $emml ?>">
-                                  <span class="title mb-0">  Brandon</span>
-                                  <span class="discribe">Extremity sweetness difficult behaviour he of. On disposal of as landlord horrible. Afraid
-                                    at highly months do things on at.</span>
-                                  <span class="time">
-                                    <time>Just now</time>...
-                                  </span>
-                                </a>
-                              </div>
-                            </div>
-
-                            <div class="media media-sm p-4 mb-0">
-                              <div class="media-sm-wrapper">
-                                <a href="user-profile.php?eml=<?php echo $emml ?>">
-                                  <img src="images/user/user-sm-04.jpg" alt="User Image">
-                                </a>
-                              </div>
-                              <div class="media-body">
-                                <a href="user-profile.php?eml=<?php echo $emml ?>">
-                                  <span class="title mb-0">Albrecht Straub</span>
-                                  <span class="discribe"> Beatae quia natus assumenda laboriosam, nisi perferendis aliquid consectetur expedita non tenetur.</span>
-                                  <span class="time">
-                                    <time>Just now</time>...
-                                  </span>
-                                </a>
-                              </div>
-                            </div>
-
-                          </div>
-                          <div class="tab-pane fade" id="other" role="tabpanel" aria-labelledby="contact-tab">
-
-                            <div class="media media-sm p-4 bg-light mb-0">
-                              <div class="media-sm-wrapper bg-primary">
-                                <a href="user-profile.php?eml=<?php echo $emml ?>">
-                                  <i class="mdi mdi-calendar-check-outline"></i>
-                                </a>
-                              </div>
-                              <div class="media-body">
-                                <a href="user-profile.php?eml=<?php echo $emml ?>">
-                                  <span class="title mb-0">New event added</span>
-                                  <span class="discribe">1/3/2014 (1pm - 2pm)</span>
-                                  <span class="time">
-                                    <time>10 min ago...</time>...
-                                  </span>
-                                </a>
-                              </div>
-                            </div>
-
-                            <div class="media media-sm p-4 mb-0">
-                              <div class="media-sm-wrapper bg-info-dark">
-                                <a href="user-profile.php?eml=<?php echo $emml ?>">
-                                  <i class="mdi mdi-account-multiple-check"></i>
-                                </a>
-                              </div>
-                              <div class="media-body">
-                                <a href="user-profile.php?eml=<?php echo $emml ?>">
-                                  <span class="title mb-0">Add request</span>
-                                  <span class="discribe">Add Dany Jones as your contact.</span>
-                                  <div class="buttons">
-                                    <a href="#" class="btn btn-sm btn-success shadow-none text-white">accept</a>
-                                    <a href="#" class="btn btn-sm shadow-none">delete</a>
-                                  </div>
-                                  <span class="time">
-                                    <time>6 hrs ago</time>...
-                                  </span>
-                                </a>
-                              </div>
-                            </div>
-
-                            <div class="media media-sm p-4 mb-0">
-                              <div class="media-sm-wrapper bg-info">
-                                <a href="user-profile.php?eml=<?php echo $emml ?>">
-                                  <i class="mdi mdi-playlist-check"></i>
-                                </a>
-                              </div>
-                              <div class="media-body">
-                                <a href="user-profile.php?eml=<?php echo $emml ?>">
-                                  <span class="title mb-0">Task complete</span>
-                                  <span class="discribe">Afraid at highly months do things on at.</span>
-                                  <span class="time">
-                                    <time>1 hrs ago</time>...
-                                  </span>
-                                </a>
-                              </div>
-                            </div>
-
-                          </div>
-                        </div>
-                      </div>
-
-                      <footer class="border-top dropdown-notify-footer">
-                        <div class="d-flex justify-content-between align-items-center py-2 px-4">
-                          <span>Last updated 3 min ago</span>
-                          <a id="refress-button" href="javascript:" class="btn mdi mdi-cached btn-refress"></a>
-                        </div>
-                      </footer>
-                    </div>
-                  </li>
+                 
                   <!-- User Account -->
                   <?php				
                   
@@ -672,63 +390,219 @@
 
 
 <!-- Products Inventory -->
-<div class="card card-default">
-  <div class="card-header">
-    <h2>Customer List</h2>
-
-   
-
-  </div>
-  
-    <table id="productsTable" class="table table-hover table-product" style="width:100%">
-      <thead>
-        <tr>
-          <th>NO</th>
-          <th>Customer Name</th>
-          <th>Customer Email</th>
-          <th>Customer HP</th>
-          <th>Customer Address</th>
-          <th>Postcode</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-      <?php
-    $sql = "SELECT Customer_ID,Customer_name,Customer_email,Customer_HP,Customer_address_1,Customer_address_2,Customer_postcode FROM customer";
-    $result = mysqli_query($connect, $sql);$i=0;
-    while($row = mysqli_fetch_assoc($result)){$i++;
-    ?>
-        <tr>
-          <td><?php echo $i;?></td>
-          <td><?php echo $row['Customer_name'];?></td>
-          <td><?php echo $row['Customer_email'];?></td>
-          <td><?php echo $row['Customer_HP'];?></td>
-          <td><?php echo $row['Customer_address_1']," ",$row['Customer_address_2'];?></td>
-          <td><?php echo $row['Customer_postcode'];?></td>
-          <td>
-            <div class="dropdown">
-              <a class="dropdown-toggle icon-burger-mini" href="#" role="button" id="dropdownMenuLink"
-                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
-              </a>
-
-              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
-              </div>
+<div class="row">
+    <div class="col-12">
+        <div class="card card-default">
+            <div class="card-header">
+                <h2>Order Inventory</h2>
             </div>
-          </td>
-        </tr>
-        <?php }?>
-        
+            
+  <br>
+            <table id="productsTable" class="table table-hover table-product" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Serial NO</th>
+                        <th>Product Name</th>
+                        <th>Customer Name</th>
+                        <th>Order Date</th>
+                        <th>Total</th>
+                        <th>status</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                <?php
+                $sql = "SELECT Report_ID, Product_name, Customer_name,Order_date, Payment_total,transaction_report.status FROM products,customer,ooder,transaction_report,payment 
+                        where products.Product_ID = transaction_report.Product_ID and customer.Customer_ID = transaction_report.Customer_ID and payment.Payment_ID = transaction_report.Payment_ID and ooder.Order_ID = transaction_report.Order_ID";
+                $result = mysqli_query($connect, $sql);
+                while($row = mysqli_fetch_assoc($result)){
+                ?>
+                    <tr>
+                        <td><?php echo $row['Report_ID'];?></td>
+                        <td><?php echo $row['Product_name'];?></td>
+                        <td><?php echo $row['Customer_name'];?></td>
+                        <td><?php echo $row['Order_date'];?></td>
+                        <td><?php echo $row['Payment_total'];?></td>
+                        <td><?php echo $row['status'];?></td>
+                        <td>
+                            <div class="dropdown">
+                                <a class="dropdown-toggle icon-burger-mini" href="#" role="button" id="dropdownMenuLink"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                                    <a class="dropdown-item" href="productedit.php?eml=<?php echo $emml?>&try=<?php echo $row['Product_ID'] ?>">Edit</a>   
+                                    <a class="dropdown-item" href="#" onclick="return manageProduct(<?php echo $row['Product_ID']; ?>, 'activate')">Activate Product</a>
+                                    <a class="dropdown-item" href="#" onclick="return manageProduct(<?php echo $row['Product_ID']; ?>, 'delete')">Delete Product</a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                <?php }?>
+                <script type="text/javascript">
+    function manageProduct(id, action) {
+        var confirmationMessage = action === 'delete' ? "Are you sure you want to delete this product?" : "Are you sure you want to activate this product?";
+        if (confirm(confirmationMessage)) {
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "manage_product.php", true);
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    var response = JSON.parse(xhr.responseText);
+                    alert(response.message);
+                    if (response.success) {
+                        window.location.href = "viewproduct.php?eml=<?php echo $emml; ?>";
+                    }
+                }
+            };
+            xhr.send("id=" + id + "&action=" + action);
+        }
+        return false;
+    }
+</script>
+                </tbody>
+            </table>
+            
+            <!-- Stock Modal -->
+            <div class="modal fade modal-stock" id="modal-stock" aria-labelledby="modal-stock" aria-hidden="true">
+                <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+                    <form method="post">
+                        <div class="modal-content">
+                            <div class="modal-header align-items-center p3 p-md-5">
+                                <h2 class="modal-title" id="exampleModalGridTitle">Add Stock</h2>
+                                <div>
+                                    <button type="button" class="btn btn-light btn-pill mr-1 mr-md-2" data-dismiss="modal">cancel</button>
+                                    <button type="submit" name="svbt" class="btn btn-primary btn-pill">save</button>
+                                </div>
+                            </div>
+                            <div class="modal-body p3 p-md-5">
+                                <div class="row">
+                                    <div class="col-lg-8">
+                                        <h3 class="h5 mb-5">Product Information</h3>
+                                        <div class="form-group mb-5">
+                                            <label for="new-product">Product Title</label>
+                                            <input type="text" class="form-control" id="new-product" name="pn" placeholder="Add Product">
+                                        </div>
+                                        <div class="form-group mb-5">
+                                            <label for="new-product">Product Stock</label>
+                                            <input type="text" class="form-control" id="stock" name="stock" placeholder="Stock">
+                                        </div>
+                                        <div class="form-row mb-4">
+                                            <div class="col">
+                                                <label for="price">Price</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text" id="basic-addon1">$</span>
+                                                    </div>
+                                                    <input type="text" class="form-control" id="price" name="netprice" placeholder="Price" aria-label="Price"
+                                                        aria-describedby="basic-addon1">
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <label for="sale-price">Sale Price</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text" id="basic-addon1">$</span>
+                                                    </div>
+                                                    <input type="text" class="form-control" id="sale-price" name="price" placeholder="Sale Price" aria-label="SalePrice"
+                                                        aria-describedby="basic-addon1">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="product-type mb-3">
+                                            <label class="d-block" for="sale-price">Product Type <i class="mdi mdi-help-circle-outline"></i> </label>
+                                            <div>
+                                                <div class="custom-control custom-radio d-inline-block mr-3 mb-3">
+                                                    <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input" value="1" checked="checked">
+                                                    <label class="custom-control-label" for="customRadio1">Smartphones</label>
+                                                </div>
+                                                <div class="custom-control custom-radio d-inline-block mr-3 mb-3">
+                                                    <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input" value="2">
+                                                    <label class="custom-control-label" for="customRadio2">Tablets</label>
+                                                </div>
+                                                <div class="custom-control custom-radio d-inline-block mr-3 mb-3">
+                                                    <input type="radio" id="customRadio3" name="customRadio" class="custom-control-input" value="3">
+                                                    <label class="custom-control-label" for="customRadio3">Accessories</label>
+                                                </div>
+                                                <div class="custom-control custom-radio d-inline-block mr-3 mb-3">
+                                                    <input type="radio" id="customRadio4" name="customRadio" class="custom-control-input" value="4">
+                                                    <label class="custom-control-label" for="customRadio4">Wearables</label>
+                                                </div>
+                                                <div class="custom-control custom-radio d-inline-block mr-3 mb-3">
+                                                    <input type="radio" id="customRadio5" name="customRadio" class="custom-control-input" value="5">
+                                                    <label class="custom-control-label" for="customRadio5">Earphones</label>
+                                                </div>
+                                                <div class="custom-control custom-radio d-inline-block mr-3 mb-3">
+                                                    <input type="radio" id="customRadio6" name="customRadio" class="custom-control-input" value="6">
+                                                    <label class="custom-control-label" for="customRadio6">Powerbank</label>
+                                                </div>
+                                                <div class="custom-control custom-radio d-inline-block mr-3 mb-3">
+                                                    <input type="radio" id="customRadio7" name="customRadio" class="custom-control-input" value="7">
+                                                    <label class="custom-control-label" for="customRadio7">Speakers</label>
+                                                </div>
+                                                <div class="custom-control custom-radio d-inline-block mr-3 mb-3">
+                                                    <input type="radio" id="customRadio8" name="customRadio" class="custom-control-input" value="8">
+                                                    <label class="custom-control-label" for="customRadio8">Phone stands</label>
+                                                </div>
+                                                <div class="custom-control custom-radio d-inline-block mr-3 mb-3">
+                                                    <input type="radio" id="customRadio9" name="customRadio" class="custom-control-input" value="9">
+                                                    <label class="custom-control-label" for="customRadio9">Storage extender</label>
+                                                </div>
+                                                <div class="custom-control custom-radio d-inline-block mr-3 mb-3">
+                                                    <input type="radio" id="customRadio10" name="customRadio" class="custom-control-input" value="10">
+                                                    <label class="custom-control-label" for="customRadio10">Mobile Photography Accessories</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="editor">
+                                            <label class="d-block" for="sale-price">Description <i class="mdi mdi-help-circle-outline"></i></label>
+                                            <input type="text" class="form-control" id="description" name="description" placeholder="Add Description">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input" id="customFile" placeholder="please imgae here">
+                                            <span class="upload-image">Click here to <span class="text-primary">add product image.</span> </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
 
-
-      </tbody>
-    </table>
-
-  </div>
+                    <?php
+                    $con = mysqli_connect("localhost", "root", "", "jbp");
+                    if (isset($_POST['svbt'])) {
+                        $n = $_POST['pn'];
+                        $s = $_POST['stock'];
+                        $np = $_POST['netprice'];
+                        $p = $_POST['price'];
+                        $c = $_POST['customRadio'];
+                        $d = $_POST['description'];
+                        if (!is_numeric($np)) {
+                          echo "<script>alert('Net price must be a number');</script>";
+                      } 
+                      else if (!is_numeric($p)) {
+                          echo "<script>alert('Price must be a number');</script>";
+                      }
+                      else {
+                        $sql = "INSERT INTO products (Product_name, Product_details, Product_stock, Product_netprice, Product_price, Category_ID) 
+                                VALUES ('$n', '$d', '$s', '$np', '$p', '$c')";
+                        if (mysqli_query($con, $sql)) {
+                            echo "<script>alert('New product Added Successfully');";
+                            echo 'window.location.href = "viewproduct.php?eml=' . $emml . '";</script>';
+                        } else {
+                            echo "<script>alert('Failed to Add New product')</script>";
+                        }
+                    }
+                  }
+                    ?>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-</div>
+
+
           
         </div>
         

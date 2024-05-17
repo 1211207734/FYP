@@ -1,7 +1,5 @@
 <!DOCTYPE html>
-<?php if (isset($_GET['eml'])) {
-					$emml = $_GET['eml'];}
-          ?>
+
   
 
 <html lang="en" dir="ltr">
@@ -22,8 +20,7 @@
   
   
   <link href="plugins/prism/prism.css" rel="stylesheet" />
-  <link href="plugins/toaster/toastr.min.css" rel="stylesheet" />
-
+  
   
   
   <link href="plugins/DataTables/DataTables-1.10.18/css/jquery.dataTables.min.css" rel="stylesheet" />
@@ -57,8 +54,11 @@
       NProgress.configure({ showSpinner: false });
       NProgress.start();
     </script>
-
-
+    <?php
+		if (isset($_GET['eml'])) {
+			$emml = $_GET['eml'];}
+        if (isset($_GET['try'])) {
+                $ep = $_GET['try'];}?>
     
 
     <!-- ====================================
@@ -315,6 +315,7 @@
           </div>
         </aside>
 
+
       
 
       <!-- ====================================
@@ -326,21 +327,16 @@
           <header class="main-header" id="header">
             <nav class="navbar navbar-expand-lg navbar-light" id="navbar">
               <!-- Sidebar toggle button -->
-              <button id="sidebar-toggler" class="sidebar-toggle">
-                <span class="sr-only">Toggle navigation</span>
-              </button>
-
-              <span class="page-title">Product</span>
+             
 
               <div class="navbar-right ">
 
                 <!-- search form -->
-             
+                
 
                 <ul class="nav navbar-nav">
                   <!-- Offcanvas -->
                  
-                  <!-- User Account -->
                   <?php				
                   
                       $connect= mysqli_connect("localhost","root","","jbp");
@@ -348,10 +344,11 @@
                       $result = mysqli_query($connect, $ll);
                       $r=mysqli_fetch_assoc($result);
                       ?>
+                  <!-- User Account -->
                   <li class="dropdown user-menu">
                     <button class="dropdown-toggle nav-link" data-toggle="dropdown">
                       <img src="images/user/user-xs-01.jpg" class="user-image rounded-circle" alt="User Image" />
-                      <span class="d-none d-lg-inline-block">  <?php echo $r['Un'];?></span>
+                      <span class="d-none d-lg-inline-block"><?php echo $r['Un'];?></span>
                     </button>
                     <ul class="dropdown-menu dropdown-menu-right">
                       <li>
@@ -366,10 +363,10 @@
                           <span class="nav-text">Account Setting</span>
                         </a>
                       </li>
-                     
+                      
 
                       <li class="dropdown-footer">
-                        <a class="dropdown-link-item" href="/FYP/loginregister.php" onclick="log()" > <i class="mdi mdi-logout"></i> Log Out </a>
+                        <a class="dropdown-link-item" href="/FYP//FYP/loginregister.php"> <i class="mdi mdi-logout"></i> Log Out </a>
                       </li>
                     </ul>
                   </li>
@@ -388,143 +385,48 @@
 
 
 <!-- Products Inventory -->
-<div class="row">
-    <div class="col-12">
-        <div class="card card-default">
-            <div class="card-header">
-                <h2>Products Inventory</h2>
-                <a href="#" class="btn btn-primary btn-pill" data-toggle="modal" data-target="#modal-stock">Add Stock</a>
-            </div>
-            <div class="card-footer card-profile-footer">
-                <ul class="nav nav-border-top justify-content-center">
-                  <li class="nav-item">
-                    <a class="nav-link active" href="viewproduct.php?eml=<?php echo $emml ?>">Active Products</a>
-                  </li>
-                    
-                  <li class="nav-item">
-                    <a class="nav-link " href="iviewproduct.php?eml=<?php echo $emml ?>&sta=inactive">Inactive Products</a>
-                  </li>
-
-                </ul>
-            </div>
-  <br>
-            <table id="productsTable" class="table table-hover table-product" style="width:100%">
-                <thead>
-                    <tr>
-                        <th>Image</th>
-                        <th>Product Name</th>
-                        <th>Price</th>
-                        <th>Net Price</th>
-                        <th>In Stock</th>
-                        <th>Category</th>
-                        <th>Status</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                <?php
-                $sql = "SELECT Product_ID, Product_name, Product_price,Product_netprice, Product_stock, Category_name,status FROM products 
-                        INNER JOIN categories ON products.Category_ID = categories.Category_ID where status='active'";
-                $result = mysqli_query($connect, $sql);
-                while($row = mysqli_fetch_assoc($result)){
-                ?>
-                    <tr>
-                      <?php $selectedid = $row['Product_ID']; ?>
-                        <td class="py-0">
-                            <img src="images/products/products-xs-01.jpg" alt="Product Image">
-                        </td>
-                        <td><?php echo $row['Product_name'];?></td>
-                        <td><?php echo number_format($row['Product_price'], 2);?></td>
-                        <td><?php echo number_format($row['Product_netprice'], 2);?></td>
-                        <td><?php echo $row['Product_stock'];?></td>
-                        <td><?php echo $row['Category_name'];?></td>
-                        <td><?php echo $row['status'];?></td>
-                        <td>
-                            <div class="dropdown">
-                                <a class="dropdown-toggle icon-burger-mini" href="#" role="button" id="dropdownMenuLink"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-                                    <a class="dropdown-item" href="productedit.php?eml=<?php echo $emml?>&try=<?php echo $row['Product_ID'] ?>">Edit</a>   
-                                    <a class="dropdown-item" href="#" onclick="return manageProduct(<?php echo $row['Product_ID']; ?>, 'inactivate')">Inactivate Product</a>
-                                    <a class="dropdown-item" href="#" onclick="return manageProduct(<?php echo $row['Product_ID']; ?>, 'delete')">Delete Product</a>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                <?php }?>
-                <script type="text/javascript">
-    function manageProduct(id, action) {
-        var confirmationMessage = action === 'delete' ? "Are you sure you want to delete this product?" : "Are you sure you want to inactivate this product?";
-        if (confirm(confirmationMessage)) {
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", "manage_product.php", true);
-            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState === 4 && xhr.status === 200) {
-                    var response = JSON.parse(xhr.responseText);
-                    alert(response.message);
-                    if (response.success) {
-                        window.location.href = "viewproduct.php?eml=<?php echo $emml; ?>";
-                    }
-                }
-            };
-            xhr.send("id=" + id + "&action=" + action);
-        }
-        return false;
-    }
-</script>
-                </tbody>
-            </table>
-            
-            <!-- Stock Modal -->
-            <div class="modal fade modal-stock" id="modal-stock" aria-labelledby="modal-stock" aria-hidden="true">
-                <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+<div class="container d-flex align-items-center justify-content-center" style="min-height: 100vh">
+          <div class="d-flex flex-column justify-content-between">
+            <div class="row justify-content-center">
+              <div class="col-lg-6 col-xl-5 col-md-10 ">
+                <div class="card card-default mb-0">
+                  <div class="card-header pb-0">
+                    <div class="app-brand w-100 d-flex justify-content-center border-bottom-0">
+                      <a class="w-auto pl-0" href="/index.php?eml=<?php echo $emml ?>">
+                        <img src="images/jbplogo.png" alt=" JBPstore">
+                        <span class="brand-name text-dark"> JBPstore</span>
+                      </a>
+                    </div>
+                  </div>
+                  <?php 
+                    $lll="SELECT * from products where Product_ID='$ep'";
+                    $resultt = mysqli_query($connect, $lll);
+                    $rr=mysqli_fetch_assoc($resultt);
+                  ?>
+                  <div class="card-body px-5 pb-5 pt-0">
+                    <h4 class="text-dark text-center mb-5">Product Details</h4>
                     <form method="post">
-                        <div class="modal-content">
-                            <div class="modal-header align-items-center p3 p-md-5">
-                                <h2 class="modal-title" id="exampleModalGridTitle">Add Stock</h2>
-                                <div>
-                                    <button type="button" class="btn btn-light btn-pill mr-1 mr-md-2" data-dismiss="modal">cancel</button>
-                                    <button type="submit" name="svbt" class="btn btn-primary btn-pill">save</button>
-                                </div>
-                            </div>
-                            <div class="modal-body p3 p-md-5">
-                                <div class="row">
-                                    <div class="col-lg-8">
-                                        <h3 class="h5 mb-5">Product Information</h3>
-                                        <div class="form-group mb-5">
-                                            <label for="new-product">Product Title</label>
-                                            <input type="text" class="form-control" id="new-product" name="pn" placeholder="Add Product">
-                                        </div>
-                                        <div class="form-group mb-5">
-                                            <label for="new-product">Product Stock</label>
-                                            <input type="text" class="form-control" id="stock" name="stock" placeholder="Stock">
-                                        </div>
-                                        <div class="form-row mb-4">
-                                            <div class="col">
-                                                <label for="price">Price</label>
-                                                <div class="input-group">
-                                                    <div class="input-group-prepend">
-                                                        <span class="input-group-text" id="basic-addon1">$</span>
-                                                    </div>
-                                                    <input type="text" class="form-control" id="price" name="netprice" placeholder="Price" aria-label="Price"
-                                                        aria-describedby="basic-addon1">
-                                                </div>
-                                            </div>
-                                            <div class="col">
-                                                <label for="sale-price">Sale Price</label>
-                                                <div class="input-group">
-                                                    <div class="input-group-prepend">
-                                                        <span class="input-group-text" id="basic-addon1">$</span>
-                                                    </div>
-                                                    <input type="text" class="form-control" id="sale-price" name="price" placeholder="Sale Price" aria-label="SalePrice"
-                                                        aria-describedby="basic-addon1">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="product-type mb-3">
-                                            <label class="d-block" for="sale-price">Product Type <i class="mdi mdi-help-circle-outline"></i> </label>
+                      <div class="row">
+                        <div class="form-group col-md-12 mb-4">
+                          <input type="text" class="form-control input-lg" id="fn" name="name" aria-describedby="nameHelp" required value="<?php echo $rr['Product_name'] ?>">
+                        </div>
+                        <div class="form-group col-md-12 mb-4">
+                          <input type="text" class="form-control input-lg" id="ln" name="detail" aria-describedby="nameHelp" required value="<?php echo $rr['Product_details'] ?>">
+                        </div>
+                        <div class="form-group col-md-12 mb-4">
+                          <input type="int" class="form-control input-lg" id="Un" name="quantity" aria-describedby="emailHelp" required value="<?php echo $rr['Product_quantity'] ?>">
+                        </div>
+                        <div class="form-group col-md-12 mb-4">
+                          <input type="int" class="form-control input-lg" id="Un" name="stock" aria-describedby="emailHelp" required value="<?php echo $rr['Product_stock'] ?>">
+                        </div>
+                        <div class="form-group col-md-12 ">
+                          <input type="int" class="form-control input-lg" id="email" name="price" required value="<?php echo $rr['Product_price'] ?>">
+                        </div>
+                        <div class="form-group col-md-12 ">
+                          <input type="int" class="form-control input-lg" id="password" name="nprice" required value="<?php echo $rr['Product_netprice'] ?>">
+                        </div>
+                        <div class="product-type mb-3">
+                                            <label class="d-block" for="sale-price">Product Type </label>
                                             <div>
                                                 <div class="custom-control custom-radio d-inline-block mr-3 mb-3">
                                                     <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input" value="1" checked="checked">
@@ -568,56 +470,57 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="editor">
-                                            <label class="d-block" for="sale-price">Description <i class="mdi mdi-help-circle-outline"></i></label>
-                                            <input type="text" class="form-control" id="description" name="description" placeholder="Add Description">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <div class="custom-file">
-                                            <input type="file" class="custom-file-input" id="customFile" placeholder="please imgae here">
-                                            <span class="upload-image">Click here to <span class="text-primary">add product image.</span> </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="col-md-12">
+                          
+
+                          <button type="submit" name="sub" class="btn btn-primary btn-pill mb-4">save</button>
+                          <a href="viewproduct.php?eml=<?php echo $emml ?>"><button type="button" name="cancel" class="btn btn-primary btn-pill mb-4" >cancel</button></a>
+
+                        
                         </div>
+                      </div>
                     </form>
 
                     <?php
-                    $con = mysqli_connect("localhost", "root", "", "jbp");
-                    if (isset($_POST['svbt'])) {
-                        $n = $_POST['pn'];
-                        $s = $_POST['stock'];
-                        $np = $_POST['netprice'];
-                        $p = $_POST['price'];
-                        $c = $_POST['customRadio'];
-                        $d = $_POST['description'];
-                        if (!is_numeric($np)) {
-                          echo "<script>alert('Net price must be a number');</script>";
-                      } 
-                      else if (!is_numeric($p)) {
-                          echo "<script>alert('Price must be a number');</script>";
+                     $con=mysqli_connect("localhost","root","","jbp");
+                    if(isset($_POST['sub'])){
+                      $n=$_POST['name'];
+                      $d=$_POST['detail'];
+                      $q=$_POST['quantity'];
+                      $s=$_POST['stock'];
+                      $p=$_POST['price'];
+                      $np=$_POST['nprice'];
+                      $t=$_POST['customRadio'];
+                     
+                      $sql="UPDATE products SET Product_name='$n',Product_details='$d',Product_quantity='$q',Product_stock='$s',Product_price='$p',Product_netprice='$np',Category_ID='$t' WHERE Product_ID='$ep'";
+                      if(mysqli_query($con,$sql)){
+                        echo "<script>alert('Product edited Successfully');";
+                        echo 'window.location.href = "viewproduct.php?eml='.$emml.'";</script>';
                       }
-                      else {
-                        $sql = "INSERT INTO products (Product_name, Product_details, Product_stock, Product_netprice, Product_price, Category_ID) 
-                                VALUES ('$n', '$d', '$s', '$np', '$p', '$c')";
-                        if (mysqli_query($con, $sql)) {
-                            echo "<script>alert('New product Added Successfully');";
-                            echo 'window.location.href = "viewproduct.php?eml=' . $emml . '";</script>';
-                        } else {
-                            echo "<script>alert('Failed to Add New product')</script>";
-                        }
+                      else{
+                        echo "<script>alert('Failed to Add New Staff')</script>";
+                      }
+
+                    
                     }
-                  }
                     ?>
+
+
+                  </div>
                 </div>
+              </div>
             </div>
+          </div>
         </div>
-    </div>
+        
+
+
+      </tbody>
+    </table>
+
+  </div>
 </div>
-
-
+</div>
           
         </div>
         
@@ -639,109 +542,7 @@
     </div>
     
                     <!-- Card Offcanvas -->
-                    <div class="card card-offcanvas" id="contact-off" >
-                      <div class="card-header">
-                        <h2>Contacts</h2>
-                        <a href="#" class="btn btn-primary btn-pill px-4">Add New</a>
-                      </div>
-                      <div class="card-body">
-
-                        <div class="mb-4">
-                          <input type="text" class="form-control form-control-lg form-control-secondary rounded-0" placeholder="Search contacts...">
-                        </div>
-
-                        <div class="media media-sm">
-                          <div class="media-sm-wrapper">
-                            <a href="user-profile.php?eml=<?php echo $emml ?>">
-                              <img src="images/user/user-sm-01.jpg" alt="User Image">
-                              <span class="active bg-primary"></span>
-                            </a>
-                          </div>
-                          <div class="media-body">
-                            <a href="user-profile.php?eml=<?php echo $emml ?>">
-                              <span class="title">Selena Wagner</span>
-                              <span class="discribe">Designer</span>
-                            </a>
-                          </div>
-                        </div>
-
-                        <div class="media media-sm">
-                          <div class="media-sm-wrapper">
-                            <a href="user-profile.php?eml=<?php echo $emml ?>">
-                              <img src="images/user/user-sm-02.jpg" alt="User Image">
-                              <span class="active bg-primary"></span>
-                            </a>
-                          </div>
-                          <div class="media-body">
-                            <a href="user-profile.php?eml=<?php echo $emml ?>">
-                              <span class="title">Walter Reuter</span>
-                              <span>Developer</span>
-                            </a>
-                          </div>
-                        </div>
-
-                        <div class="media media-sm">
-                          <div class="media-sm-wrapper">
-                            <a href="user-profile.php?eml=<?php echo $emml ?>">
-                              <img src="images/user/user-sm-03.jpg" alt="User Image">
-                            </a>
-                          </div>
-                          <div class="media-body">
-                            <a href="user-profile.php?eml=<?php echo $emml ?>">
-                              <span class="title">Larissa Gebhardt</span>
-                              <span>Cyber Punk</span>
-                            </a>
-                          </div>
-                        </div>
-
-                        <div class="media media-sm">
-                          <div class="media-sm-wrapper">
-                            <a href="user-profile.php?eml=<?php echo $emml ?>">
-                              <img src="images/user/user-sm-04.jpg" alt="User Image">
-                            </a>
-
-                          </div>
-                          <div class="media-body">
-                            <a href="user-profile.php?eml=<?php echo $emml ?>">
-                              <span class="title">Albrecht Straub</span>
-                              <span>Photographer</span>
-                            </a>
-                          </div>
-                        </div>
-
-                        <div class="media media-sm">
-                          <div class="media-sm-wrapper">
-                            <a href="user-profile.php?eml=<?php echo $emml ?>">
-                              <img src="images/user/user-sm-05.jpg" alt="User Image">
-                              <span class="active bg-danger"></span>
-                            </a>
-                          </div>
-                          <div class="media-body">
-                            <a href="user-profile.php?eml=<?php echo $emml ?>">
-                              <span class="title">Leopold Ebert</span>
-                              <span>Fashion Designer</span>
-                            </a>
-                          </div>
-                        </div>
-
-                        <div class="media media-sm">
-                          <div class="media-sm-wrapper">
-                            <a href="user-profile.php?eml=<?php echo $emml ?>">
-                              <img src="images/user/user-sm-06.jpg" alt="User Image">
-                              <span class="active bg-primary"></span>
-                            </a>
-                          </div>
-                          <div class="media-body">
-                            <a href="user-profile.php?eml=<?php echo $emml ?>">
-                              <span class="title">Selena Wagner</span>
-                              <span>Photographer</span>
-                            </a>
-                          </div>
-                        </div>
-
-                      </div>
-                    </div>
-
+                  
 
 
     
@@ -763,7 +564,7 @@
                     <script src="plugins/apexcharts/apexcharts.js"></script>
                     
                     
-                    <script src="js/ JBPstore.js"></script>
+                    <script src="js/ mono.js"></script>
                     <script src="js/chart.js"></script>
                     <script src="js/map.js"></script>
                     <script src="js/custom.js"></script>

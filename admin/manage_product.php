@@ -13,12 +13,37 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $response = array("success" => false, "message" => "An error occurred.");
 
         // Perform the necessary action based on the provided action
-        if ($action === "activate" || $action === "delete") {
+        if ($action === "activate" || $action === "inactivate") {
             // Perform the SQL update operation based on the action
             $sql = ($action === "activate")
                 ? "UPDATE products SET status = 'active' WHERE Product_ID = ?"
                 : "UPDATE products SET status = 'inactive' WHERE Product_ID = ?";
 
+            // Prepare the SQL statement
+            $stmt = $connect->prepare($sql);
+
+            if ($stmt) {
+                // Bind the product ID parameter
+                $stmt->bind_param("i", $product_id);
+
+                // Execute the SQL statement
+                if ($stmt->execute()) {
+                    $response["success"] = true;
+                    $response["message"] = ucfirst($action) . "d successfully.";
+                } else {
+                    $response["message"] = "Error while trying to " . $action . " product.";
+                }
+
+                // Close the statement
+                $stmt->close();
+            } else {
+                $response["message"] = "Failed to prepare SQL statement.";
+            }
+            
+        }else if ( $action === "delete") {
+            // Perform the SQL update operation based on the action
+            $sql = "UPDATE products SET status = 'delete' WHERE Product_ID = ?";
+                
             // Prepare the SQL statement
             $stmt = $connect->prepare($sql);
 

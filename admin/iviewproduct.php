@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <?php if (isset($_GET['eml'])) {
 					$emml = $_GET['eml'];}
+                    if (isset($_GET['sta'])) {
+                        $stat = $_GET['sta'];}    
           ?>
   
 
@@ -395,14 +397,14 @@
                 <h2>Products Inventory</h2>
                 <a href="#" class="btn btn-primary btn-pill" data-toggle="modal" data-target="#modal-stock">Add Stock</a>
             </div>
-            <div class="card-footer card-profile-footer">
+            <div class="card-footer card-profile-footer ">
                 <ul class="nav nav-border-top justify-content-center">
                   <li class="nav-item">
-                    <a class="nav-link active" href="viewproduct.php?eml=<?php echo $emml ?>">Active Products</a>
+                    <a class="nav-link" href="viewproduct.php?eml=<?php echo $emml ?>">Active Products</a>
                   </li>
                     
                   <li class="nav-item">
-                    <a class="nav-link " href="iviewproduct.php?eml=<?php echo $emml ?>&sta=inactive">Inactive Products</a>
+                    <a class="nav-link active" href="iviewproduct.php?eml=<?php echo $emml ?>&sta=inactive">Inactive Products</a>
                   </li>
 
                 </ul>
@@ -423,8 +425,8 @@
                 </thead>
                 <tbody>
                 <?php
-                $sql = "SELECT Product_ID, Product_name, Product_price,Product_netprice, Product_stock, Category_name,status FROM products 
-                        INNER JOIN categories ON products.Category_ID = categories.Category_ID where status='active'";
+                $sql = "SELECT Product_ID, Product_name, Product_price,Product_netprice, Product_stock, Category_name,status FROM products,categories 
+                        where products.Category_ID = categories.Category_ID and status = '$stat' ";
                 $result = mysqli_query($connect, $sql);
                 while($row = mysqli_fetch_assoc($result)){
                 ?>
@@ -446,7 +448,7 @@
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
                                     <a class="dropdown-item" href="productedit.php?eml=<?php echo $emml?>&try=<?php echo $row['Product_ID'] ?>">Edit</a>   
-                                    <a class="dropdown-item" href="#" onclick="return manageProduct(<?php echo $row['Product_ID']; ?>, 'inactivate')">Inactivate Product</a>
+                                    <a class="dropdown-item" href="#" onclick="return manageProduct(<?php echo $row['Product_ID']; ?>, 'activate')">Activate Product</a>
                                     <a class="dropdown-item" href="#" onclick="return manageProduct(<?php echo $row['Product_ID']; ?>, 'delete')">Delete Product</a>
                                 </div>
                             </div>
@@ -455,7 +457,7 @@
                 <?php }?>
                 <script type="text/javascript">
     function manageProduct(id, action) {
-        var confirmationMessage = action === 'delete' ? "Are you sure you want to delete this product?" : "Are you sure you want to inactivate this product?";
+        var confirmationMessage = action === 'delete' ? "Are you sure you want to delete this product?" : "Are you sure you want to activate this product?";
         if (confirm(confirmationMessage)) {
             var xhr = new XMLHttpRequest();
             xhr.open("POST", "manage_product.php", true);
@@ -638,109 +640,7 @@
       </div>
     </div>
     
-                    <!-- Card Offcanvas -->
-                    <div class="card card-offcanvas" id="contact-off" >
-                      <div class="card-header">
-                        <h2>Contacts</h2>
-                        <a href="#" class="btn btn-primary btn-pill px-4">Add New</a>
-                      </div>
-                      <div class="card-body">
-
-                        <div class="mb-4">
-                          <input type="text" class="form-control form-control-lg form-control-secondary rounded-0" placeholder="Search contacts...">
-                        </div>
-
-                        <div class="media media-sm">
-                          <div class="media-sm-wrapper">
-                            <a href="user-profile.php?eml=<?php echo $emml ?>">
-                              <img src="images/user/user-sm-01.jpg" alt="User Image">
-                              <span class="active bg-primary"></span>
-                            </a>
-                          </div>
-                          <div class="media-body">
-                            <a href="user-profile.php?eml=<?php echo $emml ?>">
-                              <span class="title">Selena Wagner</span>
-                              <span class="discribe">Designer</span>
-                            </a>
-                          </div>
-                        </div>
-
-                        <div class="media media-sm">
-                          <div class="media-sm-wrapper">
-                            <a href="user-profile.php?eml=<?php echo $emml ?>">
-                              <img src="images/user/user-sm-02.jpg" alt="User Image">
-                              <span class="active bg-primary"></span>
-                            </a>
-                          </div>
-                          <div class="media-body">
-                            <a href="user-profile.php?eml=<?php echo $emml ?>">
-                              <span class="title">Walter Reuter</span>
-                              <span>Developer</span>
-                            </a>
-                          </div>
-                        </div>
-
-                        <div class="media media-sm">
-                          <div class="media-sm-wrapper">
-                            <a href="user-profile.php?eml=<?php echo $emml ?>">
-                              <img src="images/user/user-sm-03.jpg" alt="User Image">
-                            </a>
-                          </div>
-                          <div class="media-body">
-                            <a href="user-profile.php?eml=<?php echo $emml ?>">
-                              <span class="title">Larissa Gebhardt</span>
-                              <span>Cyber Punk</span>
-                            </a>
-                          </div>
-                        </div>
-
-                        <div class="media media-sm">
-                          <div class="media-sm-wrapper">
-                            <a href="user-profile.php?eml=<?php echo $emml ?>">
-                              <img src="images/user/user-sm-04.jpg" alt="User Image">
-                            </a>
-
-                          </div>
-                          <div class="media-body">
-                            <a href="user-profile.php?eml=<?php echo $emml ?>">
-                              <span class="title">Albrecht Straub</span>
-                              <span>Photographer</span>
-                            </a>
-                          </div>
-                        </div>
-
-                        <div class="media media-sm">
-                          <div class="media-sm-wrapper">
-                            <a href="user-profile.php?eml=<?php echo $emml ?>">
-                              <img src="images/user/user-sm-05.jpg" alt="User Image">
-                              <span class="active bg-danger"></span>
-                            </a>
-                          </div>
-                          <div class="media-body">
-                            <a href="user-profile.php?eml=<?php echo $emml ?>">
-                              <span class="title">Leopold Ebert</span>
-                              <span>Fashion Designer</span>
-                            </a>
-                          </div>
-                        </div>
-
-                        <div class="media media-sm">
-                          <div class="media-sm-wrapper">
-                            <a href="user-profile.php?eml=<?php echo $emml ?>">
-                              <img src="images/user/user-sm-06.jpg" alt="User Image">
-                              <span class="active bg-primary"></span>
-                            </a>
-                          </div>
-                          <div class="media-body">
-                            <a href="user-profile.php?eml=<?php echo $emml ?>">
-                              <span class="title">Selena Wagner</span>
-                              <span>Photographer</span>
-                            </a>
-                          </div>
-                        </div>
-
-                      </div>
-                    </div>
+                   
 
 
 
