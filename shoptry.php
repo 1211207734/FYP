@@ -12,6 +12,12 @@
             height: 1px; /* Set height of the line */
             background-color: black; /* Set background color */
         }
+        h2{
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #333;
+            align-content: left;
+        }
 
 .product-image {
     width: 150px; /* Set a specific width */
@@ -88,7 +94,7 @@ li a:hover::before{
     ?>
     <header>
         <div class="logo">
-            <h1>JBP<span>STORE</span></h1>
+            <a href="home.php?eml=<?php echo $emml ?>" ><h1>JBP<span>STORE</span></h1></a>
         </div>
     </header>
     <form method="post"> 
@@ -101,69 +107,72 @@ li a:hover::before{
                             <h2>Popular Products</h2>
                             <div class="group">
                                 <ul>
-                                    <li><a href="shoptry.php?cid=1">Smartphones</a></li>
-                                    <li><a href="shoptry.php?cid=2">Tablets</a></li>
-                                    <li><a href="shoptry.php?cid=3">Accessories</a></li>
-                                    <li><a href="shoptry.php?cid=4">Wearables</a></li>
-                                    <li><a href="shoptry.php?cid=5">Earphones</a></li>
-                                    <li><a href="shoptry.php?cid=6">Powerbanks</a></li>
-                                    <li><a href="shoptry.php?cid=7">Speakers</a></li>
-                                    <li><a href="shoptry.php?cid=8">Phone stands</a></li>
-                                    <li><a href="shoptry.php?cid=9">Storage extender</a></li>
-                                    <li><a href="shoptry.php?cid=10">Mobile Photography accessories</a></li>
+                                    <li><a href="shoptry.php?eml=<?php echo $emml ?>&cid=1">Smartphones</a></li>
+                                    <li><a href="shoptry.php?eml=<?php echo $emml ?>&cid=2">Tablets</a></li>
+                                    <li><a href="shoptry.php?eml=<?php echo $emml ?>&cid=3">Accessories</a></li>
+                                    <li><a href="shoptry.php?eml=<?php echo $emml ?>&cid=4">Wearables</a></li>
+                                    <li><a href="shoptry.php?eml=<?php echo $emml ?>&cid=5">Earphones</a></li>
+                                    <li><a href="shoptry.php?eml=<?php echo $emml ?>&cid=6">Powerbanks</a></li>
+                                    <li><a href="shoptry.php?eml=<?php echo $emml ?>&cid=7">Speakers</a></li>
+                                    <li><a href="shoptry.php?eml=<?php echo $emml ?>&cid=8">Phone stands</a></li>
+                                    <li><a href="shoptry.php?eml=<?php echo $emml ?>&cid=9">Storage extender</a></li>
+                                    <li><a href="shoptry.php?eml=<?php echo $emml ?>&cid=10">Mobile Photography accessories</a></li>
                                 </ul>
                             </div>
                             <br>
-                            <h2><u><?php echo htmlspecialchars($category['Category_name']); ?></u></h2>
+                            
                         </div>
+                        <h2><u><?php echo htmlspecialchars($category['Category_name']); ?></u></h2>
                     </div>
                 </div>
                 <div class="product-grid">
                     <!-- Fetch and display products based on category ID -->
                     <?php
-                    $query = "SELECT Product_ID, Product_name, Product_details, Product_price FROM products WHERE Category_ID = ? AND status = 'active'";
+                    $query = "SELECT Product_ID, Product_name, Product_details, Product_price,img FROM products WHERE Category_ID = ? AND status = 'active'";
                     $stmt = $connect->prepare($query);
                     $stmt->bind_param("i", $cc);
                     $stmt->execute();
                     $result = $stmt->get_result();
-
-                    while ($row = $result->fetch_assoc()) { ?>
+                    $i=0;
+                    while ($row = $result->fetch_assoc()) { 
+                        
+                        ?>
                         <div class="product">
                             <div class="card">
                                 <div class="card-body">
                                     <!-- Product Details -->
-                                    <img src="images/<?php echo htmlspecialchars($row['Product_name']); ?>.jpg" alt="<?php echo htmlspecialchars($row['Product_name']); ?>" class="product-image">
+                                    <img src="<?php echo $row['img']; ?>" alt="<?php echo htmlspecialchars($row['Product_name']); ?>" class="product-image">
                                     <h3 class="product-title"><?php echo htmlspecialchars($row['Product_name']); ?></h3>
                                     <p class="product-details"><?php echo htmlspecialchars($row['Product_details']); ?></p>
                                     <p class="product-price">RM <?php echo htmlspecialchars($row['Product_price']); ?></p>
-                                    <input type="hidden" name="id" value="<?php echo htmlspecialchars($row['Product_ID']); ?>">
+                                    <input type="hidden" name="id[]" value="<?php echo $row['Product_ID']; ?>">
+                                    
+                                    <input type="text" name="cc" value="<?php echo $i; ?>">
                                     <button class="button-2" role="button" name="add">Add to Cart</button>
                                 </div>
                             </div>
                         </div>
-                    <?php }
-                    $stmt->close();
-                    $connect->close();
-                    ?>
+                        <?php $i++;}?>
                 </div>
             </div>
         </section>
     </form>
-    <?php
-    if (isset($_POST['add'])) {
+    
+    <?php  if (isset($_POST['add'])) {
         // Retrieve form data
-        $n = $_POST['id'];
+        $ii=$_POST['cc'];
+        $n = $_POST['id'][$ii];
 
         // Prepare SQL statement
         $connect = new mysqli("localhost", "root", "", "jbp");
-        $sql = "INSERT INTO cart (cp_ID) VALUES (?)";
+        $sql = "INSERT INTO cart (Product_ID,Customer_ID) VALUES (?,?)";
         $stmt = $connect->prepare($sql);
-        $stmt->bind_param("i", $n);
+        $stmt->bind_param("ii", $n,$emml);
 
         if ($stmt->execute()) {
             echo '<script type="text/javascript">';
             echo 'alert("Product Added to Cart Successfully!");';
-            echo 'window.location.href = "shop.php?eml=' . $emml . '";';
+            echo 'window.location.href = "shoptry.php?eml=' . $emml . '&cid=1";';
             echo '</script>';
         } else {
             echo '<script type="text/javascript">';
@@ -174,7 +183,10 @@ li a:hover::before{
         $stmt->close();
         $connect->close();
     }
-    ?>
+                    $stmt->close();
+                    $connect->close();
+                    ?>
+    
     <footer>
         <p>&copy; 2024 JBPSTORE - Your Mobile Gadgets Shop. All rights reserved.</p>
     </footer>
