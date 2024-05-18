@@ -54,14 +54,14 @@ if (isset($_GET['eml'])) {
 										<div class="product">
 											<div class="row">
 												<div>
-													<img src="images/<?php echo $row['Product_name']?>.jpg" style="width: 150px; height: 150px;">
+													<img src="images/<?php echo $row['Product_name']?>.jpg" style="width: 150px; height: 150px; margin-right : 2%">
 												</div>
 												<div class="col-md-8">
 													<div class="info">
 														<div class="row">
 															<div class="col-md-5 product-name">
 																<div class="product-name">
-																	<a href="#"><?php echo $row['Product_name']?></a>
+																	<a ><?php echo $row['Product_name']?></a>
 																	<div class="product-info">
 																		<div>Details: </div>
 																		<div><?php echo $row['Product_details'];?></div>
@@ -89,8 +89,8 @@ if (isset($_GET['eml'])) {
 									<div class="summary-item"><span class="text">Discount</span><span class="price">$0</span></div>
 									<div class="summary-item"><span class="text">Shipping</span><span class="price">$0</span></div>
 									<div class="summary-item"><span class="text">Total</span><span class="price">$360</span></div>
-									<div><a href="payment.php?eml=<?php echo $emml ?>"><button type="button"class="btn btn-primary btn-lg "style="width:49%;margin-right : 2%" >Add Card</button></a><a href="ewallet.php?eml=<?php echo $emml ?>"><button type="button" class="btn btn-primary btn-lg"style="width:49%;">E-Wallet</button></a></div>
-									<button type="button" class="btn btn-primary btn-lg btn-block" name="out">Checkout</button>
+									<h3>Proceed Payment With:</h3>
+									<div><a href="payment.php?eml=<?php echo $emml ?>"><button type="button"class="btn btn-primary btn-lg "style="width:49%;margin-right : 2%">Add Card</button></a><a href="ewallet.php?eml=<?php echo $emml ?>"><button type="button" class="btn btn-primary btn-lg"style="width:49%;">E-Wallet</button></a></div>
 								</div>
 						</div> 
 					</div>
