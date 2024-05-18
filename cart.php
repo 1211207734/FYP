@@ -31,12 +31,11 @@ if (isset($_GET['eml'])) {
 							<?php
 							while($row = mysqli_fetch_assoc($result)) {
 							?>
-								<div class="col-md-12 col-lg-8">
 									<div class="items">
 										<div class="product">
 											<div class="row">
-												<div class="col-md-3">
-													<img src="images/<?php echo $row['Product_name']?>.jpg" class="img-fluid mx-auto d-block image">
+												<div>
+													<img src="images/<?php echo $row['Product_name']?>.jpg" style="width: 150px; height: 150px;">
 												</div>
 												<div class="col-md-8">
 													<div class="info">
@@ -63,20 +62,17 @@ if (isset($_GET['eml'])) {
 											</div>
 										</div>
 									</div>
-								</div>
-							</div>
+						</div>
 						<?php } ?>
-							<div class="col-md-12 col-lg-4">
 								<div class="summary">
 									<h3>Summary</h3>
 									<div class="summary-item"><span class="text">Subtotal</span><span class="price">$360</span></div>
 									<div class="summary-item"><span class="text">Discount</span><span class="price">$0</span></div>
 									<div class="summary-item"><span class="text">Shipping</span><span class="price">$0</span></div>
 									<div class="summary-item"><span class="text">Total</span><span class="price">$360</span></div>
-									<div><a href="payment.php?eml=<?php echo $emml ?>"><button type="button"class="btn btn-primary btn-lg "style="width:48%; margin-right : 10px;" >Add Card</button></a><a href="ewallet.php?eml=<?php echo $emml ?>"><button type="button" class="btn btn-primary btn-lg"style="width:48%;">E-Wallet</button></a></div>
+									<div><a href="payment.php?eml=<?php echo $emml ?>"><button type="button"class="btn btn-primary btn-lg "style="width:49%;margin-right : 2%" >Add Card</button></a><a href="ewallet.php?eml=<?php echo $emml ?>"><button type="button" class="btn btn-primary btn-lg"style="width:49%;">E-Wallet</button></a></div>
 									<button type="button" class="btn btn-primary btn-lg btn-block" name="out">Checkout</button>
 								</div>
-							</div>
 						</div> 
 					</div>
 				</div>

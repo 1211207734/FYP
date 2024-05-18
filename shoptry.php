@@ -67,7 +67,7 @@ li a:hover::before{
     <?php
     // Database connection
     include('database.php');
-
+    
     // Retrieve category ID and email from GET parameters
     $cc = isset($_GET['cid']) ? $_GET['cid'] : null;
     $emml = isset($_GET['eml']) ? $_GET['eml'] : null;
@@ -150,20 +150,30 @@ li a:hover::before{
         </section>
     </form>
     <?php
+    if (isset($_GET['eml'])) {
+        $emml = $_GET['eml'];
+    }
+    if (isset($_GET['cid'])) {
+        $cc = $_GET['cid'];
+    }
+    
     if (isset($_POST['add'])) {
         // Retrieve form data
         $n = $_POST['id'];
+        $i = $emml;
 
         // Prepare SQL statement
         $connect = new mysqli("localhost", "root", "", "jbp");
-        $sql = "INSERT INTO cart (cp_ID) VALUES (?)";
+        $sql = "INSERT INTO cart (Customer_ID,Product_ID) VALUES (?,?)";
         $stmt = $connect->prepare($sql);
-        $stmt->bind_param("i", $n);
+        $stmt->bind_param("ii",$i,$n);
 
         if ($stmt->execute()) {
             echo '<script type="text/javascript">';
             echo 'alert("Product Added to Cart Successfully!");';
-            echo 'window.location.href = "shop.php?eml=' . $emml . '";';
+            if (isset($emml)) {
+                echo 'window.location.href = "shoptry.php?eml='. $emml .'&'.$cc.'";';
+            }
             echo '</script>';
         } else {
             echo '<script type="text/javascript">';
