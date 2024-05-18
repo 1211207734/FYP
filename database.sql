@@ -87,6 +87,7 @@ CREATE TABLE Products (
     Product_netprice FLOAT(7,2) NOT NULL,
     Product_price FLOAT(7,2) NOT NULL,
     Category_ID INT,
+    img text NOT NULL,
     status text NOT NULL,
     FOREIGN KEY (Category_ID) REFERENCES Categories(Category_ID)
 );
