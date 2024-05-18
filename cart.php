@@ -6,6 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/cart.css">
 
 </head>
@@ -21,19 +22,21 @@ if (isset($_GET['eml'])) {
 <header>
 	<div class="logo">
 		<h1>JBP<span>STORE</span></h1>
-	</div>      
-	<div class="group">
-        <ul class="navigation">
-        <li><a href="home.php?eml=<?php echo $emml?>">Home</a></li>
-        <li><a href="shop.php">Shop</a></li>
-        <li><a href="orderhis.php?eml=<?php echo $emml?>">Order History</a></li>
-        <li><a href="myaccount.php?eml=<?php echo $emml?>">My Account</a></li>
-		<li><a href="FAQ.html">FAQs</a></li>
-		<li><a href="about.html">About Us</a></li>
-		<li><a href="loginregister.php">Log out</a></li>
-        </ul>
+	</div> 
+</header>     
+	<div class="topnav" id="myTopnav">
+        <a href="home.php?eml=<?php echo $emml?>" class="active">Home</a>
+        <a href="shop.php">Shop</a></li>
+        <a href="orderhis.php?eml=<?php echo $emml?>">Order History</a>
+        <a href="myaccount.php?eml=<?php echo $emml?>">My Account</a>
+		<a href="FAQ.html">FAQs</a>
+		<a href="about.html">About Us</a>
+		<a href="loginregister.php">Log out</a>
+		<a href="javascript:void(0);" class="icon" onclick="myFunction()">
+   		<i class="fa fa-bars"></i>
+  		</a>
     </div>
-</header>
+
 	<body>
 		<main class="page">
 			<section class="shopping-cart dark">
