@@ -30,6 +30,7 @@ CREATE TABLE CART (
     Product_ID INT(3) NOT NULL
 );
 
+
 CREATE TABLE Customer (
     Customer_ID INT AUTO_INCREMENT PRIMARY KEY,
     Customer_name VARCHAR(50) NOT NULL,
@@ -86,7 +87,7 @@ CREATE TABLE Products (
     Product_netprice FLOAT(7,2) NOT NULL,
     Product_price FLOAT(7,2) NOT NULL,
     Category_ID INT,
-    status text NOT NULL
+    status text NOT NULL,
     FOREIGN KEY (Category_ID) REFERENCES Categories(Category_ID)
 );
 
