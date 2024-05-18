@@ -13,7 +13,7 @@ header {
   
   /* Style the links inside the navigation bar */
   .topnav a {
-	float: center;
+	float: left;
 	display: block;
 	color: #f2f2f2;
 	text-align: center;
@@ -30,7 +30,7 @@ header {
   
   /* Add an active class to highlight the current page */
   .topnav a.active {
-	background-color: #7568a1;
+	background-color: #492c55;
 	color: white;
   }
   
