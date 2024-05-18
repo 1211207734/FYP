@@ -4,7 +4,7 @@
 	<title>Shopping Cart</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 	<link rel="stylesheet" href="css/cart.css">
 
@@ -18,6 +18,22 @@ if (isset($_GET['eml'])) {
 	$result = mysqli_query($connect, $sql);
 
 ?>
+<header>
+	<div class="logo">
+		<h1>JBP<span>STORE</span></h1>
+	</div>      
+	<div class="group">
+        <ul class="navigation">
+        <li><a href="home.php?eml=<?php echo $emml?>">Home</a></li>
+        <li><a href="shop.php">Shop</a></li>
+        <li><a href="orderhis.php?eml=<?php echo $emml?>">Order History</a></li>
+        <li><a href="myaccount.php?eml=<?php echo $emml?>">My Account</a></li>
+		<li><a href="FAQ.html">FAQs</a></li>
+		<li><a href="about.html">About Us</a></li>
+		<li><a href="loginregister.php">Log out</a></li>
+        </ul>
+    </div>
+</header>
 	<body>
 		<main class="page">
 			<section class="shopping-cart dark">
@@ -119,4 +135,7 @@ if (isset($_GET['eml'])) {
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </body>
+<footer>
+	<p>&copy; 2024 JBPSTORE - Your Mobile Gadgets Shop. All rights reserved.</p>
+</footer>
 </html>
