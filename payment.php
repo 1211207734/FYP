@@ -10,6 +10,8 @@
 	<div class="modal">
 		<form class="form" method="post">
 			<div class="card-info">
+				<div>Please Enter Your Card Details</div>
+				<div><img src="images/visa-card.png" style="margin-right : 2%"><img src="images/master-card.png"></div>
 				<div class="input_container">
 					<label class="input_label">Card holder name</label>
 					<input class="input_field" type="text" name="name" placeholder="Enter your full name" required>
@@ -26,7 +28,7 @@
 					</div>
 				</div>
 			</div>
-			<button class="checkout" style="cursor: pointer;"name="save" >Save Card Detail</button>
+			<button class="checkout" style="cursor: pointer;"name="save" >Proceed Payment</button>
 		</form>
 	</div>
 </body>
