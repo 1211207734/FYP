@@ -86,9 +86,9 @@
 				  <div class="buttons">
                         
                  
-                        <a href="home.php?eml=<?php echo $emml?>"><button class="btn btn-primary px-4 ms-3">Home</button>
-                      <a href="updateacc.php?eml=<?php echo $emml?>"><button class="btn btn-primary px-4 ms-3">Update Profile Details</button>
-                      <a href="changepw.php?eml=<?php echo $emml?>"><button class="btn btn-primary px-4 ms-3">Change Password</button></a>
+                    	<a href="home.php?eml=<?php echo $emml?>"><button class="btn btn-primary px-4 ms-3">Home</button>
+                      	<a href="updateacc.php?eml=<?php echo $emml?>"><button class="btn btn-primary px-4 ms-3">Update Profile Details</button>
+                      	<a href="changepw.php?eml=<?php echo $emml?>"><button class="btn btn-primary px-4 ms-3">Change Password</button></a>
                     </div>
 				</div>
                     
