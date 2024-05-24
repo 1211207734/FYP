@@ -240,16 +240,16 @@
                                 
                               </a>
                             </li>
-                            <li>
-                              <a class="sidenav-item-link" href="viewstaff.php?eml=<?php echo $emml?>">
-                                <span class="nav-text">Staff</span>
+                              <li>
+                              <a class="sidenav-item-link" href="vieworder.php?eml=<?php echo $emml?>">
+                                <span class="nav-text">Order</span>
                                 
                               </a>
                             </li>
                           
                             <li >
-                              <a class="sidenav-item-link" href="invoice.html">
-                                <span class="nav-text">Invoice</span>
+                              <a class="sidenav-item-link" href="salesreport.php?eml=<?php echo $emml?>">
+                                <span class="nav-text">Sales Report</span>
                                 
                               </a>
                             </li>
@@ -425,7 +425,7 @@
                 </thead>
                 <tbody>
                 <?php
-                $sql = "SELECT Product_ID, Product_name, Product_price,Product_netprice, Product_stock, Category_name,status FROM products,categories 
+                $sql = "SELECT Product_ID, Product_name, Product_price,Product_netprice, Product_stock, Category_name,status,img FROM products,categories 
                         where products.Category_ID = categories.Category_ID and status = '$stat' ";
                 $result = mysqli_query($connect, $sql);
                 while($row = mysqli_fetch_assoc($result)){
@@ -433,7 +433,7 @@
                     <tr>
                       <?php $selectedid = $row['Product_ID']; ?>
                         <td class="py-0">
-                            <img src="images/products/products-xs-01.jpg" alt="Product Image">
+                            <img src="\FYP/<?php echo $row['img'] ?>" width="100px" height="100px" alt="<?php echo $row['img'] ?>">
                         </td>
                         <td><?php echo $row['Product_name'];?></td>
                         <td><?php echo number_format($row['Product_price'], 2);?></td>

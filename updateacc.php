@@ -92,12 +92,12 @@
 										</body>
 										<!-- Content -->
 										<p class="text-muted mt-3 mb-0"><span class="me-1">Note:</span>Minimum size 300px x 300px</p>
-									</form>
+									
 								</div>
 							</div>
 						</div>
 					</div>
-					<form method="post">
+					<!-- Account details -->
 						<div class="bg-secondary-soft px-4 py-5 rounded">
 								<h4 class="mb-4 mt-0">Account details</h4>
 								<!-- First Name -->
@@ -141,6 +141,12 @@
 		$a1 = $_POST['a1'];
 		$a2 = $_POST['a2'];
 		$pos = $_POST['pos'];
+		$fn=$_FILES['profileImage']['name'];
+		$ft=$_FILES['profileImage']['tmp_name'];
+		$folder="images/".$fn;
+
+		
+
 
 
 		// Validate and sanitize form data (you may need more validation)
@@ -152,7 +158,7 @@
 		// Prepare SQL statement
 		$sql = "UPDATE `customer` SET Customer_name='$f', Customer_HP='$p', Customer_email='$email', Customer_address_1='$a1', Customer_address_2='$a2', Customer_postcode='$pos' WHERE Customer_ID='$emml'";
 		mysqli_query($connect,$sql);
-		if (mysqli_query($connect, $sql))
+		if (mysqli_query($connect, $sql)&&move_uploaded_file($ft,$folder))
 		{
 		
 			echo '<script type="text/javascript">';

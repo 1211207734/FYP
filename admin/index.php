@@ -267,8 +267,8 @@
                             </li>
                           
                             <li >
-                              <a class="sidenav-item-link" href="invoice.html">
-                                <span class="nav-text">Invoice</span>
+                              <a class="sidenav-item-link" href="salesreport.php?eml=<?php echo $emml?>">
+                                <span class="nav-text">Sales Report</span>
                                 
                               </a>
                             </li>

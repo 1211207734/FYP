@@ -237,16 +237,16 @@
                                 
                               </a>
                             </li>
-                            <li>
-                              <a class="sidenav-item-link" href="viewstaff.php?eml=<?php echo $emml?>">
-                                <span class="nav-text">Staff</span>
+                              <li>
+                              <a class="sidenav-item-link" href="vieworder.php?eml=<?php echo $emml?>">
+                                <span class="nav-text">Order</span>
                                 
                               </a>
                             </li>
                           
                             <li >
-                              <a class="sidenav-item-link" href="invoice.html">
-                                <span class="nav-text">Invoice</span>
+                              <a class="sidenav-item-link" href="salesreport.php?eml=<?php echo $emml?>">
+                                <span class="nav-text">Sales Report</span>
                                 
                               </a>
                             </li>

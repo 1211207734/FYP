@@ -133,7 +133,7 @@
                                     <h3 class="product-title"><?php echo htmlspecialchars($row['Product_name']); ?></h3>
                                     <p class="product-details"><?php echo htmlspecialchars($row['Product_details']); ?></p>
                                     <p class="product-price">RM <?php echo htmlspecialchars($row['Product_price']); ?></p>
-                                    <a class="button-2" href="#" onclick="addcart(<?php echo $row['Product_ID'] ?>)">Add to Cart</a>
+                                    <a class="button-2" href="#" onclick="return addcart(<?php echo $row['Product_ID'] ?>)">Add to Cart</a>
                                 </div>
                             </div>
                         </div>
@@ -146,30 +146,22 @@
         </section>
     </form>
     <script type="text/javascript">
-        function addcart(productId) {
+        function addcart(id) {
+            var action = "add";
             if (confirm("Add this product to cart?")) {
-                var emml = "<?php echo $emml; ?>";
-                var categoryId = "<?php echo $cc; ?>";
-                
-                // Create a form to submit the cart addition
-                var form = document.createElement("form");
-                form.setAttribute("method", "post");
-                form.setAttribute("action", "add_to_cart.php");
-                
-                var emailField = document.createElement("input");
-                emailField.setAttribute("type", "hidden");
-                emailField.setAttribute("name", "eml");
-                emailField.setAttribute("value", emml);
-                form.appendChild(emailField);
-                
-                var productField = document.createElement("input");
-                productField.setAttribute("type", "hidden");
-                productField.setAttribute("name", "product_id");
-                productField.setAttribute("value", productId);
-                form.appendChild(productField);
-                
-                document.body.appendChild(form);
-                form.submit();
+                var xhr = new XMLHttpRequest();
+                  xhr.open("POST", "add_to_cart.php", true);
+                  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                  xhr.onreadystatechange = function () {
+                      if (xhr.readyState === 4 && xhr.status === 200) {
+                          var response = JSON.parse(xhr.responseText);
+                          alert(response.message);
+                          if (response.success) {
+                              window.location.href = "shoptry.php?eml=<?php echo $emml; ?>&cid=<?php echo $cc; ?>";
+                          }
+                      }
+                  };
+                  xhr.send("id=" + id + "&action=" + action+"&eml=<?php echo $emml; ?>");
             }
         }
     </script>
