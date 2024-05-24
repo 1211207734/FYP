@@ -90,7 +90,7 @@ if (isset($_GET['eml'])) {
 									<div class="summary-item"><span class="text">Shipping</span><span class="price">$0</span></div>
 									<div class="summary-item"><span class="text">Total</span><span class="price">$360</span></div>
 									<h3>Proceed Payment With:</h3>
-									<div><a href="payment.php?eml=<?php echo $emml ?>"><button type="button"class="btn btn-primary btn-lg "style="width:49%;margin-right : 2%">Debit/Credit Card</button></a><a href="ewallet.php?eml=<?php echo $emml ?>"><button type="button" class="btn btn-primary btn-lg"style="width:49%;">E-Wallet</button></a></div>
+									<div><a href="payment.php?eml=<?php echo $emml ?>"><button type="button"class="btn btn-primary btn-lg "style="width:49%;margin-right : 2%">Debit/Credit Card</button></a><a href="tng.php?eml=<?php echo $emml ?>"><button type="button" class="btn btn-primary btn-lg"style="width:49%;">E-Wallet</button></a></div>
 								</div>
 						</div> 
 					</div>
