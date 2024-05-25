@@ -635,7 +635,7 @@
                       ?>
                   <li class="dropdown user-menu">
                     <button class="dropdown-toggle nav-link" data-toggle="dropdown">
-                      <img src="images/user/user-xs-01.jpg" class="user-image rounded-circle" alt="User Image" />
+                      <img src="<?php echo $r['img'] ?>" class="user-image rounded-circle" alt="User Image" />
                       <span class="d-none d-lg-inline-block">  <?php echo $r['Un'];?></span>
                     </button>
                     <ul class="dropdown-menu dropdown-menu-right">
