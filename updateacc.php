@@ -143,7 +143,7 @@
 		$pos = $_POST['pos'];
 		$fn=$_FILES['profileImage']['name'];
 		$ft=$_FILES['profileImage']['tmp_name'];
-		$folder="images/".$fn;
+		$folder="images/user/".$fn;
 
 		
 
