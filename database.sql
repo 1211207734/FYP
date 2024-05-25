@@ -83,6 +83,7 @@ CREATE TABLE Products (
     Product_ID INT AUTO_INCREMENT PRIMARY KEY,
     Product_name VARCHAR(50) NOT NULL,
     Product_details VARCHAR(100) NOT NULL,
+    Product_quantity INT NOT NULL,
     Product_stock INT NOT NULL,
     Product_netprice FLOAT(7,2) NOT NULL,
     Product_price FLOAT(7,2) NOT NULL,
@@ -287,3 +288,24 @@ INSERT INTO `promotion` (`code_id`, `code`, `discount`, `valid`, `status`) VALUE
 (2, 'jbp222', 0.2, 200, 'active'),
 (3, 'jbp555', 0.5, 200, 'active'),
 (4, 'jbp999', 0.9, 200, 'active');
+
+CREATE TABLE tng (
+    Customer_ID INT,
+    Balance FLOAT(7,2) NOT NULL
+);
+
+INSERT INTO tng (Customer_ID, Balance) 
+VALUES (1,200.99),
+       (2,200.99),
+       (3,200.99),
+       (4,200.99),
+       (5,200.99),
+       (6,200.99),
+       (7,200.99),
+       (8,200.99),
+       (9,200.99),
+       (10,200.99),
+       (11,200.99),
+       (12,200.99),
+       (13,200.99);
+
