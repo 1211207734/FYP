@@ -39,10 +39,11 @@
     </header>     
 
     <div class="topnav" id="myTopnav">
-        <a href="home.php?eml=<?php echo $emml?>" class="active">Home</a>
-        <a href="shop.php">Shop</a>
+        <a href="home.php?eml=<?php echo $emml?>" >Home</a>
+        <a href="tryshop.php?eml=<?php echo $emml?>">Shop</a>
         <a href="orderhis.php?eml=<?php echo $emml?>">Order History</a>
         <a href="myaccount.php?eml=<?php echo $emml?>">My Account</a>
+        <a href="cart.php?eml=<?php echo $emml?>"class="active">My Cart</a>
         <a href="FAQ.html">FAQs</a>
         <a href="about.html">About Us</a>
         <a href="loginregister.php">Log out</a>

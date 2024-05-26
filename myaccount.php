@@ -8,7 +8,11 @@
 	<link rel="stylesheet" type="text/css" href="css/vendor.css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
   	<link rel="stylesheet" type="text/css" href="css/style.css">
-  	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/cart.css">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 </head>
 <?php
@@ -19,18 +23,19 @@
 	<div class="logo">
 		<h1>JBP<span>STORE</span></h1>
 	</div>      
-	<div class="group">
-        <ul class="navigation">
-        <li><a href="home.php?eml=<?php echo $emml?>">Home</a></li>
-        <li><a href="shop.php">Shop</a></li>
-        <li><a href="orderhis.php?eml=<?php echo $emml?>">Order History</a></li>
-        <li><a href="myaccount.php?eml=<?php echo $emml?>">My Account</a></li>
-		<li><a href="FAQ.html">FAQs</a></li>
-		<li><a href="about.html">About Us</a></li>
-		<li><a href="loginregister.php">Log out</a></li>
-        </ul>
-    </div>
 </header>
+<div class="topnav" id="myTopnav">
+        <a href="home.php?eml=<?php echo $emml?>" >Home</a>
+        <a href="tryshop.php?eml=<?php echo $emml?>">Shop</a>
+        <a href="orderhis.php?eml=<?php echo $emml?>">Order History</a>
+        <a href="myaccount.php?eml=<?php echo $emml?>"class="active">My Account</a>
+        <a href="FAQ.html">FAQs</a>
+        <a href="about.html">About Us</a>
+        <a href="loginregister.php">Log out</a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+        </a>
+    </div>
 
 
 			<div class="title">
