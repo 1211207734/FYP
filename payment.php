@@ -9,6 +9,8 @@
 <?php
 if (isset($_GET['eml'])) {
 	$emml = $_GET['eml'];}
+	if (isset($_GET['tt'])) {
+		$total = $_GET['tt'];}
 	?>
 <body>
 	<div class="modal">

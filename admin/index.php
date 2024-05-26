@@ -188,12 +188,7 @@
                         
                         
                           
-                            <li >
-                              <a class="sidenav-item-link" href="sign-up.html">
-                                <span class="nav-text">Sign Up</span>
-                                
-                              </a>
-                            </li>
+                            
                           
                         
 

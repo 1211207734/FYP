@@ -30,11 +30,11 @@ CREATE TABLE CART (
     Product_ID INT(3) NOT NULL
 );
 
-INSERT INTO CART (Customer_ID, Product_ID) 
-VALUES (11,20),
-       (11,22),
-       (1,1),
-       (1,11),
+INSERT INTO CART (Customer_ID, Product_ID,quantity) 
+VALUES (11,20,1),
+       (11,22,3),
+       (1,1,4),
+       (1,11,5),
 
 
 CREATE TABLE Customer (

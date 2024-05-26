@@ -9,6 +9,8 @@
 include('database.php');
 if (isset($_GET['eml'])) {
     $emml = $_GET['eml'];}
+	if (isset($_GET['tt'])) {
+		$total = $_GET['tt'];}
 	$connect= mysqli_connect("localhost","root","","jbp");
 	$result = mysqli_query($connect, "SELECT * FROM tng where Customer_ID='$emml'");
 	while($row = mysqli_fetch_assoc($result)) {
@@ -20,7 +22,7 @@ if (isset($_GET['eml'])) {
 </header>
 <body>
 	
-	<div>Total Amount Needed to Pay : </div>
+	<div>Total Amount Needed to Pay : <?php echo $total ?> </div>
 	<div>Balance of TNG Wallet : <a><?php echo $row['Balance']?></a></div>
 	
 	<div>

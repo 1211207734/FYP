@@ -23,10 +23,9 @@
         die("Connection failed: " . mysqli_connect_error());
     }
 
-    $sql = "SELECT products.Product_name, products.Product_price, products.Product_stock, products.Product_details 
+    $sql = "SELECT products.Product_name, products.Product_price, products.Product_stock, products.Product_details ,cart.quantity
         FROM products 
         INNER JOIN cart ON products.Product_ID = cart.Product_ID
-        INNER JOIN tng ON cart.Customer_ID = tng.Customer_ID
         WHERE cart.Customer_ID = '$emml'";
 
     $result = mysqli_query($connect, $sql);
@@ -40,7 +39,7 @@
 
     <div class="topnav" id="myTopnav">
         <a href="home.php?eml=<?php echo $emml?>" >Home</a>
-        <a href="tryshop.php?eml=<?php echo $emml?>">Shop</a>
+        <a href="shoptry.php?eml=<?php echo $emml?>&cid=1">Shop</a>
         <a href="orderhis.php?eml=<?php echo $emml?>">Order History</a>
         <a href="myaccount.php?eml=<?php echo $emml?>">My Account</a>
         <a href="cart.php?eml=<?php echo $emml?>"class="active">My Cart</a>
@@ -85,12 +84,12 @@
                                                 </div>
                                                 <div class="col-md-4 quantity">
                                                     <label for="quantity">Quantity:</label>
-                                                    <input id="quantity" type="number" value="1" class="form-control quantity-input">
+                                                    <input id="quantity" type="number" value="<?php echo $row['quantity'] ?>" class="form-control quantity-input">
                                                 </div>
                                                 <div class="col-md-3 price">
-                                                    <?php echo $row['Product_price'];?>
+                                                    <?php echo $st=$row['Product_price']*$row['quantity'];?>
                                                 </div>
-                                                <?php $total += $row['Product_price'] ?>
+                                                <?php $total += $st ?>
                                             </div>
                                         </div>
                                     </div>
@@ -104,25 +103,27 @@
                         <div class="summary">
                             <h3>Summary</h3>
                             <div class="summary-item"><span class="text">Subtotal</span><span class="price">RM <?php echo $total?></span></div>
-                            <div class="summary-item"><span class="text">Discount</span><span class="price">$0</span></div>
+                            <div class="summary-item"><span class="text">Discount<a href="" onclick="promo()">Do you have voucher?</a></span><span class="price">$0</span></div>
                             <div class="summary-item"><span class="text">Total</span><span class="price">RM <?php echo $total?></span></div>
                             <h3>Proceed Payment With:</h3>
                             <button type="submit" class="btn btn-primary btn-lg" style="width:49%; margin-right: 2%;" name="card">Debit/Credit Card</button><button type="submit" class="btn btn-primary btn-lg" style="width:49%;" name="tng">E-Wallet</button>
                         </div>
                     </form>
+                    <script type="text/javascript">
+                            function promo(){
+                            alert("You have logout!");
+                            }
+                          </script>
 
                     <?php 
                     if (isset($_POST['card']) || isset($_POST['tng'])) {
-                        $t = $total;
-						$id = $emml;
-						$sql = "UPDATE `temptotal` SET Customer_ID='$id', total='$t' WHERE cart.Customer_ID='$emml'";
-                        if (isset($_POST['card'])) {
+                           if (isset($_POST['card'])) {
                             echo '<script>';
-                            echo 'window.location.href = "payment.php?eml=' . $emml . '";';
+                            echo 'window.location.href = "payment.php?eml=' . $emml . '&tt='.$total.'";';
                             echo '</script>';
                         } else {
 							echo '<script>';
-                            echo 'window.location.href = "tng.php?eml=' . $emml . '";';
+                            echo 'window.location.href = "tng.php?eml=' . $emml . '&tt='.$total.'";';
                             echo '</script>';                        }
                     } 
                     ?>
