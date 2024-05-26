@@ -48,6 +48,7 @@ if (isset($_GET['eml'])) {
 					<div class="content">
 						<div class="row">
 							<?php
+							$total=0;
 							while($row = mysqli_fetch_assoc($result)) {
 							?>
 									<div class="items">
@@ -75,6 +76,7 @@ if (isset($_GET['eml'])) {
 															<div class="col-md-3 price">
 																<?php echo $row['Product_price'];?>
 															</div>
+															<?php $total+=$row['Product_price']?>
 														</div>
 													</div>
 												</div>
@@ -85,10 +87,9 @@ if (isset($_GET['eml'])) {
 						<?php } ?>
 								<div class="summary">
 									<h3>Summary</h3>
-									<div class="summary-item"><span class="text">Subtotal</span><span class="price">$360</span></div>
+									<div class="summary-item"><span class="text">Subtotal</span><span class="price">RM <?php echo $total?></span></div>
 									<div class="summary-item"><span class="text">Discount</span><span class="price">$0</span></div>
-									<div class="summary-item"><span class="text">Shipping</span><span class="price">$0</span></div>
-									<div class="summary-item"><span class="text">Total</span><span class="price">$360</span></div>
+									<div class="summary-item"><span class="text">Total</span><span class="price">RM <?php echo $total?></span></div>
 									<h3>Proceed Payment With:</h3>
 									<div><a href="payment.php?eml=<?php echo $emml ?>"><button type="button"class="btn btn-primary btn-lg "style="width:49%;margin-right : 2%">Debit/Credit Card</button></a><a href="tng.php?eml=<?php echo $emml ?>"><button type="button" class="btn btn-primary btn-lg"style="width:49%;">E-Wallet</button></a></div>
 								</div>

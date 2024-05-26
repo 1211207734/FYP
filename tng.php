@@ -18,6 +18,7 @@ if (isset($_GET['eml'])) {
 	</div>  
 </header>
 <body>
+	<div>Total Amount Needed to Pay : 
 	<div>Balance of TNG Wallet : <a><?php echo $row['Balance']?></a></div>
 	
 	<div>
