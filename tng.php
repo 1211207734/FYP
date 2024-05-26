@@ -2,6 +2,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>TNG E-wallet</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/tng.css">
 </head>
 <?php
@@ -18,10 +19,16 @@ if (isset($_GET['eml'])) {
 	</div>  
 </header>
 <body>
+	
+	<div>Total Amount Needed to Pay : </div>
 	<div>Balance of TNG Wallet : <a><?php echo $row['Balance']?></a></div>
 	
 	<div>
 	<a href="cart.php?eml=<?php echo $emml ?>">Back to Cart</a>
-	<a href="cart.php?eml=<?php echo $emml ?>">Proceed Payment with </a>
+	<a href="cart.php?eml=<?php echo $emml ?>">Proceed Payment with <?php echo $row['Balance']?></a>
+	</div>
+	<div>
+	<button class="button">Reload RM50</button><button class="button">Reload RM100</button>
+	</div>
 </body>
 <?php }

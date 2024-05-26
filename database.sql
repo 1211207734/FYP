@@ -30,6 +30,12 @@ CREATE TABLE CART (
     Product_ID INT(3) NOT NULL
 );
 
+INSERT INTO CART (Customer_ID, Product_ID) 
+VALUES (11,20),
+       (11,22),
+       (1,1),
+       (1,11),
+
 
 CREATE TABLE Customer (
     Customer_ID INT AUTO_INCREMENT PRIMARY KEY,
@@ -268,6 +274,32 @@ VALUES (1, 1, 1, 1, 'completed'),
        (9, 9, 9, 9, 'uncompleted'),
        (10, 10, 10, 10, 'uncompleted');
 
+CREATE TABLE tng (
+    Customer_ID INT,
+    Balance FLOAT(7,2) NOT NULL
+);
+
+INSERT INTO tng (Customer_ID, Balance) 
+VALUES (1,200.99),
+       (2,200.99),
+       (3,200.99),
+       (4,200.99),
+       (5,200.99),
+       (6,200.99),
+       (7,200.99),
+       (8,200.99),
+       (9,200.99),
+       (10,200.99),
+       (11,200.99),
+       (12,200.99),
+       (13,200.99);
+
+CREATE TABLE temptotal (
+    Customer_ID INT,
+    FOREIGN KEY (Customer_ID) REFERENCES Customer(Customer_ID),
+    total FLOAT(7,2) NOT NULL
+);
+
 CREATE TABLE `pass_reset` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `email` varchar(255) NOT NULL,
@@ -289,23 +321,5 @@ INSERT INTO `promotion` (`code_id`, `code`, `discount`, `valid`, `status`) VALUE
 (3, 'jbp555', 0.5, 200, 'active'),
 (4, 'jbp999', 0.9, 200, 'active');
 
-CREATE TABLE tng (
-    Customer_ID INT,
-    Balance FLOAT(7,2) NOT NULL
-);
 
-INSERT INTO tng (Customer_ID, Balance) 
-VALUES (1,200.99),
-       (2,200.99),
-       (3,200.99),
-       (4,200.99),
-       (5,200.99),
-       (6,200.99),
-       (7,200.99),
-       (8,200.99),
-       (9,200.99),
-       (10,200.99),
-       (11,200.99),
-       (12,200.99),
-       (13,200.99);
 
