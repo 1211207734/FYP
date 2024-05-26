@@ -413,6 +413,7 @@
                     <tr>
                         <th>Image</th>
                         <th>Product Name</th>
+                        <th hidden>id</th>
                         <th>Price</th>
                         <th>Net Price</th>
                         <th>In Stock</th>
@@ -434,6 +435,7 @@
                             <img src="\FYP/<?php echo $row['img'] ?>" width="100px" height="100px" alt="<?php echo $row['img'] ?>">
                         </td>
                         <td><?php echo $row['Product_name'];?></td>
+                        <td hidden><?php echo $row['Product_ID'] ?></tdhidden>
                         <td><?php echo number_format($row['Product_price'], 2);?></td>
                         <td><?php echo number_format($row['Product_netprice'], 2);?></td>
                         <td><?php echo $row['Product_stock'];?></td>
@@ -500,6 +502,10 @@
                                         <div class="form-group mb-5">
                                             <label for="new-product">Product Stock</label>
                                             <input type="text" class="form-control" id="stock" name="stock" placeholder="Stock">
+                                        </div>
+                                        <div class="form-group mb-5">
+                                            <label for="new-product">Product quantity</label>
+                                            <input type="text" class="form-control" id="quantity" name="quantity" placeholder="quantity">
                                         </div>
                                         <div class="form-row mb-4">
                                             <div class="col">
@@ -589,19 +595,23 @@
                     if (isset($_POST['svbt'])) {
                         $n = $_POST['pn'];
                         $s = $_POST['stock'];
+                        $q= $_POST['quantity'];
                         $np = $_POST['netprice'];
                         $p = $_POST['price'];
                         $c = $_POST['customRadio'];
                         $d = $_POST['description'];
-                        if (!is_numeric($np)) {
+                        if (!is_numeric($np)&&$np<=0) {
                           echo "<script>alert('Net price must be a number');</script>";
                       } 
-                      else if (!is_numeric($p)) {
+                      else if (!is_numeric($p)&&$p<=0) {
                           echo "<script>alert('Price must be a number');</script>";
                       }
+                      else if (!is_numeric($s)&&$s<0) {
+                        echo "<script>alert('Invalid input');</script>";
+                    }
                       else {
-                        $sql = "INSERT INTO products (Product_name, Product_details, Product_stock, Product_netprice, Product_price, Category_ID) 
-                                VALUES ('$n', '$d', '$s', '$np', '$p', '$c')";
+                        $sql = "INSERT INTO products (Product_name, Product_details, Product_stock,Product_quantity, Product_netprice, Product_price, Category_ID) 
+                                VALUES ('$n', '$d', '$s', '$q', '$np', '$p', '$c')";
                         if (mysqli_query($con, $sql)) {
                             echo "<script>alert('New product Added Successfully');";
                             echo 'window.location.href = "viewproduct.php?eml=' . $emml . '";</script>';

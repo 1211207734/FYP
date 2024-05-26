@@ -424,7 +424,9 @@
     <table id="productsTable" class="table table-hover table-product" style="width:100%">
       <thead>
         <tr>
-          <th>NO</th>
+          <th>NO    </th>
+          <th>Image</th>
+          <th hidden>Customer ID</th>
           <th>Customer Name</th>
           <th>Customer Email</th>
           <th>Customer HP</th>
@@ -435,13 +437,16 @@
       </thead>
       <tbody>
       <?php
-    $sql = "SELECT Customer_ID,Customer_name,Customer_email,Customer_HP,Customer_address_1,Customer_address_2,Customer_postcode FROM customer";
+    $sql = "SELECT Customer_ID,Customer_name,Customer_email,Customer_HP,Customer_address_1,Customer_address_2,Customer_postcode,img FROM customer";
     $result = mysqli_query($connect, $sql);$i=0;
     while($row = mysqli_fetch_assoc($result)){$i++;
     ?>
         <tr>
           <td><?php echo $i;?></td>
+          <td class ="py-0"><img src="<?php echo $r['img'] ?>" class="user-image rounded-circle" alt="User Image" /></td>
+          <td hidden><?php echo $row['Customer_ID'];?></td>
           <td><?php echo $row['Customer_name'];?></td>
+          
           <td><?php echo $row['Customer_email'];?></td>
           <td><?php echo $row['Customer_HP'];?></td>
           <td><?php echo $row['Customer_address_1']," ",$row['Customer_address_2'];?></td>
@@ -488,111 +493,10 @@
           </footer>
 
       </div>
-    </div>
+   
     
                     <!-- Card Offcanvas -->
-                    <div class="card card-offcanvas" id="contact-off" >
-                      <div class="card-header">
-                        <h2>Contacts</h2>
-                        <a href="#" class="btn btn-primary btn-pill px-4">Add New</a>
-                      </div>
-                      <div class="card-body">
-
-                        <div class="mb-4">
-                          <input type="text" class="form-control form-control-lg form-control-secondary rounded-0" placeholder="Search contacts...">
-                        </div>
-
-                        <div class="media media-sm">
-                          <div class="media-sm-wrapper">
-                            <a href="user-profile.php?eml=<?php echo $emml ?>">
-                              <img src="images/user/user-sm-01.jpg" alt="User Image">
-                              <span class="active bg-primary"></span>
-                            </a>
-                          </div>
-                          <div class="media-body">
-                            <a href="user-profile.php?eml=<?php echo $emml ?>">
-                              <span class="title">Selena Wagner</span>
-                              <span class="discribe">Designer</span>
-                            </a>
-                          </div>
-                        </div>
-
-                        <div class="media media-sm">
-                          <div class="media-sm-wrapper">
-                            <a href="user-profile.php?eml=<?php echo $emml ?>">
-                              <img src="images/user/user-sm-02.jpg" alt="User Image">
-                              <span class="active bg-primary"></span>
-                            </a>
-                          </div>
-                          <div class="media-body">
-                            <a href="user-profile.php?eml=<?php echo $emml ?>">
-                              <span class="title">Walter Reuter</span>
-                              <span>Developer</span>
-                            </a>
-                          </div>
-                        </div>
-
-                        <div class="media media-sm">
-                          <div class="media-sm-wrapper">
-                            <a href="user-profile.php?eml=<?php echo $emml ?>">
-                              <img src="images/user/user-sm-03.jpg" alt="User Image">
-                            </a>
-                          </div>
-                          <div class="media-body">
-                            <a href="user-profile.php?eml=<?php echo $emml ?>">
-                              <span class="title">Larissa Gebhardt</span>
-                              <span>Cyber Punk</span>
-                            </a>
-                          </div>
-                        </div>
-
-                        <div class="media media-sm">
-                          <div class="media-sm-wrapper">
-                            <a href="user-profile.php?eml=<?php echo $emml ?>">
-                              <img src="images/user/user-sm-04.jpg" alt="User Image">
-                            </a>
-
-                          </div>
-                          <div class="media-body">
-                            <a href="user-profile.php?eml=<?php echo $emml ?>">
-                              <span class="title">Albrecht Straub</span>
-                              <span>Photographer</span>
-                            </a>
-                          </div>
-                        </div>
-
-                        <div class="media media-sm">
-                          <div class="media-sm-wrapper">
-                            <a href="user-profile.php?eml=<?php echo $emml ?>">
-                              <img src="images/user/user-sm-05.jpg" alt="User Image">
-                              <span class="active bg-danger"></span>
-                            </a>
-                          </div>
-                          <div class="media-body">
-                            <a href="user-profile.php?eml=<?php echo $emml ?>">
-                              <span class="title">Leopold Ebert</span>
-                              <span>Fashion Designer</span>
-                            </a>
-                          </div>
-                        </div>
-
-                        <div class="media media-sm">
-                          <div class="media-sm-wrapper">
-                            <a href="user-profile.php?eml=<?php echo $emml ?>">
-                              <img src="images/user/user-sm-06.jpg" alt="User Image">
-                              <span class="active bg-primary"></span>
-                            </a>
-                          </div>
-                          <div class="media-body">
-                            <a href="user-profile.php?eml=<?php echo $emml ?>">
-                              <span class="title">Selena Wagner</span>
-                              <span>Photographer</span>
-                            </a>
-                          </div>
-                        </div>
-
-                      </div>
-                    </div>
+                    
 
 
 

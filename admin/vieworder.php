@@ -401,8 +401,10 @@
             <table id="productsTable" class="table table-hover table-product" style="width:100%">
                 <thead>
                     <tr>
+                      
                         <th>Serial NO</th>
                         <th>Product Name</th>
+                        <th hidden>id</th> 
                         <th>Customer Name</th>
                         <th>Order Date</th>
                         <th>Total</th>
@@ -418,8 +420,10 @@
                 while($row = mysqli_fetch_assoc($result)){
                 ?>
                     <tr>
+                        
                         <td><?php echo $row['Report_ID'];?></td>
                         <td><?php echo $row['Product_name'];?></td>
+                        <td hidden><?php echo $row['Report_ID'];?></td>
                         <td><?php echo $row['Customer_name'];?></td>
                         <td><?php echo $row['Order_date'];?></td>
                         <td><?php echo $row['Payment_total'];?></td>

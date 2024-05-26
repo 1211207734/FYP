@@ -379,7 +379,7 @@ $(document).ready(function () {
         [5, 10, 15, "All"],
       ],
       scrollX: true,
-      order: [[2, "asc"]],
+      order: [[1, "asc"]],
       columnDefs: [
         {
           orderable: false,
