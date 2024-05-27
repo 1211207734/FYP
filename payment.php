@@ -16,6 +16,7 @@ if (isset($_GET['eml'])) {
 	<div class="modal">
 		<form class="form" method="post">
 			<div class="card-info">
+				<div>Total Amount Needed to Pay : <?php echo $total ?></div>
 				<div>Please Enter Your Card Details</div>
 				<div><img src="images/visa-card.png" style="margin-right : 2%"><img src="images/master-card.png"></div>
 				<div class="input_container">

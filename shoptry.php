@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JBPSTORE - Your Mobile Gadgets Shop</title>
     <link href="css/shop1.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/cart.css">
     <style>
         hr {
             border: none;
@@ -85,9 +86,22 @@
     ?>
     <header>
         <div class="logo">
-            <a href="home.php?eml=<?php echo $emml ?>"><h1>JBP<span>STORE</span></h1></a>
+            <h1>JBP<span>STORE</span></h1></a>
         </div>
     </header>
+    <div class="topnav" id="myTopnav">
+        <a href="home.php?eml=<?php echo $emml?>" >Home</a>
+        <a href="shoptry.php?eml=<?php echo $emml?>&cid=1" class="active">Shop</a>
+        <a href="orderhis.php?eml=<?php echo $emml?>">Order History</a>
+        <a href="myaccount.php?eml=<?php echo $emml?>">My Account</a>
+        <a href="cart.php?eml=<?php echo $emml?>">My Cart</a>
+        <a href="FAQ.html">FAQs</a>
+        <a href="about.html">About Us</a>
+        <a href="loginregister.php">Log out</a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+        </a>
+    </div>
     <form method="post"> 
         <section class="section-products">
             <div class="container">
