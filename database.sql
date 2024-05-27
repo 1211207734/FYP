@@ -9,6 +9,7 @@ CREATE TABLE Admin (
     Un text NOT NULL,
 	email text NOT NULL,
     np text NOT NULL,
+    img text NOT NULL,
     status text NOT NULL
 );
 
@@ -27,14 +28,15 @@ VALUES ('Smartphones'), ('Tablets'), ('Accessories'), ('Wearables'), ('Earphones
 
 CREATE TABLE CART (
     Customer_ID INT(2) NOT NULL,
-    Product_ID INT(3) NOT NULL
+    Product_ID INT(3) NOT NULL,
+    quantity INT(3) NOT NULL
 );
 
 INSERT INTO CART (Customer_ID, Product_ID,quantity) 
 VALUES (11,20,1),
        (11,22,3),
        (1,1,4),
-       (1,11,5),
+       (1,11,5);
 
 
 CREATE TABLE Customer (
@@ -45,6 +47,7 @@ CREATE TABLE Customer (
     Customer_HP VARCHAR(15) NOT NULL,
     Customer_address_1 VARCHAR(100) NOT NULL,
     Customer_address_2 VARCHAR(100) NOT NULL,
+    img text NOT NULL,
     Customer_postcode INT(5) NOT NULL
 );
 
@@ -100,7 +103,7 @@ CREATE TABLE Products (
 );
 
 
-INSERT INTO `products` (`Product_ID`, `Product_name`, `Product_details`, `Product_quantity`, `Product_stock`, `Product_netprice`, `Product_price`, `status`, `img`, `Category_ID`) VALUES
+INSERT INTO Products (Product_ID, Product_name, Product_details, Product_quantity, Product_stock,Product_netprice, Product_price, status, img, Category_ID) VALUES
 (1, 'iPhone 13', 'Newest iPhone model', 2000, 50, 399.99, 999.99, 'active', 'images/iPhone 13.jpg', 1),
 (2, 'Samsung Galaxy S21 Ultra', 'Flagship Android smartphone', 2000, 30, 599.99, 1199.99, 'active', 'images/Samsung Galaxy S21 Ultra.jpg', 1),
 (3, 'Google Pixel 6 Pro', 'High-end Android device', 2000, 20, 399.99, 899.99, 'active', 'images/Google Pixel 6 Pro.jpg', 1),
@@ -296,26 +299,26 @@ VALUES (1,200.99),
 
 CREATE TABLE temptotal (
     Customer_ID INT,
-    FOREIGN KEY (Customer_ID) REFERENCES Customer(Customer_ID),
-    total FLOAT(7,2) NOT NULL
+    total FLOAT(7,2) NOT NULL,
+    FOREIGN KEY (Customer_ID) REFERENCES Customer(Customer_ID)
 );
 
-CREATE TABLE `pass_reset` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `email` varchar(255) NOT NULL,
-  `token` varchar(255) NOT NULL, 
-  PRIMARY KEY (`id`)
+CREATE TABLE pass_reset (
+  id int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  email varchar(255) NOT NULL,
+  token varchar(255) NOT NULL
 );
 
-CREATE TABLE `promotion` (
-  `code_id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  `code` text NOT NULL,
-  `discount` double NOT NULL,
-  `valid` int(11) NOT NULL DEFAULT 200,
-  `status` text NOT NULL DEFAULT 'active'
-)
+CREATE TABLE promotion (
+  code_id int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  code text NOT NULL,
+  discount double NOT NULL,
+  valid int(11) NOT NULL DEFAULT 200,
+  status text NOT NULL DEFAULT 'active'
+);
 
-INSERT INTO `promotion` (`code_id`, `code`, `discount`, `valid`, `status`) VALUES
+INSERT INTO promotion (code_id, code, discount, valid, status)
+VALUES
 (1, 'jbp111', 0.1, 200, 'active'),
 (2, 'jbp222', 0.2, 200, 'active'),
 (3, 'jbp555', 0.5, 200, 'active'),
