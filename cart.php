@@ -103,7 +103,7 @@
                         <div class="summary">
                             <h3>Summary</h3>
                             <div class="summary-item"><span class="text">Subtotal</span><span class="price">RM <?php echo $total?></span></div>
-                            <div class="summary-item"><span class="text">Discount<a href="" onclick="promo()">Do you have voucher?</a></span><span class="price">$0</span></div>
+                            <div class="summary-item"><span class="text">Discount</span><span class="price"><a href="" onclick="promo()">Do you have voucher?</a></span></div>
                             <div class="summary-item"><span class="text">Total</span><span class="price">RM <?php echo $total?></span></div>
                             <h3>Proceed Payment With:</h3>
                             <button type="submit" class="btn btn-primary btn-lg" style="width:49%; margin-right: 2%;" name="card">Debit/Credit Card</button><button type="submit" class="btn btn-primary btn-lg" style="width:49%;" name="tng">E-Wallet</button>
