@@ -167,9 +167,9 @@
 			echo '</script>';
 		
 		} else {
-		echo "<script type='text/javascript'>
-		alert('Error executing SQL statement:'.mysqli_error($connect));
-		</script>";
+		echo '<script type="text/javascript">';
+		echo 'alert("Error executing SQL statement:".mysqli_error($connect));';
+		echo '</script>';
 		}	
 		
 		

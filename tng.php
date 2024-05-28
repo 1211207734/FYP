@@ -27,7 +27,7 @@ if (isset($_GET['eml'])) {
 	
 	<div>
 	<a href="cart.php?eml=<?php echo $emml ?>">Back to Cart</a>
-	<a href="cart.php?eml=<?php echo $emml ?>">Proceed Payment with <?php echo $row['Balance']?></a>
+	<a href="checkout.php?eml=<?php echo $emml ?>">Proceed Payment</a>
 	</div>
 	<div>
 	<button class="button">Reload RM50</button><button class="button">Reload RM100</button>
