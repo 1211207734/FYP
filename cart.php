@@ -68,7 +68,7 @@
                             <div class="product">
                                 <div class="row">
                                     <div>
-                                        <img src="images/<?php echo $row['Product_name']?>.jpg" style="display: block; width: 150px; height: 150px; margin:auto;">
+                                        <img src="images/<?php echo $row['Product_name']?>.jpg" style="display: block; width: 150px; height: 150px;">
                                     </div>
                                     <div class="col-md-8">
                                         <div class="info">

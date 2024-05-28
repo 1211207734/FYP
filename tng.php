@@ -5,6 +5,24 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/tng.css">
 </head>
+<style>
+        .con {
+			text-align: center;
+            width: 400px;
+            border: 10px solid black;
+            padding: auto;
+            margin: auto;
+			font-size:20px;
+        }
+
+		.button {
+			background-color: white;
+			color: black;
+			border: 2px solid #04AA6D; /* Green */
+			transition-duration: 0.4s;
+			width:auto;
+		}
+    </style>
 <?php
 include('database.php');
 if (isset($_GET['eml'])) {
@@ -21,39 +39,38 @@ if (isset($_GET['tt'])) {
 	</div>  
 </header>
 <body>
+	<div class="con">
+		<div>Total Amount Needed to Pay : <?php echo $total ?> </div>
+		<div>Balance of TNG Wallet : <a><?php echo $b=$row['Balance']?></a></div>
 	
-	<div>Total Amount Needed to Pay : <?php echo $total ?> </div>
-	<div>Balance of TNG Wallet : <a><?php echo $b=$row['Balance']?></a></div>
-	<form method="post">
-		<div>
-			<a href="cart.php?eml=<?php echo $emml ?>">Back to Cart</a>
-			<button type="submit" name="pay">Proceed Payment</button>
-		</div>
-		<div>
-			<button class="button" type="submit" name="r50">Reload RM50</button>
-			<button class="button" type="submit" name="r100">Reload RM100</button>
-		</div>
-		<?php
-		if (isset($_POST['r50'])) {
-			$b += 50;
-			$update = mysqli_query($connect, "UPDATE tng SET Balance='$b' WHERE Customer_ID='$emml'");
-			echo '<script>';
-			echo 'alert("Reload RM50 Successfully!") ;';
-			echo 'window.location.href = "tng.php?eml=' . $emml . '&tt='.$total.'";';	 
-			echo '</script>';
-			exit();
-		}
-		else if (isset($_POST['r100'])) {
-			$b += 100;
-			$update = mysqli_query($connect, "UPDATE tng SET Balance='$b' WHERE Customer_ID='$emml'");
-			echo '<script>';
-			echo 'alert("Reload RM100 Successfully!") ;';
-			echo 'window.location.href = "tng.php?eml=' . $emml . '&tt='.$total.'";';	 
-			echo '</script>';	
-			exit();	
-		}?>
-	</form>
-	
+		<form method="post">
+			<div>
+				<a href="cart.php?eml=<?php echo $emml ?>">Back to Cart</a><button type="submit" name="pay">Proceed Payment</button>
+			</div>
+			<div>
+				<button class="button" type="submit" name="r50">Reload RM50</button><button class="button" type="submit" name="r100">Reload RM100</button>
+			</div>
+			<?php
+			if (isset($_POST['r50'])) {
+				$b += 50;
+				$update = mysqli_query($connect, "UPDATE tng SET Balance='$b' WHERE Customer_ID='$emml'");
+				echo '<script>';
+				echo 'alert("Reload RM50 Successfully!") ;';
+				echo 'window.location.href = "tng.php?eml=' . $emml . '&tt='.$total.'";';	 
+				echo '</script>';
+				exit();
+			}
+			else if (isset($_POST['r100'])) {
+				$b += 100;
+				$update = mysqli_query($connect, "UPDATE tng SET Balance='$b' WHERE Customer_ID='$emml'");
+				echo '<script>';
+				echo 'alert("Reload RM100 Successfully!") ;';
+				echo 'window.location.href = "tng.php?eml=' . $emml . '&tt='.$total.'";';	 
+				echo '</script>';	
+				exit();	
+			}?>
+		</form>
+		</div>	
 </body>
 <?php }
 if (isset($_POST['pay'])) {

@@ -20,6 +20,7 @@ header {
     color: black;
     border: 2px solid #04AA6D; /* Green */
     transition-duration: 0.4s;
+    width:auto;
 }
 
 .button:hover {
