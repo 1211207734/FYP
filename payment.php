@@ -59,8 +59,8 @@ if(isset($_POST['save'])) {
 	if (mysqli_query($connect, $sql))
 	{
 		echo '<script type="text/javascript">';
-		echo 'window.location.href = "cart.php?eml='.$emml.'";';
-		echo 'alert("Card Save Successfully!");';
+		echo 'window.location.href = "checkout.php?eml='. $emml . '&pm=Card";';
+		echo 'alert("Card Proceed Successfully!");';
 		echo '</script>';
 	
 	} else {

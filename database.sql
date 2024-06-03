@@ -309,12 +309,6 @@ VALUES (1,200.99),
        (12,200.99),
        (13,200.99);
 
-CREATE TABLE temptotal (
-    Customer_ID INT,
-    total FLOAT(7,2) NOT NULL,
-    FOREIGN KEY (Customer_ID) REFERENCES Customer(Customer_ID)
-);
-
 CREATE TABLE pass_reset (
   id int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   email varchar(255) NOT NULL,

@@ -7,12 +7,15 @@
 </head>
 <style>
         .con {
+			color: white;
+			margin-top: 10px;
 			text-align: center;
             width: 400px;
-            border: 10px solid black;
-            padding: auto;
-            margin: auto;
+            border:5px solid black;
+            padding: 10px;
 			font-size:20px;
+			margin-left: auto;
+			margin-right: auto;
         }
 
 		.button {
@@ -21,6 +24,37 @@
 			border: 2px solid #04AA6D; /* Green */
 			transition-duration: 0.4s;
 			width:auto;
+		}
+
+		.button:hover {
+			box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+		}
+
+		.b {
+			margin-top: 10px;
+			text-align: center;
+            width: 400px;
+            border:5px solid black;
+            padding: 10px;
+			font-size:20px;
+			margin-left: auto;
+			margin-right: auto;
+		}
+
+		.reload {
+			color: white;
+			margin-top: 10px;
+			text-align: center;
+            width: 400px;
+            border:5px solid black;
+            padding: 10px;
+			font-size:20px;
+			margin-left: auto;
+			margin-right: auto;
+		}
+
+		body {
+			background-color: #3366ff;
 		}
     </style>
 <?php
@@ -42,12 +76,14 @@ if (isset($_GET['tt'])) {
 	<div class="con">
 		<div>Total Amount Needed to Pay : <?php echo $total ?> </div>
 		<div>Balance of TNG Wallet : <a><?php echo $b=$row['Balance']?></a></div>
+	</div>	
 	
 		<form method="post">
-			<div>
-				<a href="cart.php?eml=<?php echo $emml ?>">Back to Cart</a><button type="submit" name="pay">Proceed Payment</button>
+			<div class="b">
+				<button type="submit" name="backc" class="button">Back to Cart</a><button type="submit" name="pay"class="button">Proceed Payment</button>
 			</div>
-			<div>
+			<div class="reload">
+				<div>Reload Amount:</div>
 				<button class="button" type="submit" name="r50">Reload RM50</button><button class="button" type="submit" name="r100">Reload RM100</button>
 			</div>
 			<?php
@@ -70,13 +106,13 @@ if (isset($_GET['tt'])) {
 				exit();	
 			}?>
 		</form>
-		</div>	
+	
 </body>
 <?php }
 if (isset($_POST['pay'])) {
 	if ($b >= $total){
 	 echo '<script>';
-	 echo 'window.location.href = "checkout.php?eml='.$emml.'";';
+	 echo 'window.location.href = "checkout.php?eml='. $emml . '&pm=TNG";';
 	 echo '</script>';
 	}
 
@@ -86,4 +122,10 @@ if (isset($_POST['pay'])) {
 	 echo 'alert("Low Balance ! Please Reload !") ;';	 
 	 echo '</script>';  }                      
 } 
+else if (isset($_POST['backc']))
+{
+	echo '<script>';
+	echo 'window.location.href = "cart.php?eml='.$emml.'";';
+	echo '</script>';
+}
 ?>

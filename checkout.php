@@ -17,6 +17,10 @@
         $emml = $_GET['eml'];
     }
 
+    if (isset($_GET['pm'])) {
+        $payment = $_GET['pm'];
+    }
+
     $connect = mysqli_connect("localhost", "root", "", "jbp");
 
     if (!$connect) {
@@ -90,7 +94,7 @@
                             <div class="summary-item"><span class="text">Subtotal</span><span class="price">RM <?php echo $total?></span></div>
                             <div class="summary-item"><span class="text">Discount</span><span class="price">-RM <?php echo $total?></span></div>
                             <div class="summary-item"><span class="text">Total</span><span class="price">RM <?php echo $total?></span></div>
-                            <div class="summary-item"><span class="text">Payment Method</span><span class="price">RM <?php echo $total?></span></div>
+                            <div class="summary-item"><span class="text">Payment Method</span><span class="price">By <?php echo $payment?></span></div>
                             <button type="submit" class="btn btn-primary btn-lg" style="width:100%;" name="check">Checkout</button>
                         </div>
                         </form>
