@@ -107,18 +107,31 @@
                                         <h4 class="text-right">Profile Settings</h4>
                                     </div>
                                     <div class="row mt-2">
-                                        <div class="col-md-6"><label class="labels">Full Name</label><input type="text" class="form-control" placeholder="first name" value=""></div>
+                                        <div class="col-md-6"><label class="labels">Full Name</label>
+                                        <input type="text" class="form-control" placeholder="" name="fullname" value="<?php echo $row['Customer_name']; ?>"></div>
                                     </div>
                                     <div class="row mt-3">
-                                        <div class="col-md-12"><label class="labels">Mobile Number</label><input type="text" class="form-control" placeholder="enter phone number" value=""></div>
-                                        <div class="col-md-12"><label class="labels">Email ID</label><input type="text" class="form-control" placeholder="enter email id" value=""></div>
-                                        <div class="col-md-12"><label class="labels">Address Line 1</label><input type="text" class="form-control" placeholder="enter address line 1" value=""></div>
-                                        <div class="col-md-12"><label class="labels">Address Line 2</label><input type="text" class="form-control" placeholder="enter address line 2" value=""></div>
-                                        <div class="col-md-12"><label class="labels">Postcode</label><input type="text" class="form-control" placeholder="enter address line 2" value=""></div>
+                                        <div class="col-md-12"><label class="labels">Phone Number</label>
+                                        <input type="text" class="form-control" placeholder="" name="phone" value="<?php echo $row['Customer_HP']; ?>"></div>
                                         
+                                        <div class="col-md-12"><label class="labels">Email ID</label>
+                                        <input readonly type="email" class="form-control" id="inputEmail4" name="email" value="<?php echo $row['Customer_email']; ?>"></div>
                                         
+                                        <div class="col-md-12"><label class="labels">Address Line 1</label>
+                                        <input type="text" class="form-control" placeholder="" name="a1" value="<?php echo $row['Customer_address_1']; ?>"></div>
+                                        
+                                        <div class="col-md-12"><label class="labels">Address Line 2</label>
+                                        <input type="text" class="form-control" placeholder="" name="a2" value="<?php echo $row['Customer_address_2']; ?>"></div>
+                                        
+                                        <div class="col-md-12"><label class="labels">Postcode</label>
+                                        <input type="text" class="form-control" placeholder="" name="pos" value="<?php echo $row['Customer_postcode']; ?>"></div>
+ 
                                     </div>
-                                    <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="submit" name="save">Save Profile</button></div>
+                                    <div class="mt-5 text-center">
+                                    <a href="myaccount.php?eml=<?php echo $emml?>">
+                                    <button type="button"class="btn btn-primary profile-button" >Cancel</button></a>
+                                    <button class="btn btn-primary profile-button" type="submit" name="save">Save Changes</button></div>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -169,6 +182,7 @@
                     
                     
                 } ?>
+                
 <footer>
 	<p>&copy; 2024 JBPSTORE - Your Mobile Gadgets Shop. All rights reserved.</p>
 </footer>
