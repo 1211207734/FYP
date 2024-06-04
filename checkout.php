@@ -21,6 +21,10 @@
         $payment = $_GET['pm'];
     }
 
+    if (isset($_GET['ba'])) {
+        $obal = $_GET['ba'];
+    }
+
     $connect = mysqli_connect("localhost", "root", "", "jbp");
 
     if (!$connect) {
@@ -100,12 +104,21 @@
                         </form>
                     <?php 
                     if (isset($_POST['check'])){
+                        $nb = $obal - $total;
+                        $sqlll="UPDATE tng SET Balance='$nb' WHERE Customer_ID='$emml'";
+                        $sqll="INSERT INTO payment (Payment_method,Payment_total) values ('$payment','$total')";
+                        $sql="DELETE FROM cart WHERE Customer_ID='$emml'";
+                        mysqli_query($connect,$sqlll);
+                        mysqli_query($connect,$sqll); 
+                        mysqli_query($connect,$sql);        
+                        
                             echo '<script>';
                             echo 'window.location.href = "orderhis.php?eml='.$emml.'";';
 			                echo 'alert("Done Check Out!");';
                             echo '</script>';
 
-                        } else {
+                    }
+                            else {
 							echo '<script type="text/javascript">';
 		                    echo 'alert("Error executing SQL statement:".mysqli_error($connect));';
 		                    echo '</script>';                      

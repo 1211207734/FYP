@@ -112,7 +112,7 @@ if (isset($_GET['tt'])) {
 if (isset($_POST['pay'])) {
 	if ($b >= $total){
 	 echo '<script>';
-	 echo 'window.location.href = "checkout.php?eml='. $emml . '&pm=TNG";';
+	 echo 'window.location.href = "checkout.php?eml='. $emml . '&pm=TNG&ba='.$b.'";';
 	 echo '</script>';
 	}
 
