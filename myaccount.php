@@ -63,6 +63,9 @@
 									<div class="square position-relative display-2 mb-3">
 										<i class="fas fa-fw fa-user position-absolute top-50 start-50 translate-middle text-secondary"></i>
 									</div>
+									<div class="square position-relative display-2 mb-3">
+										<i class="fas fa-fw fa-user position-absolute top-50 start-50 translate-middle text-secondary"></i>
+									</div>
 									<!-- Content -->
 								</div>
 							</div>

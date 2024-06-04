@@ -263,7 +263,7 @@ if (isset($_GET['eml'])) {
                 </li>
                 <hr>
                 <li class="nav-item">
-                  <a class="nav-link" href="myaccount.php?eml=<?php echo $emml?>">My Account</a>
+                  <a class="nav-link" href="p.php?eml=<?php echo $emml?>">My Account</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="orderhis.php?eml=<?php echo $emml?>">Order History</a>
