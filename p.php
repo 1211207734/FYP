@@ -55,7 +55,7 @@
                         <div class="row">
                             <div class="col-md-3 border-right">
                                 <div class="d-flex justify-content-between align-items-center mb-3">
-                                <img src="images/user/null.jpg" alt="<?php echo $row['Product_name']?>">
+                                <td class ="py-0"><img src="<?php echo $r['img'] ?>" class="user-image rounded-circle" alt="User Image" /></td>
                                     <span><h5><?php echo $row['Customer_name']; ?></h5></span>
                                 </div>
                             </div>
