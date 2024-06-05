@@ -201,7 +201,7 @@ INSERT INTO Products (Product_ID, Product_name, Product_details, Product_quantit
 (86, 'SanDisk Ultra Dual Drive USB Type-C', 'Dual-interface USB flash drive with USB Type-C and USB Type-A connectors', 2000, 100, 4.50, 29.99, 'active', 'images/SanDisk Ultra Dual Drive USB Type-C.jpg', 9),
 (87, 'Crucial X8 Portable SSD', 'External SSD with USB 3.2 Gen 2 interface and shock resistance', 2000, 110, 21.00, 139.99, 'active', 'images/Crucial X8 Portable SSD.jpg', 9),
 (88, 'LaCie Rugged Mini External HDD', 'Rugged external HDD with shock, rain, and pressure resistance', 2000, 120, 15.00, 99.99, 'active', 'images/LaCie Rugged Mini External HDD.jpg', 9),
-(89, 'Lexar JumpDrive F35 Fingerprint USB 3.0 Flash Driv', 'Secure USB flash drive with fingerprint authentication', 2000, 130, 7.50, 49.99, 'active', 'images/Lexar JumpDrive F35 Fingerprint USB 3.0 Flash Driv.jpg', 9),
+(89, 'Lexar JumpDrive F35', 'Secure USB flash drive with fingerprint authentication', 2000, 130, 7.50, 49.99, 'active', 'images/Lexar JumpDrive F35 Fingerprint USB 3.0 Flash Driv.jpg', 9),
 (90, 'Samsung FIT Plus USB 3.1 Flash Drive', 'Ultra-compact USB flash drive for easy portability', 2000, 140, 3.00, 19.99, 'active', 'images/Samsung FIT Plus USB 3.1 Flash Drive.jpg', 9),
 
 (91, 'Moment Wide Lens', 'Wide-angle lens attachment for smartphones', 2000, 40, 18.00, 119.99, 'active', 'images/Moment Wide Lens.jpg', 10),
