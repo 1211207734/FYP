@@ -54,10 +54,7 @@
 					<div class="container rounded bg-white mt-5 mb-5">
                         <div class="row">
                             <div class="col-md-3 border-right">
-                                <div class="d-flex justify-content-between align-items-center mb-3">
-                                <td class ="py-0"><img src="<?php echo $r['img'] ?>" class="user-image rounded-circle" alt="User Image" /></td>
-                                    <span><h5><?php echo $row['Customer_name']; ?></h5></span>
-                                </div>
+                                
                             </div>
                             <div class="col-md-5 border-right">
                                 <div class="p-3 py-5">
@@ -65,6 +62,11 @@
                                         <h4 class="text-right">Profile Detail:</h4>
                                     </div>
                                     <div class="row mt-2">
+                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                <td class ="py-0"><img src="<?php echo $r['img'] ?>" class="user-image rounded-circle" alt="User Image" /></td>
+                                    <br><br>
+                                    <span><h5><?php echo $row['Customer_name']; ?></h5></span>
+                                </div>
                                         <div class="col-md-6"><label class="labels"><h5>Full Name:</h5></label><p><?php echo $row['Customer_name']; ?></p></div>
                                         <div class="col-md-12"><label class="labels"><h5>Phone Number:</h5></label><p><?php echo $row['Customer_HP']; ?></p></div>
                                         <div class="col-md-12"><label class="labels"><h5>Email Address:</h5></label><p><?php echo $row['Customer_email']; ?></p></div></div>
