@@ -600,6 +600,7 @@
                         $p = $_POST['price'];
                         $c = $_POST['customRadio'];
                         $d = $_POST['description'];
+                        $img = $_POST['customFile'];
                         if (!is_numeric($np)&&$np<=0) {
                           echo "<script>alert('Net price must be a number');</script>";
                       } 
@@ -610,8 +611,8 @@
                         echo "<script>alert('Invalid input');</script>";
                     }
                       else {
-                        $sql = "INSERT INTO products (Product_name, Product_details, Product_stock,Product_quantity, Product_netprice, Product_price, Category_ID) 
-                                VALUES ('$n', '$d', '$s', '$q', '$np', '$p', '$c')";
+                        $sql = "INSERT INTO products (Product_name, Product_details, Product_stock,Product_quantity, Product_netprice, Product_price, Category_ID, img) 
+                                VALUES ('$n', '$d', '$s', '$q', '$np', '$p', '$c','$img')";
                         if (mysqli_query($con, $sql)) {
                             echo "<script>alert('New product Added Successfully');";
                             echo 'window.location.href = "viewproduct.php?eml=' . $emml . '";</script>';

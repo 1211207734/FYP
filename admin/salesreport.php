@@ -15,7 +15,7 @@
   <link href="https://fonts.googleapis.com/css?family=Karla:400,700|Roboto" rel="stylesheet">
   <link href="plugins/material/css/materialdesignicons.min.css" rel="stylesheet" />
   <link href="plugins/simplebar/simplebar.css" rel="stylesheet" />
-
+  
   <!-- PLUGINS CSS STYLE -->
   <link href="plugins/nprogress/nprogress.css" rel="stylesheet" />
   
@@ -37,6 +37,7 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
   <script src="plugins/nprogress/nprogress.js"></script>
+  <script src="js/dist/jspdf.umd.js"></script>
 </head>
 
 
@@ -376,15 +377,18 @@
         <!-- ====================================
         ——— CONTENT WRAPPER
         ===================================== -->
-        <div class="content-wrapper">
+        
+        <div id="print" class="content-wrapper">
           <div class="content">					<div class="invoice-wrapper rounded border bg-white py-5 px-3 px-md-4 px-lg-5 mb-6">
 						<div class="d-flex justify-content-between">
 							<h2 class="text-dark font-weight-medium"><span id="copy-month"></span> Sales Report</h2>
+              
 							<div class="btn-group">
-								<button class="btn btn-sm btn-light">
-									<i class="mdi mdi-printer"></i> PDF</button>
-								<button class="btn btn-sm btn-secondary">
-									<i class="mdi mdi-printer"></i> Excel</button>
+								<a href="pdf.php" class="btn btn-sm btn-light">
+									<i class="mdi mdi-printer"></i> PDF</a>
+                  
+                  <a href="excel.php" class="btn btn-sm btn-secondary">
+									<i class="mdi mdi-printer"></i>Excel </a>
 							</div>
 						</div>
 						<div class="row pt-5">
@@ -475,9 +479,33 @@
 							</div>
 						</div>
 					</div>
+          </div>
 </div>
-          
-        </div>
+<script>
+                    window.jsPDF = window.jspdf.jsPDF;
+
+                  // Convert HTML content to PDF
+                  function PDF() {
+                      var doc = new jsPDF();
+                    
+                      // Source HTMLElement or a string containing HTML.
+                      var elementHTML = document.querySelector("#print");
+
+                      doc.html(elementHTML, {
+                          callback: function(doc) {
+                              // Save the PDF
+                              doc.save('Sales_Report.pdf');
+                          },
+                          margin: [10, 10, 10, 10],
+                          autoPaging: 'text',
+                          x: 0,
+                          y: 0,
+                          width: 190, //target width in the PDF document
+                          windowWidth: 675 //window width in CSS pixels
+                      });
+                  }
+              </script>    
+        
         
           <!-- Footer -->
           <footer class="footer mt-auto">
