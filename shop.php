@@ -4,528 +4,169 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JBPSTORE - Your Mobile Gadgets Shop</title>
-    <link rel="stylesheet" href="css/shop1.css">
+    <link href="css/shop1.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/cart.css">
     <style>
-        /* CSS code to style the <hr> element */
         hr {
-            border: none; /* Remove default border */
-            height: 1px; /* Set height of the line */
-            background-color: black; /* Set background color */
+            border: none;
+            height: 1px;
+            background-color: black;
+        }
+        h2 {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #333;
+            text-align: left;
+        }
+        .product-image {
+            width: 150px;
+            height: 150px;
+        }
+        .group {
+            margin-top: 15pt;
+            background-color: #333;
+            display: flex;
+            align-items: center;
+            z-index: 10;
+        }
+        ul {
+            position: relative;
+            display: flex;
+            gap: 30px;
+        }
+        li {
+            list-style: none;
+        }
+        li a {
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 1em;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        li a::before {
+            position: absolute;
+            content: '';
+            width: 100%;
+            height: 2px;
+            background: #a7abce;
+            bottom: -2px;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.5s ease-in-out;
+        }
+        li a:hover::before {
+            transform: scaleX(1);
+            transform-origin: left;
         }
     </style>
 </head>
 <body>
+    <?php
+    // Database connection
+    include('database.php');
+    
+    // Retrieve category ID and email from GET parameters
+  
+    $emml = isset($_GET['eml']) ? $_GET['eml'] : null;
+
+    // Fetch category name
+   ?>
     <header>
         <div class="logo">
-            <h1>JBP<span>STORE</span></h1>
+            <h1>JBP<span>STORE</span></h1></a>
         </div>
     </header>
-<form method="post"> 
-    <section class="section-products">
-        <div class="container">
-            <div class="row justify-content-center text-center">
-                <div class="col-md-8 col-lg-6">
-                    <div class="header">
-                        <h3>Featured Product</h3>
-                        <h2>Popular Products</h2>
-                        <br>
-                        <h2><u>SmartPhones</u></h2>
+    <div class="topnav" id="myTopnav">
+        <a href="home.php?eml=<?php echo $emml?>" >Home</a>
+        <a href="shoptry.php?eml=<?php echo $emml?>&cid=1" class="active">Shop</a>
+        <a href="orderhis.php?eml=<?php echo $emml?>">Order History</a>
+        <a href="myaccount.php?eml=<?php echo $emml?>">My Account</a>
+        <a href="cart.php?eml=<?php echo $emml?>">My Cart</a>
+        <a href="FAQ.html">FAQs</a>
+        <a href="about.html">About Us</a>
+        <a href="loginregister.php">Log out</a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+        </a>
+    </div>
+    <form method="post"> 
+        <section class="section-products">
+            <div class="container">
+                <div class="row justify-content-center text-center">
+                    <div class="col-md-8 col-lg-6">
+                        <div class="header">
+                            
+                            <div class="group">
+                                <ul>
+                                    <li><a href="shoptry.php?eml=<?php echo $emml ?>&cid=1">Smartphones</a></li>
+                                    <li><a href="shoptry.php?eml=<?php echo $emml ?>&cid=2">Tablets</a></li>
+                                    <li><a href="shoptry.php?eml=<?php echo $emml ?>&cid=3">Accessories</a></li>
+                                    <li><a href="shoptry.php?eml=<?php echo $emml ?>&cid=4">Wearables</a></li>
+                                    <li><a href="shoptry.php?eml=<?php echo $emml ?>&cid=5">Earphones</a></li>
+                                    <li><a href="shoptry.php?eml=<?php echo $emml ?>&cid=6">Powerbanks</a></li>
+                                    <li><a href="shoptry.php?eml=<?php echo $emml ?>&cid=7">Speakers</a></li>
+                                    <li><a href="shoptry.php?eml=<?php echo $emml ?>&cid=8">Phone stands</a></li>
+                                    <li><a href="shoptry.php?eml=<?php echo $emml ?>&cid=9">Storage extender</a></li>
+                                    <li><a href="shoptry.php?eml=<?php echo $emml ?>&cid=10">Mobile Photography accessories</a></li>
+                                </ul>
+                            </div>
+                            <br>
+                        </div>
+                        
                     </div>
                 </div>
-            </div>
-            <div class="product-grid">
-                <!-- Category ID=1-->
-                <?php
-                    include('database.php');
-                    $query = "SELECT Product_ID, Product_name, Product_details, Product_price FROM Products WHERE category_id = 1 and status = 'active'";
-                    $result = mysqli_query($connect, $query);
-                    while ($row = mysqli_fetch_assoc($result)) {?>
+                <div class="product-grid">
+                    <!-- Fetch and display products based on category ID -->
+                    <?php
+                    $query = "SELECT Product_ID, Product_name, Product_details, Product_price, img FROM products WHERE status = 'active' ORDER BY Product_ID DESC";
+                    $stmt = $connect->prepare($query);
+                    
+                    $stmt->execute();
+                    $result = $stmt->get_result();
+                    while ($row = $result->fetch_assoc()) { 
+                        ?>
                         <div class="product">
                             <div class="card">
                                 <div class="card-body">
                                     <!-- Product Details -->
-                                    <img src="images/<?php echo $row['Product_name']?>.jpg" alt="<?php echo $row['Product_name']?>" class="product-image">
-                                    <h3 class="product-title"><?php echo $row['Product_name']?></h3>
-                                    <p class="product-details"><?php echo $row['Product_details']?></p>
-                                    <p class="product-price">RM <?php echo $row['Product_price']?></p>
-                                    <input type='hidden' name='id' value='<?php echo $row['Product_ID']; ?>'>
-                                    <button class="button-2" role="button" name="add" >Add to Cart</button>
-                                    <script type="text/javascript">
-                                        function checkout() {
-                                            // Assuming you have some logic to check if the user is logged in
-                                            var isLoggedIn = false; // Update this with your actual check
-                                            if (!isLoggedIn) {
-                                                alert("Please login an account to continue.");
-                                                // Redirect to the login page after the alert is closed
-                                                setTimeout(function() {
-                                                    window.location.href = "loginregister.php";
-                                                }, 0); // Adjust the delay if needed, 0 means immediate redirection
-                                                return false; // Prevent the default link action
-                                            }
-                                            return true; // Allow the link action to proceed
-                                        }
-                                    </script>
-                                    <br>
-                                    <br>
-                                    <br>
+                                    <img src="<?php echo $row['img']; ?>" alt="<?php echo htmlspecialchars($row['Product_name']); ?>" class="product-image">
+                                    <h3 class="product-title"><?php echo htmlspecialchars($row['Product_name']); ?></h3>
+                                    <p class="product-details"><?php echo htmlspecialchars($row['Product_details']); ?></p>
+                                    <p class="product-price">RM <?php echo htmlspecialchars($row['Product_price']); ?></p>
+                                    <a class="button-2" href="#" onclick="return addcart(<?php echo $row['Product_ID'] ?>)">Add to Cart</a>
                                 </div>
                             </div>
                         </div>
-                    <?php }
-                    mysqli_close($connect);
-                ?>
+                    <?php } 
+                    $stmt->close();
+                    $connect->close();
+                    ?>
+                </div>
             </div>
-            <br>
-            <hr>
-            <br>
-                        <h2><u>Tablets</u></h2>
-            <div class="product-grid">
-                <!-- Category ID=2-->
-                <br>
-                <?php
-                    include('database.php');
-                    $query = "SELECT Product_name, Product_details, Product_price FROM Products WHERE category_id = 2 and status = 'active'";
-                    $result = mysqli_query($connect, $query);
-                    while ($row = mysqli_fetch_assoc($result)) {?>
-                        <div class="product">
-                            <div class="card">
-                                <div class="card-body">
-                                    <form method="post">
-                                    <!-- Product Details -->
-                                    <img src="images/<?php echo $row['Product_name']?>.jpg" alt="<?php echo $row['Product_name']?>" class="product-image"name="na">
-                                    <h3 class="product-title"><?php echo $row['Product_name']?></h3>
-                                    <p class="product-details"><?php echo $row['Product_details']?></p>
-                                    <p class="product-price">RM <?php echo $row['Product_price']?></p>
-                                    <button class="button-2" role="button" name="add" >Add to Cart</button>
-                                    <script type="text/javascript">
-                                        function checkout() {
-                                            // Assuming you have some logic to check if the user is logged in
-                                            var isLoggedIn = false; // Update this with your actual check
-                                            if (!isLoggedIn) {
-                                                alert("Please login an account to continue.");
-                                                // Redirect to the login page after the alert is closed
-                                                setTimeout(function() {
-                                                    window.location.href = "loginregister.php";
-                                                }, 0); // Adjust the delay if needed, 0 means immediate redirection
-                                                return false; // Prevent the default link action
-                                            }
-                                            return true; // Allow the link action to proceed
-                                        }
-                                    </script>
-                                    </form>
-                                    <br>
-                                    <br>
-                                    <br>
-                                </div>
-                            </div>
-                        </div>
-                    <?php }
-                    mysqli_close($connect);
-                ?>
-            </div>
-            <br>
-            <hr>
-            <br>
-                        <h2><u>Accessories</u></h2>
-            <div class="product-grid">
-                <!-- Category ID=3-->
-                <br>
-                <?php
-                    include('database.php');
-                    $query = "SELECT Product_name, Product_details, Product_price FROM Products WHERE category_id = 3 and status = 'active'";
-                    $result = mysqli_query($connect, $query);
-                    while ($row = mysqli_fetch_assoc($result)) {?>
-                        <div class="product">
-                            <div class="card">
-                                <div class="card-body">
-                                    <!-- Product Details -->
-                                    <img src="images/<?php echo $row['Product_name']?>.jpg" alt="<?php echo $row['Product_name']?>" class="product-image"name="na">
-                                    <h3 class="product-title"><?php echo $row['Product_name']?></h3>
-                                    <p class="product-details"><?php echo $row['Product_details']?></p>
-                                    <p class="product-price">RM <?php echo $row['Product_price']?></p>
-                                    <button class="button-2" role="button" name="add" >Add to Cart</button>
-                                    <script type="text/javascript">
-                                        function checkout() {
-                                            // Assuming you have some logic to check if the user is logged in
-                                            var isLoggedIn = false; // Update this with your actual check
-                                            if (!isLoggedIn) {
-                                                alert("Please login an account to continue.");
-                                                // Redirect to the login page after the alert is closed
-                                                setTimeout(function() {
-                                                    window.location.href = "loginregister.php";
-                                                }, 0); // Adjust the delay if needed, 0 means immediate redirection
-                                                return false; // Prevent the default link action
-                                            }
-                                            return true; // Allow the link action to proceed
-                                        }
-                                    </script>
-                                    <br>
-                                    <br>
-                                    <br>
-                                </div>
-                            </div>
-                        </div>
-                    <?php }
-                    mysqli_close($connect);
-                ?>
-            </div>
-            <br>
-            <hr>
-            <br>
-                        <h2><u>Wearables</u></h2>
-            <div class="product-grid">
-                <!-- Category ID=4-->
-                <br>
-                <?php
-                    include('database.php');
-                    $query = "SELECT Product_name, Product_details, Product_price FROM Products WHERE category_id = 4 and status = 'active'";
-                    $result = mysqli_query($connect, $query);
-                    while ($row = mysqli_fetch_assoc($result)) {?>
-                        <div class="product">
-                            <div class="card">
-                                <div class="card-body">
-                                    <!-- Product Details -->
-                                    <img src="images/<?php echo $row['Product_name']?>.jpg" alt="<?php echo $row['Product_name']?>" class="product-image"name="na">
-                                    <h3 class="product-title"><?php echo $row['Product_name']?></h3>
-                                    <p class="product-details"><?php echo $row['Product_details']?></p>
-                                    <p class="product-price">RM <?php echo $row['Product_price']?></p>
-                                    <button class="button-2" role="button">Add to Cart</button>
-                                    <script type="text/javascript">
-                                        function checkout() {
-                                            // Assuming you have some logic to check if the user is logged in
-                                            var isLoggedIn = false; // Update this with your actual check
-                                            if (!isLoggedIn) {
-                                                alert("Please login an account to continue.");
-                                                // Redirect to the login page after the alert is closed
-                                                setTimeout(function() {
-                                                    window.location.href = "loginregister.php";
-                                                }, 0); // Adjust the delay if needed, 0 means immediate redirection
-                                                return false; // Prevent the default link action
-                                            }
-                                            return true; // Allow the link action to proceed
-                                        }
-                                    </script>
-                                    <br>
-                                    <br>
-                                    <br>
-                                </div>
-                            </div>
-                        </div>
-                    <?php }
-                    mysqli_close($connect);
-                ?>
-            </div>
-            <br>
-            <hr>
-            <br>
-                        <h2><u>Earphones</u></h2>
-            <div class="product-grid">
-                <!-- Category ID=5-->
-                <br>
-                <?php
-                    include('database.php');
-                    $query = "SELECT Product_name, Product_details, Product_price FROM Products WHERE category_id = 5 and status = 'active'";
-                    $result = mysqli_query($connect, $query);
-                    while ($row = mysqli_fetch_assoc($result)) {?>
-                        <div class="product">
-                            <div class="card">
-                                <div class="card-body">
-                                    <!-- Product Details -->
-                                    <img src="images/<?php echo $row['Product_name']?>.jpg" alt="<?php echo $row['Product_name']?>" class="product-image">
-                                    <h3 class="product-title"><?php echo $row['Product_name']?></h3>
-                                    <p class="product-details"><?php echo $row['Product_details']?></p>
-                                    <p class="product-price">RM <?php echo $row['Product_price']?></p>
-                                    <button class="button-2" role="button" name="add" >Add to Cart</button>
-                                    <script type="text/javascript">
-                                        function checkout() {
-                                            // Assuming you have some logic to check if the user is logged in
-                                            var isLoggedIn = false; // Update this with your actual check
-                                            if (!isLoggedIn) {
-                                                alert("Please login an account to continue.");
-                                                // Redirect to the login page after the alert is closed
-                                                setTimeout(function() {
-                                                    window.location.href = "loginregister.php";
-                                                }, 0); // Adjust the delay if needed, 0 means immediate redirection
-                                                return false; // Prevent the default link action
-                                            }
-                                            return true; // Allow the link action to proceed
-                                        }
-                                    </script>
-                                    <br>
-                                    <br>
-                                    <br>
-                                </div>
-                            </div>
-                        </div>
-                    <?php }
-                    mysqli_close($connect);
-                ?>
-            </div>
-            <br>
-            <hr>
-            <br>
-                        <h2><u>Powerbanks</u></h2>
-            <div class="product-grid">
-                <!-- Category ID=6-->
-                <br>
-                <?php
-                    include('database.php');
-                    $query = "SELECT Product_name, Product_details, Product_price FROM Products WHERE category_id = 6 and status = 'active'";
-                    $result = mysqli_query($connect, $query);
-                    while ($row = mysqli_fetch_assoc($result)) {?>
-                        <div class="product">
-                            <div class="card">
-                                <div class="card-body">
-                                    <!-- Product Details -->
-                                    <img src="images/<?php echo $row['Product_name']?>.jpg" alt="<?php echo $row['Product_name']?>" class="product-image">
-                                    <h3 class="product-title"><?php echo $row['Product_name']?></h3>
-                                    <p class="product-details"><?php echo $row['Product_details']?></p>
-                                    <p class="product-price">RM <?php echo $row['Product_price']?></p>
-                                    <button class="button-2" role="button" name="add" >Add to Cart</button>
-                                    <script type="text/javascript">
-                                        function checkout() {
-                                            // Assuming you have some logic to check if the user is logged in
-                                            var isLoggedIn = false; // Update this with your actual check
-                                            if (!isLoggedIn) {
-                                                alert("Please login an account to continue.");
-                                                // Redirect to the login page after the alert is closed
-                                                setTimeout(function() {
-                                                    window.location.href = "loginregister.php";
-                                                }, 0); // Adjust the delay if needed, 0 means immediate redirection
-                                                return false; // Prevent the default link action
-                                            }
-                                            return true; // Allow the link action to proceed
-                                        }
-                                    </script>
-                                    <br>
-                                    <br>
-                                    <br>
-                                </div>
-                            </div>
-                        </div>
-                    <?php }
-                    mysqli_close($connect);
-                ?>
-            </div>
-            <br>
-            <hr>
-            <br>
-                        <h2><u>Speakers</u></h2>
-            <div class="product-grid">
-                <!-- Category ID=7-->
-                <br>
-                <?php
-                    include('database.php');
-                    $query = "SELECT Product_name, Product_details, Product_price FROM Products WHERE category_id = 7 and status = 'active'";
-                    $result = mysqli_query($connect, $query);
-                    while ($row = mysqli_fetch_assoc($result)) {?>
-                        <div class="product">
-                            <div class="card">
-                                <div class="card-body">
-                                    <!-- Product Details -->
-                                    <img src="images/<?php echo $row['Product_name']?>.jpg" alt="<?php echo $row['Product_name']?>" class="product-image">
-                                    <h3 class="product-title"><?php echo $row['Product_name']?></h3>
-                                    <p class="product-details"><?php echo $row['Product_details']?></p>
-                                    <p class="product-price">RM <?php echo $row['Product_price']?></p>
-                                    <button class="button-2" role="button" name="add" >Add to Cart</button>
-                                    <script type="text/javascript">
-                                        function checkout() {
-                                            // Assuming you have some logic to check if the user is logged in
-                                            var isLoggedIn = false; // Update this with your actual check
-                                            if (!isLoggedIn) {
-                                                alert("Please login an account to continue.");
-                                                // Redirect to the login page after the alert is closed
-                                                setTimeout(function() {
-                                                    window.location.href = "loginregister.php";
-                                                }, 0); // Adjust the delay if needed, 0 means immediate redirection
-                                                return false; // Prevent the default link action
-                                            }
-                                            return true; // Allow the link action to proceed
-                                        }
-                                    </script>
-                                    <br>
-                                    <br>
-                                    <br>
-                                </div>
-                            </div>
-                        </div>
-                    <?php }
-                    mysqli_close($connect);
-                ?>
-            </div>
-            <br>
-            <hr>
-            <br>
-                        <h2><u>Phone stands</u></h2>
-            <div class="product-grid">
-                <!-- Category ID=8-->
-                <br>
-                <?php
-                    include('database.php');
-                    $query = "SELECT Product_name, Product_details, Product_price FROM Products WHERE category_id = 8 and status = 'active'";
-                    $result = mysqli_query($connect, $query);
-                    while ($row = mysqli_fetch_assoc($result)) {?>
-                        <div class="product">
-                            <div class="card">
-                                <div class="card-body">
-                                    <!-- Product Details -->
-                                    <img src="images/<?php echo $row['Product_name']?>.jpg" alt="<?php echo $row['Product_name']?>" class="product-image">
-                                    <h3 class="product-title"><?php echo $row['Product_name']?></h3>
-                                    <p class="product-details"><?php echo $row['Product_details']?></p>
-                                    <p class="product-price">RM <?php echo $row['Product_price']?></p>
-                                    <button class="button-2" role="button" name="add" >Add to Cart</button>
-                                    <script type="text/javascript">
-                                        function checkout() {
-                                            // Assuming you have some logic to check if the user is logged in
-                                            var isLoggedIn = false; // Update this with your actual check
-                                            if (!isLoggedIn) {
-                                                alert("Please login an account to continue.");
-                                                // Redirect to the login page after the alert is closed
-                                                setTimeout(function() {
-                                                    window.location.href = "loginregister.php";
-                                                }, 0); // Adjust the delay if needed, 0 means immediate redirection
-                                                return false; // Prevent the default link action
-                                            }
-                                            return true; // Allow the link action to proceed
-                                        }
-                                    </script>
-                                    <br>
-                                    <br>
-                                    <br>
-                                </div>
-                            </div>
-                        </div>
-                    <?php }
-                    mysqli_close($connect);
-                ?>
-            </div>
-            <br>
-            <hr>
-            <br>
-                        <h2><u>Storage extender</u></h2>
-            <div class="product-grid">
-                <!-- Category ID=9-->
-                <br>
-                <?php
-                    include('database.php');
-                    $query = "SELECT Product_name, Product_details, Product_price FROM Products WHERE category_id = 9 and status = 'active'";
-                    $result = mysqli_query($connect, $query);
-                    while ($row = mysqli_fetch_assoc($result)) {?>
-                        <div class="product">
-                            <div class="card">
-                                <div class="card-body">
-                                    <!-- Product Details -->
-                                    <img src="images/<?php echo $row['Product_name']?>.jpg" alt="<?php echo $row['Product_name']?>" class="product-image">
-                                    <h3 class="product-title"><?php echo $row['Product_name']?></h3>
-                                    <p class="product-details"><?php echo $row['Product_details']?></p>
-                                    <p class="product-price">RM <?php echo $row['Product_price']?></p>
-                                    <button class="button-2" role="button" name="add" >Add to Cart</button>
-                                    <script type="text/javascript">
-                                        function checkout() {
-                                            // Assuming you have some logic to check if the user is logged in
-                                            var isLoggedIn = false; // Update this with your actual check
-                                            if (!isLoggedIn) {
-                                                alert("Please login an account to continue.");
-                                                // Redirect to the login page after the alert is closed
-                                                setTimeout(function() {
-                                                    window.location.href = "loginregister.php";
-                                                }, 0); // Adjust the delay if needed, 0 means immediate redirection
-                                                return false; // Prevent the default link action
-                                            }
-                                            return true; // Allow the link action to proceed
-                                        }
-                                    </script>
-                                    <br>
-                                    <br>
-                                    <br>
-                                </div>
-                            </div>
-                        </div>
-                    <?php }
-                    mysqli_close($connect);
-                ?>
-            </div>
-            <br>
-            <hr>
-            <br>
-                        <h2><u>Mobile Photography accessories</u></h2>
-            <div class="product-grid">
-                <!-- Category ID=10-->
-                <br>
-                <?php
-                    include('database.php');
-                    $query = "SELECT Product_name, Product_details, Product_price FROM Products WHERE category_id = 10 and status = 'active'";
-                    $result = mysqli_query($connect, $query);
-                    while ($row = mysqli_fetch_assoc($result)) {?>
-                        <div class="product">
-                            <div class="card">
-                                <div class="card-body">
-                                    <!-- Product Details -->
-                                    <img src="images/<?php echo $row['Product_name']?>.jpg" alt="<?php echo $row['Product_name']?>" class="product-image">
-                                    <h3 class="product-title"><?php echo $row['Product_name']?></h3>
-                                    <p class="product-details"><?php echo $row['Product_details']?></p>
-                                    <p class="product-price">RM <?php echo $row['Product_price']?></p>
-                                    <button class="button-2" name="add" role="button">Add to Cart</button>
-                                    <script type="text/javascript">
-                                        function checkout() {
-                                            // Assuming you have some logic to check if the user is logged in
-                                            var isLoggedIn = false; // Update this with your actual check
-                                            if (!isLoggedIn) {
-                                                alert("Please login an account to continue.");
-                                                // Redirect to the login page after the alert is closed
-                                                setTimeout(function() {
-                                                    window.location.href = "loginregister.php";
-                                                }, 0); // Adjust the delay if needed, 0 means immediate redirection
-                                                return false; // Prevent the default link action
-                                            }
-                                            return true; // Allow the link action to proceed
-                                        }
-                                    </script>
-                                    <br>
-                                    <br>
-                                    <br>
-                                </div>
-                            </div>
-                        </div>
-                    <?php }
-                    mysqli_close($connect);
-                ?>
-            </div>
-        </div>
-        <br>
-            <hr>
-            <br>
-    </section>
-</form>
-    <?php
-
-if (isset($_GET['eml'])) {
-	$emml = $_GET['eml'];}
-$connect= mysqli_connect("localhost","root","","jbp");
-if(isset($_POST['add'])) {
-	// Retrieve form data
-	$n = $_POST['id'];
-
-	// Prepare SQL statement
-	$sql = "INSERT INTO cart (cp_ID) values ('$n')";
-	
-	if (mysqli_query($connect, $sql))
-	{
-	
-		echo '<script type="text/javascript">';
-		echo 'alert("Product Added to Cart Succesfully!");';
-        echo 'window.location.href = "shop.php?eml='.$emml.'";';
-        echo '</script>';
-		
-	
-	} else {
-	echo '<script type="text/javascript">';
-	echo 'alert("Error executing SQL statement:".mysqli_error($connect));';
-	echo '</script>';
-	}	
-	
-		
-} ?>						
+        </section>
+    </form>
+    <script type="text/javascript">
+        function addcart(id) {
+            var action = "add";
+            if (confirm("Add this product to cart?")) {
+                var xhr = new XMLHttpRequest();
+                  xhr.open("POST", "add_to_cart.php", true);
+                  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                  xhr.onreadystatechange = function () {
+                      if (xhr.readyState === 4 && xhr.status === 200) {
+                          var response = JSON.parse(xhr.responseText);
+                          alert(response.message);
+                          if (response.success) {
+                              window.location.href = "shoptry.php?eml=<?php echo $emml; ?>&cid=<?php echo $cc; ?>";
+                          }
+                      }
+                  };
+                  xhr.send("id=" + id + "&action=" + action+"&eml=<?php echo $emml; ?>");
+            }
+        }
+    </script>
+    
     <footer>
         <p>&copy; 2024 JBPSTORE - Your Mobile Gadgets Shop. All rights reserved.</p>
     </footer>

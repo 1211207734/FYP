@@ -248,10 +248,10 @@ if (isset($_GET['eml'])) {
                   aria-haspopup="true" aria-expanded="false">Shop</a>
                   <ul class="dropdown-menu list-unstyled p-4" aria-labelledby="dropdownPages">
                     <li>
-                      <a href="shoptry.php?eml=<?php echo $emml ?>&cid=1" class="dropdown-item item-anchor">All    </a>
+                      <a href="shop.php?eml=<?php echo $emml ?>" class="dropdown-item item-anchor">All    </a>
                     </li>
                     <li>
-                      <a href="checkout.php" class="dropdown-item item-anchor">Categories</a>
+                      <a href="shoptry.php?eml=<?php echo $emml ?>&cid=1" class="dropdown-item item-anchor">Categories</a>
                     </li>
                   </ul>
                 </li>

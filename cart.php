@@ -111,8 +111,18 @@
                     </form>
                     <script type="text/javascript">
                             function promo(){
-                            alert("You have logout!");
+                                var promo = prompt("Enter your voucher code");
+                            if (promo == "JBPSTORE") {
+                                alert("Voucher code applied successfully!");
+                                var total = <?php echo $total ?>;
+                                var discount = total * 0.1;
+                                var newtotal = total - discount;
+                                <?php $total = "<script>newtotal</script>"; ?>
+                                
+                            } else {
+                                alert("Invalid voucher code!");
                             }
+                        }
                           </script>
 
                     <?php 
