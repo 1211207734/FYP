@@ -188,7 +188,12 @@
                         
                         
                           
-                            
+                            <li >
+                              <a class="sidenav-item-link" href="sign-up.html">
+                                <span class="nav-text">Sign Up</span>
+                                
+                              </a>
+                            </li>
                           
                         
 
@@ -230,7 +235,7 @@
                     <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#other-page"
                       aria-expanded="false" aria-controls="other-page">
                       <i class="mdi mdi-file-multiple"></i>
-                      <span class="nav-text">Other pages</span> <b class="caret"></b>
+                      <span class="nav-text">Data pages</span> <b class="caret"></b>
                     </a>
                     <ul  class="collapse"  id="other-page"
                       data-parent="#sidebar-menu">
@@ -248,13 +253,7 @@
                                 
                               </a>
                             </li>
-                            <li>
-                              <a class="sidenav-item-link" href="viewstaff.php?eml=<?php echo $emml?>">
-                                <span class="nav-text">Staff</span>
-                                
-                              </a>
-                            </li>
-                            <li>
+                              <li>
                               <a class="sidenav-item-link" href="vieworder.php?eml=<?php echo $emml?>">
                                 <span class="nav-text">Order</span>
                                 
@@ -267,43 +266,7 @@
                                 
                               </a>
                             </li>
-                          
                         
-
-                        
-                        
-                          
-                            <li >
-                              <a class="sidenav-item-link" href="404.html">
-                                <span class="nav-text">404 page</span>
-                                
-                              </a>
-                            </li>
-                          
-                        
-
-                        
-                        
-                          
-                            <li >
-                              <a class="sidenav-item-link" href="page-comingsoon.html">
-                                <span class="nav-text">Coming Soon</span>
-                                
-                              </a>
-                            </li>
-                          
-                        
-
-                        
-                        
-                          
-                            <li >
-                              <a class="sidenav-item-link" href="page-maintenance.html">
-                                <span class="nav-text">Maintenance</span>
-                                
-                              </a>
-                            </li>
-                          
                         
 
                         
