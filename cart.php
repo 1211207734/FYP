@@ -103,27 +103,13 @@
                         <div class="summary">
                             <h3>Summary</h3>
                             <div class="summary-item"><span class="text">Subtotal</span><span class="price">RM <?php echo $total?></span></div>
-                            <div class="summary-item"><span class="text">Discount</span><span class="price"><a href="" onclick="promo()">Do you have voucher?</a></span></div>
+                            <div class="summary-item"><span class="text">Discount</span><span class="price"><a href="promo.php?eml=<?php echo $emml?>&tt=<?php echo $total?>" >Do you have voucher?</a></span></div>
                             <div class="summary-item"><span class="text">Total</span><span class="price">RM <?php echo $total?></span></div>
                             <h3>Proceed Payment With:</h3>
                             <button type="submit" class="btn btn-primary btn-lg" style="width:49%; margin-right: 2%;" name="card">Debit/Credit Card</button><button type="submit" class="btn btn-primary btn-lg" style="width:49%;" name="tng">E-Wallet</button>
                         </div>
                     </form>
-                    <script type="text/javascript">
-                            function promo(){
-                                var promo = prompt("Enter your voucher code");
-                            if (promo == "JBPSTORE") {
-                                alert("Voucher code applied successfully!");
-                                var total = <?php echo $total ?>;
-                                var discount = total * 0.1;
-                                var newtotal = total - discount;
-                                <?php $total = "<script>newtotal</script>"; ?>
-                                
-                            } else {
-                                alert("Invalid voucher code!");
-                            }
-                        }
-                          </script>
+                    
 
                     <?php 
                     if (isset($_POST['card']) || isset($_POST['tng'])) {
