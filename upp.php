@@ -101,7 +101,7 @@
 												document.getElementById('uploadInput').value = ''; // Reset the file input
 												});
 											</script>
-                                            <p class="text-muted mt-3 mb-0"><span class="me-1">Note:</span>Minimum size 300px x 300px</p>
+                                            <p class="text-muted mt-3 mb-0"><span class="me-1">Note:</span>Minimum size 300px X 300px</p>
 										</body>
                                     <span class="font-weight-bold"><?php echo $row['Customer_name']; ?></span>
                                     <br><br>
@@ -129,10 +129,11 @@
                                         <input type="text" class="form-control" placeholder="" name="pos" value="<?php echo $row['Customer_postcode']; ?>"></div>
  
                                     </div>
-                                    <div class="mt-5 text-center">
                                     <a href="p.php?eml=<?php echo $emml?>">
                                     <button type="button"class="btn btn-primary profile-button" >Cancel</button></a>
-                                    <button class="btn btn-primary profile-button" type="submit" name="save">Save Changes</button></div>
+                                    <a href="p.php?eml=<?php echo $emml?>">
+                                    <button class="btn btn-primary profile-button" type="submit" name="save">Save Changes</button></a>
+                                </div>
                                     
                                 </div>
                             </div>
@@ -171,7 +172,7 @@
                     {
                     
                         echo '<script type="text/javascript">';
-                        echo 'window.location.href = "myaccount.php?eml='.$emml.'";';
+                        echo 'window.location.href = "p.php?eml='.$emml.'";';
                         echo 'alert("Profile Updated Successfully.");';
                         echo '</script>';
                     
@@ -184,6 +185,21 @@
                     
                     
                 } ?>
+                <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add event listener to the "Save Changes" button
+            document.querySelector('button[name="save"]').addEventListener('click', function(event) {
+                // Submit the form
+                document.querySelector('form').submit();
+
+                // Show alert message after form submission
+                alert("Profile Updated Successfully.");
+                
+                // Redirect to p.php after showing the alert
+                window.location.href = "p.php?eml=<?php echo $emml; ?>";
+            });
+        });
+    </script>
                 
 <footer>
 	<p>&copy; 2024 JBPSTORE - Your Mobile Gadgets Shop. All rights reserved.</p>
