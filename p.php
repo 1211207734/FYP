@@ -65,7 +65,7 @@
                                     <div class="d-flex justify-content-between align-items-center mb-3">
                                 <td class ="py-0"><img src="<?php echo $r['img'] ?>" class="user-image rounded-circle" alt="User Image" /></td>
                                     <br><br>
-                                    <span><h5><?php echo $row['Customer_name']; ?></h5></span>
+                                    
                                 </div>
                                         <div class="col-md-6"><label class="labels"><h5>Full Name:</h5></label><p><?php echo $row['Customer_name']; ?></p></div>
                                         <div class="col-md-12"><label class="labels"><h5>Phone Number:</h5></label><p><?php echo $row['Customer_HP']; ?></p></div>
