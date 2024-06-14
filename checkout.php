@@ -21,8 +21,8 @@
         $payment = $_GET['pm'];
     }
 
-    if (isset($_GET['ba'])) {
-        $obal = $_GET['ba'];
+    if (isset($_GET['tt'])) {
+        $np = $_GET['tt'];
     }
 
     $connect = mysqli_connect("localhost", "root", "", "jbp");
@@ -96,8 +96,8 @@
                         <div class="summary">
                             <h3>Summary</h3>
                             <div class="summary-item"><span class="text">Subtotal</span><span class="price">RM <?php echo $total?></span></div>
-                            <div class="summary-item"><span class="text">Discount</span><span class="price">-RM <?php echo $total?></span></div>
-                            <div class="summary-item"><span class="text">Total</span><span class="price">RM <?php echo $total?></span></div>
+                            <div class="summary-item"><span class="text">Discount</span><span class="price" style="color:red;">RM <?php echo $total-$np ?></span></div>
+                            <div class="summary-item"><span class="text">Total</span><span class="price">RM <?php echo $np?></span></div>
                             <div class="summary-item"><span class="text">Payment Method</span><span class="price">By <?php echo $payment?></span></div>
                             <button type="submit" class="btn btn-primary btn-lg" style="width:100%;" name="check">Checkout</button>
                         </div>

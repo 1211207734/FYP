@@ -29,35 +29,12 @@ if (isset($_GET['eml'])) {
 				
 			</div>
 			<div>
-            <button type="submit" class="checkout" style="cursor: pointer;width:100%;"name="save" >CONFIRM</button>
-            <a href="cart.php?eml=<?php echo $emml?>" class="checkout" style="width:100%; color:white; text-align:center; display:inline-block; padding:10px 0;margin-top:10px; background-color:#313bc9; border:none; cursor:pointer; text-decoration:none;">CANCEL</a>
+            <a href="cart.php?eml=<?php echo $emml?>&nt=<?php echo $npri ?>" class="checkout" style="width:100%; color:white; text-align:center; display:inline-block; padding:10px 0;margin-top:10px; background-color:#313bc9; border:none; cursor:pointer; text-decoration:none;">OK</a>
 			</div>
 		
 		</form>
 	</div>
 </body>
-<?php
-$connect= mysqli_connect("localhost","root","","jbp");
-if(isset($_POST['save'])) {
-	// Retrieve form data
-	$p = $_POST['name'];
-	
-	// Prepare SQL statement
-	$sql = "SELECT * from promotion where code = '$p'";
-	
-	if (mysqli_query($connect, $sql))
-	{$dis=['discount'];
-		echo '<script type="text/javascript">';
-        echo 'alert("You got a DISCOUNT!");';
-		echo 'window.location.href = "promoo.php?eml='. $emml . '&dis='.$dis.'&tt='.$total.'";';
-		echo '</script>';
-	} else {
-	echo "<script type='text/javascript'>
-	alert('INVALID CODE!');
-	</script>";
-	}	
-	
-		
-} ?>						
+				
 				
 </html>

@@ -16,7 +16,17 @@
     if (isset($_GET['eml'])) {
         $emml = $_GET['eml'];
     }
-
+    $np= isset($_GET['nt']) ? $_GET['nt'] : null;
+    $prop = "";
+    $pop = "hidden";
+    if($np==null){
+        $prop = "";
+        $pop = "hidden";
+        $np=$total;}
+    else{
+        $prop = "hidden";
+        $pop = "";
+    }
     $connect = mysqli_connect("localhost", "root", "", "jbp");
 
     if (!$connect) {
@@ -103,8 +113,10 @@
                         <div class="summary">
                             <h3>Summary</h3>
                             <div class="summary-item"><span class="text">Subtotal</span><span class="price">RM <?php echo $total?></span></div>
-                            <div class="summary-item"><span class="text">Discount</span><span class="price"><a href="promo.php?eml=<?php echo $emml?>&tt=<?php echo $total?>" >Do you have voucher?</a></span></div>
-                            <div class="summary-item"><span class="text">Total</span><span class="price">RM <?php echo $total?></span></div>
+                            <div class="summary-item" <?php echo $prop ?>><span class="text">Discount</span><span class="price"><a href="promo.php?eml=<?php echo $emml?>&tt=<?php echo $total?>" >Do you have voucher?</a></span></div>
+                            <div class="summary-item" <?php echo $pop ?>><span class="text">Discount</span><span class="price">Voucher Applied!!!</span></div>
+                            <div class="summary-item" <?php echo $prop ?>><span class="text">Total</span><span class="price">RM <?php echo $total?></span></div>
+                            <div class="summary-item" <?php echo $pop ?>><span class="text">Total</span><span class="price">RM <?php echo $np?></span></div>
                             <h3>Proceed Payment With:</h3>
                             <button type="submit" class="btn btn-primary btn-lg" style="width:49%; margin-right: 2%;" name="card">Debit/Credit Card</button><button type="submit" class="btn btn-primary btn-lg" style="width:49%;" name="tng">E-Wallet</button>
                         </div>
@@ -115,11 +127,11 @@
                     if (isset($_POST['card']) || isset($_POST['tng'])) {
                            if (isset($_POST['card'])) {
                             echo '<script>';
-                            echo 'window.location.href = "payment.php?eml=' . $emml . '&tt='.$total.'";';
+                            echo 'window.location.href = "payment.php?eml=' . $emml . '&tt='.$np.'";';
                             echo '</script>';
                         } else {
 							echo '<script>';
-                            echo 'window.location.href = "tng.php?eml=' . $emml . '&tt='.$total.'";';
+                            echo 'window.location.href = "tng.php?eml=' . $emml . '&tt='.$np.'";';
                             echo '</script>';                        }
                     } 
                     ?>

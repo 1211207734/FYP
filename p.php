@@ -63,7 +63,7 @@
                                     </div>
                                     <div class="row mt-2">
                                     <div class="d-flex justify-content-between align-items-center mb-3">
-                                <td class ="py-0"><img src="<?php echo $r['img'] ?>" class="user-image rounded-circle" alt="User Image" /></td>
+                                <td class ="py-0"><img src="<?php echo $row['img'] ?>" class="user-image rounded-circle" alt="User Image" /></td>
                                     <br><br>
                                     
                                 </div>
