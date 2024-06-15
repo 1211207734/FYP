@@ -49,7 +49,7 @@ if(isset($_POST['save'])) {
 	{
 		echo '<script type="text/javascript">';
         echo 'alert("You got a DISCOUNT!");';
-		echo 'window.location.href = "promoo.php?eml='. $emml . '&dis='. $dis .'&tt='. $total .'";';
+		echo 'window.location.href = "promoo.php?eml='. $emml . '&dis='. $dis .'&tt='. $total .'&cod='. $p .'";';
 		echo '</script>';
 	} else {
 	echo "<script type='text/javascript'>

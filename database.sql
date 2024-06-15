@@ -71,12 +71,13 @@ VALUES ('Azlan Bin Abdul Rahman', 'azlan.abdulrahman@gmail.com', 'password123', 
 CREATE TABLE ooder (
     Order_ID INT AUTO_INCREMENT PRIMARY KEY,
     Order_date DATE NOT NULL,
+    Order_time TIME NOT NULL,
     Total_price FLOAT(7,2) NOT NULL,
     Customer_ID INT,
     FOREIGN KEY (Customer_ID) REFERENCES Customer(Customer_ID)
 );
 
-INSERT INTO ooder (Order_date, Total_price, Customer_ID) 
+INSERT INTO ooder (Order_date,Order_time Total_price, Customer_ID) 
 VALUES ('2024-04-01', 299.99, 1),
        ('2024-04-02', 499.99, 2),
        ('2024-04-03', 799.99, 3),
@@ -268,26 +269,24 @@ CREATE TABLE Transaction_Report (
     Report_ID INT AUTO_INCREMENT PRIMARY KEY,
     Customer_ID INT,
     Order_ID INT,
-    Product_ID INT,
     Payment_ID INT,
     status text NOT NULL,
     FOREIGN KEY (Customer_ID) REFERENCES Customer(Customer_ID),
     FOREIGN KEY (Order_ID) REFERENCES ooder(Order_ID),
-    FOREIGN KEY (Product_ID) REFERENCES Products(Product_ID),
     FOREIGN KEY (Payment_ID) REFERENCES Payment(Payment_ID)
 );
 
-INSERT INTO Transaction_Report (Customer_ID, Order_ID, Product_ID, Payment_ID, status) 
-VALUES (1, 1, 1, 1, 'completed'),
-       (2, 2, 2, 2, 'completed'),
-       (3, 3, 3, 3, 'completed'),
-       (4, 4, 4, 4, 'completed'),
-       (5, 5, 5, 5, 'completed'),
-       (6, 6, 6, 6, 'uncompleted'),
-       (7, 7, 7, 7, 'uncompleted'),
-       (8, 8, 8, 8, 'uncompleted'),
-       (9, 9, 9, 9, 'uncompleted'),
-       (10, 10, 10, 10, 'uncompleted');
+INSERT INTO Transaction_Report (Customer_ID, Order_ID, Payment_ID, status) 
+VALUES (1, 1, 1,  'completed'),
+       (2, 2, 2,  'completed'),
+       (3, 3, 3,  'completed'),
+       (4, 4, 4,  'completed'),
+       (5, 5, 5,  'completed'),
+       (6, 6, 6,  'uncompleted'),
+       (7, 7, 7,  'uncompleted'),
+       (8, 8, 8,  'uncompleted'),
+       (9, 9, 9,  'uncompleted'),
+       (10, 10,  10, 'uncompleted');
 
 CREATE TABLE tng (
     Customer_ID INT,
@@ -331,4 +330,7 @@ VALUES
 (4, 'jbp999', 0.9, 200, 'active');
 
 
-
+CREATE TABLE `orderdetail` (
+  `Order_ID` int(11) NOT NULL,
+  `Product_ID` int(11) NOT NULL
+) 

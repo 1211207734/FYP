@@ -16,13 +16,13 @@
     if (isset($_GET['eml'])) {
         $emml = $_GET['eml'];
     }
+    $co= isset($_GET['cod']) ? $_GET['cod'] : null;
     $np= isset($_GET['nt']) ? $_GET['nt'] : null;
     $prop = "";
     $pop = "hidden";
     if($np==null){
         $prop = "";
-        $pop = "hidden";
-        $np=$total;}
+        $pop = "hidden";}
     else{
         $prop = "hidden";
         $pop = "";
@@ -99,7 +99,7 @@
                                                 <div class="col-md-3 price">
                                                     <?php echo $st=$row['Product_price']*$row['quantity'];?>
                                                 </div>
-                                                <?php $total += $st ?>
+                                                <?php $total += $st?>
                                             </div>
                                         </div>
                                     </div>
@@ -126,8 +126,12 @@
                     <?php 
                     if (isset($_POST['card']) || isset($_POST['tng'])) {
                            if (isset($_POST['card'])) {
+                            
+                            if($np==null){
+                                $np=$total;
+                                }
                             echo '<script>';
-                            echo 'window.location.href = "payment.php?eml=' . $emml . '&tt='.$np.'";';
+                            echo 'window.location.href = "payment.php?eml=' . $emml . '&tt='.$np.'&cod='.$co.'";';
                             echo '</script>';
                         } else {
 							echo '<script>';

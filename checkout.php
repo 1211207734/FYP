@@ -25,6 +25,16 @@
         $np = $_GET['tt'];
     }
 
+    $co= isset($_GET['cod']) ? $_GET['cod'] : null;
+    if($np==null){
+        $prop = "";
+        $pop = "hidden";
+    }
+    else{
+        $prop = "hidden";
+        $pop = "";
+    }
+
     $connect = mysqli_connect("localhost", "root", "", "jbp");
 
     if (!$connect) {
@@ -96,7 +106,8 @@
                         <div class="summary">
                             <h3>Summary</h3>
                             <div class="summary-item"><span class="text">Subtotal</span><span class="price">RM <?php echo $total?></span></div>
-                            <div class="summary-item"><span class="text">Discount</span><span class="price" style="color:red;">RM <?php echo $total-$np ?></span></div>
+                            <div class="summary-item" <?php echo $prop ?>><span class="text">Discount</span><span class="price" style="color:red;">RM <?php echo $total-$np ?></span></div>
+                            <div class="summary-item" <?php echo $pop ?>><span class="text">Discount</span><span class="price" style="color:red;">No Voucher is applied</span></div>
                             <div class="summary-item"><span class="text">Total</span><span class="price">RM <?php echo $np?></span></div>
                             <div class="summary-item"><span class="text">Payment Method</span><span class="price">By <?php echo $payment?></span></div>
                             <button type="submit" class="btn btn-primary btn-lg" style="width:100%;" name="check">Checkout</button>
@@ -105,11 +116,30 @@
                     <?php 
                     if (isset($_POST['check'])){
                         $nb = $obal - $total;
+                        $sql1="INSERT INTO ooder (Customer_ID,Order_date,Order_time,Total_price) values ('$emml',CURRENT_DATE,CURRENT_TIME,'$total')";                       
+                        $sq="UPDATE promotion SET valid=valid-1 WHERE code='$co'";
                         $sqlll="UPDATE tng SET Balance='$nb' WHERE Customer_ID='$emml'";
-                        $sqll="INSERT INTO payment (Payment_method,Payment_total) values ('$payment','$total')";
+                        $sqll="INSERT INTO payment (Payment_method,Payment_total,Payment_date) values ('$payment','$total',CURRENT_DATE)";
                         $sql="DELETE FROM cart WHERE Customer_ID='$emml'";
+                        
+                        mysqli_query($connect,$sq);
+                        mysqli_query($connect,$sql1);
                         mysqli_query($connect,$sqlll);
                         mysqli_query($connect,$sqll); 
+                        $sql2="SELECT Order_ID,Payment_ID FROM ooder,payment WHERE Order_date=Payment_date=CURRENT_DATE and Customer_ID=$emml";
+                        $result = mysqli_query($connect, $sql2);
+                        $row1 = mysqli_fetch_assoc($result);
+                        $sql3="INSERT INTO transaction_report (Order_ID,Payment_ID,Customer_ID,status) values ('$row1[Order_ID]','$row[Payment_ID]','$emml','Paid')";
+                        mysqli_query($connect,$sql3);
+                        $sql4="SELECT * FROM cart WHERE Customer_ID='$emml'";
+                        $result = mysqli_query($connect, $sql4);
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            $sql5="INSERT INTO orderdetail (Order_ID,Product_ID,Quantity) values ('$row1[Order_ID]','$row[Product_ID]','$row[quantity]')";
+                            mysqli_query($connect,$sql5);
+                        }
+
+
+
                         mysqli_query($connect,$sql);        
                         
                             echo '<script>';
@@ -138,3 +168,4 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </body>
 </html>
+

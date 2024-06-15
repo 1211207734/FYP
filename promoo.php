@@ -14,6 +14,8 @@ if (isset($_GET['eml'])) {
 
         if (isset($_GET['dis'])) {
             $discou = $_GET['dis'];}
+			if (isset($_GET['cod'])) {
+				$co = $_GET['cod'];}
     
     $npri =$total - ($total * $discou);
 	?>
@@ -29,7 +31,7 @@ if (isset($_GET['eml'])) {
 				
 			</div>
 			<div>
-            <a href="cart.php?eml=<?php echo $emml?>&nt=<?php echo $npri ?>" class="checkout" style="width:100%; color:white; text-align:center; display:inline-block; padding:10px 0;margin-top:10px; background-color:#313bc9; border:none; cursor:pointer; text-decoration:none;">OK</a>
+            <a href="cart.php?eml=<?php echo $emml?>&nt=<?php echo $npri ?>&cod=<?php echo $co ?>" class="checkout" style="width:100%; color:white; text-align:center; display:inline-block; padding:10px 0;margin-top:10px; background-color:#313bc9; border:none; cursor:pointer; text-decoration:none;">OK</a>
 			</div>
 		
 		</form>
