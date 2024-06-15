@@ -67,6 +67,10 @@ VALUES ('Azlan Bin Abdul Rahman', 'azlan.abdulrahman@gmail.com', 'password123', 
        ('Brandon Tan Min Yau', '1211109437@gmail.com', 'password437', '0136661896', 'No. 33, Jalan 1/3', 'Taman Jati, Melaka', '75350','images/user/null.png');
 
 
+ALTER TABLE Customer
+  ADD `reset_token_hash` VARCHAR(64) NULL DEFAULT NULL,
+  ADD `reset_token_expires_at` DATETIME NULL DEFAULT NULL,
+  ADD UNIQUE (`reset_token_hash`);
 
 CREATE TABLE ooder (
     Order_ID INT AUTO_INCREMENT PRIMARY KEY,
@@ -308,11 +312,6 @@ VALUES (1,200.99),
        (12,200.99),
        (13,200.99);
 
-CREATE TABLE pass_reset (
-  id int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  email varchar(255) NOT NULL,
-  token varchar(255) NOT NULL
-);
 
 CREATE TABLE promotion (
   code_id int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
