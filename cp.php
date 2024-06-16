@@ -71,7 +71,8 @@
                                         <input type="password" class="form-control" id="cpassword" name="cpassword" value=""></div>
                                     </div>
                                     <div class="mt-5 text-center">
-									<a href="p.php"><button class="btn btn-primary px-4 ms-3">Back to profile</button></a>
+									<a href="p.php?eml=<?php echo $emml?>">
+                                    <button type="button"class="btn btn-primary profile-button" >Cancel</button></a>
 										<button type="submit" class="btn btn-primary profile-button" name="save" >Save Changes</button>
 									</div>
 									</form>
