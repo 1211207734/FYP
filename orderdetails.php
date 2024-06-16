@@ -11,6 +11,9 @@
 <?php
 			if (isset($_GET['eml'])) {
 				$emml = $_GET['eml'];}
+				
+            if (isset($_GET['oid'])) {
+				$oid = $_GET['oid'];}
 				?>
 <header>
 	<div class="logo">
@@ -32,36 +35,41 @@
 </div>
 <body>
     <div class="container">
-        <h2>Order History</h2>
+        <h2>Order Details</h2>
         <table class="table table-bordered">
             <thead>
                 <tr>
                     <th>Order Date</th>
+                    <th>Order Time</th>
                     <th>Order Status</th>
-                    <th>Total Amount</th>
-                    <th>Method</th>
-                    <th>View Details</th>
+                    <th>Product Name</th>
+                    <th>Product Price</th>
+                    <th>Quantity</th>
+                    
                 </tr>
             </thead>
             <tbody>
             <?php
             include('database.php');
-            $sql = "SELECT ooder.Order_date,ooder.Total_price,payment.Payment_method,transaction_report.status,ooder.Order_ID FROM transaction_report,ooder,payment WHERE transaction_report.Order_ID=ooder.Order_ID and transaction_report.Payment_ID=payment.Payment_ID and transaction_report.Customer_ID = '$emml'";
+            $sql = "SELECT products.Product_name,ooder.Order_date,ooder.Order_time,orderdetail.Quantity,products.Product_price,ooder.Total_price,transaction_report.status FROM products,orderdetail,ooder,transaction_report WHERE transaction_report.Order_ID=ooder.Order_ID and ooder.Order_ID=orderdetail.Order_ID and orderdetail.Product_ID=products.Product_ID and ooder.Customer_ID='$emml'";
             $result = mysqli_query($connect, $sql);
-            while ($row = mysqli_fetch_assoc($result)) {?>
+            while ($row = mysqli_fetch_assoc($result)) {
+                $tt=$row['Total_price'];?>
                 <tr>
                     <td><?php echo $row['Order_date']?></td>
+                    <td><?php echo $row['Order_time']?></td>
                     <td><?php echo $row['status'] ?></td>
-                    <td>RM <?php echo $row['Total_price'] ?></td>
-                    <td><?php echo $row['Payment_method'] ?></td>
-                    <td><a href="orderdetails.php?eml=<?php echo $emml?>&oid=<?php echo $row['Order_ID'] ?>">View</a></td>
+                    <td><?php echo $row['Product_name'] ?></td>
+                    <td>RM <?php echo $row['Product_price'] ?></td>
+                    <td><?php echo $row['Quantity'] ?></td>
                 </tr>
                <?php }?>
             </tbody>
+            <div display="block" style=""><span style="float:right; margin-right: 10px;">Total Amount: RM <?php echo $tt ?></span></div>
         </table>
     </div>
 
-
+</body>
 <footer>
 	<p>&copy; 2024 JBPSTORE - Your Mobile Gadgets Shop. All rights reserved.</p>
 </footer>
