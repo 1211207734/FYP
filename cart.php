@@ -94,7 +94,7 @@
                                                 </div>
                                                 <div class="col-md-4 quantity">
                                                     <label for="quantity">Quantity:</label>
-                                                    <input id="quantity" type="number" value="<?php echo $row['quantity'] ?>" class="form-control quantity-input">
+                                                    <div><?php echo $row['quantity'] ?></div>
                                                 </div>
                                                 <div class="col-md-3 price">
                                                     <?php echo $st=$row['Product_price']*$row['quantity'];?>

@@ -91,7 +91,7 @@
     </header>
     <div class="topnav" id="myTopnav">
         <a href="home.php?eml=<?php echo $emml?>" >Home</a>
-        <a href="shoptry.php?eml=<?php echo $emml?>" class="active">Shop</a>
+        <a href="shop.php?eml=<?php echo $emml?>" class="active">Shop</a>
         <a href="orderhis.php?eml=<?php echo $emml?>">Order History</a>
         <a href="myaccount.php?eml=<?php echo $emml?>">My Account</a>
         <a href="cart.php?eml=<?php echo $emml?>">My Cart</a>
@@ -108,8 +108,6 @@
                 <div class="row justify-content-center text-center">
                     <div class="col-md-8 col-lg-6">
                         <div class="header">
-                            <h3>Featured Product</h3>
-                            <h2>Popular Products</h2>
                             <div class="group">
                                 <ul>
                                     <li><a href="shoptry.php?eml=<?php echo $emml ?>&cid=1">Smartphones</a></li>
