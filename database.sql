@@ -221,7 +221,7 @@ CREATE TABLE card (
 CREATE TABLE Payment (
     Payment_ID INT AUTO_INCREMENT PRIMARY KEY,
     Payment_date DATE NOT NULL,
-    Payment_method VARCHAR(10) NOT NULL,
+    Payment_method VARCHAR(15) NOT NULL,
     Payment_total FLOAT(7,2) NOT NULL
 );
 
@@ -307,5 +307,6 @@ VALUES
 
 CREATE TABLE `orderdetail` (
   `Order_ID` int(11) NOT NULL,
-  `Product_ID` int(11) NOT NULL
+  `Product_ID` int(11) NOT NULL,
+  `Quantity` int(3) NOT NULL
 ) 
