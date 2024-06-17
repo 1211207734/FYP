@@ -6,19 +6,24 @@
     <title>FAQ - JBPSTORE</title>
     <link rel="stylesheet" href="css/FAQ.css">
 </head>
+<?php
+			if (isset($_GET['eml'])) {
+				$emml = $_GET['eml'];}
+				?>
 <header>
 	<div class="logo">
 		<h1>JBP<span>STORE</span></h1>
 	</div>      
 	<div class="group">
         <ul class="navigation">
-        <li><a href="home.php">Home</a></li>
-        <li><a href="shop.php">Shop</a></li>
-        <li><a href="orderhis.php">Order History</a></li>
-        <li><a href="myaccount.php">My Account</a></li>
-		<li><a href="FAQ.php">FAQs</a></li>
-		<li><a href="about.html">About Us</a></li>
-		<li><a href="loginregister.php">Log out</a></li>
+        <a href="home.php?eml=<?php echo $emml?>" >Home</a>
+        <a href="shoptry.php?eml=<?php echo $emml?>">Shop</a>
+        <a href="orderhis.php?eml=<?php echo $emml?>">Order History</a>
+        <a href="myaccount.php?eml=<?php echo $emml?>">My Account</a>
+        <a href="cart.php?eml=<?php echo $emml?>">My Cart</a>
+        <a href="FAQ.php?eml=<?php echo $emml?>">FAQs</a>
+        <a href="about.php?eml=<?php echo $emml?>">About Us</a>
+        <a href="loginregister.php">Log out</a>
         </ul>
     </div>
 </header>
