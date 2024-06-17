@@ -293,22 +293,7 @@
                       </div>
                     </div>
                   </form>
-                  <ul class="dropdown-menu dropdown-menu-search">
-
-                    <li class="nav-item">
-                      <a class="nav-link" href="index.php?eml=<?php echo $emml ?>">Morbi leo risus</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="index.php?eml=<?php echo $emml ?>">Dapibus ac facilisis in</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="index.php?eml=<?php echo $emml ?>">Porta ac consectetur ac</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="index.php?eml=<?php echo $emml ?>">Vestibulum at eros</a>
-                    </li>
-
-                  </ul>
+                
 
                 </div>
 
@@ -358,6 +343,13 @@
         <!-- ====================================
         ——— CONTENT WRAPPER
         ===================================== -->
+        <?php $sqll="SELECT SUM((Product_quantity-Product_stock)*Product_price) as 'sale',
+SUM(Product_quantity*Product_netprice)AS'cost',
+SUM(((Product_quantity-Product_stock)*Product_price) -(Product_quantity*Product_netprice)) AS 'profit',
+SUM(((Product_quantity-Product_stock)*Product_price) -(Product_quantity*Product_netprice))*1.23 AS 'revenue'FROM products where status ='active'";
+$rusl=mysqli_query($connect,$sqll);
+$dd=mysqli_fetch_assoc($rusl);
+?>
         <div class="content-wrapper">
           <div class="content">                
                   <!-- Top Statistics -->
@@ -365,17 +357,8 @@
                     <div class="col-xl-3 col-sm-6">
                       <div class="card card-default card-mini">
                         <div class="card-header">
-                          <h2>RM 18,699</h2>
-                          <div class="dropdown">
-                            <a class="dropdown-toggle icon-burger-mini" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            </a>
-
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-                              <a class="dropdown-item" href="#">Action</a>
-                              <a class="dropdown-item" href="#">Another action</a>
-                              <a class="dropdown-item" href="#">Something else here</a>
-                            </div>
-                          </div>
+                          <h2>RM <?php echo $dd['sale']?></h2>
+                          
                           <div class="sub-title">
                             <span class="mr-1">Sales of this year</span> |
                             <span class="mx-1">45%</span>
@@ -394,17 +377,8 @@
                     <div class="col-xl-3 col-sm-6">
                       <div class="card card-default card-mini">
                         <div class="card-header">
-                          <h2>RM 14,500</h2>
-                          <div class="dropdown">
-                            <a class="dropdown-toggle icon-burger-mini" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            </a>
-
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-                              <a class="dropdown-item" href="#">Action</a>
-                              <a class="dropdown-item" href="#">Another action</a>
-                              <a class="dropdown-item" href="#">Something else here</a>
-                            </div>
-                          </div>
+                          <h2>RM <?php echo $dd['cost']?></h2>
+                          
                           <div class="sub-title">
                             <span class="mr-1">Expense of this year</span> |
                             <span class="mx-1">50%</span>
@@ -423,17 +397,8 @@
                     <div class="col-xl-3 col-sm-6">
                       <div class="card card-default card-mini">
                         <div class="card-header">
-                          <h2>RM 4199</h2>
-                          <div class="dropdown">
-                            <a class="dropdown-toggle icon-burger-mini" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            </a>
-
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-                              <a class="dropdown-item" href="#">Action</a>
-                              <a class="dropdown-item" href="#">Another action</a>
-                              <a class="dropdown-item" href="#">Something else here</a>
-                            </div>
-                          </div>
+                          <h2>RM <?php echo $dd['profit']?></h2>
+                          
                           <div class="sub-title">
                             <span class="mr-1">Profit of this year</span> |
                             <span class="mx-1">20%</span>
@@ -452,17 +417,8 @@
                     <div class="col-xl-3 col-sm-6">
                       <div class="card card-default card-mini">
                         <div class="card-header">
-                          <h2>RM 20,199</h2>
-                          <div class="dropdown">
-                            <a class="dropdown-toggle icon-burger-mini" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            </a>
-
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-                              <a class="dropdown-item" href="#">Action</a>
-                              <a class="dropdown-item" href="#">Another action</a>
-                              <a class="dropdown-item" href="#">Something else here</a>
-                            </div>
-                          </div>
+                          <h2>RM <?php echo $dd['revenue']?></h2>
+                         
                           <div class="sub-title">
                             <span class="mr-1">Revenue of this year</span> |
                             <span class="mx-1">35%</span>
