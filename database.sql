@@ -62,12 +62,6 @@ CREATE TABLE CART (
     quantity INT(3) NOT NULL
 );
 
-INSERT INTO CART (Customer_ID, Product_ID,quantity) 
-VALUES (11,20,1),
-       (11,22,3),
-       (1,1,4),
-       (1,11,5);
-
 
 CREATE TABLE Customer (
     Customer_ID INT AUTO_INCREMENT PRIMARY KEY,
