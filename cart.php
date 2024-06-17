@@ -53,7 +53,7 @@
         <a href="orderhis.php?eml=<?php echo $emml?>">Order History</a>
         <a href="myaccount.php?eml=<?php echo $emml?>">My Account</a>
         <a href="cart.php?eml=<?php echo $emml?>"class="active">My Cart</a>
-        <a href="FAQ.html">FAQs</a>
+        <a href="FAQ.php">FAQs</a>
         <a href="about.html">About Us</a>
         <a href="loginregister.php">Log out</a>
         <a href="javascript:void(0);" class="icon" onclick="myFunction()">

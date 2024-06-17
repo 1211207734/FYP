@@ -256,7 +256,7 @@ if (isset($_GET['eml'])) {
                   </ul>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="FAQ.html" >FAQs    </a>
+                  <a class="nav-link" href="FAQ.php" >FAQs    </a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="about.html">About Us</a>
@@ -801,7 +801,7 @@ if (isset($_GET['eml'])) {
                 <a href="#" class="item-anchor">Find us easy</a>
               </li>
               <li class="menu-item">
-                <a href="FAQ.html" class="item-anchor">FAQs</a>
+                <a href="FAQ.php" class="item-anchor">FAQs</a>
               </li>
             </ul>
           </div>
