@@ -68,7 +68,7 @@
         <!-- ====================================
           ——— LEFT SIDEBAR WITH OUT FOOTER
         ===================================== -->
-        <aside class="left-sidebar sidebar-dark" id="left-sidebar">
+       <aside class="left-sidebar sidebar-dark" id="left-sidebar">
           <div id="sidebar" class="sidebar sidebar-with-footer">
             <!-- Aplication Brand -->
             <div class="app-brand">
@@ -91,13 +91,6 @@
                     </a>
                   </li>
 
-                  <li>
-                    <a class="sidenav-item-link" href="analytics.php?eml=<?php echo $emml ?>">
-                      <i class="mdi mdi-chart-line"></i>
-                      <span class="nav-text">Analytics Dashboard</span>
-                    </a>
-                  </li>
-
                 
                   <li class="section-title">
                     Pages
@@ -115,12 +108,6 @@
                         
                         
                           
-                            <li >
-                              <a class="sidenav-item-link" href="user-profile.php?eml=<?php echo $emml ?>">
-                                <span class="nav-text">User Profile</span>
-                                
-                              </a>
-                            </li>
                             <li >
                               <a class="sidenav-item-link" href="user-profile-settings.php?eml=<?php echo $emml ?>">
                                 <span class="nav-text">User Profile Settings</span>
@@ -156,7 +143,7 @@
                           
                              <li >
                               <a class="sidenav-item-link" href="/FYP/loginregister.php" onclick="log()">
-                                <span class="nav-text">Sign In</span>
+                                <span class="nav-text">Sign Out</span>
                                 
                               </a>
                             </li>
@@ -164,25 +151,7 @@
                             function log(){
                             alert("You have logout!");
                             }
-                          </script>
-                          
-                        
-
-                        
-                        
-                          
-                            <li >
-                              <a class="sidenav-item-link" href="sign-up.html">
-                                <span class="nav-text">Sign Up</span>
-                                
-                              </a>
-                            </li>
-                          
-                        
-
-                        
-                        
-                          
+                          </script>  
                             <li >
                               <a class="sidenav-item-link" href="reset-password.html">
                                 <span class="nav-text">Reset Password</span>

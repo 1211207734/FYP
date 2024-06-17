@@ -95,13 +95,6 @@
                     </a>
                   </li>
 
-                  <li>
-                    <a class="sidenav-item-link" href="analytics.php?eml=<?php echo $emml ?>">
-                      <i class="mdi mdi-chart-line"></i>
-                      <span class="nav-text">Analytics Dashboard</span>
-                    </a>
-                  </li>
-
                 
                   <li class="section-title">
                     Pages
@@ -119,12 +112,6 @@
                         
                         
                           
-                            <li >
-                              <a class="sidenav-item-link" href="user-profile.php?eml=<?php echo $emml ?>">
-                                <span class="nav-text">User Profile</span>
-                                
-                              </a>
-                            </li>
                             <li >
                               <a class="sidenav-item-link" href="user-profile-settings.php?eml=<?php echo $emml ?>">
                                 <span class="nav-text">User Profile Settings</span>
@@ -160,7 +147,7 @@
                           
                              <li >
                               <a class="sidenav-item-link" href="/FYP/loginregister.php" onclick="log()">
-                                <span class="nav-text">Sign In</span>
+                                <span class="nav-text">Sign Out</span>
                                 
                               </a>
                             </li>
@@ -168,25 +155,7 @@
                             function log(){
                             alert("You have logout!");
                             }
-                          </script>
-                          
-                        
-
-                        
-                        
-                          
-                            <li >
-                              <a class="sidenav-item-link" href="sign-up.html">
-                                <span class="nav-text">Sign Up</span>
-                                
-                              </a>
-                            </li>
-                          
-                        
-
-                        
-                        
-                          
+                          </script>  
                             <li >
                               <a class="sidenav-item-link" href="reset-password.html">
                                 <span class="nav-text">Reset Password</span>
@@ -280,7 +249,7 @@
             </div>
           </div>
         </aside>
-      
+
 
       <!-- ====================================
       ——— PAGE WRAPPER
@@ -363,47 +332,26 @@
   <br>
             <table id="productsTable" class="table table-hover table-product" style="width:100%">
                 <thead>
-                    <tr>
-                      
-                        <th>Serial NO</th>
-                        <th>Product Name</th>
-                        <th hidden>id</th> 
-                        <th>Customer Name</th>
-                        <th>Order Date</th>
-                        <th>Total</th>
-                        <th>status</th>
-                        <th></th>
-                    </tr>
+                <tr>
+                    <th>Order Date</th>
+                    <th>Order Status</th>
+                    <th>Total Amount</th>
+                    <th>Method</th>
+                    <th>View Details</th>
+                </tr>
                 </thead>
                 <tbody>
                 <?php
-                $sql = "SELECT Report_ID, Product_name, Customer_name,Order_date, Payment_total,transaction_report.status FROM products,customer,ooder,transaction_report,payment 
-                        where products.Product_ID = transaction_report.Product_ID and customer.Customer_ID = transaction_report.Customer_ID and payment.Payment_ID = transaction_report.Payment_ID and ooder.Order_ID = transaction_report.Order_ID";
-                $result = mysqli_query($connect, $sql);
-                while($row = mysqli_fetch_assoc($result)){
-                ?>
-                    <tr>
-                        
-                        <td><?php echo $row['Report_ID'];?></td>
-                        <td><?php echo $row['Product_name'];?></td>
-                        <td hidden><?php echo $row['Report_ID'];?></td>
-                        <td><?php echo $row['Customer_name'];?></td>
-                        <td><?php echo $row['Order_date'];?></td>
-                        <td><?php echo $row['Payment_total'];?></td>
-                        <td><?php echo $row['status'];?></td>
-                        <td>
-                            <div class="dropdown">
-                                <a class="dropdown-toggle icon-burger-mini" href="#" role="button" id="dropdownMenuLink"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-                                    <a class="dropdown-item" href="productedit.php?eml=<?php echo $emml?>&try=<?php echo $row['Product_ID'] ?>">Edit</a>   
-                                    <a class="dropdown-item" href="#" onclick="return manageProduct(<?php echo $row['Product_ID']; ?>, 'activate')">Activate Product</a>
-                                    <a class="dropdown-item" href="#" onclick="return manageProduct(<?php echo $row['Product_ID']; ?>, 'delete')">Delete Product</a>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
+               $sql = "SELECT ooder.Order_date,ooder.Total_price,payment.Payment_method,transaction_report.status,ooder.Order_ID FROM transaction_report,ooder,payment WHERE transaction_report.Order_ID=ooder.Order_ID and transaction_report.Payment_ID=payment.Payment_ID ";
+               $result = mysqli_query($connect, $sql);
+               while ($row = mysqli_fetch_assoc($result)) {?>
+                   <tr>
+                       <td><?php echo $row['Order_date']?></td>
+                       <td><?php echo $row['status'] ?></td>
+                       <td>RM <?php echo $row['Total_price'] ?></td>
+                       <td><?php echo $row['Payment_method'] ?></td>
+                       <td><a href="orderdetails.php?eml=<?php echo $emml?>&oid=<?php echo $row['Order_ID'] ?>">View</a></td>
+                   </tr>
                 <?php }?>
                 <script type="text/javascript">
     function manageProduct(id, action) {
