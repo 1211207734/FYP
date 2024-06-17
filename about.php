@@ -16,7 +16,7 @@
 	</div>      
 	<div class="group">
         <ul class="navigation">
-            <a href="home.php?eml=<?php echo $emml?>" >Home</a>
+            <li><a href="home.php?eml=<?php echo $emml?>" >Home</a></li>
             <a href="shoptry.php?eml=<?php echo $emml?>">Shop</a>
             <a href="orderhis.php?eml=<?php echo $emml?>">Order History</a>
             <a href="myaccount.php?eml=<?php echo $emml?>">My Account</a>
