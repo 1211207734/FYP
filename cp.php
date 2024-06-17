@@ -21,18 +21,6 @@
 		<h1>JBP<span>STORE</span></h1>
 	</div>      
 </header>
-<div class="topnav" id="myTopnav">
-        <a href="home.php?eml=<?php echo $emml?>" >Home</a>
-        <a href="shop.php?eml=<?php echo $emml?>">Shop</a>
-        <a href="orderhis.php?eml=<?php echo $emml?>">Order History</a>
-        <a href="myaccount.php?eml=<?php echo $emml?>"class="active">My Account</a>
-		<a href="FAQ.php?eml=<?php echo $emml?>">FAQs</a>
-        <a href="about.php?eml=<?php echo $emml?>">About Us</a>
-        <a href="loginregister.php">Log out</a>
-        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-            <i class="fa fa-bars"></i>
-        </a>
-    </div>
 				<body>
 					<div class="container rounded bg-white mt-5 mb-5">
                         <div class="row">
