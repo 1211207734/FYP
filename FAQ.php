@@ -16,14 +16,14 @@
 	</div>      
 	<div class="group">
         <ul class="navigation">
-        <a href="home.php?eml=<?php echo $emml?>" >Home</a>
-        <a href="shoptry.php?eml=<?php echo $emml?>">Shop</a>
-        <a href="orderhis.php?eml=<?php echo $emml?>">Order History</a>
-        <a href="myaccount.php?eml=<?php echo $emml?>">My Account</a>
-        <a href="cart.php?eml=<?php echo $emml?>">My Cart</a>
-        <a href="FAQ.php?eml=<?php echo $emml?>">FAQs</a>
-        <a href="about.php?eml=<?php echo $emml?>">About Us</a>
-        <a href="loginregister.php">Log out</a>
+        <li><a href="home.php?eml=<?php echo $emml?>" >Home</a></li>
+        <li><a href="shoptry.php?eml=<?php echo $emml?>">Shop</a></li>
+        <li><a href="orderhis.php?eml=<?php echo $emml?>">Order History</a></li>
+        <li><a href="myaccount.php?eml=<?php echo $emml?>">My Account</a></li>
+        <li><a href="cart.php?eml=<?php echo $emml?>">My Cart</a></li>
+        <li><a href="FAQ.php?eml=<?php echo $emml?>">FAQs</a></li>
+        <li><a href="about.php?eml=<?php echo $emml?>">About Us</a></li>
+        <li><a href="loginregister.php">Log out</a></li>
         </ul>
     </div>
 </header>
