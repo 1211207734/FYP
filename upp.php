@@ -26,7 +26,7 @@
 </header>
 <div class="topnav" id="myTopnav">
         <a href="home.php?eml=<?php echo $emml?>" >Home</a>
-        <a href="shoptry.php?eml=<?php echo $emml?>">Shop</a>
+        <a href="shop.php?eml=<?php echo $emml?>">Shop</a>
         <a href="orderhis.php?eml=<?php echo $emml?>">Order History</a>
         <a href="myaccount.php?eml=<?php echo $emml?>"class="active">My Account</a>
         <a href="FAQ.php?eml=<?php echo $emml?>">FAQs</a>
