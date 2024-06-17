@@ -51,7 +51,7 @@
             <tbody>
             <?php
             include('database.php');
-            $sql = "SELECT products.Product_name,ooder.Order_date,ooder.Order_time,orderdetail.Quantity,products.Product_price,ooder.Total_price,transaction_report.status FROM products,orderdetail,ooder,transaction_report WHERE transaction_report.Order_ID=ooder.Order_ID and ooder.Order_ID=orderdetail.Order_ID and orderdetail.Product_ID=products.Product_ID and ooder.Customer_ID='$emml'";
+            $sql = "SELECT products.Product_name,ooder.Order_date,ooder.Order_time,orderdetail.Quantity,products.Product_price,ooder.Total_price,transaction_report.status FROM products,orderdetail,ooder,transaction_report WHERE transaction_report.Order_ID=ooder.Order_ID and ooder.Order_ID=orderdetail.Order_ID and orderdetail.Product_ID=products.Product_ID and ooder.Customer_ID='$emml' and ooder.Order_ID='$oid'";
             $result = mysqli_query($connect, $sql);
             while ($row = mysqli_fetch_assoc($result)) {
                 $tt=$row['Total_price'];?>

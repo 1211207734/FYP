@@ -67,11 +67,14 @@
     include('database.php');
     
     // Retrieve category ID and email from GET parameters
-  
+    
     $emml = isset($_GET['eml']) ? $_GET['eml'] : null;
 
+    
+
     // Fetch category name
-   ?>
+  
+    ?>
     <header>
         <div class="logo">
             <h1>JBP<span>STORE</span></h1></a>
@@ -96,7 +99,6 @@
                 <div class="row justify-content-center text-center">
                     <div class="col-md-8 col-lg-6">
                         <div class="header">
-                            
                             <div class="group">
                                 <ul>
                                     <li><a href="shoptry.php?eml=<?php echo $emml ?>&cid=1">Smartphones</a></li>
@@ -113,13 +115,12 @@
                             </div>
                             <br>
                         </div>
-                        
                     </div>
                 </div>
                 <div class="product-grid">
                     <!-- Fetch and display products based on category ID -->
                     <?php
-                    $query = "SELECT Product_ID, Product_name, Product_details, Product_price, img FROM products WHERE status = 'active' ORDER BY Product_ID DESC";
+                    $query = "SELECT Product_ID, Product_name, Product_details, Product_price, img FROM products WHERE status = 'active'";
                     $stmt = $connect->prepare($query);
                     
                     $stmt->execute();
@@ -158,7 +159,7 @@
                           var response = JSON.parse(xhr.responseText);
                           alert(response.message);
                           if (response.success) {
-                              window.location.href = "shoptry.php?eml=<?php echo $emml; ?>&cid=<?php echo $cc; ?>";
+                              window.location.href = "shop.php?eml=<?php echo $emml; ?>";
                           }
                       }
                   };

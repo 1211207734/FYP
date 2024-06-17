@@ -59,7 +59,7 @@
         <!-- ====================================
           ——— LEFT SIDEBAR WITH OUT FOOTER
         ===================================== -->
-       <aside class="left-sidebar sidebar-dark" id="left-sidebar">
+        <aside class="left-sidebar sidebar-dark" id="left-sidebar">
           <div id="sidebar" class="sidebar sidebar-with-footer">
             <!-- Aplication Brand -->
             <div class="app-brand">
@@ -196,6 +196,12 @@
                                 
                               </a>
                             </li>
+                            <li>
+                              <a class="sidenav-item-link" href="viewstaff.php?eml=<?php echo $emml?>">
+                                <span class="nav-text">Staff</span>
+                                
+                              </a>
+                            </li>
                               <li>
                               <a class="sidenav-item-link" href="vieworder.php?eml=<?php echo $emml?>">
                                 <span class="nav-text">Order</span>
@@ -228,15 +234,12 @@
                 <ul class="d-flex">
                   <li>
                     <a href="user-account-settings.php?eml=<?php echo $emml ?>" data-toggle="tooltip" title="Profile settings"><i class="mdi mdi-settings"></i></a></li>
-                  <li>
-                    <a href="#" data-toggle="tooltip" title="No chat messages"><i class="mdi mdi-chat-processing"></i></a>
-                  </li>
+                  
                 </ul>
               </div>
             </div>
           </div>
         </aside>
-
 
       
 
@@ -335,19 +338,19 @@
     <ul class="nav nav-profile-follow">
       <li class="nav-item">
         <a class="nav-link" href="#">
-          <span class="h5 d-block">1503</span>
+          <span class="h5 d-block"><?php echo $r['customer'] ?></span>
           <span class="text-color d-block">Customer on hold</span>
         </a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">
-          <span class="h5 d-block">2905</span>
+          <span class="h5 d-block"><?php echo $r['project'] ?></span>
           <span class="text-color d-block">Project completed</span>
         </a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">
-          <span class="h5 d-block">1200</span>
+          <span class="h5 d-block"><?php echo $r['projrctp'] ?></span>
           <span class="text-color d-block">Project in progress</span>
         </a>
       </li>
@@ -411,12 +414,12 @@
             <p>Click the current avatar to change your photo.</p>
           </div>
         </div>
-        <form>
+        <form method="post" enctype="multipart/form-data">
           <div class="form-group row mb-6">
             <label for="coverImage" class="col-sm-4 col-lg-2 col-form-label">Cover Image</label>
             <div class="col-sm-8 col-lg-10">
               <div class="custom-file mb-1">
-                <input type="file" class="custom-file-input" id="coverImage" required>
+                <input type="file" class="custom-file-input" id="coverImage" name="cover" required>
                 <label class="custom-file-label" for="coverImage">Choose file...</label>
                 <div class="invalid-feedback">Example invalid custom file feedback</div>
               </div>
@@ -425,27 +428,57 @@
           </div>
 
           <div class="form-group row mb-6">
-            <label for="occupation" class="col-sm-4 col-lg-2 col-form-label">Occupation</label>
+            <label for="occupation" class="col-sm-4 col-lg-2 col-form-label">Customer on hold</label>
             <div class="col-sm-8 col-lg-10">
-              <input type="text" class="form-control" id="occupation" >
+              <input type="text" class="form-control" id="occupation" name="cus">
             </div>
           </div>
 
           <div class="form-group row mb-6">
-            <label for="com-name" class="col-sm-4 col-lg-2 col-form-label">Company name</label>
+            <label for="com-name" class="col-sm-4 col-lg-2 col-form-label">Project Completed</label>
             <div class="col-sm-8 col-lg-10">
-              <input type="text" class="form-control" id="com-name">
+              <input type="text" class="form-control" id="com-name" name="pro">
+            </div>
+          </div>
+
+          <div class="form-group row mb-6">
+            <label for="com-name" class="col-sm-4 col-lg-2 col-form-label">Project in Progress</label>
+            <div class="col-sm-8 col-lg-10">
+              <input type="text" class="form-control" id="com-name" name="prop">
             </div>
           </div>
 
           <div class="d-flex justify-content-end">
-            <button type="submit" class="btn btn-primary mb-2 btn-pill">Update Profile</button>
+            <button type="submit" name="gg" class="btn btn-primary mb-2 btn-pill">Update Profile</button>
           </div>
 
         </form>
       </div>
     </div>
-
+      <?php
+      if(isset($_POST['gg'])){
+        $cus = $_POST['cus'];
+        $pro = $_POST['pro'];
+        $prop = $_POST['prop'];
+        $fn=$_FILES['cover']['name'];
+        $ft=$_FILES['cover']['tmp_name'];
+        $folder="images/user/".$fn;
+            
+        $connect= mysqli_connect("localhost","root","","jbp");
+        $sql = "UPDATE admin SET customer='$cus',project='$pro',projrctp='$prop',img='$folder' WHERE id='$emml'";
+        $result = mysqli_query($connect, $sql);
+        if($result && move_uploaded_file($ft,$folder)){
+          echo "<script>alert('Update successfully!')</script>";
+          echo '<script type="text/javascript">';
+          echo 'window.location.href = "user-profile-settings.php?eml='.$emml.'";';
+          echo 'alert("Profile Updated Successfully.");';
+          echo '</script>';
+        }
+        else{
+          echo "<script>alert('Update failed!')</script>";
+        }
+      }
+      ?>
     
 
 

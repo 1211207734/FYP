@@ -12,8 +12,7 @@ if (isset($_GET['eml'])) {
 	$emml = $_GET['eml'];}
 	if (isset($_GET['tt'])) {
 		$total = $_GET['tt'];}
-	if (isset($_GET['cod'])) {
-		$co = $_GET['cod'];}
+		$co= isset($_GET['cod']) ? $_GET['cod'] : null;
 
 	$sql="SELECT Customer_name FROM customer WHERE Customer_ID = '$emml'";
 	$result = mysqli_query($connect, $sql);

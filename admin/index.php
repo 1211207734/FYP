@@ -85,7 +85,7 @@
         <!-- ====================================
           ——— LEFT SIDEBAR WITH OUT FOOTER
         ===================================== -->
-       <aside class="left-sidebar sidebar-dark" id="left-sidebar">
+        <aside class="left-sidebar sidebar-dark" id="left-sidebar">
           <div id="sidebar" class="sidebar sidebar-with-footer">
             <!-- Aplication Brand -->
             <div class="app-brand">
@@ -222,6 +222,12 @@
                                 
                               </a>
                             </li>
+                            <li>
+                              <a class="sidenav-item-link" href="viewstaff.php?eml=<?php echo $emml?>">
+                                <span class="nav-text">Staff</span>
+                                
+                              </a>
+                            </li>
                               <li>
                               <a class="sidenav-item-link" href="vieworder.php?eml=<?php echo $emml?>">
                                 <span class="nav-text">Order</span>
@@ -254,9 +260,7 @@
                 <ul class="d-flex">
                   <li>
                     <a href="user-account-settings.php?eml=<?php echo $emml ?>" data-toggle="tooltip" title="Profile settings"><i class="mdi mdi-settings"></i></a></li>
-                  <li>
-                    <a href="#" data-toggle="tooltip" title="No chat messages"><i class="mdi mdi-chat-processing"></i></a>
-                  </li>
+                  
                 </ul>
               </div>
             </div>
@@ -284,19 +288,7 @@
               <div class="navbar-right ">
 
                 <!-- search form -->
-                <div class="search-form">
-                  <form action="index.php" method="get">
-                    <div class="input-group input-group-sm" id="input-group-search">
-                      <input type="text" autocomplete="off" name="query" id="search-input" class="form-control" placeholder="Search..." />
-                      <div class="input-group-append">
-                        <button class="btn" type="button">/</button>
-                      </div>
-                    </div>
-                  </form>
-                
-
-                </div>
-
+               
                 <ul class="nav navbar-nav">
                   <!-- Offcanvas -->
                 
@@ -541,7 +533,7 @@ $dd=mysqli_fetch_assoc($rusl);
                     <div class="card card-default">
                       <div class="card-header align-items-center">
                         <h2 class="">Sales by Product</h2>
-                        <a href="#" class="btn btn-primary btn-pill" data-toggle="modal" data-target="#modal-stock">Add Stock</a>
+                        
                       </div>
                       <div class="card-body">
                         <div class="tab-content">
@@ -589,126 +581,7 @@ $dd=mysqli_fetch_assoc($rusl);
                 </div>
               </div>
 
-              <!-- Stock Modal -->
-              <div class="modal fade modal-stock" id="modal-stock" aria-labelledby="modal-stock" aria-hidden="true">
-                <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
-                  <form action="#">
-                    <div class="modal-content">
-                      <div class="modal-header align-items-center p3 p-md-5">
-                        <h2 class="modal-title" id="exampleModalGridTitle">Add Stock</h2>
-                        <div>
-                          <button type="button" class="btn btn-light btn-pill mr-1 mr-md-2" data-dismiss="modal"> cancel </button>
-                          <button type="submit" class="btn btn-primary  btn-pill" data-dismiss="modal"> save </button>
-                        </div>
-
-                      </div>
-                      <div class="modal-body p3 p-md-5">
-                        <div class="row">
-                          <div class="col-lg-8">
-                            <h3 class="h5 mb-5">Product Information</h3>
-                            <div class="form-group mb-5">
-                              <label for="new-product">Product Title</label>
-                              <input type="text" class="form-control" id="new-product" placeholder="Add Product">
-                            </div>
-                            <div class="form-row mb-4">
-                              <div class="col">
-                                <label for="price">Price</label>
-                                <div class="input-group">
-                                  <div class="input-group-prepend">
-                                    <span class="input-group-text" id="basic-addon1">$</span>
-                                  </div>
-                                  <input type="text" class="form-control" id="price" placeholder="Price" aria-label="Price"
-                                    aria-describedby="basic-addon1">
-                                </div>
-                              </div>
-                              <div class="col">
-                                <label for="sale-price">Sale Price</label>
-                                <div class="input-group">
-                                  <div class="input-group-prepend">
-                                    <span class="input-group-text" id="basic-addon1">$</span>
-                                  </div>
-                                  <input type="text" class="form-control" id="sale-price" placeholder="Sale Price" aria-label="SalePrice"
-                                    aria-describedby="basic-addon1">
-                                </div>
-                              </div>
-                            </div>
-
-                            <div class="product-type mb-3 ">
-                              <label class="d-block" for="sale-price">Product Type <i class="mdi mdi-help-circle-outline"></i> </label>
-                              <div>
-
-                                <div class="custom-control custom-radio d-inline-block mr-3 mb-3">
-                                  <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input" checked="checked">
-                                  <label class="custom-control-label" for="customRadio1">Physical Good</label>
-                                </div>
-
-                                <div class="custom-control custom-radio d-inline-block mr-3 mb-3">
-                                  <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                                  <label class="custom-control-label" for="customRadio2">Digital Good</label>
-                                </div>
-
-                                <div class="custom-control custom-radio d-inline-block mr-3 mb-3">
-                                  <input type="radio" id="customRadio3" name="customRadio" class="custom-control-input">
-                                  <label class="custom-control-label" for="customRadio3">Service</label>
-                                </div>
-
-                              </div>
-                            </div>
-
-                            <div class="editor">
-                              <label class="d-block" for="sale-price">Description <i class="mdi mdi-help-circle-outline"></i></label>
-                              <div id="standalone">
-                                <div id="toolbar">
-                                  <span class="ql-formats">
-                                    <select class="ql-font"></select>
-                                    <select class="ql-size"></select>
-                                  </span>
-                                  <span class="ql-formats">
-                                    <button class="ql-bold"></button>
-                                    <button class="ql-italic"></button>
-                                    <button class="ql-underline"></button>
-                                  </span>
-                                  <span class="ql-formats">
-                                    <select class="ql-color"></select>
-                                  </span>
-                                  <span class="ql-formats">
-                                    <button class="ql-blockquote"></button>
-                                  </span>
-                                  <span class="ql-formats">
-                                    <button class="ql-list" value="ordered"></button>
-                                    <button class="ql-list" value="bullet"></button>
-                                    <button class="ql-indent" value="-1"></button>
-                                    <button class="ql-indent" value="+1"></button>
-                                  </span>
-                                  <span class="ql-formats">
-                                    <button class="ql-direction" value="rtl"></button>
-                                    <select class="ql-align"></select>
-                                  </span>
-                                </div>
-                              </div>
-                              <div id="editor"></div>
-
-                              <div class="custom-control custom-checkbox d-inline-block mt-2">
-                                <input type="checkbox" class="custom-control-input" id="customCheck2">
-                                <label class="custom-control-label" for="customCheck2">Hide product from published site</label>
-                              </div>
-
-                            </div>
-
-                          </div>
-                          <div class="col-lg-4">
-                            <div class="custom-file">
-                              <input type="file" class="custom-file-input" id="customFile" placeholder="please imgae here">
-                              <span class="upload-image">Click here to <span class="text-primary">add product image.</span> </span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-                    </div>
-                  </form>
-                </div>
-              </div>
+           
 </div>
           
         </div>
@@ -731,108 +604,7 @@ $dd=mysqli_fetch_assoc($rusl);
     </div>
     
                     <!-- Card Offcanvas -->
-                    <div class="card card-offcanvas" id="contact-off" >
-                      <div class="card-header">
-                        <h2>Contacts</h2>
-                        <a href="#" class="btn btn-primary btn-pill px-4">Add New</a>
-                      </div>
-                      <div class="card-body">
-
-                        <div class="mb-4">
-                          <input type="text" class="form-control form-control-lg form-control-secondary rounded-0" placeholder="Search contacts...">
-                        </div>
-
-                        <div class="media media-sm">
-                          <div class="media-sm-wrapper">
-                            <a href="user-profile.php?eml=<?php echo $emml ?>">
-                              <img src="images/user/user-sm-01.jpg" alt="User Image">
-                              <span class="active bg-primary"></span>
-                            </a>
-                          </div>
-                          <div class="media-body">
-                            <a href="user-profile.php?eml=<?php echo $emml ?>">
-                              <span class="title">Selena Wagner</span>
-                              <span class="discribe">Designer</span>
-                            </a>
-                          </div>
-                        </div>
-
-                        <div class="media media-sm">
-                          <div class="media-sm-wrapper">
-                            <a href="user-profile.php?eml=<?php echo $emml ?>">
-                              <img src="images/user/user-sm-02.jpg" alt="User Image">
-                              <span class="active bg-primary"></span>
-                            </a>
-                          </div>
-                          <div class="media-body">
-                            <a href="user-profile.php?eml=<?php echo $emml ?>">
-                              <span class="title">Walter Reuter</span>
-                              <span>Developer</span>
-                            </a>
-                          </div>
-                        </div>
-
-                        <div class="media media-sm">
-                          <div class="media-sm-wrapper">
-                            <a href="user-profile.php?eml=<?php echo $emml ?>">
-                              <img src="images/user/user-sm-03.jpg" alt="User Image">
-                            </a>
-                          </div>
-                          <div class="media-body">
-                            <a href="user-profile.php?eml=<?php echo $emml ?>">
-                              <span class="title">Larissa Gebhardt</span>
-                              <span>Cyber Punk</span>
-                            </a>
-                          </div>
-                        </div>
-
-                        <div class="media media-sm">
-                          <div class="media-sm-wrapper">
-                            <a href="user-profile.php?eml=<?php echo $emml ?>">
-                              <img src="images/user/user-sm-04.jpg" alt="User Image">
-                            </a>
-
-                          </div>
-                          <div class="media-body">
-                            <a href="user-profile.php?eml=<?php echo $emml ?>">
-                              <span class="title">Albrecht Straub</span>
-                              <span>Photographer</span>
-                            </a>
-                          </div>
-                        </div>
-
-                        <div class="media media-sm">
-                          <div class="media-sm-wrapper">
-                            <a href="user-profile.php?eml=<?php echo $emml ?>">
-                              <img src="images/user/user-sm-05.jpg" alt="User Image">
-                              <span class="active bg-danger"></span>
-                            </a>
-                          </div>
-                          <div class="media-body">
-                            <a href="user-profile.php?eml=<?php echo $emml ?>">
-                              <span class="title">Leopold Ebert</span>
-                              <span>Fashion Designer</span>
-                            </a>
-                          </div>
-                        </div>
-
-                        <div class="media media-sm">
-                          <div class="media-sm-wrapper">
-                            <a href="user-profile.php?eml=<?php echo $emml ?>">
-                              <img src="images/user/user-sm-06.jpg" alt="User Image">
-                              <span class="active bg-primary"></span>
-                            </a>
-                          </div>
-                          <div class="media-body">
-                            <a href="user-profile.php?eml=<?php echo $emml ?>">
-                              <span class="title">Selena Wagner</span>
-                              <span>Photographer</span>
-                            </a>
-                          </div>
-                        </div>
-
-                      </div>
-                    </div>
+                  
 
 
 

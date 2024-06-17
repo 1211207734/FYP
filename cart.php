@@ -33,7 +33,7 @@
         die("Connection failed: " . mysqli_connect_error());
     }
 
-    $sql = "SELECT products.Product_name, products.Product_price, products.Product_stock, products.Product_details ,cart.quantity
+    $sql = "SELECT products.Product_ID, products.Product_name, products.Product_price, products.Product_stock, products.Product_details ,cart.quantity
         FROM products 
         INNER JOIN cart ON products.Product_ID = cart.Product_ID
         WHERE cart.Customer_ID = '$emml'";
@@ -69,46 +69,56 @@
                     <p>The Price Below is Included Shipping Fees</p>
                 </div>
                 <div class="content">
-                    <div class="row">
-                        <?php
-                        $total = 0;
-                        while ($row = mysqli_fetch_assoc($result)) {
-                        ?>
-                        <div class="items">
-                            <div class="product">
-                                <div class="row">
-                                    <div>
-                                        <img src="images/<?php echo $row['Product_name']?>.jpg" style="display: block; width: 150px; height: 150px;">
-                                    </div>
-                                    <div class="col-md-8">
-                                        <div class="info">
-                                            <div class="row">
-                                                <div class="col-md-5 product-name">
-                                                    <div class="product-name">
-                                                        <a><?php echo $row['Product_name']?></a>
-                                                        <div class="product-info">
-                                                            <div>Details:</div>
-                                                            <div><?php echo $row['Product_details'];?></div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4 quantity">
-                                                    <label for="quantity">Quantity:</label>
-                                                    <div><?php echo $row['quantity'] ?></div>
-                                                </div>
-                                                <div class="col-md-3 price">
-                                                    <?php echo $st=$row['Product_price']*$row['quantity'];?>
-                                                </div>
-                                                <?php $total += $st?>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <?php } ?>
-                    </div>
-
+                <form method="post">
+                <div class="row">
+                       
+                       <div class="items">
+                           <div class="product">
+                           <?php
+                       $total = 0;
+                       while ($row = mysqli_fetch_assoc($result)) {
+                       ?>
+                               <div class="row">
+                                   <div>
+                                       <img src="images/<?php echo $row['Product_name']?>.jpg" style="display: block; width: 150px; height: 150px;">
+                                   </div>
+                                   <div class="col-md-8">
+                                       <div class="info">
+                                           <div class="row">
+                                               <div class="col-md-5 product-name">
+                                                   <div class="product-name">
+                                                       <a><?php echo $row['Product_name']?></a>
+                                                       <div class="product-info">
+                                                           <div>Details:</div>
+                                                           <div><?php echo $row['Product_details'];?></div>
+                                                       </div>
+                                                   </div>
+                                               </div>
+                                               <div class="col-md-4 quantity">
+                                                   <label for="quantity">Quantity:</label>
+                                                   <div><?php echo $row['quantity'] ?></div>
+                                               </div>
+                                               <div class="col-md-3 price">
+                                                   <?php echo $st=$row['Product_price']*$row['quantity'];?>
+                                               </div>
+                                               
+                                               <?php $total += $st?>
+                                           </div>
+                                       </div>
+                                   </div>
+                                   <div class="col-md-8">
+                                   <button type="submit" class="btn btn-primary btn-lg" style="width:100%; margin-right: 2%;" name="remove" value="<?php echo $row['Product_ID'] ?>">Remove</button>
+                                   </div>
+                               </div>
+                               <?php } ?>
+                           </div>
+                       </div>
+                      
+                   </div>
+                </form>
+                    
+                   
+                    
                     <form method="post">
                         <div class="summary">
                             <h3>Summary</h3>
@@ -121,15 +131,16 @@
                             <button type="submit" class="btn btn-primary btn-lg" style="width:49%; margin-right: 2%;" name="card">Debit/Credit Card</button><button type="submit" class="btn btn-primary btn-lg" style="width:49%;" name="tng">E-Wallet</button>
                         </div>
                     </form>
-                    
+                    </div>
 
                     <?php 
                     if (isset($_POST['card']) || isset($_POST['tng'])) {
-                           if (isset($_POST['card'])) {
+                        if($np==null){
+                            $np=$total;
+                            }   
+                        if (isset($_POST['card'])) {
                             
-                            if($np==null){
-                                $np=$total;
-                                }
+                            
                             echo '<script>';
                             echo 'window.location.href = "payment.php?eml=' . $emml . '&tt='.$np.'&cod='.$co.'";';
                             echo '</script>';
@@ -138,6 +149,19 @@
                             echo 'window.location.href = "tng.php?eml=' . $emml . '&tt='.$np.'";';
                             echo '</script>';                        }
                     } 
+
+                    if (isset($_POST['remove'])) {
+                        $pid = $_POST['remove'];
+                        $sql = "DELETE FROM cart WHERE Product_ID = '$pid' AND Customer_ID = '$emml'";
+                        if (mysqli_query($connect, $sql)) {
+                            echo '<script>';
+                            echo 'alert("Product removed from cart successfully.");';
+                            echo 'window.location.href = "cart.php?eml=' . $emml . '";';
+                            echo '</script>';
+                        } else {
+                            echo "Error: " . $sql . "<br>" . mysqli_error($connect);
+                        }
+                    }
                     ?>
 
                 </div>

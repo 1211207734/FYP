@@ -62,13 +62,15 @@
                     <p>Last Check Before Payment Done</p>
                 </div>
                 <div class="content">
+               
                     <div class="row">
-                        <?php
+                    
+                        <div class="items">
+                            <div class="product">
+                            <?php
                         $total = 0;
                         while ($row = mysqli_fetch_assoc($result)) {
                         ?>
-                        <div class="items">
-                            <div class="product">
                                 <div class="row">
                                     <div>
                                         <img src="images/<?php echo $row['Product_name']?>.jpg" style="display: block; width: 150px; height: 150px; margin:auto;">
@@ -97,11 +99,13 @@
                                         </div>
                                     </div>
                                 </div>
+                                <?php } ?>
                             </div>
                         </div>
-                        <?php } ?>
+                        
                     </div>
-
+                    
+                    
                     <form method="post">
                         <div class="summary">
                             <h3>Summary</h3>
@@ -113,6 +117,8 @@
                             <button type="submit" class="btn btn-primary btn-lg" style="width:100%;" name="check">Checkout</button>
                         </div>
                         </form>
+                    
+                    
                     <?php 
                     if (isset($_POST['check'])){
                         //$nb = $obal - $total;

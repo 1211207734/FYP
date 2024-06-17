@@ -2,20 +2,50 @@
 CREATE DATABASE jbp;
 USE jbp;
 
-CREATE TABLE Admin (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    Fn text NOT NULL,
-    Ln text NOT NULL,
-    Un text NOT NULL,
-	email text NOT NULL,
-    np text NOT NULL,
-    img text NOT NULL,
-    status text NOT NULL
-);
 
-INSERT INTO Admin (id,Fn,Ln,Un,email,np,status,img) 
-VALUES  (1211208820,'brand','on','noprob madam','bbran@example.com','jkjk','active','images/user/null.png'),
-        (1,'Super','Admin','Super Admin','admin@gmail.com','admin','active','images/user/null.png');
+CREATE TABLE `admin` (
+  `id` int(11) NOT NULL,
+  `Fn` text NOT NULL,
+  `Ln` text NOT NULL,
+  `Un` text NOT NULL,
+  `email` text NOT NULL,
+  `np` text NOT NULL,
+  `status` text NOT NULL,
+  `img` text NOT NULL DEFAULT 'images/user/null.png',
+  `customer` int(11) NOT NULL,
+  `project` int(11) NOT NULL,
+  `projrctp` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`id`, `Fn`, `Ln`, `Un`, `email`, `np`, `status`, `img`, `customer`, `project`, `projrctp`) VALUES
+(1, 'Super', 'Admin', 'Super Admin', 'admin@gmail.com', 'admin', 'active', 'images/user/null.png', 50007, 2078, 78),
+(1211208820, 'brand', 'on', 'noprob madam', 'bbran@example.com', 'jkjk', 'active', 'images/user/null.png', 0, 0, 0),
+(1211208821, 'keke', 'mah', 'KKTE', 'kkl@gmail.com', 'kkl', 'active', 'images/user/null.png', 0, 0, 0);
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1211208823;
+
 
 
 CREATE TABLE Categories (

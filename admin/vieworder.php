@@ -72,7 +72,7 @@
         <!-- ====================================
           ——— LEFT SIDEBAR WITH OUT FOOTER
         ===================================== -->
-        <aside class="left-sidebar sidebar-dark" id="left-sidebar">
+         <aside class="left-sidebar sidebar-dark" id="left-sidebar">
           <div id="sidebar" class="sidebar sidebar-with-footer">
             <!-- Aplication Brand -->
             <div class="app-brand">
@@ -209,6 +209,12 @@
                                 
                               </a>
                             </li>
+                            <li>
+                              <a class="sidenav-item-link" href="viewstaff.php?eml=<?php echo $emml?>">
+                                <span class="nav-text">Staff</span>
+                                
+                              </a>
+                            </li>
                               <li>
                               <a class="sidenav-item-link" href="vieworder.php?eml=<?php echo $emml?>">
                                 <span class="nav-text">Order</span>
@@ -241,15 +247,12 @@
                 <ul class="d-flex">
                   <li>
                     <a href="user-account-settings.php?eml=<?php echo $emml ?>" data-toggle="tooltip" title="Profile settings"><i class="mdi mdi-settings"></i></a></li>
-                  <li>
-                    <a href="#" data-toggle="tooltip" title="No chat messages"><i class="mdi mdi-chat-processing"></i></a>
-                  </li>
+                  
                 </ul>
               </div>
             </div>
           </div>
         </aside>
-
 
       <!-- ====================================
       ——— PAGE WRAPPER

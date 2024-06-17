@@ -31,7 +31,7 @@ $rr = mysqli_query($connect, $sql);
                 // Execute the SQL statement
                 if ($stmt->execute()) {
                     $response["success"] = true;
-                    $response["message"] = ucfirst($action) . "d successfully.";
+                    $response["message"] = ucfirst($action) . "ed successfully.";
                 } else {
                     $response["message"] = "Error while trying to " . $action . " product.";
                 }

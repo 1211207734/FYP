@@ -22,18 +22,15 @@
 	</div>      
 </header>
 				<body>
-					<div class="container rounded bg-white mt-5 mb-5">
+					<div class="container rounded bg-white mt-5 mb-5  align-items-center ">
                         <div class="row">
-                            <div class="col-md-3 border-right">
-                                <div class="d-flex flex-column align-items-center text-center p-3 py-5">
-                                    <div class="square position-relative display-2 mb-3">
-										<i class="fas fa-fw fa-user position-absolute top-50 start-50 translate-middle text-secondary"></i>
-									</div>
-
-									<form method="post" enctype="multipart/form-data">
+							<div class="col-md-3 border-right">
+								<div class="d-flex flex-column align-items-center text-center p-3 py-5">
 									
-                                </div>
-                            </div>
+									<span class="text-black-50">
+										</span>
+								</div>
+							</div>
                             <div class="col-md-5 border-right">
                                 <div class="p-3 py-5">
                                     <div class="d-flex justify-content-between align-items-center mb-3">

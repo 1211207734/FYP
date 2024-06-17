@@ -67,16 +67,16 @@
                                         <h4 class="text-right">Profile Settings</h4>
                                     </div>
                                     <div class="d-flex flex-column align-items-center text-center p-3 py-5">
-                                    <div class="square position-relative display-2 mb-3">
-										<i class="fas fa-fw fa-user position-absolute top-50 start-50 translate-middle text-secondary"></i>
-									</div>
+                                    
 
 									<form method="post" enctype="multipart/form-data">
 										<body>
 											<div class="text-center">
-												<input type="file" id="uploadInput" name="profileImage" accept="image/*">
-												<div id="imagePreview"></div>
-												<button id="removeImageButton">Remove Image</button>
+                                           <div id="imagePreview"> </div><br>
+                                           <button id="removeImageButton">Remove Image</button>    <input type="file" id="uploadInput" name="profileImage" accept="image/*">
+												
+												<br>
+												
 											</div>
 											<script>
 												document.getElementById('uploadInput').addEventListener('change', function(event) {
@@ -85,8 +85,8 @@
 
 												reader.onload = function(e) {
 													const imagePreview = document.getElementById('imagePreview');
-													imagePreview.innerHTML = `<img src="${e.target.result}" alt="Preview">`;
-													imagePreview.style.display = 'block';
+													imagePreview.innerHTML = `<img style="width: 350px; height:350px" src="${e.target.result}" alt="Preview">`;
+													document.getElementById('uploadInput').style.display = 'none';
 													document.getElementById('removeImageButton').style.display = 'block';
 												}
 
@@ -103,10 +103,7 @@
 											</script>
                                             <p class="text-muted mt-3 mb-0"><span class="me-1">Note:</span>Minimum size 300px X 300px</p>
 										</body>
-                                    <span class="font-weight-bold"><?php echo $row['Customer_name']; ?></span>
-                                    <br><br>
-                                    <span class="text-black-50"><?php echo $row['Customer_email']; ?></span>
-                                    <span> </span>
+                                    
                                 </div>
                                     <div class="row mt-2">
                                         <div class="col-md-6"><label class="labels">Full Name</label>
@@ -129,10 +126,11 @@
                                         <input type="text" class="form-control" placeholder="" name="pos" value="<?php echo $row['Customer_postcode']; ?>"></div>
  
                                     </div>
+                                    <br>
                                     <a href="p.php?eml=<?php echo $emml?>">
                                     <button type="button"class="btn btn-primary profile-button" >Cancel</button></a>
-                                    <a href="p.php?eml=<?php echo $emml?>">
-                                    <button class="btn btn-primary profile-button" type="submit" name="save">Save Changes</button></a>
+                                
+                                    <button class="btn btn-primary profile-button" type="submit" name="save">Save Changes</button>
                                 </div>
                                     
                                 </div>
@@ -151,8 +149,8 @@
                     $a1 = $_POST['a1'];
                     $a2 = $_POST['a2'];
                     $pos = $_POST['pos'];
-                    $fn=$_FILES['profileImage']['name'];
-                    $ft=$_FILES['profileImage']['tmp_name'];
+                    $fn=basename($_FILES['profileImage']['name']);
+                    $ft=basename($_FILES['profileImage']['tmp_name']);
                     $folder="images/user/".$fn;
             
                     
@@ -166,7 +164,7 @@
                 
             
                     // Prepare SQL statement
-                    $sql = "UPDATE `customer` SET Customer_name='$f', Customer_HP='$p', Customer_email='$email', Customer_address_1='$a1', Customer_address_2='$a2', Customer_postcode='$pos' WHERE Customer_ID='$emml'";
+                    $sql = "UPDATE `customer` SET Customer_name='$f', Customer_HP='$p', Customer_email='$email', Customer_address_1='$a1', Customer_address_2='$a2', Customer_postcode='$pos', img='$folder' WHERE Customer_ID='$emml'";
                     mysqli_query($connect,$sql);
                     if (mysqli_query($connect, $sql)&&move_uploaded_file($ft,$folder))
                     {

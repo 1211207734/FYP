@@ -63,14 +63,14 @@
                                     </div>
                                     <div class="row mt-2">
                                     <div class="d-flex justify-content-between align-items-center mb-3">
-                                <td class ="py-0"><img src="<?php echo $row['img'] ?>" class="user-image rounded-circle" alt="User Image" /></td>
+                                <td class ="py-0"><img style="width: 350px;height 350px" src="<?php echo $row['img'] ?>" class="user-image rounded-circle" alt="User Image" /></td>
                                     <br><br>
                                     
                                 </div>
                                         <div class="col-md-6"><label class="labels"><h5>Full Name:</h5></label><p><?php echo $row['Customer_name']; ?></p></div>
                                         <div class="col-md-12"><label class="labels"><h5>Phone Number:</h5></label><p><?php echo $row['Customer_HP']; ?></p></div>
-                                        <div class="col-md-12"><label class="labels"><h5>Email Address:</h5></label><p><?php echo $row['Customer_email']; ?></p></div></div>
-                                        <div class="col-md-12"><label class="labels"><h5>Address:</h5></label><p><?php echo $row['Customer_address_1']; ?><br><br><?php echo $row['Customer_address_2']; ?></p>
+                                        <div class="col-md-12"><label class="labels"><h5>Email Address:</h5></label><p><?php echo $row['Customer_email']; ?></p></div>
+                                        <div class="col-md-12"><label class="labels"><h5>Address:</h5></label><p><?php echo $row['Customer_address_1']; ?><br><?php echo $row['Customer_address_2']; ?></p></div>
                                         <div class="col-md-12"><label class="labels"><h5>Postcode:</h5></label><p><?php echo $row['Customer_postcode']; ?></p></div>
                                     </div>
                                     <div class="buttons">
