@@ -256,10 +256,10 @@ if (isset($_GET['eml'])) {
                   </ul>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="FAQ.html" >FAQs    </a>
+                  <a class="nav-link" href="FAQ.php?eml=<?php echo $emml ?>" >FAQs    </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="about.html">About Us</a>
+                  <a class="nav-link" href="about.php?eml=<?php echo $emml?>">About Us</a>
                 </li>
                 <hr>
                 <li class="nav-item">
@@ -767,7 +767,7 @@ if (isset($_GET['eml'])) {
                 <a href="index.html" class="item-anchor">How it works</a>
               </li>
               <li class="menu-item">
-                <a href="about.html" class="item-anchor">About</a>
+                <a href="about.php?eml=<?php echo $emml?>" class="item-anchor">About</a>
               </li>
               <li class="menu-item">
                 <a href="blog.html" class="item-anchor">Our packages</a>
@@ -801,7 +801,7 @@ if (isset($_GET['eml'])) {
                 <a href="#" class="item-anchor">Find us easy</a>
               </li>
               <li class="menu-item">
-                <a href="FAQ.html" class="item-anchor">FAQs</a>
+                <a href="FAQ.php?eml=<?php echo $emml ?>" class="item-anchor">FAQs</a>
               </li>
             </ul>
           </div>

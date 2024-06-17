@@ -22,12 +22,12 @@
 </header>
 <div class="topnav" id="myTopnav">
         <a href="home.php?eml=<?php echo $emml?>" >Home</a>
-        <a href="shoptry.php?eml=<?php echo $emml?>&cid=1">Shop</a>
+        <a href="shop.php?eml=<?php echo $emml?>">Shop</a>
         <a href="orderhis.php?eml=<?php echo $emml?>"class="active">Order History</a>
         <a href="p.php?eml=<?php echo $emml?>">My Account</a>
         <a href="cart.php?eml=<?php echo $emml?>">My Cart</a>
-        <a href="FAQ.html">FAQs</a>
-        <a href="about.html">About Us</a>
+        <a href="FAQ.php?eml=<?php echo $emml?>">FAQs</a>
+        <a href="about.php?eml=<?php echo $emml?>">About Us</a>
         <a href="loginregister.php">Log out</a>
         <a href="javascript:void(0);" class="icon" onclick="myFunction()">
             <i class="fa fa-bars"></i>

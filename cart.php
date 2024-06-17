@@ -49,12 +49,12 @@
 
     <div class="topnav" id="myTopnav">
         <a href="home.php?eml=<?php echo $emml?>" >Home</a>
-        <a href="shoptry.php?eml=<?php echo $emml?>&cid=1">Shop</a>
+        <a href="shop.php?eml=<?php echo $emml?>">Shop</a>
         <a href="orderhis.php?eml=<?php echo $emml?>">Order History</a>
-        <a href="myaccount.php?eml=<?php echo $emml?>">My Account</a>
+        <a href="p.php?eml=<?php echo $emml?>">My Account</a>
         <a href="cart.php?eml=<?php echo $emml?>"class="active">My Cart</a>
-        <a href="FAQ.html">FAQs</a>
-        <a href="about.html">About Us</a>
+        <a href="FAQ.php?eml=<?php echo $emml?>">FAQs</a>
+        <a href="about.php?eml=<?php echo $emml?>">About Us</a>
         <a href="loginregister.php">Log out</a>
         <a href="javascript:void(0);" class="icon" onclick="myFunction()">
             <i class="fa fa-bars"></i>
@@ -94,7 +94,7 @@
                                                 </div>
                                                 <div class="col-md-4 quantity">
                                                     <label for="quantity">Quantity:</label>
-                                                    <input id="quantity" type="number" value="<?php echo $row['quantity'] ?>" class="form-control quantity-input">
+                                                    <div><?php echo $row['quantity'] ?></div>
                                                 </div>
                                                 <div class="col-md-3 price">
                                                     <?php echo $st=$row['Product_price']*$row['quantity'];?>

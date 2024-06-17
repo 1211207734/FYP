@@ -81,18 +81,6 @@ CREATE TABLE ooder (
     FOREIGN KEY (Customer_ID) REFERENCES Customer(Customer_ID)
 );
 
-INSERT INTO ooder (Order_date,Order_time Total_price, Customer_ID) 
-VALUES ('2024-04-01', 299.99, 1),
-       ('2024-04-02', 499.99, 2),
-       ('2024-04-03', 799.99, 3),
-       ('2024-04-04', 199.99, 4),
-       ('2024-04-05', 599.99, 5),
-       ('2024-04-06', 399.99, 6),
-       ('2024-04-07', 899.99, 7),
-       ('2024-04-08', 299.99, 8),
-       ('2024-04-09', 499.99, 9),
-       ('2024-04-10', 699.99, 10);
-
 CREATE TABLE Products (
     Product_ID INT AUTO_INCREMENT PRIMARY KEY,
     Product_name VARCHAR(50) NOT NULL,
@@ -233,7 +221,7 @@ CREATE TABLE card (
 CREATE TABLE Payment (
     Payment_ID INT AUTO_INCREMENT PRIMARY KEY,
     Payment_date DATE NOT NULL,
-    Payment_method VARCHAR(10) NOT NULL,
+    Payment_method VARCHAR(15) NOT NULL,
     Payment_total FLOAT(7,2) NOT NULL
 );
 
@@ -280,18 +268,6 @@ CREATE TABLE Transaction_Report (
     FOREIGN KEY (Payment_ID) REFERENCES Payment(Payment_ID)
 );
 
-INSERT INTO Transaction_Report (Customer_ID, Order_ID, Payment_ID, status) 
-VALUES (1, 1, 1,  'completed'),
-       (2, 2, 2,  'completed'),
-       (3, 3, 3,  'completed'),
-       (4, 4, 4,  'completed'),
-       (5, 5, 5,  'completed'),
-       (6, 6, 6,  'uncompleted'),
-       (7, 7, 7,  'uncompleted'),
-       (8, 8, 8,  'uncompleted'),
-       (9, 9, 9,  'uncompleted'),
-       (10, 10,  10, 'uncompleted');
-
 CREATE TABLE tng (
     Customer_ID INT,
     Balance FLOAT(7,2) NOT NULL
@@ -331,5 +307,6 @@ VALUES
 
 CREATE TABLE `orderdetail` (
   `Order_ID` int(11) NOT NULL,
-  `Product_ID` int(11) NOT NULL
+  `Product_ID` int(11) NOT NULL,
+  `Quantity` int(3) NOT NULL
 ) 

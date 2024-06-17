@@ -26,11 +26,11 @@
 </header>
 <div class="topnav" id="myTopnav">
         <a href="home.php?eml=<?php echo $emml?>" >Home</a>
-        <a href="shoptry.php?eml=<?php echo $emml?>&cid=1">Shop</a>
+        <a href="shop.php?eml=<?php echo $emml?>">Shop</a>
         <a href="orderhis.php?eml=<?php echo $emml?>">Order History</a>
-        <a href="myaccount.php?eml=<?php echo $emml?>"class="active">My Account</a>
-        <a href="FAQ.html">FAQs</a>
-        <a href="about.html">About Us</a>
+        <a href="p.php?eml=<?php echo $emml?>"class="active">My Account</a>
+        <a href="FAQ.php?eml=<?php echo $emml?>">FAQs</a>
+        <a href="about.php?eml=<?php echo $emml?>">About Us</a>
         <a href="loginregister.php">Log out</a>
         <a href="javascript:void(0);" class="icon" onclick="myFunction()">
             <i class="fa fa-bars"></i>
@@ -74,7 +74,6 @@
                                         <div class="col-md-12"><label class="labels"><h5>Postcode:</h5></label><p><?php echo $row['Customer_postcode']; ?></p></div>
                                     </div>
                                     <div class="buttons">
-                                    <a href="home.php?eml=<?php echo $emml?>"><button class="btn btn-primary px-4 ms-3">Home</button>
                                     <a href="upp.php?eml=<?php echo $emml?>"><button class="btn btn-primary px-4 ms-3">Update Profile Details</button><br><br><br>
                                     <a href="cp.php?eml=<?php echo $emml?>"><button class="btn btn-primary px-4 ms-3">Change Password</button></a>
                                     </div>

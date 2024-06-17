@@ -244,19 +244,13 @@
                     <li>
                       <a href="checkout.php" class="dropdown-item item-anchor">Categories</a>
                     </li>
-                    <li>
-                      <a href="account.html" class="dropdown-item item-anchor">My Account    </a>
-                    </li>
-                    <li>
-                      <a href="order-tracking.html" class="dropdown-item item-anchor">Order Tracking    </a>
-                    </li>
                   </ul>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="FAQ.html" >FAQs    </a>
+                  <a class="nav-link" href="FAQ.php" >FAQs    </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="about.html">About Us</a>
+                  <a class="nav-link" href="about.php?eml=<?php echo $emml?>">About Us</a>
                 </li>
                 <hr>
                 <li class="nav-item">
@@ -313,18 +307,8 @@
         <div class="col-3 col-md-3 text-md-end">
           <ul class="list-unstyled d-flex justify-content-end m-0">
             <li>
-              <a href="wishlist.html" class="mx-2">
-                <svg width="24" height="24" viewBox="0 0 24 24"><use xlink:href="#heart"></use></svg>
-              </a>
-            </li>
-            <li>
               <a href="cart.html" class="mx-2" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart" aria-controls="offcanvasCart">
                 <svg width="24" height="24" viewBox="0 0 24 24"><use xlink:href="#cart"></use></svg>
-              </a>
-            </li>
-            <li class="search-box" class="mx-2">
-              <a href="#search" class="search-button">
-                <svg width="24" height="24" viewBox="0 0 24 24"><use xlink:href="#search"></use></svg>
               </a>
             </li>
           </ul>
@@ -800,7 +784,7 @@
                 <a href="index.html" class="item-anchor">How it works</a>
               </li>
               <li class="menu-item">
-                <a href="about.html" class="item-anchor">About</a>
+                <a href="about.php?eml=<?php echo $emml?>" class="item-anchor">About</a>
               </li>
               <li class="menu-item">
                 <a href="blog.html" class="item-anchor">Our packages</a>
@@ -834,7 +818,7 @@
                 <a href="#" class="item-anchor">Find us easy</a>
               </li>
               <li class="menu-item">
-                <a href="FAQ.html" class="item-anchor">FAQs</a>
+                <a href="FAQ.php?eml=<?php echo $emml ?>" class="item-anchor">FAQs</a>
               </li>
             </ul>
           </div>

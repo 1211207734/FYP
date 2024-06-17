@@ -403,7 +403,7 @@ if(isset($_POST['name'])) {
                     aria-haspopup="true" aria-expanded="false">Pages</a>
                   <ul class="dropdown-menu list-unstyled" aria-labelledby="dropdownPages">
                     <li>
-                      <a href="about.html" class="dropdown-item item-anchor">About</a>
+                      <a href="about.php?eml=<?php echo $emml?>" class="dropdown-item item-anchor">About</a>
                     </li>
                     <li>
                       <a href="cart.html" class="dropdown-item item-anchor">Cart</a>
