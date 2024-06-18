@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<?php if (isset($_GET['eml'])) {
-					$emml = $_GET['eml'];}?>
+
   
 
 <html lang="en" dir="ltr">
@@ -55,8 +54,9 @@
       NProgress.configure({ showSpinner: false });
       NProgress.start();
     </script>
-
-
+    <?php
+		if (isset($_GET['eml'])) {
+			$emml = $_GET['eml'];}?>
     
 
     <!-- ====================================
@@ -265,43 +265,16 @@
                 <span class="sr-only">Toggle navigation</span>
               </button>
 
-              <span class="page-title">Customer</span>
+              <span class="page-title">Adding New Staff</span>
 
               <div class="navbar-right ">
 
                 <!-- search form -->
-                <div class="search-form">
-                  <form action="index.php" method="get">
-                    <div class="input-group input-group-sm" id="input-group-search">
-                      <input type="text" autocomplete="off" name="query" id="search-input" class="form-control" placeholder="Search..." />
-                      <div class="input-group-append">
-                        <button class="btn" type="button">/</button>
-                      </div>
-                    </div>
-                  </form>
-                  <ul class="dropdown-menu dropdown-menu-search">
-
-                    <li class="nav-item">
-                      <a class="nav-link" href="index.php?eml=<?php echo $emml ?>">Morbi leo risus</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="index.php?eml=<?php echo $emml ?>">Dapibus ac facilisis in</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="index.php?eml=<?php echo $emml ?>">Porta ac consectetur ac</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="index.php?eml=<?php echo $emml ?>">Vestibulum at eros</a>
-                    </li>
-
-                  </ul>
-
-                </div>
-
+                
                 <ul class="nav navbar-nav">
                   <!-- Offcanvas -->
-                 
-                  <!-- User Account -->
+                
+                  
                   <?php				
                   
                       $connect= mysqli_connect("localhost","root","","jbp");
@@ -309,10 +282,11 @@
                       $result = mysqli_query($connect, $ll);
                       $r=mysqli_fetch_assoc($result);
                       ?>
+                  <!-- User Account -->
                   <li class="dropdown user-menu">
                     <button class="dropdown-toggle nav-link" data-toggle="dropdown">
                       <img src="<?php echo $r['img'] ?>" class="user-image rounded-circle" alt="User Image" />
-                      <span class="d-none d-lg-inline-block">  <?php echo $r['Un'];?></span>
+                      <span class="d-none d-lg-inline-block"><?php echo $r['Un'];?></span>
                     </button>
                     <ul class="dropdown-menu dropdown-menu-right">
                       <li>
@@ -327,10 +301,10 @@
                           <span class="nav-text">Account Setting</span>
                         </a>
                       </li>
-                     
+                      
 
                       <li class="dropdown-footer">
-                        <a class="dropdown-link-item" href="/FYP/loginregister.php" onclick="log()" > <i class="mdi mdi-logout"></i> Log Out </a>
+                        <a class="dropdown-link-item" href="/FYP//FYP/loginregister.php"> <i class="mdi mdi-logout"></i> Log Out </a>
                       </li>
                     </ul>
                   </li>
@@ -349,67 +323,42 @@
 
 
 <!-- Products Inventory -->
-<div class="card card-default">
-  <div class="card-header">
-    <h2>Customer List</h2>
+<div class="container d-flex align-items-center justify-content-center" style="min-height: 100vh">
+          <div class="d-flex flex-column justify-content-between">
+            <div class="row justify-content-center mt-5">
+              <div class="col-md-10">
+                <div class="card card-default">
+                  <div class="card-header">
+                    <div class="app-brand w-100 d-flex justify-content-center border-bottom-0">
+                      <a class="w-auto pl-0" href="/index.php?eml=<?php echo $emml ?>">
+                        <img src="images/jbplogo.png" alt=" JBPstore">
+                        <span class="brand-name text-dark"> JBPstore</span>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="card-body p-5">
+                    <h4 class="text-dark mb-5">Reset Your Password</h4>
+                    <form action="/index.php?eml=<?php echo $emml ?>">
+                      <div class="row">
+                        <div class="form-group col-md-12 mb-4">
+                          <input type="email" class="form-control input-lg" id="name" aria-describedby="nameHelp" placeholder="Email">
+                        </div>
 
-   
+                        <div class="col-md-12">
+                          <button type="submit" class="btn btn-primary btn-pill mb-4">Submit</button>
 
-  </div>
-  
-    <table id="productsTable" class="table table-hover table-product" style="width:100%">
-      <thead>
-        <tr>
-          <th>NO    </th>
-          <th>Image</th>
-          <th hidden>Customer ID</th>
-          <th>Customer Name</th>
-          <th>Customer Email</th>
-          <th>Customer HP</th>
-          <th>Customer Address</th>
-          <th>Postcode</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-      <?php
-    $sql = "SELECT Customer_ID,Customer_name,Customer_email,Customer_HP,Customer_address_1,Customer_address_2,Customer_postcode,img FROM customer";
-    $result = mysqli_query($connect, $sql);$i=0;
-    while($row = mysqli_fetch_assoc($result)){$i++;
-    ?>
-        <tr>
-          <td><?php echo $i;?></td>
-          <td class ="py-0"><img src="<?php echo $r['img'] ?>" class="user-image rounded-circle" alt="User Image" /></td>
-          <td hidden><?php echo $row['Customer_ID'];?></td>
-          <td><?php echo $row['Customer_name'];?></td>
-          
-          <td><?php echo $row['Customer_email'];?></td>
-          <td><?php echo $row['Customer_HP'];?></td>
-          <td><?php echo $row['Customer_address_1']," ",$row['Customer_address_2'];?></td>
-          <td><?php echo $row['Customer_postcode'];?></td>
-          <td>
-            <div class="dropdown">
-              <a class="dropdown-toggle icon-burger-mini" href="#" role="button" id="dropdownMenuLink"
-                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
-              </a>
+                        </div>
+                      </div>
+                    </form>
 
-              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
+                  </div>
+                </div>
               </div>
             </div>
-          </td>
-        </tr>
-        <?php }?>
-        
 
+          </div>
+        </div>
 
-      </tbody>
-    </table>
-
-  </div>
-</div>
 </div>
           
         </div>
@@ -429,11 +378,9 @@
           </footer>
 
       </div>
-   
+    </div>
     
-                    <!-- Card Offcanvas -->
-                    
-
+                  
 
 
     
@@ -455,7 +402,7 @@
                     <script src="plugins/apexcharts/apexcharts.js"></script>
                     
                     
-                    <script src="js/ JBPstore.js"></script>
+                    <script src="js/ mono.js"></script>
                     <script src="js/chart.js"></script>
                     <script src="js/map.js"></script>
                     <script src="js/custom.js"></script>

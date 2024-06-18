@@ -75,12 +75,12 @@ if (isset($_GET['tt'])) {
 <body>
 <header>
 	<div>
-		<img src="images/tng.png" class="mlogo">
+		<img style="height: 200px;width:250px" src="images/ewallet.png" class="mlogo">
 	</div>  
 </header>
 	<div class="con">
 		<div>Total Amount Needed to Pay : <?php echo $total ?> </div>
-		<div>Balance of TNG Wallet : <a><?php echo $b=$row['Balance']?></a></div>
+		<div>Balance of JBP Wallet : <a><?php echo $b=$row['Balance']?></a></div>
 	</div>	
 	
 		<form method="post">
@@ -90,6 +90,9 @@ if (isset($_GET['tt'])) {
 			<div class="reload">
 				<div>Reload Amount:</div>
 				<button class="button" type="submit" name="r50">Reload RM50</button><button class="button" type="submit" name="r100">Reload RM100</button>
+				<label class="input_label">Others Amount</label>
+					<br>RM <input class="input_field" type="text" name="name" placeholder="Others Amount">
+					<button class="button" type="submit" name="am">Reload</button>
 			</div>
 			<?php
 			if (isset($_POST['r50'])) {
@@ -109,7 +112,18 @@ if (isset($_GET['tt'])) {
 				echo 'window.location.href = "tng.php?eml=' . $emml . '&tt='.$total.'";';	 
 				echo '</script>';	
 				exit();	
-			}?>
+			}
+			else if (isset($_POST['am'])) {
+				$nn=$_POST['name'];
+				$b += $nn;
+				$update = mysqli_query($connect, "UPDATE tng SET Balance='$b' WHERE Customer_ID='$emml'");
+				echo '<script>';
+				echo 'alert("Reload RM'.$nn.' Successfully!") ;';
+				echo 'window.location.href = "tng.php?eml=' . $emml . '&tt='.$total.'";';	 
+				echo '</script>';	
+				exit();	
+			}
+			?>
 		</form>
 	
 </body>
@@ -117,7 +131,7 @@ if (isset($_GET['tt'])) {
 if (isset($_POST['pay'])) {
 	if ($b >= $total){
 	 echo '<script>';
-	 echo 'window.location.href = "checkout.php?eml='. $emml . '&pm=TNG&ba='.$b.'";';
+	 echo 'window.location.href = "checkout.php?eml='. $emml . '&pm=TNG&ba='.$b.'&tt='.$total.'";';
 	 echo '</script>';
 	}
 
