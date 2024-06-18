@@ -58,3 +58,4 @@ $stmt->bind_param("ss", $password_hash, $user["id"]);
 $stmt->execute();
 
 echo "Password updated. You can now login.";
+
