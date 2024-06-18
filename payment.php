@@ -8,8 +8,7 @@
 </head>
 <?php
 include('database.php');
-if (isset($_GET['eml'])) {
-	$emml = $_GET['eml'];}
+$emml= isset($_GET['eml']) ? $_GET['eml'] : null;
 	if (isset($_GET['tt'])) {
 		$total = $_GET['tt'];}
 		$co= isset($_GET['cod']) ? $_GET['cod'] : null;
@@ -19,7 +18,7 @@ if (isset($_GET['eml'])) {
 	$row = mysqli_fetch_assoc($result);
 	$nn= $row['Customer_name'];
 
-	$sql2 = "SELECT Card_name,RIGHT(Card_num,4)AS'nun',Card_edate FROM card WHERE Customer_ID = '$emml'";
+	$sql2 = "SELECT Card_name,RIGHT(Card_num,4)AS'nun',Card_edate FROM card WHERE Card_name = '$nn'";
 	$result2 = mysqli_query($connect, $sql2);
 	$row2 = mysqli_fetch_assoc($result2);
 	if(!$row2){
@@ -107,7 +106,7 @@ if(isset($_POST['save'])) {
 	$cvv = $_POST['cv'];
 
 	// Prepare SQL statement
-	$sql = "INSERT INTO card (Card_name,Card_num,Card_edate,Card_cv,Customer_ID) values ('$n','$num','$date','$cvv','$emml')";
+	$sql = "INSERT INTO card (Card_name,Card_num,Card_edate,Card_cv) values ('$n','$num','$date','$cvv')";
 	
 	if (mysqli_query($connect, $sql))
 	{
