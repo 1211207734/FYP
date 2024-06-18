@@ -96,13 +96,6 @@ ALTER TABLE Customer
   ADD `reset_token_expires_at` DATETIME NULL DEFAULT NULL,
   ADD UNIQUE (`reset_token_hash`);
 
-CREATE TABLE `pass_reset` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `email` varchar(255) NOT NULL,
-  `token` varchar(255) NOT NULL, 
-   PRIMARY KEY (`id`)
-);
-
 CREATE TABLE ooder (
     Order_ID INT AUTO_INCREMENT PRIMARY KEY,
     Order_date DATE NOT NULL,
