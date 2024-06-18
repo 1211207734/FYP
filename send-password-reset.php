@@ -48,4 +48,4 @@ if ($stmt->affected_rows) {
 }
 
 echo "Message sent, please check your inbox.";
-<a href="loginregister.php?eml=<?php echo $emml?>"><button class="btn btn-primary px-4 ms-3">Back to Login</button></a>
+
