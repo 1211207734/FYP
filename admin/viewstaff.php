@@ -154,7 +154,7 @@
                             }
                           </script>  
                             <li >
-                              <a class="sidenav-item-link" href="reset-password.html">
+                              <a class="sidenav-item-link" href="reset-password.php?eml=<?php echo $emml ?>">
                                 <span class="nav-text">Reset Password</span>
                                 
                               </a>
