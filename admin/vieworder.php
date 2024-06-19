@@ -337,22 +337,26 @@
                 <thead>
                 <tr>
                     <th>Order Date</th>
-                    <th>Order Status</th>
+                    <th>Customer Name</th>
+                    <th>Customer HP</th>
                     <th>Total Amount</th>
-                    <th>Method</th>
+                    <th>Payment Method</th>
+                    <th>Order Status</th>
                     <th>View Details</th>
                 </tr>
                 </thead>
                 <tbody>
                 <?php
-               $sql = "SELECT ooder.Order_date,ooder.Total_price,payment.Payment_method,transaction_report.status,ooder.Order_ID FROM transaction_report,ooder,payment WHERE transaction_report.Order_ID=ooder.Order_ID and transaction_report.Payment_ID=payment.Payment_ID ";
+               $sql = "SELECT ooder.Order_date,ooder.Total_price,payment.Payment_method,customer.Customer_HP,transaction_report.status,ooder.Order_ID,customer.Customer_name FROM transaction_report,ooder,payment,customer WHERE transaction_report.Order_ID=ooder.Order_ID and transaction_report.Payment_ID=payment.Payment_ID and transaction_report.Customer_ID = customer.Customer_ID";
                $result = mysqli_query($connect, $sql);
                while ($row = mysqli_fetch_assoc($result)) {?>
                    <tr>
                        <td><?php echo $row['Order_date']?></td>
-                       <td><?php echo $row['status'] ?></td>
+                       <td><?php echo $row['Customer_name']?></td>
+                        <td><?php echo $row['Customer_HP']?></td>
                        <td>RM <?php echo $row['Total_price'] ?></td>
                        <td><?php echo $row['Payment_method'] ?></td>
+                       <td><?php echo $row['status'] ?></td>
                        <td><a href="orderdetails.php?eml=<?php echo $emml?>&oid=<?php echo $row['Order_ID'] ?>">View</a></td>
                    </tr>
                 <?php }?>

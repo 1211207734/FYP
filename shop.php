@@ -69,7 +69,7 @@
     // Retrieve category ID and email from GET parameters
     
     $emml = isset($_GET['eml']) ? $_GET['eml'] : null;
-
+   
     
 
     // Fetch category name
@@ -135,7 +135,7 @@
                                     <h3 class="product-title"><?php echo htmlspecialchars($row['Product_name']); ?></h3>
                                     <p class="product-details"><?php echo htmlspecialchars($row['Product_details']); ?></p>
                                     <p class="product-price">RM <?php echo htmlspecialchars($row['Product_price']); ?></p>
-                                    <a class="button-2" href="#" onclick="return addcart(<?php echo $row['Product_ID'] ?>)">Add to Cart</a>
+                                    <a  class="button-2" href="#" onclick="return addcart(<?php echo $row['Product_ID'] ?>)">Add to Cart</a>
                                 </div>
                             </div>
                         </div>

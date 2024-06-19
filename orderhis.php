@@ -37,9 +37,9 @@
             <thead>
                 <tr>
                     <th>Order Date</th>
-                    <th>Order Status</th>
                     <th>Total Amount</th>
                     <th>Method</th>
+                    <th>Order Status</th>
                     <th>View Details</th>
                 </tr>
             </thead>
@@ -51,9 +51,9 @@
             while ($row = mysqli_fetch_assoc($result)) {?>
                 <tr>
                     <td><?php echo $row['Order_date']?></td>
-                    <td><?php echo $row['status'] ?></td>
                     <td>RM <?php echo $row['Total_price'] ?></td>
                     <td><?php echo $row['Payment_method'] ?></td>
+                    <td><?php echo $row['status'] ?></td>
                     <td><a href="orderdetails.php?eml=<?php echo $emml?>&oid=<?php echo $row['Order_ID'] ?>">View</a></td>
                 </tr>
                <?php }?>
