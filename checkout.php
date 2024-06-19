@@ -26,6 +26,7 @@
     }
 
     $co= isset($_GET['cod']) ? $_GET['cod'] : null;
+    $ew= isset($_GET['ba']) ? $_GET['ba'] : null;
     if($co){
         $prop = "";
         $pop = "hidden";
@@ -121,16 +122,17 @@
                     
                     <?php 
                     if (isset($_POST['check'])){
-                        //$nb = $obal - $total;
+                        $eew = $ew - $total;
+                        
                         $sql1="INSERT INTO ooder (Customer_ID,Order_date,Order_time,Total_price) values ('$emml',CURRENT_DATE,CURRENT_TIME,'$total')";                       
                         $sq="UPDATE promotion SET valid=valid-1 WHERE code='$co'";
-                        //$sqlll="UPDATE tng SET Balance='$nb' WHERE Customer_ID='$emml'";
+                        $sqlll="UPDATE tng SET Balance='$eew' WHERE Customer_ID='$emml'";
                         $sqll="INSERT INTO payment (Payment_method,Payment_total,Payment_date) values ('$payment','$total',CURRENT_DATE)";
                         $sql="DELETE FROM cart WHERE Customer_ID='$emml'";
                         
                         mysqli_query($connect,$sq);
                         mysqli_query($connect,$sql1);
-                        //mysqli_query($connect,$sqlll);
+                        mysqli_query($connect,$sqlll);
                         mysqli_query($connect,$sqll); 
                         $sql2="SELECT Order_ID,Payment_ID FROM ooder,payment WHERE Order_date=Payment_date and Customer_ID=$emml and Payment_date=CURRENT_DATE";
                         $result = mysqli_query($connect, $sql2);
@@ -143,7 +145,9 @@
                         $result = mysqli_query($connect, $sql4);
                         while ($row = mysqli_fetch_assoc($result)) {
                             $sql5="INSERT INTO orderdetail (Order_ID,Product_ID,Quantity) values ('$row1[Order_ID]','$row[Product_ID]','$row[quantity]')";
+                            $sql6="UPDATE products set Product_stock=Product_stock-$row[quantity] where Product_ID=$row[Product_ID]";
                             mysqli_query($connect,$sql5);
+                            mysqli_query($connect,$sql6);
                         }
 
 

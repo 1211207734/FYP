@@ -138,6 +138,7 @@
                         if($np==null){
                             $np=$total;
                             }   
+                       if($np>0){
                         if (isset($_POST['card'])) {
                             
                             
@@ -148,6 +149,13 @@
 							echo '<script>';
                             echo 'window.location.href = "tng.php?eml=' . $emml . '&tt='.$np.'";';
                             echo '</script>';                        }
+                       }
+                          else{
+                            echo '<script>';
+                            echo 'alert("Your cart is empty!!!");';
+                            echo 'window.location.href = "shop.php?eml=' . $emml . '";';
+                            echo '</script>';
+                          }
                     } 
 
                     if (isset($_POST['remove'])) {
