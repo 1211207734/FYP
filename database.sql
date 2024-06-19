@@ -91,11 +91,6 @@ VALUES ('Azlan Bin Abdul Rahman', 'azlan.abdulrahman@gmail.com', 'password123', 
        ('Brandon Tan Min Yau', '1211109437@gmail.com', 'password437', '0136661896', 'No. 33, Jalan 1/3', 'Taman Jati, Melaka', '75350','images/user/null.png');
 
 
-ALTER TABLE Customer
-  ADD `reset_token_hash` VARCHAR(64) NULL DEFAULT NULL,
-  ADD `reset_token_expires_at` DATETIME NULL DEFAULT NULL,
-  ADD UNIQUE (`reset_token_hash`);
-
 CREATE TABLE ooder (
     Order_ID INT AUTO_INCREMENT PRIMARY KEY,
     Order_date DATE NOT NULL,
