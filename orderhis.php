@@ -38,7 +38,7 @@
                 <tr>
                     <th>Order Date</th>
                     <th>Total Amount</th>
-                    <th>Method</th>
+                    <th>Payment Method</th>
                     <th>Order Status</th>
                     <th>View Details</th>
                 </tr>
