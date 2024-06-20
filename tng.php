@@ -69,7 +69,7 @@ if (isset($_GET['tt'])) {
 		$total = $_GET['tt'];}
 	
 	$result = mysqli_query($connect, "SELECT * FROM tng where Customer_ID='$emml'");
-	if (!$result) {
+	if (mysqli_num_rows($result)==0) {
 		$ss="INSERT INTO tng (Customer_ID, Balance) VALUES ('$emml', 0)";
 		mysqli_query($connect, $ss);
 		echo '<script>';

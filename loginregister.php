@@ -85,30 +85,38 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])) {
 
     /// Set parameters and execute
     $fullname = $_POST['fullname'];
-    $email = $_POST['email'];
+    $t="@gmail.com";
+    $email=$emaill&$t;
+    $emaill = $_POST['email'];
     $npassword = $_POST['password']; // Use $npassword instead of $passwor
+    $cpassword = $_POST['confirm_password'];
     $phone = $_POST['phone'];
     $address1 = $_POST['address1']; // Address Line 1
     $address2 = $_POST['address2']; // Address Line 2
     $postcode = $_POST['postcode']; // Postcode
 
+    if($npassword != $cpassword) {
+        $error_message = "Passwords do not match";
+        exit();
+    }else{
+        $stmt->execute();
 
-    $stmt->execute();
-
-    echo '<script type="text/javascript">
-    alert("Register successfully.");
-    // Redirect to the login page after 3 seconds
-    setTimeout(function(){
-        window.location.href = "loginregister.php";
-    }, );
-    </script>';
-
-    // Close statement and connection
-    $stmt->close();
-    $connect->close();
-
-    // Prevent further execution
-    exit();
+        echo '<script type="text/javascript">
+        alert("Register successfully.");
+        // Redirect to the login page after 3 seconds
+        setTimeout(function(){
+            window.location.href = "loginregister.php";
+        }, );
+        </script>';
+    
+        // Close statement and connection
+        $stmt->close();
+        $connect->close();
+    
+        // Prevent further execution
+        exit();
+    }
+    
 }
 ?>
 
@@ -188,7 +196,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])) {
                                                 <i class="input-icon uil uil-user"></i>
                                             </div>
                                             <div class="form-group mt-2">
-                                                <input type="email" class="form-style" placeholder="Email" name="email" required>
+                                                <input style="width:45%" type="text" class="form-style" placeholder="Email" name="email" required><span class="form-style" style="align-content:left">@gmail.com</span>
                                                 <i class="input-icon uil uil-at"></i>
                                             </div>
                                             <div class="form-group mt-2">

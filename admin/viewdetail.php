@@ -3,6 +3,9 @@
 					$emml = $_GET['eml'];}
                     if (isset($_GET['sta'])) {
                         $stat = $_GET['sta'];}    
+                    if (isset($_GET['try'])) {
+                        $ry = $_GET['try'];}
+
           ?>
   
 
@@ -329,218 +332,47 @@
     <div class="col-12">
         <div class="card card-default">
             <div class="card-header">
-                <h2>Order Inventory</h2>
+                <h2>Order Details</h2>
             </div>
             
   <br>
             <table id="productsTable" class="table table-hover table-product" style="width:100%">
                 <thead>
                 <tr>
-                    <th>Order Date</th>
-                    <th>Customer Name</th>
-                    
-                    <th>Total Amount</th>
-                    <th>Payment Method</th>
-                    <th>Order Status</th>
-                    <th></th>
+                    <th>Product Image</th>
+                    <th>Product Name</th>
+                    <th>Product Price</th>
+                    <th>Quantity</th>
                 </tr>
                 </thead>
                 <tbody>
                 <?php
-               $sql = "SELECT ooder.Order_date,ooder.Total_price,payment.Payment_method,customer.Customer_HP,transaction_report.status,ooder.Order_ID,customer.Customer_name FROM transaction_report,ooder,payment,customer WHERE transaction_report.Order_ID=ooder.Order_ID and transaction_report.Payment_ID=payment.Payment_ID and transaction_report.Customer_ID = customer.Customer_ID ORDER BY ooder.Order_date DESC";
+               $sql = "SELECT Customer_name,products.Product_name,products.img,ooder.Order_date,ooder.Order_time,orderdetail.Quantity,products.Product_price,ooder.Total_price,transaction_report.status FROM customer,products,orderdetail,ooder,transaction_report
+                        WHERE transaction_report.Order_ID=ooder.Order_ID and transaction_report.Customer_ID=customer.Customer_ID and ooder.Order_ID=orderdetail.Order_ID and orderdetail.Product_ID=products.Product_ID and ooder.Order_ID='$ry'";
                $result = mysqli_query($connect, $sql);
                while ($row = mysqli_fetch_assoc($result)) {
-                  if($row['status']=="Delivered"){
-                   $ui="hidden";
-                  }
-                  elseif($row['status']=="Completed"){
-                    $uii="hidden";
-                  }
-                  else{
-                    $ui="";
-                    $uii="";
-                  }
-                ?>
-                   <tr>
-                       <td><?php echo $row['Order_date']?></td>
-                       <td><?php echo $row['Customer_name']?></td>
-                       
-                       <td>RM <?php echo $row['Total_price'] ?></td>
-                       <td><?php echo $row['Payment_method'] ?></td>
-                       <td><?php echo $row['status'] ?></td>
-                       <td>
-                            <div class="dropdown">
-                                <a class="dropdown-toggle icon-burger-mini" href="#" role="button" id="dropdownMenuLink"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-                                    <a class="dropdown-item" href="viewdetail.php?eml=<?php echo $emml?>&try=<?php echo $row['Order_ID'] ?>">View Details</a>   
-                                    <a <?php echo $ui?> class="dropdown-item" href="#" onclick="return manageOrder(<?php echo $row['Order_ID']; ?>, 'delivery')">Delivered</a>
-                                    <a <?php echo $uii?> class="dropdown-item" href="#" onclick="return manageOrder(<?php echo $row['Order_ID']; ?>, 'complete')">Completed</a>
-                                </div>
-                            </div>
-                        </td>                   </tr>
+                  
+                  $tt=$row['Total_price'];
+                  $od=$row['Order_date'];
+                  $ot=$row['Order_time'];
+                  $st=$row['status'];
+                  $name=$row['Customer_name'];?>
+                  <tr>
+                      <td style="align-item: centre;"><img src="\FYP/<?php echo $row['img']; ?>" style="height: 75px; width: 75px;" alt="<?php echo htmlspecialchars($row['Product_name']); ?>" class="product-image"></td>
+                      <td><?php echo $row['Product_name'] ?></td>
+                      <td>RM <?php echo $row['Product_price'] ?></td>
+                      <td><?php echo $row['Quantity'] ?></td>
+                  </tr>
+                           
                 <?php }?>
-                <script type="text/javascript">
-    function manageOrder(id, action) {
-        var confirmationMessage = action === 'delivery' ? "Are you sure you want to change this product status to Delivered?" : "Are you sure you want to change this product status to Completed?";
-        if (confirm(confirmationMessage)) {
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", "manage_order.php", true);
-            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState === 4 && xhr.status === 200) {
-                    var response = JSON.parse(xhr.responseText);
-                    alert(response.message);
-                    if (response.success) {
-                        window.location.href = "vieworder.php?eml=<?php echo $emml; ?>";
-                    }
-                }
-            };
-            xhr.send("id=" + id + "&action=" + action);
-        }
-        return false;
-    }
-</script>
+              
                 </tbody>
+                <div display="block" style=""><span style="float:left; margin-left: 10px;">Customer Name : <?php echo $name ?> <br>Order date : <?php echo $od?><br>Order time : <?php echo $ot?></span>
+            <span style="float:right; margin-right: 10px;">Total Amount: RM <?php echo $tt ?><br>Order status : <?php echo $st?></span></div>
             </table>
             
             <!-- Stock Modal -->
-            <div class="modal fade modal-stock" id="modal-stock" aria-labelledby="modal-stock" aria-hidden="true">
-                <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
-                    <form method="post">
-                        <div class="modal-content">
-                            <div class="modal-header align-items-center p3 p-md-5">
-                                <h2 class="modal-title" id="exampleModalGridTitle">Add Stock</h2>
-                                <div>
-                                    <button type="button" class="btn btn-light btn-pill mr-1 mr-md-2" data-dismiss="modal">cancel</button>
-                                    <button type="submit" name="svbt" class="btn btn-primary btn-pill">save</button>
-                                </div>
-                            </div>
-                            <div class="modal-body p3 p-md-5">
-                                <div class="row">
-                                    <div class="col-lg-8">
-                                        <h3 class="h5 mb-5">Product Information</h3>
-                                        <div class="form-group mb-5">
-                                            <label for="new-product">Product Title</label>
-                                            <input type="text" class="form-control" id="new-product" name="pn" placeholder="Add Product">
-                                        </div>
-                                        <div class="form-group mb-5">
-                                            <label for="new-product">Product Stock</label>
-                                            <input type="text" class="form-control" id="stock" name="stock" placeholder="Stock">
-                                        </div>
-                                        <div class="form-row mb-4">
-                                            <div class="col">
-                                                <label for="price">Price</label>
-                                                <div class="input-group">
-                                                    <div class="input-group-prepend">
-                                                        <span class="input-group-text" id="basic-addon1">$</span>
-                                                    </div>
-                                                    <input type="text" class="form-control" id="price" name="netprice" placeholder="Price" aria-label="Price"
-                                                        aria-describedby="basic-addon1">
-                                                </div>
-                                            </div>
-                                            <div class="col">
-                                                <label for="sale-price">Sale Price</label>
-                                                <div class="input-group">
-                                                    <div class="input-group-prepend">
-                                                        <span class="input-group-text" id="basic-addon1">$</span>
-                                                    </div>
-                                                    <input type="text" class="form-control" id="sale-price" name="price" placeholder="Sale Price" aria-label="SalePrice"
-                                                        aria-describedby="basic-addon1">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="product-type mb-3">
-                                            <label class="d-block" for="sale-price">Product Type <i class="mdi mdi-help-circle-outline"></i> </label>
-                                            <div>
-                                                <div class="custom-control custom-radio d-inline-block mr-3 mb-3">
-                                                    <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input" value="1" checked="checked">
-                                                    <label class="custom-control-label" for="customRadio1">Smartphones</label>
-                                                </div>
-                                                <div class="custom-control custom-radio d-inline-block mr-3 mb-3">
-                                                    <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input" value="2">
-                                                    <label class="custom-control-label" for="customRadio2">Tablets</label>
-                                                </div>
-                                                <div class="custom-control custom-radio d-inline-block mr-3 mb-3">
-                                                    <input type="radio" id="customRadio3" name="customRadio" class="custom-control-input" value="3">
-                                                    <label class="custom-control-label" for="customRadio3">Accessories</label>
-                                                </div>
-                                                <div class="custom-control custom-radio d-inline-block mr-3 mb-3">
-                                                    <input type="radio" id="customRadio4" name="customRadio" class="custom-control-input" value="4">
-                                                    <label class="custom-control-label" for="customRadio4">Wearables</label>
-                                                </div>
-                                                <div class="custom-control custom-radio d-inline-block mr-3 mb-3">
-                                                    <input type="radio" id="customRadio5" name="customRadio" class="custom-control-input" value="5">
-                                                    <label class="custom-control-label" for="customRadio5">Earphones</label>
-                                                </div>
-                                                <div class="custom-control custom-radio d-inline-block mr-3 mb-3">
-                                                    <input type="radio" id="customRadio6" name="customRadio" class="custom-control-input" value="6">
-                                                    <label class="custom-control-label" for="customRadio6">Powerbank</label>
-                                                </div>
-                                                <div class="custom-control custom-radio d-inline-block mr-3 mb-3">
-                                                    <input type="radio" id="customRadio7" name="customRadio" class="custom-control-input" value="7">
-                                                    <label class="custom-control-label" for="customRadio7">Speakers</label>
-                                                </div>
-                                                <div class="custom-control custom-radio d-inline-block mr-3 mb-3">
-                                                    <input type="radio" id="customRadio8" name="customRadio" class="custom-control-input" value="8">
-                                                    <label class="custom-control-label" for="customRadio8">Phone stands</label>
-                                                </div>
-                                                <div class="custom-control custom-radio d-inline-block mr-3 mb-3">
-                                                    <input type="radio" id="customRadio9" name="customRadio" class="custom-control-input" value="9">
-                                                    <label class="custom-control-label" for="customRadio9">Storage extender</label>
-                                                </div>
-                                                <div class="custom-control custom-radio d-inline-block mr-3 mb-3">
-                                                    <input type="radio" id="customRadio10" name="customRadio" class="custom-control-input" value="10">
-                                                    <label class="custom-control-label" for="customRadio10">Mobile Photography Accessories</label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="editor">
-                                            <label class="d-block" for="sale-price">Description <i class="mdi mdi-help-circle-outline"></i></label>
-                                            <input type="text" class="form-control" id="description" name="description" placeholder="Add Description">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <div class="custom-file">
-                                            <input type="file" class="custom-file-input" id="customFile" placeholder="please imgae here">
-                                            <span class="upload-image">Click here to <span class="text-primary">add product image.</span> </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-
-                    <?php
-                    $con = mysqli_connect("localhost", "root", "", "jbp");
-                    if (isset($_POST['svbt'])) {
-                        $n = $_POST['pn'];
-                        $s = $_POST['stock'];
-                        $np = $_POST['netprice'];
-                        $p = $_POST['price'];
-                        $c = $_POST['customRadio'];
-                        $d = $_POST['description'];
-                        if (!is_numeric($np)) {
-                          echo "<script>alert('Net price must be a number');</script>";
-                      } 
-                      else if (!is_numeric($p)) {
-                          echo "<script>alert('Price must be a number');</script>";
-                      }
-                      else {
-                        $sql = "INSERT INTO products (Product_name, Product_details, Product_stock, Product_netprice, Product_price, Category_ID) 
-                                VALUES ('$n', '$d', '$s', '$np', '$p', '$c')";
-                        if (mysqli_query($con, $sql)) {
-                            echo "<script>alert('New product Added Successfully');";
-                            echo 'window.location.href = "viewproduct.php?eml=' . $emml . '";</script>';
-                        } else {
-                            echo "<script>alert('Failed to Add New product')</script>";
-                        }
-                    }
-                  }
-                    ?>
-                </div>
-            </div>
+          
         </div>
     </div>
 </div>
