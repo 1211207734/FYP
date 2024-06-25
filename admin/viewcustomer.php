@@ -50,7 +50,7 @@
 </head>
 
 
-  <body class="navbar-fixed sidebar-fixed" id="body">
+  <div class="navbar-fixed sidebar-fixed" id="body">
     <script>
       NProgress.configure({ showSpinner: false });
       NProgress.start();
@@ -217,7 +217,12 @@
                                 
                               </a>
                             </li>
-                          
+                            <li>
+                              <a class="sidenav-item-link" href="viewpromo.php?eml=<?php echo $emml?>">
+                                <span class="nav-text">Promotion</span>
+                                
+                              </a>
+                            </li>
                             <li >
                               <a class="sidenav-item-link" href="salesreport.php?eml=<?php echo $emml?>">
                                 <span class="nav-text">Sales Report</span>
@@ -279,22 +284,7 @@
                       </div>
                     </div>
                   </form>
-                  <ul class="dropdown-menu dropdown-menu-search">
-
-                    <li class="nav-item">
-                      <a class="nav-link" href="index.php?eml=<?php echo $emml ?>">Morbi leo risus</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="index.php?eml=<?php echo $emml ?>">Dapibus ac facilisis in</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="index.php?eml=<?php echo $emml ?>">Porta ac consectetur ac</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="index.php?eml=<?php echo $emml ?>">Vestibulum at eros</a>
-                    </li>
-
-                  </ul>
+                  
 
                 </div>
 
@@ -368,7 +358,7 @@
           <th>Customer HP</th>
           <th>Customer Address</th>
           <th>Postcode</th>
-          <th></th>
+        
         </tr>
       </thead>
       <tbody>
@@ -387,19 +377,6 @@
           <td><?php echo $row['Customer_HP'];?></td>
           <td><?php echo $row['Customer_address_1']," ",$row['Customer_address_2'];?></td>
           <td><?php echo $row['Customer_postcode'];?></td>
-          <td>
-            <div class="dropdown">
-              <a class="dropdown-toggle icon-burger-mini" href="#" role="button" id="dropdownMenuLink"
-                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
-              </a>
-
-              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
-              </div>
-            </div>
-          </td>
         </tr>
         <?php }?>
         
@@ -409,11 +386,11 @@
     </table>
 
   </div>
+    </div>    
 </div>
-</div>
-          
-        </div>
-        
+          </div>
+        </div>    
+        </div> 
           <!-- Footer -->
           <footer class="footer mt-auto">
             <div class="copyright bg-white">
@@ -429,7 +406,7 @@
           </footer>
 
       </div>
-   
+         
     
                     <!-- Card Offcanvas -->
                     

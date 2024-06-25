@@ -219,7 +219,12 @@
                                 
                               </a>
                             </li>
-                          
+                            <li>
+                              <a class="sidenav-item-link" href="viewpromo.php?eml=<?php echo $emml?>">
+                                <span class="nav-text">Promotion</span>
+                                
+                              </a>
+                            </li>
                             <li >
                               <a class="sidenav-item-link" href="salesreport.php?eml=<?php echo $emml?>">
                                 <span class="nav-text">Sales Report</span>
@@ -281,22 +286,7 @@
                       </div>
                     </div>
                   </form>
-                  <ul class="dropdown-menu dropdown-menu-search">
-
-                    <li class="nav-item">
-                      <a class="nav-link" href="index.php?eml=<?php echo $emml ?>">Morbi leo risus</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="index.php?eml=<?php echo $emml ?>">Dapibus ac facilisis in</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="index.php?eml=<?php echo $emml ?>">Porta ac consectetur ac</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="index.php?eml=<?php echo $emml ?>">Vestibulum at eros</a>
-                    </li>
-
-                  </ul>
+                   
 
                 </div>
 

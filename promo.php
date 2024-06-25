@@ -41,7 +41,7 @@ if(isset($_POST['save'])) {
 	$p = $_POST['name'];
 	
 	// Prepare SQL statement
-	$sql = "SELECT * from promotion where code = '$p'";
+	$sql = "SELECT * from promotion where code = '$p' and status='active'";
     $re=mysqli_query($connect, $sql);
     $di=mysqli_fetch_assoc($re);
 	$dis=$di['discount'];

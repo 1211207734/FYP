@@ -22,9 +22,8 @@ if(isset($_POST['ss'])){
     $query = "SELECT * FROM products";
 $result = mysqli_query($connect, $query);
 while($row = mysqli_fetch_array($result)){
-    $na = $row['Product_name'];
     $id = $row['Product_ID'];
-    $sql = 'UPDATE `products` SET `img`= "images/'.$na.'.jpg" where Product_ID = '.$id.'';
+    $sql = 'UPDATE `products` SET Product_stock = 1900 where Product_ID = '.$id.'';
     mysqli_query($connect, $sql);
 }
     

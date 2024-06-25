@@ -224,7 +224,12 @@
                                 
                               </a>
                             </li>
-                          
+                            <li>
+                              <a class="sidenav-item-link" href="viewpromo.php?eml=<?php echo $emml?>">
+                                <span class="nav-text">Promotion</span>
+                                
+                              </a>
+                            </li>
                             <li >
                               <a class="sidenav-item-link" href="salesreport.php?eml=<?php echo $emml?>">
                                 <span class="nav-text">Sales Report</span>
@@ -347,10 +352,12 @@
                 </thead>
                 <tbody>
                 <?php
-               $sql = "SELECT Customer_name,products.Product_name,products.img,ooder.Order_date,ooder.Order_time,orderdetail.Quantity,products.Product_price,ooder.Total_price,transaction_report.status FROM customer,products,orderdetail,ooder,transaction_report
-                        WHERE transaction_report.Order_ID=ooder.Order_ID and transaction_report.Customer_ID=customer.Customer_ID and ooder.Order_ID=orderdetail.Order_ID and orderdetail.Product_ID=products.Product_ID and ooder.Order_ID='$ry'";
+               $sql = "SELECT Customer_name,products.Product_name,products.img,ooder.Order_date,ooder.Order_time,orderdetail.Quantity,products.Product_price,ooder.Total_price,transaction_report.status,code FROM customer,promotion,products,orderdetail,ooder,transaction_report
+                        WHERE transaction_report.Order_ID=ooder.Order_ID and transaction_report.Customer_ID=customer.Customer_ID and ooder.Order_ID=orderdetail.Order_ID and transaction_report.Promo_ID=promotion.code_id and orderdetail.Product_ID=products.Product_ID and ooder.Order_ID='$ry'";
                $result = mysqli_query($connect, $sql);
                while ($row = mysqli_fetch_assoc($result)) {
+                  
+                    $promo=$row['code'];
                   
                   $tt=$row['Total_price'];
                   $od=$row['Order_date'];
@@ -368,7 +375,7 @@
               
                 </tbody>
                 <div display="block" style=""><span style="float:left; margin-left: 10px;">Customer Name : <?php echo $name ?> <br>Order date : <?php echo $od?><br>Order time : <?php echo $ot?></span>
-            <span style="float:right; margin-right: 10px;">Total Amount: RM <?php echo $tt ?><br>Order status : <?php echo $st?></span></div>
+            <span style="float:right; margin-right: 10px;">Total Amount: RM <?php echo $tt ?><br>Order status : <?php echo $st?><br>Promo Code : <?php echo $promo ?></span></div>
             </table>
             
             <!-- Stock Modal -->
@@ -399,108 +406,7 @@
     </div>
     
                     <!-- Card Offcanvas -->
-                    <div class="card card-offcanvas" id="contact-off" >
-                      <div class="card-header">
-                        <h2>Contacts</h2>
-                        <a href="#" class="btn btn-primary btn-pill px-4">Add New</a>
-                      </div>
-                      <div class="card-body">
-
-                        <div class="mb-4">
-                          <input type="text" class="form-control form-control-lg form-control-secondary rounded-0" placeholder="Search contacts...">
-                        </div>
-
-                        <div class="media media-sm">
-                          <div class="media-sm-wrapper">
-                            <a href="user-profile.php?eml=<?php echo $emml ?>">
-                              <img src="images/user/user-sm-01.jpg" alt="User Image">
-                              <span class="active bg-primary"></span>
-                            </a>
-                          </div>
-                          <div class="media-body">
-                            <a href="user-profile.php?eml=<?php echo $emml ?>">
-                              <span class="title">Selena Wagner</span>
-                              <span class="discribe">Designer</span>
-                            </a>
-                          </div>
-                        </div>
-
-                        <div class="media media-sm">
-                          <div class="media-sm-wrapper">
-                            <a href="user-profile.php?eml=<?php echo $emml ?>">
-                              <img src="images/user/user-sm-02.jpg" alt="User Image">
-                              <span class="active bg-primary"></span>
-                            </a>
-                          </div>
-                          <div class="media-body">
-                            <a href="user-profile.php?eml=<?php echo $emml ?>">
-                              <span class="title">Walter Reuter</span>
-                              <span>Developer</span>
-                            </a>
-                          </div>
-                        </div>
-
-                        <div class="media media-sm">
-                          <div class="media-sm-wrapper">
-                            <a href="user-profile.php?eml=<?php echo $emml ?>">
-                              <img src="images/user/user-sm-03.jpg" alt="User Image">
-                            </a>
-                          </div>
-                          <div class="media-body">
-                            <a href="user-profile.php?eml=<?php echo $emml ?>">
-                              <span class="title">Larissa Gebhardt</span>
-                              <span>Cyber Punk</span>
-                            </a>
-                          </div>
-                        </div>
-
-                        <div class="media media-sm">
-                          <div class="media-sm-wrapper">
-                            <a href="user-profile.php?eml=<?php echo $emml ?>">
-                              <img src="images/user/user-sm-04.jpg" alt="User Image">
-                            </a>
-
-                          </div>
-                          <div class="media-body">
-                            <a href="user-profile.php?eml=<?php echo $emml ?>">
-                              <span class="title">Albrecht Straub</span>
-                              <span>Photographer</span>
-                            </a>
-                          </div>
-                        </div>
-
-                        <div class="media media-sm">
-                          <div class="media-sm-wrapper">
-                            <a href="user-profile.php?eml=<?php echo $emml ?>">
-                              <img src="images/user/user-sm-05.jpg" alt="User Image">
-                              <span class="active bg-danger"></span>
-                            </a>
-                          </div>
-                          <div class="media-body">
-                            <a href="user-profile.php?eml=<?php echo $emml ?>">
-                              <span class="title">Leopold Ebert</span>
-                              <span>Fashion Designer</span>
-                            </a>
-                          </div>
-                        </div>
-
-                        <div class="media media-sm">
-                          <div class="media-sm-wrapper">
-                            <a href="user-profile.php?eml=<?php echo $emml ?>">
-                              <img src="images/user/user-sm-06.jpg" alt="User Image">
-                              <span class="active bg-primary"></span>
-                            </a>
-                          </div>
-                          <div class="media-body">
-                            <a href="user-profile.php?eml=<?php echo $emml ?>">
-                              <span class="title">Selena Wagner</span>
-                              <span>Photographer</span>
-                            </a>
-                          </div>
-                        </div>
-
-                      </div>
-                    </div>
+                    
 
 
 

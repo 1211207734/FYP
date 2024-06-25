@@ -217,7 +217,12 @@
                                 
                               </a>
                             </li>
-                          
+                            <li>
+                              <a class="sidenav-item-link" href="viewpromo.php?eml=<?php echo $emml?>">
+                                <span class="nav-text">Promotion</span>
+                                
+                              </a>
+                            </li>
                             <li >
                               <a class="sidenav-item-link" href="salesreport.php?eml=<?php echo $emml?>">
                                 <span class="nav-text">Sales Report</span>

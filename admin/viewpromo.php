@@ -1,5 +1,9 @@
 <!DOCTYPE html>
-
+<?php if (isset($_GET['eml'])) {
+					$emml = $_GET['eml'];}
+                    if (isset($_GET['sta'])) {
+                        $stat = $_GET['sta'];}    
+          ?>
   
 
 <html lang="en" dir="ltr">
@@ -17,6 +21,17 @@
 
   <!-- PLUGINS CSS STYLE -->
   <link href="plugins/nprogress/nprogress.css" rel="stylesheet" />
+  
+  
+  <link href="plugins/prism/prism.css" rel="stylesheet" />
+  <link href="plugins/toaster/toastr.min.css" rel="stylesheet" />
+
+  
+  
+  <link href="plugins/DataTables/DataTables-1.10.18/css/jquery.dataTables.min.css" rel="stylesheet" />
+  
+  
+  
   
   <!--  JBPstore CSS -->
   <link id="main-css-href" rel="stylesheet" href="css/style.css" />
@@ -45,8 +60,6 @@
       NProgress.start();
     </script>
 
-    <?php 				if (isset($_GET['eml'])) {
-					$emml = $_GET['eml'];}?>
 
     
 
@@ -59,7 +72,7 @@
         <!-- ====================================
           ——— LEFT SIDEBAR WITH OUT FOOTER
         ===================================== -->
-        <aside class="left-sidebar sidebar-dark" id="left-sidebar">
+         <aside class="left-sidebar sidebar-dark" id="left-sidebar">
           <div id="sidebar" class="sidebar sidebar-with-footer">
             <!-- Aplication Brand -->
             <div class="app-brand">
@@ -246,8 +259,6 @@
           </div>
         </aside>
 
-      
-
       <!-- ====================================
       ——— PAGE WRAPPER
       ===================================== -->
@@ -261,27 +272,17 @@
                 <span class="sr-only">Toggle navigation</span>
               </button>
 
-              <span class="page-title">user profile settings</span>
+              <span class="page-title">Promotion</span>
 
               <div class="navbar-right ">
 
                 <!-- search form -->
-                <div class="search-form">
-                  <form action="index.php" method="get">
-                    <div class="input-group input-group-sm" id="input-group-search">
-                      <input type="text" autocomplete="off" name="query" id="search-input" class="form-control" placeholder="Search..." />
-                      <div class="input-group-append">
-                        <button class="btn" type="button">/</button>
-                      </div>
-                    </div>
-                  </form>
-                
-
-                </div>
+             
 
                 <ul class="nav navbar-nav">
                   <!-- Offcanvas -->
-             
+                 
+                  <!-- User Account -->
                   <?php				
                   
                       $connect= mysqli_connect("localhost","root","","jbp");
@@ -289,11 +290,10 @@
                       $result = mysqli_query($connect, $ll);
                       $r=mysqli_fetch_assoc($result);
                       ?>
-                  <!-- User Account -->
                   <li class="dropdown user-menu">
                     <button class="dropdown-toggle nav-link" data-toggle="dropdown">
                       <img src="<?php echo $r['img'] ?>" class="user-image rounded-circle" alt="User Image" />
-                      <span class="d-none d-lg-inline-block"><?php echo $r['Un'];?></span>
+                      <span class="d-none d-lg-inline-block">  <?php echo $r['Un'];?></span>
                     </button>
                     <ul class="dropdown-menu dropdown-menu-right">
                       <li>
@@ -302,14 +302,13 @@
                           <span class="nav-text">My Profile</span>
                         </a>
                       </li>
- 
                          <li>
                         <a class="dropdown-link-item" href="user-account-settings.php?eml=<?php echo $emml ?>">
                           <i class="mdi mdi-settings"></i>
                           <span class="nav-text">Account Setting</span>
                         </a>
                       </li>
-                       
+                     
 
                       <li class="dropdown-footer">
                         <a class="dropdown-link-item" href="/FYP/loginregister.php" onclick="log()" > <i class="mdi mdi-logout"></i> Log Out </a>
@@ -322,177 +321,162 @@
 
 
           </header>
-         
+
         <!-- ====================================
         ——— CONTENT WRAPPER
         ===================================== -->
         <div class="content-wrapper">
-          <div class="content"><!-- Card Profile -->
-<div class="card card-default card-profile">
+          <div class="content"><!-- For Components documentaion -->
 
-  <div class="card-header-bg" style="background-image:url(assets/img/user/user-bg-01.jpg)"></div>
 
-  <div class="card-body card-profile-body">
-
-    <div class="profile-avata">
-      <img class="rounded-circle" style="height: 300px;width: 300px" src="<?php echo $r['img'] ?>" alt="Avata Image">
-      <a class="h5 d-block mt-3 mb-2" href="#"><?php echo $r['Fn']," ",$r['Ln']; ?></a>
-      <a class="d-block text-color" href="#"><?php echo $r['email'];?></a>
-    </div>
-
-    <ul class="nav nav-profile-follow">
-      <li class="nav-item">
-        <a class="nav-link" href="#">
-          <span class="h5 d-block"><?php echo $r['customer'] ?></span>
-          <span class="text-color d-block">Customer on hold</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">
-          <span class="h5 d-block"><?php echo $r['project'] ?></span>
-          <span class="text-color d-block">Project completed</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">
-          <span class="h5 d-block"><?php echo $r['projrctp'] ?></span>
-          <span class="text-color d-block">Project in progress</span>
-        </a>
-      </li>
-
-    </ul>
-
-  
-  </div>
-
-  <div class="card-footer card-profile-footer">
-    <ul class="nav nav-border-top justify-content-center">
-     
-        
-      <li class="nav-item">
-        <a class="nav-link active" href="user-profile-settings.php?eml=<?php echo $emml ?>">Settings</a>
-      </li>
-
-    </ul>
-  </div>
-
-</div>
-
+<!-- Products Inventory -->
 <div class="row">
-  <div class="col-xl-3">
-    <!--  -->
-    <div class="card card-default">
-      <div class="card-header">
-        <h2>Settings</h2>
-      </div>
+    <div class="col-12">
+        <div class="card card-default">
+            <div class="card-header">
+                <h2>Promo Code Inventory</h2>
+                <a href="#" class="btn btn-primary btn-pill" data-toggle="modal" data-target="#modal-stock">Add Stock</a>
 
-      <div class="card-body pt-0">
-        <ul class="nav nav-settings">
-          <li class="nav-item">
-            <a class="nav-link active" href="user-profile-settings.php?eml=<?php echo $emml ?>">
-              <i class="mdi mdi-account-outline mr-1"></i> Profile
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="user-account-settings.php?eml=<?php echo $emml ?>">
-              <i class="mdi mdi-settings-outline mr-1"></i> Account
-            </a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <div class="col-xl-9">
-    <div class="card card-default">
-      <div class="card-header">
-        <h2 class="mb-5">Profile Settings</h2>
-
-      </div>
-
-      <div class="card-body">
-        <div class="media media-sm">
-          <div class="media-sm-wrapper">
-            <img src="images/user/user-sm-01.jpg" alt="User Image">
-          </div>
-          <div class="media-body">
-            <span class="title h3">Example photo</span>
-            <p>Click the current avatar to change your photo.</p>
-          </div>
-        </div>
-        <form method="post" enctype="multipart/form-data">
-          <div class="form-group row mb-6">
-            <label for="coverImage" class="col-sm-4 col-lg-2 col-form-label">Cover Image</label>
-            <div class="col-sm-8 col-lg-10">
-              <div class="custom-file mb-1">
-                <input type="file" class="custom-file-input" id="coverImage" name="cover" required>
-                <label class="custom-file-label" for="coverImage">Choose file...</label>
-                <div class="invalid-feedback">Example invalid custom file feedback</div>
-              </div>
-              <span class="d-block ">Upload a new cover image, JPG 1200x300</span>
             </div>
-          </div>
-
-          <div class="form-group row mb-6">
-            <label for="occupation" class="col-sm-4 col-lg-2 col-form-label">Customer on hold</label>
-            <div class="col-sm-8 col-lg-10">
-              <input type="text" class="form-control" id="occupation" name="cus">
-            </div>
-          </div>
-
-          <div class="form-group row mb-6">
-            <label for="com-name" class="col-sm-4 col-lg-2 col-form-label">Project Completed</label>
-            <div class="col-sm-8 col-lg-10">
-              <input type="text" class="form-control" id="com-name" name="pro">
-            </div>
-          </div>
-
-          <div class="form-group row mb-6">
-            <label for="com-name" class="col-sm-4 col-lg-2 col-form-label">Project in Progress</label>
-            <div class="col-sm-8 col-lg-10">
-              <input type="text" class="form-control" id="com-name" name="prop">
-            </div>
-          </div>
-
-          <div class="d-flex justify-content-end">
-            <button type="submit" name="gg" class="btn btn-primary mb-2 btn-pill">Update Profile</button>
-          </div>
-
-        </form>
-      </div>
-    </div>
-      <?php
-      if(isset($_POST['gg'])){
-        $cus = $_POST['cus'];
-        $pro = $_POST['pro'];
-        $prop = $_POST['prop'];
-        $fn=$_FILES['cover']['name'];
-        $ft=$_FILES['cover']['tmp_name'];
-        $folder="images/user/".$fn;
             
-        $connect= mysqli_connect("localhost","root","","jbp");
-        $sql = "UPDATE admin SET customer='$cus',project='$pro',projrctp='$prop',img='$folder' WHERE id='$emml'";
-        $result = mysqli_query($connect, $sql);
-        if($result && move_uploaded_file($ft,$folder)){
-          echo "<script>alert('Update successfully!')</script>";
-          echo '<script type="text/javascript">';
-          echo 'window.location.href = "user-profile-settings.php?eml='.$emml.'";';
-          echo 'alert("Profile Updated Successfully.");';
-          echo '</script>';
+  <br>
+            <table id="productsTable" class="table table-hover table-product" style="width:100%">
+                <thead>
+                <tr>
+                    <th>Promo Code</th>
+                    <th>Valid</th>
+                    <th>Discount Rate</th>
+                    <th>Status</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <?php
+               $sql = "SELECT * from promotion where status!='delete'";
+               $result = mysqli_query($connect, $sql);
+               while ($row = mysqli_fetch_assoc($result)) {
+                  
+                ?>
+                   <tr>
+                       <td><?php echo $row['code']?></td>
+                       <td><?php echo $row['valid']?></td>
+                       
+                       <td><?php echo 100-$row['discount']*100 ?> %</td>
+                       <td><?php echo $row['status'] ?></td>
+                       <td>
+                            <div class="dropdown">
+                                <a class="dropdown-toggle icon-burger-mini" href="#" role="button" id="dropdownMenuLink"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                                    <a class="dropdown-item" href="#" onclick="return managepromo(<?php echo $row['code_id']; ?>, 'activate')">active</a>
+                                    <a class="dropdown-item" href="#" onclick="return managepromo(<?php echo $row['code_id']; ?>, 'inactivate')">inactive</a>
+                                    <a class="dropdown-item" href="#" onclick="return managepromo(<?php echo $row['code_id']; ?>, 'delete')">delete</a>
+                                </div>
+                            </div>
+                        </td>                   </tr>
+                <?php }?>
+                <script type="text/javascript">
+    function managepromo(id, action) {
+        var confirmationMessage = action === 'activate' ? "Are you sure you want to active this promo code?" : "Are you sure you want to delete this promo code ?";
+        if (confirm(confirmationMessage)) {
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "manage_promo.php", true);
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    var response = JSON.parse(xhr.responseText);
+                    alert(response.message);
+                    if (response.success) {
+                        window.location.href = "viewpromo.php?eml=<?php echo $emml; ?>";
+                    }
+                }
+            };
+            xhr.send("id=" + id + "&action=" + action);
         }
-        else{
-          echo "<script>alert('Update failed!')</script>";
-        }
-      }
-      ?>
-    
+        return false;
+    }
+</script>
+                </tbody>
+            </table>
+            
+            <!-- Stock Modal -->
+            <div class="modal fade modal-stock" id="modal-stock" aria-labelledby="modal-stock" aria-hidden="true">
+                <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+                    <form method="post">
+                        <div class="modal-content">
+                            <div class="modal-header align-items-center p3 p-md-5">
+                                <h2 class="modal-title" id="exampleModalGridTitle">Add Promo Code</h2>
+                                <div>
+                                    <button type="button" class="btn btn-light btn-pill mr-1 mr-md-2" data-dismiss="modal">cancel</button>
+                                    <button type="submit" name="svbt" class="btn btn-primary btn-pill">save</button>
+                                </div>
+                            </div>
+                            <div class="modal-body p3 p-md-5">
+                                <div class="row">
+                                    <div class="col-lg-8">
+                                        <h3 class="h5 mb-5">Promotion Information</h3>
+                                        <div class="form-group mb-5">
+                                            <label for="new-product">Promotion Code</label>
+                                            <input type="text" class="form-control" id="new-product" name="pn" placeholder="Add Product">
+                                        </div>
+                                        <div class="form-group mb-5">
+                                            <label for="new-product">Code Valid</label>
+                                            <input type="text" class="form-control" id="stock" name="stock" placeholder="Stock">
+                                        </div>
+                                        <div class="form-row mb-4">
+                                            <div class="col">
+                                                <label for="price">Discount</label>
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control" id="price" name="netprice" placeholder="Price" aria-label="Price"
+                                                        aria-describedby="basic-addon1"><div class="input-group-prepend">
+                                                        <span class="input-group-text" id="basic-addon1">%</span>
+                                                    </div>
+                                                    
+                                                </div>
+                                            </div>
+                                            
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                    </form>
 
-
-  </div>
-
+                    <?php
+                    $con = mysqli_connect("localhost", "root", "", "jbp");
+                    if (isset($_POST['svbt'])) {
+                        $n = $_POST['pn'];
+                        $s = $_POST['stock'];
+                        $np = $_POST['netprice'];
+                        $p = $_POST['price'];
+                        $c = $_POST['customRadio'];
+                        $d = $_POST['description'];
+                        if (!is_numeric($np)) {
+                          echo "<script>alert('Net price must be a number');</script>";
+                      } 
+                      else if (!is_numeric($p)) {
+                          echo "<script>alert('Price must be a number');</script>";
+                      }
+                      else {
+                        $sql = "INSERT INTO products (Product_name, Product_details, Product_stock, Product_netprice, Product_price, Category_ID) 
+                                VALUES ('$n', '$d', '$s', '$np', '$p', '$c')";
+                        if (mysqli_query($con, $sql)) {
+                            echo "<script>alert('New product Added Successfully');";
+                            echo 'window.location.href = "viewproduct.php?eml=' . $emml . '";</script>';
+                        } else {
+                            echo "<script>alert('Failed to Add New product')</script>";
+                        }
+                    }
+                  }
+                    ?>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 
-</div>
           
         </div>
         
@@ -514,7 +498,7 @@
     </div>
     
                     <!-- Card Offcanvas -->
-                    
+               
 
 
     
@@ -523,6 +507,18 @@
                     <script src="plugins/simplebar/simplebar.min.js"></script>
                     <script src="https://unpkg.com/hotkeys-js/dist/hotkeys.min.js"></script>
 
+                    
+                    
+                    <script src="plugins/prism/prism.js"></script>
+                    
+                    
+                    
+                    <script src="plugins/DataTables/DataTables-1.10.18/js/jquery.dataTables.min.js"></script>
+                    
+                    
+                    
+                    <script src="plugins/apexcharts/apexcharts.js"></script>
+                    
                     
                     <script src="js/ JBPstore.js"></script>
                     <script src="js/chart.js"></script>
