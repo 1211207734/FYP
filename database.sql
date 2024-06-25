@@ -276,16 +276,42 @@ VALUES (1, 'UPS', '2024-04-05'),
        (9, 'UPS', '2024-04-13'),
        (10, 'FedEx', '2024-04-14');
 
-CREATE TABLE Transaction_Report (
-    Report_ID INT AUTO_INCREMENT PRIMARY KEY,
-    Customer_ID INT,
-    Order_ID INT,
-    Payment_ID INT,
-    status text NOT NULL,
-    FOREIGN KEY (Customer_ID) REFERENCES Customer(Customer_ID),
-    FOREIGN KEY (Order_ID) REFERENCES ooder(Order_ID),
-    FOREIGN KEY (Payment_ID) REFERENCES Payment(Payment_ID)
-);
+CREATE TABLE `transaction_report` (
+  `Report_ID` int(11) NOT NULL,
+  `Customer_ID` int(11) DEFAULT NULL,
+  `Order_ID` int(11) DEFAULT NULL,
+  `Payment_ID` int(11) DEFAULT NULL,
+  `Promo_ID` int(11) NOT NULL DEFAULT 0,
+  `status` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+INSERT INTO `transaction_report` (`Report_ID`, `Customer_ID`, `Order_ID`, `Payment_ID`, `Promo_ID`, `status`) VALUES
+(1, 1, 1, 1, 0, 'Completed'),
+(2, 2, 2, 2, 0, 'Completed'),
+(3, 3, 3, 3, 0, 'Completed'),
+(4, 4, 4, 4, 0, 'Completed'),
+(5, 5, 5, 5, 0, 'Completed'),
+(6, 6, 6, 6, 0, 'Paid'),
+(7, 7, 7, 7, 0, 'Delivered'),
+(8, 8, 8, 8, 0, 'Paid'),
+(9, 9, 9, 9, 0, 'Paid'),
+(10, 10, 10, 10, 0, 'Paid'),
+(19, 14, 18, 18, 0, 'Paid'),
+(20, 14, 20, 20, 0, 'Delivered'),
+(21, 15, 21, 20, 0, 'Paid');
+
+
+ALTER TABLE `transaction_report`
+  ADD PRIMARY KEY (`Report_ID`),
+  ADD KEY `Customer_ID` (`Customer_ID`),
+  ADD KEY `Order_ID` (`Order_ID`),
+  ADD KEY `Payment_ID` (`Payment_ID`);
+
+
+ALTER TABLE `transaction_report`
+  MODIFY `Report_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+
+
 
 CREATE TABLE tng (
     Customer_ID INT,
