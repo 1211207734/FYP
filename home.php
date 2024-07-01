@@ -152,51 +152,13 @@
       </symbol>
     </defs>
   </svg>
+  <style>
 
-  <div class="preloader text-white fs-6 text-uppercase overflow-hidden"></div>
+body {
+  overflow-x: hidden;
+}
 
-  <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasCart" aria-labelledby="My Cart">
-    <div class="offcanvas-header justify-content-center">
-      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-    </div>
-    <div class="offcanvas-body">
-      <div class="order-md-last">
-        <h4 class="d-flex justify-content-between align-items-center mb-3">
-          <span class="text-primary">Your cart</span>
-          <span class="badge bg-primary rounded-pill">3</span>
-        </h4>
-        <ul class="list-group mb-3">
-          <li class="list-group-item d-flex justify-content-between lh-sm">
-            <div>
-              <h6 class="my-0">22 Inch Monitor</h6>
-              <small class="text-body-secondary">Brief description</small>
-            </div>
-            <span class="text-body-secondary">$12</span>
-          </li>
-          <li class="list-group-item d-flex justify-content-between lh-sm">
-            <div>
-              <h6 class="my-0">Mobile phone</h6>
-              <small class="text-body-secondary">Brief description</small>
-            </div>
-            <span class="text-body-secondary">$8</span>
-          </li>
-          <li class="list-group-item d-flex justify-content-between lh-sm">
-            <div>
-              <h6 class="my-0">Drone</h6>
-              <small class="text-body-secondary">Brief description</small>
-            </div>
-            <span class="text-body-secondary">$5</span>
-          </li>
-          <li class="list-group-item d-flex justify-content-between">
-            <span>Total (USD)</span>
-            <strong>$20</strong>
-          </li>
-        </ul>
-
-        <button class="w-100 btn btn-primary btn-lg" type="submit">Continue to Checkout</button>
-      </div>
-    </div>
-  </div>
+</style>
 
 <?php
 include('database.php');
@@ -327,42 +289,48 @@ if (isset($_GET['eml'])) {
               </div>
             </div>
           </div>
-          <div class="swiper-pagination"></div>
         </div>
-        <div class="pagination-wrapper position-absolute">
-          <div class="container">
-            <div class="slideshow-swiper-pagination"></div>
-          </div>
-        </div>
-        <div class="icon-arrow icon-arrow-left text-white"><svg width="50" height="50" viewBox="0 0 24 24">
-            <use xlink:href="#arrow-left"></use>
-          </svg></div>
-        <div class="icon-arrow icon-arrow-right text-white"><svg width="50" height="50" viewBox="0 0 24 24">
-            <use xlink:href="#arrow-right"></use>
-          </svg></div>
       </div>
     </div>
   </section>
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script>
+  var swiper = new Swiper('.slideshow', {
+    loop: true,
+    autoplay: {
+      delay: 3000, // 3 seconds
+      disableOnInteraction: false,
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    navigation: {
+      nextEl: '.icon-arrow-right',
+      prevEl: '.icon-arrow-left',
+    },
+  });
+</script>
 
   <section class="features" style="position:relative; margin-top: -100px; z-index: 2;">
     <div class="container-lg">
       <div class="bg-black p-5">
         <div class="row">
           <div class="col-md-3">
-            <h4 class="element-title text-capitalize my-3">Book An Appointment</h4>
-            <p>At imperdiet dui accumsan sit amet nulla risus est ultricies quis.</p>
+            <h4 class="element-title text-capitalize my-3">Delivery To House</h4>
+            <p>After address provided, no worries for delivery.</p>
           </div>
           <div class="col-md-3">
-            <h4 class="element-title text-capitalize my-3">Pick up in store</h4>
-            <p>At imperdiet dui accumsan sit amet nulla risus est ultricies quis.</p>
+            <h4 class="element-title text-capitalize my-3">Lower Price Guarantee</h4>
+            <p>We only sell best price not big price.</p>
           </div>
           <div class="col-md-3">
-            <h4 class="element-title text-capitalize my-3">Special packaging</h4>
-            <p>At imperdiet dui accumsan sit amet nulla risus est ultricies quis.</p>
+            <h4 class="element-title text-capitalize my-3">Big Promotion</h4>
+            <p>No promotion at physical store? We give big promotion!</p>
           </div>
           <div class="col-md-3">
-            <h4 class="element-title text-capitalize my-3">free global returns</h4>
-            <p>At imperdiet dui accumsan sit amet nulla risus est ultricies quis.</p>
+            <h4 class="element-title text-capitalize my-3">No Squeeze</h4>
+            <p>Shopping in anyway feel comfort, shop relaxing.</p>
           </div>
         </div>
       </div>
@@ -380,149 +348,11 @@ if (isset($_GET['eml'])) {
     </div>
   </section>
 
-  <section class="categories overflow-hidden">
-    <div class="container-fluid">
-      <div class="row g-5">
-        <div class="col-md-3">
-          <span class="d-block py-3 text-white text-uppercase fs-7 ls-1">01. Electronic Gadgets</span>
-          <div class="jarallax position-relative mb-4" style="height: 480px;">
-            <img src="images/category-thumb-1.jpg" alt="categories" class="jarallax-img img-fluid">
-            <div class="category-content position-absolute bottom-0 p-5 text-uppercase">
-              <a href="shop-four-column-wide.html" class="text-white btn-link">Shop it Now</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-2">
-          <span class="d-block py-3 text-white text-uppercase fs-7 ls-1">02. Cool Stuff</span>
-          <div class="jarallax position-relative mb-3" style="height: 480px;">
-            <img src="images/category-thumb-2.jpg" alt="categories" class="jarallax-img img-fluid">
-            <div class="category-content position-absolute bottom-0 p-5 text-uppercase">
-              <a href="shop-four-column-wide.html" class="text-white btn-link">Shop it Now</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-5">
-          <span class="d-block py-3 text-white text-uppercase fs-7 ls-1">03. Accessories</span>
-          <div class="jarallax position-relative mb-3" style="height: 480px;">
-            <img src="images/category-thumb-3.jpg" alt="categories" class="jarallax-img img-fluid">
-            <div class="category-content position-absolute bottom-0 p-5 text-uppercase">
-              <a href="shop-four-column-wide.html" class="text-white btn-link">Shop it Now</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-2">
-          <span class="d-block py-3 text-white text-uppercase fs-7 ls-1">04. Display Units</span>
-          <div class="jarallax position-relative mb-3" style="height: 480px;">
-            <img src="images/category-thumb-4.jpg" alt="categories" class="jarallax-img img-fluid">
-            <div class="category-content position-absolute bottom-0 p-5 text-uppercase">
-              <a href="shop-four-column-wide.html" class="text-white btn-link">Shop it Now</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="new-arrival"
-    class="new-arrival py-5">
-    <div class="container-fluid">
-      <div class="d-flex flex-wrap justify-content-between align-items-center mt-5 mb-3">
-        <h4 class="text-uppercase">Our New Arrivals</h4>
-        <a href="shop.php" class="btn-link">View All Products</a>
-      </div>
-
-      <div data-aos="fade-in">
-        <div class="row row-cols-2 row-cols-md-3 row-cols-lg-5">
-          <div class="col">
-            <div class="product-item hover-effect-slide">
-              <div class="image-holder position-relative">
-                <a href="single-product.html">
-                  <img src="images/product-small-1.jpg" alt="categories" class="product-image img-fluid">
-                </a>
-                <a href="#" class="btn btn-primary w-100 mt-2 rounded-1">Add to cart</a>
-              </div>
-              <div class="product-content d-flex flex-column flex-md-row justify-content-between align-items-md-center">
-                <h5 class="fs-5 mt-3">
-                  <a href="single-product.html">Phone Cover 5.6 inches</a>
-                </h5>
-                <span>RM 95.00</span>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="product-item hover-effect-slide">
-              <div class="image-holder position-relative">
-                <a href="single-product.html">
-                  <img src="images/product-small-2.jpg" alt="categories" class="product-image img-fluid">
-                </a>
-                <a href="#" class="btn btn-primary w-100 mt-2 rounded-1">Add to cart</a>
-              </div>
-              <div class="product-content d-flex flex-column flex-md-row justify-content-between align-items-md-center">
-                <h5 class="fs-5 mt-3">
-                  <a href="single-product.html">Smart Phone 128GB RAM</a>
-                </h5>
-                <a href="#" class="text-decoration-none" data-after="Add to cart"><span>RM 55.00</span></a>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="product-item hover-effect-slide">
-              <div class="image-holder position-relative">
-                <a href="single-product.html">
-                  <img src="images/product-small-3.jpg" alt="categories" class="product-image img-fluid">
-                </a>
-                <a href="#" class="btn btn-primary w-100 mt-2 rounded-1">Add to cart</a>
-              </div>
-              <div class="product-content d-flex flex-column flex-md-row justify-content-between align-items-md-center">
-                <h5 class="fs-5 mt-3">
-                  <a href="single-product.html">Smart Phone 128GB RAM</a>
-                </h5>
-                <a href="#" class="text-decoration-none" data-after="Add to cart"><span>RM 55.00</span></a>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="product-item hover-effect-slide">
-              <div class="image-holder position-relative">
-                <a href="single-product.html">
-                  <img src="images/product-small-4.jpg" alt="categories" class="product-image img-fluid">
-                </a>
-                <a href="#" class="btn btn-primary w-100 mt-2 rounded-1">Add to cart</a>
-              </div>
-              <div class="product-content d-flex flex-column flex-md-row justify-content-between align-items-md-center">
-                <h5 class="fs-5 mt-3">
-                  <a href="single-product.html">Smart Phone 128GB RAM</a>
-                </h5>
-                <a href="#" class="text-decoration-none" data-after="Add to cart"><span>RM55.00</span></a>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="product-item hover-effect-slide">
-              <div class="image-holder position-relative">
-                <a href="single-product.html">
-                  <img src="images/product-small-5.jpg" alt="categories" class="product-image img-fluid">
-                </a>
-                <a href="#" class="btn btn-primary w-100 mt-2 rounded-1">Add to cart</a>
-              </div>
-              <div class="product-content d-flex flex-column flex-md-row justify-content-between align-items-md-center">
-                <h5 class="fs-5 mt-3">
-                  <a href="single-product.html">22 Inch LED Display</a>
-                </h5>
-                <a href="#" class="text-decoration-none" data-after="Add to cart"><span>RM 65.00</span></a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  
   <section id="best-sellers"
     class="best-sellers py-5 mb-5">
     <div class="container-fluid">
       <div class="d-flex flex-wrap justify-content-between align-items-center mt-5 mb-3">
-        <h4 class="text-uppercase">Best Sellers</h4>
+        <h4 class="text-uppercase">Categories</h4>
         <a href="shop.php" class="btn-link">View All Products</a>
       </div>
 
@@ -531,129 +361,86 @@ if (isset($_GET['eml'])) {
           <div class="col">
             <div class="product-item hover-effect-slide">
               <div class="image-holder position-relative">
-                <a href="single-product.html">
-                  <img src="images/product-thumbnail-1.jpg" alt="categories" class="product-image img-fluid">
-                </a>
-                <a href="#" class="btn btn-primary w-100 mt-2 rounded-1">Add to cart</a>
-              </div>
-              <div class="product-content d-flex flex-column flex-md-row justify-content-between align-items-md-center">
-                <h5 class="fs-5 mt-3">
-                  <a href="single-product.html">Phone Cover 5.6 inches</a>
-                </h5>
-                <a href="#" class="text-decoration-none" data-after="Add to cart"><span>RM 95.00</span></a>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="product-item hover-effect-slide">
-              <div class="image-holder position-relative">
+              <a href="#" class="btn btn-primary w-100 mt-2 rounded-1">Smartphones</a>
                 <a href="single-product.html">
                   <img src="images/product-thumbnail-2.jpg" alt="categories" class="product-image img-fluid">
                 </a>
-                <a href="#" class="btn btn-primary w-100 mt-2 rounded-1">Add to cart</a>
-              </div>
-              <div class="product-content d-flex flex-column flex-md-row justify-content-between align-items-md-center">
-                <h5 class="fs-5 mt-3">
-                  <a href="single-product.html">Smart Phone 128GB RAM</a>
-                </h5>
-                <a href="#" class="text-decoration-none" data-after="Add to cart"><span>RM 55.00</span></a>
               </div>
             </div>
           </div>
           <div class="col">
             <div class="product-item hover-effect-slide">
               <div class="image-holder position-relative">
-                <a href="single-product.html">
-                  <img src="images/product-thumbnail-3.jpg" alt="categories" class="product-image img-fluid">
-                </a>
-                <a href="#" class="btn btn-primary w-100 mt-2 rounded-1">Add to cart</a>
-              </div>
-              <div class="product-content d-flex flex-column flex-md-row justify-content-between align-items-md-center">
-                <h5 class="fs-5 mt-3">
-                  <a href="single-product.html">Smart Phone 128GB RAM</a>
-                </h5>
-                <a href="#" class="text-decoration-none" data-after="Add to cart"><span>RM 55.00</span></a>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="product-item hover-effect-slide">
-              <div class="image-holder position-relative">
-                <a href="single-product.html">
-                  <img src="images/product-thumbnail-4.jpg" alt="categories" class="product-image img-fluid">
-                </a>
-                <a href="#" class="btn btn-primary w-100 mt-2 rounded-1">Add to cart</a>
-              </div>
-              <div class="product-content d-flex flex-column flex-md-row justify-content-between align-items-md-center">
-                <h5 class="fs-5 mt-3">
-                  <a href="single-product.html">Phone Cover 5.6 inches</a>
-                </h5>
-                <a href="#" class="text-decoration-none" data-after="Add to cart"><span>RM 95.00</span></a>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="product-item hover-effect-slide">
-              <div class="image-holder position-relative">
-                <a href="single-product.html">
-                  <img src="images/product-thumbnail-5.jpg" alt="categories" class="product-image img-fluid">
-                </a>
-                <a href="#" class="btn btn-primary w-100 mt-2 rounded-1">Add to cart</a>
-              </div>
-              <div class="product-content d-flex flex-column flex-md-row justify-content-between align-items-md-center">
-                <h5 class="fs-5 mt-3">
-                  <a href="single-product.html">Smart Phone 128GB RAM</a>
-                </h5>
-                <a href="#" class="text-decoration-none" data-after="Add to cart"><span>RM 55.00</span></a>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="product-item hover-effect-slide">
-              <div class="image-holder position-relative">
-                <a href="single-product.html">
-                  <img src="images/product-thumbnail-6.jpg" alt="categories" class="product-image img-fluid">
-                </a>
-                <a href="#" class="btn btn-primary w-100 mt-2 rounded-1">Add to cart</a>
-              </div>
-              <div class="product-content d-flex flex-column flex-md-row justify-content-between align-items-md-center">
-                <h5 class="fs-5 mt-3">
-                  <a href="single-product.html">Smart Phone 128GB RAM</a>
-                </h5>
-                <a href="#" class="text-decoration-none" data-after="Add to cart"><span>RM 55.00</span></a>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="product-item hover-effect-slide">
-              <div class="image-holder position-relative">
+              <a href="#" class="btn btn-primary w-100 mt-2 rounded-1">Tablets</a>
                 <a href="single-product.html">
                   <img src="images/product-thumbnail-7.jpg" alt="categories" class="product-image img-fluid">
                 </a>
-                <a href="#" class="btn btn-primary w-100 mt-2 rounded-1">Add to cart</a>
-              </div>
-              <div class="product-content d-flex flex-column flex-md-row justify-content-between align-items-md-center">
-                <h5 class="fs-5 mt-3">
-                  <a href="single-product.html">Smart Phone 128GB RAM</a>
-                </h5>
-                <a href="#" class="text-decoration-none" data-after="Add to cart"><span>RM 55.00</span></a>
               </div>
             </div>
           </div>
           <div class="col">
             <div class="product-item hover-effect-slide">
               <div class="image-holder position-relative">
+              <a href="#" class="btn btn-primary w-100 mt-2 rounded-1">Earphones</a>
+
+                <a href="single-product.html">
+                  <img src="images/product-thumbnail-3.jpg" alt="categories" class="product-image img-fluid">
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="product-item hover-effect-slide">
+              <div class="image-holder position-relative">
+              <a href="#" class="btn btn-primary w-100 mt-2 rounded-1">Wearables</a>
+                <a href="single-product.html">
+                  <img src="images/product-thumbnail-4.jpg" alt="categories" class="product-image img-fluid">
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="product-item hover-effect-slide">
+              <div class="image-holder position-relative">
+              <a href="#" class="btn btn-primary w-100 mt-2 rounded-1">Powerbanks</a>
+                <a href="single-product.html">
+                  <img src="images/product-thumbnail-5.jpg" alt="categories" class="product-image img-fluid">
+                </a>
+                
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="product-item hover-effect-slide">
+              <div class="image-holder position-relative">
+              <a href="#" class="btn btn-primary w-100 mt-2 rounded-1">Speakers</a>
+                <a href="single-product.html">
+                  <img src="images/product-thumbnail-6.jpg" alt="categories" class="product-image img-fluid">
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="product-item hover-effect-slide">
+              <div class="image-holder position-relative">
+              <a href="#" class="btn btn-primary w-100 mt-2 rounded-1">Phone stands</a>
+
+                <a href="single-product.html">
+                  <img src="images/product-thumbnail-1.jpg" alt="categories" class="product-image img-fluid">
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="product-item hover-effect-slide">
+              <div class="image-holder position-relative">
+              <a href="#" class="btn btn-primary w-100 mt-2 rounded-1">Storage Extender</a>
+
                 <a href="single-product.html">
                   <img src="images/product-thumbnail-8.jpg" alt="categories" class="product-image img-fluid">
                 </a>
-                <a href="#" class="btn btn-primary w-100 mt-2 rounded-1">Add to cart</a>
               </div>
-              <div class="product-content d-flex flex-column flex-md-row justify-content-between align-items-md-center">
-                <h5 class="fs-5 mt-3">
-                  <a href="single-product.html">22 Inch LED Display</a>
-                </h5>
-                <a href="#" class="text-decoration-none" data-after="Add to cart"><span>RM 65.00</span></a>
-              </div>
+              
             </div>
           </div>
         </div>
@@ -661,47 +448,17 @@ if (isset($_GET['eml'])) {
     </div>
   </section>
 
-  <section class="newsletter bg-black">
-    <div class="container-fluid">
-      <div class="newsletter jarallax">
-        <img src="images/bg-newsletter.jpg" alt="newsletter" class="jarallax-img">
-      
-        <div class="row py-5 justify-content-center">
-          <div class="col-md-6">
-            <div class="row g-5 my-4 align-items-baseline">
-              <div class="col-md-7">
-                <h3 class="display-4 m-0 text-md-end">Join Our Newsletter</h3>
-              </div>
-              <div class="col-md-5">
-                <p class="fs-6 text-gray">Sign Up for our newsletter and never miss any offers</p>
-              </div>
-            </div>
-            <div class="row mb-5">
-              <div class="col-md-12">
-                <form id="form" class="d-flex flex-row gap-0">
-                  <input type="text" name="email" placeholder="Your Email Addresss" class="form-control rounded-0 rounded-start">
-                  <button class="btn btn-primary text-uppercase rounded-0 rounded-end px-5">Sign Up</button>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
+  
   
   <footer id="footer" class="bg-black">
     <div class="container-fluid">
       <div class="row d-flex flex-wrap justify-content-between my-5 py-5">
         <div class="col-md-3 col-sm-6">
           <div class="footer-menu footer-menu-001">
-            <div class="footer-intro mb-4">
-              <a href="index.php">
-                <img src="images/logo.svg" alt="logo">
-              </a>
+            <div class="col-8 col-md-3">
+              <a class="navbar-brand" href="index.php"  width="204" height="46" alt="logo"><b>JBP</b>store</a>
             </div>
-            <p>Gravida massa volutpat aenean odio. Amet, turpis erat nullam fringilla elementum diam in. Nisi, purus vitae, ultrices nunc. Sit ac sit suscipit hendrerit.</p>
+            <p>Tech at Your Fingertips: Your Gadget Gateway!</p>
             <div class="social-links">
               <ul class="list-unstyled d-flex flex-wrap gap-3">
                 <li>
@@ -726,48 +483,29 @@ if (isset($_GET['eml'])) {
                 <a href="index.php" class="item-anchor">Home</a>
               </li>
               <li class="menu-item">
-                <a href="shop-four-column-wide.html" class="item-anchor">About</a>
+                <a href="shop-four-column-wide.html" class="item-anchor">All Product</a>
               </li>
               <li class="menu-item">
-                <a href="blog.html" class="item-anchor">Services</a>
+                <a href="blog.html" class="item-anchor">Categories</a>
               </li>
               <li class="menu-item">
-                <a href="styles.html" class="item-anchor">Single item</a>
+                <a href="styles.html" class="item-anchor">Order History</a>
               </li>
               <li class="menu-item">
-                <a href="#" class="item-anchor">Contact</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-md-2 col-sm-6">
-          <div class="footer-menu footer-menu-002">
-            <h5 class="widget-title mb-4">About</h5>
-            <ul class="menu-list list-unstyled fs-6">
-              <li class="menu-item">
-                <a href="index.php" class="item-anchor">How it works</a>
+                <a href="#" class="item-anchor">My Account</a>
               </li>
               <li class="menu-item">
-                <a href="about.php?eml=<?php echo $emml?>" class="item-anchor">About</a>
-              </li>
-              <li class="menu-item">
-                <a href="blog.html" class="item-anchor">Our packages</a>
-              </li>
-              <li class="menu-item">
-                <a href="styles.html" class="item-anchor">Promotions</a>
-              </li>
-              <li class="menu-item">
-                <a href="#" class="item-anchor">Refer a friend</a>
+                <a href="#" class="item-anchor">My Cart</a>
               </li>
             </ul>
           </div>
         </div>
         <div class="col-md-2 col-sm-6">
           <div class="footer-menu footer-menu-003">
-            <h5 class="widget-title mb-4">Help & Info</h5>
+            <h5 class="widget-title mb-4">Other Info</h5>
             <ul class="menu-list list-unstyled fs-6">
               <li class="menu-item">
-                <a href="#" class="item-anchor">Track Your Order</a>
+                <a href="#" class="item-anchor">About Us</a>
               </li>
               <li class="menu-item">
                 <a href="#" class="item-anchor">Returns + Exchanges</a>
@@ -776,13 +514,7 @@ if (isset($_GET['eml'])) {
                 <a href="#" class="item-anchor">Shipping + Delivery</a>
               </li>
               <li class="menu-item">
-                <a href="#" class="item-anchor">Contact Us</a>
-              </li>
-              <li class="menu-item">
-                <a href="#" class="item-anchor">Find us easy</a>
-              </li>
-              <li class="menu-item">
-                <a href="FAQ.php?eml=<?php echo $emml ?>" class="item-anchor">FAQs</a>
+                <a href="#" class="item-anchor">FAQ</a>
               </li>
             </ul>
           </div>
@@ -791,7 +523,7 @@ if (isset($_GET['eml'])) {
           <div class="footer-menu footer-menu-004 border-animation-left">
             <h5 class="widget-title mb-4">Contact Us</h5>
             <p>Do you have any questions or suggestions?</p>
-            <p><a href="mailto:contact@yourcompany.com" class="item-anchor">contact@yourcompany.com</a></p>
+            <p><a href="mailto:JBPadmin@gmail.com" class="item-anchor">JBPadmin@gmail.com</a></p>
             <p>Do you need support? Give us a call. </p>
             <p></p><a href="tel:+6012-3456789" class="item-anchor">+6012-3456789</a>
             </p>
@@ -802,21 +534,9 @@ if (isset($_GET['eml'])) {
     <div class="border-top py-4">
       <div class="container-fluid">
         <div class="row">
-          <div class="col-md-6 d-flex flex-wrap">
-            <div class="shipping">
-              <span>We ship with:</span>
-              <img src="images/arct-icon.png" alt="icon">
-              <img src="images/dhl-jbplogo.png" alt="icon">
-            </div>
-            <div class="payment-option">
-              <span>Payment Option:</span>
-              <img src="images/visa-card.png" alt="card">
-              <img src="images/paypal-card.png" alt="card">
-              <img src="images/master-card.png" alt="card">
-            </div>
-          </div>
           <div class="col-md-6 text-start text-md-end">
-            <p>&copy; 2024 JBPSTORE - Your Mobile Gadgets Shop. All rights reserved.</p>          </div>
+            <p>&copy; 2024 JBPSTORE - Your Mobile Gadgets Shop. All rights reserved.</p>         
+           </div>
         </div>
       </div>
     </div>
