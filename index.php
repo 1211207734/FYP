@@ -427,7 +427,7 @@
           <div class="col">
             <div class="product-item hover-effect-slide">
               <div class="image-holder position-relative">
-              <a href="#" class="btn btn-primary w-100 mt-2 rounded-1">Add to cart</a>
+              <a href="#" class="btn btn-primary w-100 mt-2 rounded-1">Powerbanks</a>
                 <a href="single-product.html">
                   <img src="images/product-thumbnail-5.jpg" alt="categories" class="product-image img-fluid">
                 </a>
@@ -438,7 +438,7 @@
           <div class="col">
             <div class="product-item hover-effect-slide">
               <div class="image-holder position-relative">
-              <a href="#" class="btn btn-primary w-100 mt-2 rounded-1">Add to cart</a>
+              <a href="#" class="btn btn-primary w-100 mt-2 rounded-1">Speakers</a>
                 <a href="single-product.html">
                   <img src="images/product-thumbnail-6.jpg" alt="categories" class="product-image img-fluid">
                 </a>
@@ -448,7 +448,7 @@
           <div class="col">
             <div class="product-item hover-effect-slide">
               <div class="image-holder position-relative">
-              <a href="#" class="btn btn-primary w-100 mt-2 rounded-1">Add to cart</a>
+              <a href="#" class="btn btn-primary w-100 mt-2 rounded-1">Phone stands</a>
 
                 <a href="single-product.html">
                   <img src="images/product-thumbnail-1.jpg" alt="categories" class="product-image img-fluid">
@@ -459,7 +459,7 @@
           <div class="col">
             <div class="product-item hover-effect-slide">
               <div class="image-holder position-relative">
-              <a href="#" class="btn btn-primary w-100 mt-2 rounded-1">Add to cart</a>
+              <a href="#" class="btn btn-primary w-100 mt-2 rounded-1">Storage Extender</a>
 
                 <a href="single-product.html">
                   <img src="images/product-thumbnail-8.jpg" alt="categories" class="product-image img-fluid">
