@@ -417,15 +417,13 @@
     </div>
       <?php
       if(isset($_POST['gg'])){
-        $cus = $_POST['cus'];
-        $pro = $_POST['pro'];
-        $prop = $_POST['prop'];
+       
         $fn=$_FILES['cover']['name'];
         $ft=$_FILES['cover']['tmp_name'];
         $folder="images/user/".$fn;
             
         $connect= mysqli_connect("localhost","root","","jbp");
-        $sql = "UPDATE admin SET customer='$cus',project='$pro',projrctp='$prop',img='$folder' WHERE id='$emml'";
+        $sql = "UPDATE admin SET img='$folder' WHERE id='$emml'";
         $result = mysqli_query($connect, $sql);
         if($result && move_uploaded_file($ft,$folder)){
           echo "<script>alert('Update successfully!')</script>";

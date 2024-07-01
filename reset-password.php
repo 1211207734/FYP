@@ -1,5 +1,5 @@
 <?php
-
+include 'process-reset-password.php';
 $token = $_GET["token"];
 
 $token_hash = hash("sha256", $token);

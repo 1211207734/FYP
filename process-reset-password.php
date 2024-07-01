@@ -1,12 +1,12 @@
 <?php
 
 // Check if the token is set
-if (!isset($_POST["token"])) {
+if (!isset($_GET['token'])) {
     die("Token not provided.");
 }
 
-$token = $_POST["token"];
-$token_hash = hash("sha256", $token);
+$token = $_GET["token"];
+$token_hash = $_GET["token"];
 
 $mysqli = require __DIR__ . "/database.php";
 

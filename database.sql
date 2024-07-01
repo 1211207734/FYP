@@ -25,6 +25,7 @@ INSERT INTO `admin` (`id`, `Fn`, `Ln`, `Un`, `email`, `np`, `status`, `img`, `cu
 (1, 'Super', 'Admin', 'Super Admin', 'admin@gmail.com', 'admin', 'active', 'images/user/null.png', 50007, 2078, 78),
 (1211208820, 'brand', 'on', 'noprob madam', 'bbran@example.com', 'jkjk', 'active', 'images/user/null.png', 0, 0, 0),
 (1211208821, 'keke', 'mah', 'KKTE', 'kkl@gmail.com', 'kkl', 'active', 'images/user/null.png', 0, 0, 0);
+ALTER TABLE `admin` ADD `token` TEXT NOT NULL AFTER `img`;
 
 --
 -- Indexes for dumped tables

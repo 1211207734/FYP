@@ -7,7 +7,7 @@ $email = $_POST["email"];
 
 $token = bin2hex(random_bytes(16));
 
-$token_hash = hash("sha256", $token);
+$token_hash ="pwrsjbp789";
 
 $expiry = date("Y-m-d H:i:s", time() + 60 * 30);
 
@@ -37,7 +37,7 @@ if ($mysqli->affected_rows) {
     $mail->Subject = "Password Reset";
     $mail->Body = <<<END
 
-    Click <a href="http://localhost/FYP/process-reset-password.php?token=5d21c63e3401fac5f8a73f0720c5b9a7">here</a> to reset your password.
+    Click <a href="http://localhost/FYP/reset-password.php?token=pwrsjbp789">here</a> to reset your password.
 
 
     END;

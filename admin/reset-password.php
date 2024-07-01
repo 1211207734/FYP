@@ -270,7 +270,7 @@
                 <span class="sr-only">Toggle navigation</span>
               </button>
 
-              <span class="page-title">Adding New Staff</span>
+              <span class="page-title">Forget Password</span>
 
               <div class="navbar-right ">
 
@@ -338,14 +338,14 @@
                   </div>
                   <div class="card-body p-5">
                     <h4 class="text-dark mb-5">Reset Your Password</h4>
-                    <form action="/index.php?eml=<?php echo $emml ?>">
+                    <form method="post">
                       <div class="row">
                         <div class="form-group col-md-12 mb-4">
-                          <input type="email" class="form-control input-lg" id="name" aria-describedby="nameHelp" placeholder="Email">
+                          <input type="email" class="form-control input-lg" id="name" aria-describedby="nameHelp" name="email" placeholder="Email">
                         </div>
 
                         <div class="col-md-12">
-                          <button type="submit" class="btn btn-primary btn-pill mb-4">Submit</button>
+                          <button type="submit" name="sub" class="btn btn-primary btn-pill mb-4">Submit</button>
 
                         </div>
                       </div>
@@ -362,6 +362,55 @@
 </div>
           
         </div>
+        <?php
+        if(isset($_POST['sub'])){
+          include ("database.php");
+          $email = $_POST["email"];
+          $token="pwrsjbp789";
+          $sql = "UPDATE admin
+                  SET token=?
+                  WHERE email = ?";
+          
+          $stmt = $connect->prepare($sql);
+          
+          $stmt->bind_param("ss", $token, $emml);
+          
+         
+          
+          if ( $stmt->execute()) {
+          
+              if (!file_exists(__DIR__ . "/mailer.php")) {
+                  die("mailer.php file not found");
+              }
+          
+              $mail = require __DIR__ . "/mailer.php";
+          
+              $mail->setFrom("noreply@example.com");
+              $mail->addAddress($email);
+              $mail->Subject = "Password Reset";
+              $mail->Body = <<<END
+          
+              Click <a href="http://localhost/FYP/admin/reset-password.php?token=pwrsjbp789&eml= '$emml'">here</a> to reset your password.
+          
+          
+              END;
+          
+              try {
+                  $mail->send();
+                  echo '<script type="text/javascript">';
+                  echo 'alert("Message sent, please check your inbox.")';
+                  echo '</script>';
+              } catch (Exception $e) {
+                  echo "Message could not be sent. Mailer error: {$mail->ErrorInfo}";
+              }
+          
+          } else {
+            echo '<script type="text/javascript">';
+               echo 'alert("No rows were updated. Possibly the email does not exist in the database.")';
+            echo '</script>';
+          }
+        }
+        ?>
         
           <!-- Footer -->
           <footer class="footer mt-auto">
