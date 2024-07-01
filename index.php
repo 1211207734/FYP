@@ -25,6 +25,13 @@
     rel="stylesheet">
     <link href="images/jbplogo.png.png" rel="shortcut icon" />
 </head>
+<style>
+
+    body {
+      overflow-x: hidden;
+    }
+
+  </style>
 
 <body data-bs-theme="dark">
   <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
@@ -155,50 +162,6 @@
 
   <div class="preloader text-white fs-6 text-uppercase overflow-hidden"></div>
 
-
-  <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasCart" aria-labelledby="My Cart">
-    <div class="offcanvas-header justify-content-center">
-      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-    </div>
-    <div class="offcanvas-body">
-      <div class="order-md-last">
-        <h4 class="d-flex justify-content-between align-items-center mb-3">
-          <span class="text-primary">Your cart</span>
-          <span class="badge bg-primary rounded-pill">3</span>
-        </h4>
-        <ul class="list-group mb-3">
-          <li class="list-group-item d-flex justify-content-between lh-sm">
-            <div>
-              <h6 class="my-0">22 Inch Monitor</h6>
-              <small class="text-body-secondary">Brief description</small>
-            </div>
-            <span class="text-body-secondary">$12</span>
-          </li>
-          <li class="list-group-item d-flex justify-content-between lh-sm">
-            <div>
-              <h6 class="my-0">Mobile phone</h6>
-              <small class="text-body-secondary">Brief description</small>
-            </div>
-            <span class="text-body-secondary">$8</span>
-          </li>
-          <li class="list-group-item d-flex justify-content-between lh-sm">
-            <div>
-              <h6 class="my-0">Drone</h6>
-              <small class="text-body-secondary">Brief description</small>
-            </div>
-            <span class="text-body-secondary">$5</span>
-          </li>
-          <li class="list-group-item d-flex justify-content-between">
-            <span>Total (USD)</span>
-            <strong>$20</strong>
-          </li>
-        </ul>
-
-        <button class="w-100 btn btn-primary btn-lg" type="submit">Continue to Checkout</button>
-      </div>
-    </div>
-  </div>
-
   <nav class="navbar navbar-expand-lg text-white text-uppercase fs-7 ls-1 py-5 align-items-center">
     <div class="container-fluid">
       <div class="row align-items-center w-100">
@@ -241,7 +204,7 @@
                 </li>
                 <hr>
                 <li class="nav-item">
-                  <a class="nav-link" href="loginregister.php" onclick="return checkout()">Checkout</a>
+                  <a class="nav-link" href="loginregister.php" onclick="return checkout()">My Account</a>
               </li>
               <script type="text/javascript">
                   function checkout() {
@@ -260,7 +223,7 @@
               </script>
               
                 <li class="nav-item">
-                  <a class="nav-link" href="loginregister.php">Account</a>
+                  <a class="nav-link" href="loginregister.php">Order History</a>
                 </li>
                 <li class="nav-item">
                   <script>
@@ -316,7 +279,7 @@
                   <div class="col-md-10 pt-5">
                     <h2 class="display-1 ls-0 mt-5 pt-5 txt-fx slide-up">Buy Mobile Gadgets at Affordable Prices</h2>
                     <p class="caption">More gadgets make life easier</p>
-                    <a href="shop.php" class="btn btn-outline-light text-uppercase rounded-3 px-4 py-3 mt-3">Shop Now</a>
+                    <a href="loginregister.php" onclick="return checkout()" class="btn btn-outline-light text-uppercase rounded-3 px-4 py-3 mt-3">Shop Now</a>
                   </div>
                 </div>
               </div>
@@ -330,7 +293,7 @@
                   <div class="col-md-10 pt-5">
                     <h2 class="display-1 ls-0 mt-5 pt-5 txt-fx slide-up">Cool Tech Gadgets Collection 2023</h2>
                     <p class="caption">More gadgets make life easier</p>
-                    <a href="#" class="btn btn-outline-light text-uppercase rounded-3 px-4 py-3 mt-3">Shop Now</a>
+                    <a href="loginregister.php" onclick="return checkout()" class="btn btn-outline-light text-uppercase rounded-3 px-4 py-3 mt-3">Shop Now</a>
                   </div>
                 </div>
               </div>
@@ -344,28 +307,35 @@
                   <div class="col-md-10 pt-5">
                     <h2 class="display-1 ls-0 mt-5 pt-5 txt-fx slide-up">Sturdy And Multifunction New Gadgets</h2>
                     <p class="caption">More gadgets make life easier</p>
-                    <a href="#" class="btn btn-outline-light text-uppercase rounded-3 px-4 py-3 mt-3">Shop Now</a>
+                    <a href="loginregister.php" onclick="return checkout()" class="btn btn-outline-light text-uppercase rounded-3 px-4 py-3 mt-3">Shop Now</a>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="swiper-pagination"></div>
         </div>
-        <div class="pagination-wrapper position-absolute">
-          <div class="container">
-            <div class="slideshow-swiper-pagination"></div>
-          </div>
-        </div>
-        <div class="icon-arrow icon-arrow-left text-white"><svg width="50" height="50" viewBox="0 0 24 24">
-            <use xlink:href="#arrow-left"></use>
-          </svg></div>
-        <div class="icon-arrow icon-arrow-right text-white"><svg width="50" height="50" viewBox="0 0 24 24">
-            <use xlink:href="#arrow-right"></use>
-          </svg></div>
+
       </div>
     </div>
   </section>
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script>
+  var swiper = new Swiper('.slideshow', {
+    loop: true,
+    autoplay: {
+      delay: 3000, // 3 seconds
+      disableOnInteraction: false,
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    navigation: {
+      nextEl: '.icon-arrow-right',
+      prevEl: '.icon-arrow-left',
+    },
+  });
+</script>
 
   <section class="features" style="position:relative; margin-top: -100px; z-index: 2;">
     <div class="container-lg">
@@ -445,102 +415,24 @@
       </div>
     </div>
   </section>
+  <script>
+  var swiper = new Swiper('.slideshow', {
+    loop: true,
+    autoplay: {
+      delay: 3000, // 3 seconds
+      disableOnInteraction: false,
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    navigation: {
+      nextEl: '.icon-arrow-right',
+      prevEl: '.icon-arrow-left',
+    },
+  });
+</script>
 
-  <section id="new-arrival"
-    class="new-arrival py-5">
-    <div class="container-fluid">
-      <div class="d-flex flex-wrap justify-content-between align-items-center mt-5 mb-3">
-        <h4 class="text-uppercase">Our New Arrivals</h4>
-        <a href="shop.php" class="btn-link">View All Products</a>
-      </div>
-
-      <div data-aos="fade-in">
-        <div class="row row-cols-2 row-cols-md-3 row-cols-lg-5">
-          <div class="col">
-            <div class="product-item hover-effect-slide">
-              <div class="image-holder position-relative">
-                <a href="single-product.html">
-                  <img src="images/product-small-1.jpg" alt="categories" class="product-image img-fluid">
-                </a>
-                <a href="#" class="btn btn-primary w-100 mt-2 rounded-1">Add to cart</a>
-              </div>
-              <div class="product-content d-flex flex-column flex-md-row justify-content-between align-items-md-center">
-                <h5 class="fs-5 mt-3">
-                  <a href="single-product.html">Phone Cover 5.6 inches</a>
-                </h5>
-                <span>$95.00</span>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="product-item hover-effect-slide">
-              <div class="image-holder position-relative">
-                <a href="single-product.html">
-                  <img src="images/product-small-2.jpg" alt="categories" class="product-image img-fluid">
-                </a>
-                <a href="#" class="btn btn-primary w-100 mt-2 rounded-1">Add to cart</a>
-              </div>
-              <div class="product-content d-flex flex-column flex-md-row justify-content-between align-items-md-center">
-                <h5 class="fs-5 mt-3">
-                  <a href="single-product.html">Smart Phone 128GB RAM</a>
-                </h5>
-                <a href="#" class="text-decoration-none" data-after="Add to cart"><span>$55.00</span></a>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="product-item hover-effect-slide">
-              <div class="image-holder position-relative">
-                <a href="single-product.html">
-                  <img src="images/product-small-3.jpg" alt="categories" class="product-image img-fluid">
-                </a>
-                <a href="#" class="btn btn-primary w-100 mt-2 rounded-1">Add to cart</a>
-              </div>
-              <div class="product-content d-flex flex-column flex-md-row justify-content-between align-items-md-center">
-                <h5 class="fs-5 mt-3">
-                  <a href="single-product.html">Smart Phone 128GB RAM</a>
-                </h5>
-                <a href="#" class="text-decoration-none" data-after="Add to cart"><span>$55.00</span></a>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="product-item hover-effect-slide">
-              <div class="image-holder position-relative">
-                <a href="single-product.html">
-                  <img src="images/product-small-4.jpg" alt="categories" class="product-image img-fluid">
-                </a>
-                <a href="#" class="btn btn-primary w-100 mt-2 rounded-1">Add to cart</a>
-              </div>
-              <div class="product-content d-flex flex-column flex-md-row justify-content-between align-items-md-center">
-                <h5 class="fs-5 mt-3">
-                  <a href="single-product.html">Smart Phone 128GB RAM</a>
-                </h5>
-                <a href="#" class="text-decoration-none" data-after="Add to cart"><span>$55.00</span></a>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="product-item hover-effect-slide">
-              <div class="image-holder position-relative">
-                <a href="single-product.html">
-                  <img src="images/product-small-5.jpg" alt="categories" class="product-image img-fluid">
-                </a>
-                <a href="#" class="btn btn-primary w-100 mt-2 rounded-1">Add to cart</a>
-              </div>
-              <div class="product-content d-flex flex-column flex-md-row justify-content-between align-items-md-center">
-                <h5 class="fs-5 mt-3">
-                  <a href="single-product.html">22 Inch LED Display</a>
-                </h5>
-                <a href="#" class="text-decoration-none" data-after="Add to cart"><span>$65.00</span></a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  
   <section id="best-sellers"
     class="best-sellers py-5 mb-5">
     <div class="container-fluid">
