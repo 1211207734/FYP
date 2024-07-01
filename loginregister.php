@@ -80,14 +80,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])) {
     include('database.php'); // Include your database connection file here
 
     // Prepare and bind parameters
-    $stmt = $connect->prepare("INSERT INTO Customer (Customer_name, Customer_email, Customer_password, Customer_HP, Customer_address_1, Customer_address_2, Customer_postcode) VALUES (?, ?, ?, ?, ?, ?, ?)");
+    $stmt = $connect->prepare("INSERT INTO Customer (Customer_name, Customer_email, Customer_password, Customer_HP, Customer_address_1, Customer_address_2, Customer_postcode) VALUES (?, concat(?,'@gamil.com'), ?, ?, ?, ?, ?)");
     $stmt->bind_param("sssssss", $fullname, $email, $npassword, $phone, $address1, $address2, $postcode);
 
     /// Set parameters and execute
     $fullname = $_POST['fullname'];
-    $t="@gmail.com";
-    $email=$emaill&$t;
-    $emaill = $_POST['email'];
+    
+    $email = $_POST['email'];
     $npassword = $_POST['password']; // Use $npassword instead of $passwor
     $cpassword = $_POST['confirm_password'];
     $phone = $_POST['phone'];
