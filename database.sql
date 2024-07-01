@@ -339,13 +339,7 @@ VALUES (1,200.99),
        (13,200.99);
 
 
-CREATE TABLE promotion (
-  code_id int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  code text NOT NULL,
-  discount double NOT NULL,
-  valid int(11) NOT NULL DEFAULT 200,
-  status text NOT NULL DEFAULT 'active'
-);
+
 
 CREATE TABLE `promotion` (
   `code_id` int(11) NOT NULL,

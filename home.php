@@ -255,7 +255,7 @@ if (isset($_GET['eml'])) {
                   <div class="col-md-10 pt-5">
                     <h2 class="display-1 ls-0 mt-5 pt-5 txt-fx slide-up">Buy Mobile Gadgets at Affordable Prices</h2>
                     <p class="caption">More gadgets make life easier</p>
-                    <a href="shop.php" class="btn btn-outline-light text-uppercase rounded-3 px-4 py-3 mt-3">Shop Now</a>
+                    <a href="shop.php?eml=<?php echo $emml ?>" class="btn btn-outline-light text-uppercase rounded-3 px-4 py-3 mt-3">Shop Now</a>
                   </div>
                 </div>
               </div>
@@ -269,7 +269,7 @@ if (isset($_GET['eml'])) {
                   <div class="col-md-10 pt-5">
                     <h2 class="display-1 ls-0 mt-5 pt-5 txt-fx slide-up">Cool Tech Gadgets Collection 2023</h2>
                     <p class="caption">More gadgets make life easier</p>
-                    <a href="#" class="btn btn-outline-light text-uppercase rounded-3 px-4 py-3 mt-3">Shop Now</a>
+                    <a href="shop.php?eml=<?php echo $emml ?>" class="btn btn-outline-light text-uppercase rounded-3 px-4 py-3 mt-3">Shop Now</a>
                   </div>
                 </div>
               </div>
@@ -283,7 +283,7 @@ if (isset($_GET['eml'])) {
                   <div class="col-md-10 pt-5">
                     <h2 class="display-1 ls-0 mt-5 pt-5 txt-fx slide-up">Sturdy And Multifunction New Gadgets</h2>
                     <p class="caption">More gadgets make life easier</p>
-                    <a href="#" class="btn btn-outline-light text-uppercase rounded-3 px-4 py-3 mt-3">Shop Now</a>
+                    <a href="shop.php?eml=<?php echo $emml ?>" class="btn btn-outline-light text-uppercase rounded-3 px-4 py-3 mt-3">Shop Now</a>
                   </div>
                 </div>
               </div>
@@ -353,7 +353,7 @@ if (isset($_GET['eml'])) {
     <div class="container-fluid">
       <div class="d-flex flex-wrap justify-content-between align-items-center mt-5 mb-3">
         <h4 class="text-uppercase">Categories</h4>
-        <a href="shop.php" class="btn-link">View All Products</a>
+        <a href="shop.php?eml=<?php echo $emml ?>&cid=1" class="btn-link">View All Products</a>
       </div>
 
       <div data-aos="fade-in">
@@ -361,8 +361,8 @@ if (isset($_GET['eml'])) {
           <div class="col">
             <div class="product-item hover-effect-slide">
               <div class="image-holder position-relative">
-              <a href="#" class="btn btn-primary w-100 mt-2 rounded-1">Smartphones</a>
-                <a href="single-product.html">
+              <a href="shoptry.php?eml=<?php echo $emml ?>&cid=1" class="btn btn-primary w-100 mt-2 rounded-1">Smartphones</a>
+                <a href="shoptry.php?eml=<?php echo $emml ?>&cid=1">
                   <img src="images/product-thumbnail-2.jpg" alt="categories" class="product-image img-fluid">
                 </a>
               </div>
@@ -371,8 +371,8 @@ if (isset($_GET['eml'])) {
           <div class="col">
             <div class="product-item hover-effect-slide">
               <div class="image-holder position-relative">
-              <a href="#" class="btn btn-primary w-100 mt-2 rounded-1">Tablets</a>
-                <a href="single-product.html">
+              <a href="shoptry.php?eml=<?php echo $emml ?>&cid=2" class="btn btn-primary w-100 mt-2 rounded-1">Tablets</a>
+                <a href="shoptry.php?eml=<?php echo $emml ?>&cid=2">
                   <img src="images/product-thumbnail-7.jpg" alt="categories" class="product-image img-fluid">
                 </a>
               </div>
@@ -381,9 +381,9 @@ if (isset($_GET['eml'])) {
           <div class="col">
             <div class="product-item hover-effect-slide">
               <div class="image-holder position-relative">
-              <a href="#" class="btn btn-primary w-100 mt-2 rounded-1">Earphones</a>
+              <a href="shoptry.php?eml=<?php echo $emml ?>&cid=5" class="btn btn-primary w-100 mt-2 rounded-1">Earphones</a>
 
-                <a href="single-product.html">
+                <a href="shoptry.php?eml=<?php echo $emml ?>&cid=5">
                   <img src="images/product-thumbnail-3.jpg" alt="categories" class="product-image img-fluid">
                 </a>
               </div>
@@ -392,8 +392,8 @@ if (isset($_GET['eml'])) {
           <div class="col">
             <div class="product-item hover-effect-slide">
               <div class="image-holder position-relative">
-              <a href="#" class="btn btn-primary w-100 mt-2 rounded-1">Wearables</a>
-                <a href="single-product.html">
+              <a href="shoptry.php?eml=<?php echo $emml ?>&cid=4" class="btn btn-primary w-100 mt-2 rounded-1">Wearables</a>
+                <a href="shoptry.php?eml=<?php echo $emml ?>&cid=4">
                   <img src="images/product-thumbnail-4.jpg" alt="categories" class="product-image img-fluid">
                 </a>
               </div>
@@ -402,8 +402,8 @@ if (isset($_GET['eml'])) {
           <div class="col">
             <div class="product-item hover-effect-slide">
               <div class="image-holder position-relative">
-              <a href="#" class="btn btn-primary w-100 mt-2 rounded-1">Powerbanks</a>
-                <a href="single-product.html">
+              <a href="shoptry.php?eml=<?php echo $emml ?>&cid=6" class="btn btn-primary w-100 mt-2 rounded-1">Powerbanks</a>
+                <a href="shoptry.php?eml=<?php echo $emml ?>&cid=6">
                   <img src="images/product-thumbnail-5.jpg" alt="categories" class="product-image img-fluid">
                 </a>
                 
@@ -413,8 +413,8 @@ if (isset($_GET['eml'])) {
           <div class="col">
             <div class="product-item hover-effect-slide">
               <div class="image-holder position-relative">
-              <a href="#" class="btn btn-primary w-100 mt-2 rounded-1">Speakers</a>
-                <a href="single-product.html">
+              <a href="shoptry.php?eml=<?php echo $emml ?>&cid=7" class="btn btn-primary w-100 mt-2 rounded-1">Speakers</a>
+                <a href="shoptry.php?eml=<?php echo $emml ?>&cid=7">
                   <img src="images/product-thumbnail-6.jpg" alt="categories" class="product-image img-fluid">
                 </a>
               </div>
@@ -423,9 +423,9 @@ if (isset($_GET['eml'])) {
           <div class="col">
             <div class="product-item hover-effect-slide">
               <div class="image-holder position-relative">
-              <a href="#" class="btn btn-primary w-100 mt-2 rounded-1">Phone stands</a>
+              <a href="shoptry.php?eml=<?php echo $emml ?>&cid=8"class="btn btn-primary w-100 mt-2 rounded-1">Phone stands</a>
 
-                <a href="single-product.html">
+                <a href="shoptry.php?eml=<?php echo $emml ?>&cid=8">
                   <img src="images/product-thumbnail-1.jpg" alt="categories" class="product-image img-fluid">
                 </a>
               </div>
@@ -434,9 +434,9 @@ if (isset($_GET['eml'])) {
           <div class="col">
             <div class="product-item hover-effect-slide">
               <div class="image-holder position-relative">
-              <a href="#" class="btn btn-primary w-100 mt-2 rounded-1">Storage Extender</a>
+              <a href="shoptry.php?eml=<?php echo $emml ?>&cid=9" class="btn btn-primary w-100 mt-2 rounded-1">Storage Extender</a>
 
-                <a href="single-product.html">
+                <a href="shoptry.php?eml=<?php echo $emml ?>&cid=9">
                   <img src="images/product-thumbnail-8.jpg" alt="categories" class="product-image img-fluid">
                 </a>
               </div>
