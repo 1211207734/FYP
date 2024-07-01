@@ -124,6 +124,7 @@
                     if (isset($_POST['check'])){
                         $eew = $ew - $total;
                         
+                        $cc="SELECT * FROM product WHERE code='$co'";
                         $sql1="INSERT INTO ooder (Customer_ID,Order_date,Order_time,Total_price) values ('$emml',CURRENT_DATE,CURRENT_TIME,'$total')";                       
                         $sq="UPDATE promotion SET valid=valid-1 WHERE code='$co'";
                         $sqlll="UPDATE tng SET Balance='$eew' WHERE Customer_ID='$emml'";
@@ -141,13 +142,19 @@
                         $pi=$row1['Payment_ID'];
                         $sql3="INSERT INTO transaction_report (Order_ID,Payment_ID,Customer_ID,status) values ('$oi','$pi','$emml','Paid')";
                         mysqli_query($connect,$sql3);
-                        $sql4="SELECT * FROM cart WHERE Customer_ID='$emml'";
+                        $sql4="SELECT * FROM products  INNER JOIN cart ON products.Product_ID = cart.Product_ID WHERE cart.Customer_ID = '$emml'";
                         $result = mysqli_query($connect, $sql4);
                         while ($row = mysqli_fetch_assoc($result)) {
+                            if($row['Product_stock']>0){
                             $sql5="INSERT INTO orderdetail (Order_ID,Product_ID,Quantity) values ('$row1[Order_ID]','$row[Product_ID]','$row[quantity]')";
                             $sql6="UPDATE products set Product_stock=Product_stock-$row[quantity] where Product_ID=$row[Product_ID]";
                             mysqli_query($connect,$sql5);
                             mysqli_query($connect,$sql6);
+                            }else{
+                                echo '<script>';
+                                echo 'alert("Sorry, '.$row['Product_name'].' is out of stock!");';
+                                echo '</script>';
+                            }
                         }
 
 
