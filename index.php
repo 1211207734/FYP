@@ -212,15 +212,6 @@
     </div>
   </div>
 
-<?php
-include('database.php');
-if (isset($_GET['eml'])) {
-    $emml = $_GET['eml'];}
-
-?>
-
-
-
   <nav class="navbar navbar-expand-lg text-white text-uppercase fs-7 ls-1 py-5 align-items-center">
     <div class="container-fluid">
       <div class="row align-items-center w-100">
@@ -248,25 +239,41 @@ if (isset($_GET['eml'])) {
                   aria-haspopup="true" aria-expanded="false">Shop</a>
                   <ul class="dropdown-menu list-unstyled p-4" aria-labelledby="dropdownPages">
                     <li>
-                      <a href="shop.php?eml=<?php echo $emml ?>" class="dropdown-item item-anchor">All    </a>
+                      <a href="shop.php" class="dropdown-item item-anchor">All    </a>
                     </li>
                     <li>
-                      <a href="shoptry.php?eml=<?php echo $emml ?>&cid=1" class="dropdown-item item-anchor">Categories</a>
+                      <a href="checkout.php" class="dropdown-item item-anchor">Categories</a>
                     </li>
                   </ul>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="FAQ.php?eml=<?php echo $emml ?>" >FAQs    </a>
+                  <a class="nav-link" href="FAQ.php" >FAQs    </a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="about.php?eml=<?php echo $emml?>">About Us</a>
                 </li>
                 <hr>
                 <li class="nav-item">
-                  <a class="nav-link" href="p.php?eml=<?php echo $emml?>">My Account</a>
-                </li>
+                  <a class="nav-link" href="loginregister.php" onclick="return checkout()">Checkout</a>
+              </li>
+              <script type="text/javascript">
+                  function checkout() {
+                      // Assuming you have some logic to check if the user is logged in
+                      var isLoggedIn = false; // Update this with your actual check
+                      if (!isLoggedIn) {
+                          alert("Please login an account to continue.");
+                          // Redirect to the login page after the alert is closed
+                          setTimeout(function() {
+                              window.location.href = "loginregister.php";
+                          }, 0); // Adjust the delay if needed, 0 means immediate redirection
+                          return false; // Prevent the default link action
+                      }
+                      return true; // Allow the link action to proceed
+                  }
+              </script>
+              
                 <li class="nav-item">
-                  <a class="nav-link" href="orderhis.php?eml=<?php echo $emml?>">Order History</a>
+                  <a class="nav-link" href="loginregister.php">Account</a>
                 </li>
                 <li class="nav-item">
                   <script>
@@ -275,8 +282,23 @@ if (isset($_GET['eml'])) {
                 
                 
                 <!-- HTML for the login link -->
-                <a id="loginLink" class="nav-link" href="index.php">Log Out</a>
-                
+                <a id="loginLink" class="nav-link" href="loginregister.php">Login/Sign Up</a>
+
+                <script>
+                    // Retrieve the useraccount value from session storage
+                    var useraccount = sessionStorage.getItem('useraccount');
+
+                    // Check if useraccount is set and its value is 1
+                    if (useraccount && useraccount === '1') {
+                        // User is logged in, hide the login link
+                        document.getElementById('loginLink').style.display = 'none';
+                    } else {
+                        // User is not logged in, keep the login link visible
+                    }
+                </script>
+
+
+
                 </li>
               </ul>
             </div>
@@ -285,13 +307,8 @@ if (isset($_GET['eml'])) {
         <div class="col-3 col-md-3 text-md-end">
           <ul class="list-unstyled d-flex justify-content-end m-0">
             <li>
-              <a href="cart.php?eml=<?php echo $emml?>" class="mx-2" >
+              <a href="cart.html" class="mx-2" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart" aria-controls="offcanvasCart">
                 <svg width="24" height="24" viewBox="0 0 24 24"><use xlink:href="#cart"></use></svg>
-              </a>
-            </li>
-            <li class="search-box" class="mx-2">
-              <a href="#search" class="search-button">
-                <svg width="24" height="24" viewBox="0 0 24 24"><use xlink:href="#search"></use></svg>
               </a>
             </li>
           </ul>
@@ -464,7 +481,7 @@ if (isset($_GET['eml'])) {
                 <h5 class="fs-5 mt-3">
                   <a href="single-product.html">Phone Cover 5.6 inches</a>
                 </h5>
-                <span>RM 95.00</span>
+                <span>$95.00</span>
               </div>
             </div>
           </div>
@@ -480,7 +497,7 @@ if (isset($_GET['eml'])) {
                 <h5 class="fs-5 mt-3">
                   <a href="single-product.html">Smart Phone 128GB RAM</a>
                 </h5>
-                <a href="#" class="text-decoration-none" data-after="Add to cart"><span>RM 55.00</span></a>
+                <a href="#" class="text-decoration-none" data-after="Add to cart"><span>$55.00</span></a>
               </div>
             </div>
           </div>
@@ -496,7 +513,7 @@ if (isset($_GET['eml'])) {
                 <h5 class="fs-5 mt-3">
                   <a href="single-product.html">Smart Phone 128GB RAM</a>
                 </h5>
-                <a href="#" class="text-decoration-none" data-after="Add to cart"><span>RM 55.00</span></a>
+                <a href="#" class="text-decoration-none" data-after="Add to cart"><span>$55.00</span></a>
               </div>
             </div>
           </div>
@@ -512,7 +529,7 @@ if (isset($_GET['eml'])) {
                 <h5 class="fs-5 mt-3">
                   <a href="single-product.html">Smart Phone 128GB RAM</a>
                 </h5>
-                <a href="#" class="text-decoration-none" data-after="Add to cart"><span>RM55.00</span></a>
+                <a href="#" class="text-decoration-none" data-after="Add to cart"><span>$55.00</span></a>
               </div>
             </div>
           </div>
@@ -528,7 +545,7 @@ if (isset($_GET['eml'])) {
                 <h5 class="fs-5 mt-3">
                   <a href="single-product.html">22 Inch LED Display</a>
                 </h5>
-                <a href="#" class="text-decoration-none" data-after="Add to cart"><span>RM 65.00</span></a>
+                <a href="#" class="text-decoration-none" data-after="Add to cart"><span>$65.00</span></a>
               </div>
             </div>
           </div>
@@ -559,7 +576,7 @@ if (isset($_GET['eml'])) {
                 <h5 class="fs-5 mt-3">
                   <a href="single-product.html">Phone Cover 5.6 inches</a>
                 </h5>
-                <a href="#" class="text-decoration-none" data-after="Add to cart"><span>RM 95.00</span></a>
+                <a href="#" class="text-decoration-none" data-after="Add to cart"><span>$95.00</span></a>
               </div>
             </div>
           </div>
@@ -575,7 +592,7 @@ if (isset($_GET['eml'])) {
                 <h5 class="fs-5 mt-3">
                   <a href="single-product.html">Smart Phone 128GB RAM</a>
                 </h5>
-                <a href="#" class="text-decoration-none" data-after="Add to cart"><span>RM 55.00</span></a>
+                <a href="#" class="text-decoration-none" data-after="Add to cart"><span>$55.00</span></a>
               </div>
             </div>
           </div>
@@ -591,7 +608,7 @@ if (isset($_GET['eml'])) {
                 <h5 class="fs-5 mt-3">
                   <a href="single-product.html">Smart Phone 128GB RAM</a>
                 </h5>
-                <a href="#" class="text-decoration-none" data-after="Add to cart"><span>RM 55.00</span></a>
+                <a href="#" class="text-decoration-none" data-after="Add to cart"><span>$55.00</span></a>
               </div>
             </div>
           </div>
@@ -607,7 +624,7 @@ if (isset($_GET['eml'])) {
                 <h5 class="fs-5 mt-3">
                   <a href="single-product.html">Phone Cover 5.6 inches</a>
                 </h5>
-                <a href="#" class="text-decoration-none" data-after="Add to cart"><span>RM 95.00</span></a>
+                <a href="#" class="text-decoration-none" data-after="Add to cart"><span>$95.00</span></a>
               </div>
             </div>
           </div>
@@ -623,7 +640,7 @@ if (isset($_GET['eml'])) {
                 <h5 class="fs-5 mt-3">
                   <a href="single-product.html">Smart Phone 128GB RAM</a>
                 </h5>
-                <a href="#" class="text-decoration-none" data-after="Add to cart"><span>RM 55.00</span></a>
+                <a href="#" class="text-decoration-none" data-after="Add to cart"><span>$55.00</span></a>
               </div>
             </div>
           </div>
@@ -639,7 +656,7 @@ if (isset($_GET['eml'])) {
                 <h5 class="fs-5 mt-3">
                   <a href="single-product.html">Smart Phone 128GB RAM</a>
                 </h5>
-                <a href="#" class="text-decoration-none" data-after="Add to cart"><span>RM 55.00</span></a>
+                <a href="#" class="text-decoration-none" data-after="Add to cart"><span>$55.00</span></a>
               </div>
             </div>
           </div>
@@ -655,7 +672,7 @@ if (isset($_GET['eml'])) {
                 <h5 class="fs-5 mt-3">
                   <a href="single-product.html">Smart Phone 128GB RAM</a>
                 </h5>
-                <a href="#" class="text-decoration-none" data-after="Add to cart"><span>RM 55.00</span></a>
+                <a href="#" class="text-decoration-none" data-after="Add to cart"><span>$55.00</span></a>
               </div>
             </div>
           </div>
@@ -671,7 +688,7 @@ if (isset($_GET['eml'])) {
                 <h5 class="fs-5 mt-3">
                   <a href="single-product.html">22 Inch LED Display</a>
                 </h5>
-                <a href="#" class="text-decoration-none" data-after="Add to cart"><span>RM 65.00</span></a>
+                <a href="#" class="text-decoration-none" data-after="Add to cart"><span>$65.00</span></a>
               </div>
             </div>
           </div>

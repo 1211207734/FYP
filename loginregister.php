@@ -172,9 +172,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])) {
                                                 });
                                                 </script>
                                             <br>
-                                            <!-- Removed redirecting back to index.html -->
+                                            <!-- Removed redirecting back to index.php -->
                                         </form>
-                                        <a href="index.html"><button name="home" class="btn mt-4">back</button></a>
+                                        <a href="index.php"><button name="home" class="btn mt-4">back</button></a>
                                         <a href="forgot-password.php"><button name="home" class="btn mt-4">Forgot Password?</button></a>
 
                                         <?php

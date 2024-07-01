@@ -301,7 +301,7 @@ if(isset($_POST['name'])) {
       <div class="row justify-content-between w-100">
 
         <div class="col-auto">
-          <a class="navbar-brand" href="index.html"><img src="images/logo.svg" width="100" height="45" alt="logo"></a>
+          <a class="navbar-brand" href="index.php"><img src="images/logo.svg" width="100" height="45" alt="logo"></a>
         </div>
 
         <div class="col-auto">
@@ -325,7 +325,7 @@ if(isset($_POST['name'])) {
                     aria-haspopup="true" aria-expanded="false">Home</a>
                   <ul class="dropdown-menu list-unstyled" aria-labelledby="dropdownHome">
                     <li>
-                      <a href="index.html" class="dropdown-item item-anchor">Home Layout 1</a>
+                      <a href="index.php" class="dropdown-item item-anchor">Home Layout 1</a>
                     </li>
                     <li>
                       <a href="home2.html" class="dropdown-item item-anchor">Home Layout 2</a>
@@ -482,7 +482,7 @@ if(isset($_POST['name'])) {
         <div class="row">
           <div class="text-center">
             <div class="breadcrumbs">
-              <span class="item"><a href="index.html">Home /</a></span>
+              <span class="item"><a href="index.php">Home /</a></span>
               <span class="item">My Account</span>
             </div>
           </div>
@@ -592,7 +592,7 @@ if(isset($_POST['name'])) {
         <div class="col-md-3 col-sm-6">
           <div class="footer-menu footer-menu-001">
             <div class="footer-intro mb-4">
-              <a href="index.html">
+              <a href="index.php">
                 <img src="images/logo.svg" alt="logo">
               </a>
             </div>
@@ -644,7 +644,7 @@ if(isset($_POST['name'])) {
             <h5 class="widget-title text-uppercase mb-4">Quick Links</h5>
             <ul class="menu-list list-unstyled text-uppercase border-animation-left fs-6">
               <li class="menu-item">
-                <a href="index.html" class="item-anchor">Home</a>
+                <a href="index.php" class="item-anchor">Home</a>
               </li>
               <li class="menu-item">
                 <a href="shop-four-column-wide.html" class="item-anchor">About</a>
