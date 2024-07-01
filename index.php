@@ -272,7 +272,7 @@
       <div class="slideshow slide-in arrow-absolute text-white" style="height: 80vh;">
         <div class="swiper-wrapper">
           <div class="swiper-slide jarallax">
-            <img src="images/banner-large-1.jpg" class="jarallax-img" alt="slideshow">
+            <img src="images/banner-large-1.jpg"style="width:100%" class="jarallax-img" alt="slideshow">
             <div class="banner-content w-100">
               <div class="container">
                 <div class="row">
@@ -286,7 +286,7 @@
             </div>
           </div>
           <div class="swiper-slide jarallax">
-            <img src="images/banner-large-2.jpg" class="jarallax-img" alt="slideshow">
+            <img src="images/banner-large-2.jpg" style="width:100%"class="jarallax-img" alt="slideshow">
             <div class="banner-content w-100">
               <div class="container">
                 <div class="row">
@@ -300,7 +300,7 @@
             </div>
           </div>
           <div class="swiper-slide jarallax">
-            <img src="images/banner-large-3.jpg" class="jarallax-img" alt="slideshow">
+            <img src="images/banner-large-3.jpg" style="width:100%"class="jarallax-img" alt="slideshow">
             <div class="banner-content w-100">
               <div class="container">
                 <div class="row">
