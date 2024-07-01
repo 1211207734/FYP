@@ -226,18 +226,18 @@
                   aria-haspopup="true" aria-expanded="false">Shop</a>
                   <ul class="dropdown-menu list-unstyled p-4" aria-labelledby="dropdownPages">
                     <li>
-                      <a href="shop.php" class="dropdown-item item-anchor">All    </a>
+                      <a href="loginregister.php" onclick="return checkout()" class="dropdown-item item-anchor">All    </a>
                     </li>
                     <li>
-                      <a href="checkout.php" class="dropdown-item item-anchor">Categories</a>
+                      <a href="loginregister.php" onclick="return checkout()" class="dropdown-item item-anchor">Categories</a>
                     </li>
                   </ul>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="FAQ.php" >FAQs    </a>
+                  <a class="nav-link" href="loginregister.php" onclick="return checkout()">FAQs    </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="about.php?eml=<?php echo $emml?>">About Us</a>
+                  <a class="nav-link" href="loginregister.php" onclick="return checkout()">About Us</a>
                 </li>
                 <hr>
                 <li class="nav-item">
@@ -294,7 +294,7 @@
         <div class="col-3 col-md-3 text-md-end">
           <ul class="list-unstyled d-flex justify-content-end m-0">
             <li>
-              <a href="cart.html" class="mx-2" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart" aria-controls="offcanvasCart">
+              <a href="loginregister.php" onclick="return checkout()" class="mx-2" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart" aria-controls="offcanvasCart">
                 <svg width="24" height="24" viewBox="0 0 24 24"><use xlink:href="#cart"></use></svg>
               </a>
             </li>
@@ -691,12 +691,10 @@
       <div class="row d-flex flex-wrap justify-content-between my-5 py-5">
         <div class="col-md-3 col-sm-6">
           <div class="footer-menu footer-menu-001">
-            <div class="footer-intro mb-4">
-              <a href="index.php">
-                <img src="images/logo.svg" alt="logo">
-              </a>
+            <div class="col-8 col-md-3">
+              <a class="navbar-brand" href="index.php"  width="204" height="46" alt="logo"><b>JBP</b>store</a>
             </div>
-            <p>Gravida massa volutpat aenean odio. Amet, turpis erat nullam fringilla elementum diam in. Nisi, purus vitae, ultrices nunc. Sit ac sit suscipit hendrerit.</p>
+            <p>Tech at Your Fingertips: Your Gadget Gateway!</p>
             <div class="social-links">
               <ul class="list-unstyled d-flex flex-wrap gap-3">
                 <li>
