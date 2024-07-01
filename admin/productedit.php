@@ -292,12 +292,7 @@
                       <span class="d-none d-lg-inline-block"><?php echo $r['Un'];?></span>
                     </button>
                     <ul class="dropdown-menu dropdown-menu-right">
-                      <li>
-                        <a class="dropdown-link-item" href="user-profile.php?eml=<?php echo $emml ?>">
-                          <i class="mdi mdi-account-outline"></i>
-                          <span class="nav-text">My Profile</span>
-                        </a>
-                      </li>
+                         
                          <li>
                         <a class="dropdown-link-item" href="user-account-settings.php?eml=<?php echo $emml ?>">
                           <i class="mdi mdi-settings"></i>
