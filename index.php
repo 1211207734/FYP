@@ -155,19 +155,6 @@
 
   <div class="preloader text-white fs-6 text-uppercase overflow-hidden"></div>
 
-  <div class="search-popup">
-    <div class="search-popup-container">
-
-      <form role="search" method="get" class="form-group" action="">
-        <input type="search" id="search-form" class="form-control border-0 border-bottom"
-          placeholder="Type and press enter" value="" name="s" />
-        <button type="submit" class="search-submit border-0 position-absolute bg-white"
-          style="top: 15px;right: 15px;"><svg class="search" width="24" height="24">
-            <use xlink:href="#search"></use>
-          </svg></button>
-      </form>
-    </div>
-  </div>
 
   <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasCart" aria-labelledby="My Cart">
     <div class="offcanvas-header justify-content-center">
@@ -697,35 +684,7 @@
     </div>
   </section>
 
-  <section class="newsletter bg-black">
-    <div class="container-fluid">
-      <div class="newsletter jarallax">
-        <img src="images/bg-newsletter.jpg" alt="newsletter" class="jarallax-img">
-      
-        <div class="row py-5 justify-content-center">
-          <div class="col-md-6">
-            <div class="row g-5 my-4 align-items-baseline">
-              <div class="col-md-7">
-                <h3 class="display-4 m-0 text-md-end">Join Our Newsletter</h3>
-              </div>
-              <div class="col-md-5">
-                <p class="fs-6 text-gray">Sign Up for our newsletter and never miss any offers</p>
-              </div>
-            </div>
-            <div class="row mb-5">
-              <div class="col-md-12">
-                <form id="form" class="d-flex flex-row gap-0">
-                  <input type="text" name="email" placeholder="Your Email Addresss" class="form-control rounded-0 rounded-start">
-                  <button class="btn btn-primary text-uppercase rounded-0 rounded-end px-5">Sign Up</button>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
+  
   
   <footer id="footer" class="bg-black">
     <div class="container-fluid">
@@ -827,7 +786,7 @@
           <div class="footer-menu footer-menu-004 border-animation-left">
             <h5 class="widget-title mb-4">Contact Us</h5>
             <p>Do you have any questions or suggestions?</p>
-            <p><a href="mailto:contact@yourcompany.com" class="item-anchor">contact@yourcompany.com</a></p>
+            <p><a href="mailto:JBPadmin@gmail.com" class="item-anchor">JBPadmin@gmail.com</a></p>
             <p>Do you need support? Give us a call. </p>
             <p></p><a href="tel:+6012-3456789" class="item-anchor">+6012-3456789</a>
             </p>
@@ -838,21 +797,9 @@
     <div class="border-top py-4">
       <div class="container-fluid">
         <div class="row">
-          <div class="col-md-6 d-flex flex-wrap">
-            <div class="shipping">
-              <span>We ship with:</span>
-              <img src="images/arct-icon.png" alt="icon">
-              <img src="images/dhl-jbplogo.png" alt="icon">
-            </div>
-            <div class="payment-option">
-              <span>Payment Option:</span>
-              <img src="images/visa-card.png" alt="card">
-              <img src="images/paypal-card.png" alt="card">
-              <img src="images/master-card.png" alt="card">
-            </div>
-          </div>
           <div class="col-md-6 text-start text-md-end">
-            <p>&copy; 2024 JBPSTORE - Your Mobile Gadgets Shop. All rights reserved.</p>          </div>
+            <p>&copy; 2024 JBPSTORE - Your Mobile Gadgets Shop. All rights reserved.</p>         
+           </div>
         </div>
       </div>
     </div>
