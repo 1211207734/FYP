@@ -341,27 +341,7 @@
       <a class="d-block text-color" href="#"><?php echo $row['email'];?></a>
     </div>
 
-    <ul class="nav nav-profile-follow">
-      <li class="nav-item">
-        <a class="nav-link" href="#">
-          <span class="h5 d-block">1503</span>
-          <span class="text-color d-block">Customer on hold</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">
-          <span class="h5 d-block">2905</span>
-          <span class="text-color d-block">project completed</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">
-          <span class="h5 d-block">1200</span>
-          <span class="text-color d-block">project progress</span>
-        </a>
-      </li>
-
-    </ul>
+  
   </div>
 
   <div class="card-footer card-profile-footer">

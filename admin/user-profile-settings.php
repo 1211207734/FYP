@@ -335,27 +335,7 @@
       <a class="d-block text-color" href="#"><?php echo $r['email'];?></a>
     </div>
 
-    <ul class="nav nav-profile-follow">
-      <li class="nav-item">
-        <a class="nav-link" href="#">
-          <span class="h5 d-block"><?php echo $r['customer'] ?></span>
-          <span class="text-color d-block">Customer on hold</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">
-          <span class="h5 d-block"><?php echo $r['project'] ?></span>
-          <span class="text-color d-block">Project completed</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">
-          <span class="h5 d-block"><?php echo $r['projrctp'] ?></span>
-          <span class="text-color d-block">Project in progress</span>
-        </a>
-      </li>
-
-    </ul>
+   
 
   
   </div>
@@ -427,27 +407,7 @@
             </div>
           </div>
 
-          <div class="form-group row mb-6">
-            <label for="occupation" class="col-sm-4 col-lg-2 col-form-label">Customer on hold</label>
-            <div class="col-sm-8 col-lg-10">
-              <input type="text" class="form-control" id="occupation" name="cus">
-            </div>
-          </div>
-
-          <div class="form-group row mb-6">
-            <label for="com-name" class="col-sm-4 col-lg-2 col-form-label">Project Completed</label>
-            <div class="col-sm-8 col-lg-10">
-              <input type="text" class="form-control" id="com-name" name="pro">
-            </div>
-          </div>
-
-          <div class="form-group row mb-6">
-            <label for="com-name" class="col-sm-4 col-lg-2 col-form-label">Project in Progress</label>
-            <div class="col-sm-8 col-lg-10">
-              <input type="text" class="form-control" id="com-name" name="prop">
-            </div>
-          </div>
-
+         
           <div class="d-flex justify-content-end">
             <button type="submit" name="gg" class="btn btn-primary mb-2 btn-pill">Update Profile</button>
           </div>
