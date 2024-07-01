@@ -305,7 +305,7 @@
               <div class="container">
                 <div class="row">
                   <div class="col-md-10 pt-5">
-                    <h2 class="display-1 ls-0 mt-5 pt-5 txt-fx slide-up">Sturdy And Multifunction New Gadgets</h2>
+                    <h2 class="display-1 ls-0 mt-5 pt-5 txt-fx slide-up">Study And Multifunction New Gadgets</h2>
                     <p class="caption">More gadgets make life easier</p>
                     <a href="loginregister.php" onclick="return checkout()" class="btn btn-outline-light text-uppercase rounded-3 px-4 py-3 mt-3">Shop Now</a>
                   </div>
@@ -342,20 +342,20 @@
       <div class="bg-black p-5">
         <div class="row">
           <div class="col-md-3">
-            <h4 class="element-title text-capitalize my-3">Book An Appointment</h4>
-            <p>At imperdiet dui accumsan sit amet nulla risus est ultricies quis.</p>
+            <h4 class="element-title text-capitalize my-3">Delivery To House</h4>
+            <p>After address provided, no worries for delivery.</p>
           </div>
           <div class="col-md-3">
-            <h4 class="element-title text-capitalize my-3">Pick up in store</h4>
-            <p>At imperdiet dui accumsan sit amet nulla risus est ultricies quis.</p>
+            <h4 class="element-title text-capitalize my-3">Lower Price Guarantee</h4>
+            <p>We only sell best price not big price.</p>
           </div>
           <div class="col-md-3">
-            <h4 class="element-title text-capitalize my-3">Special packaging</h4>
-            <p>At imperdiet dui accumsan sit amet nulla risus est ultricies quis.</p>
+            <h4 class="element-title text-capitalize my-3">Big Promotion</h4>
+            <p>No promotion at physical store? We give big promotion!</p>
           </div>
           <div class="col-md-3">
-            <h4 class="element-title text-capitalize my-3">free global returns</h4>
-            <p>At imperdiet dui accumsan sit amet nulla risus est ultricies quis.</p>
+            <h4 class="element-title text-capitalize my-3">No Squeeze</h4>
+            <p>Shopping in anyway feel comfort, shop relaxing.</p>
           </div>
         </div>
       </div>
@@ -373,71 +373,11 @@
     </div>
   </section>
 
-  <section class="categories overflow-hidden">
-    <div class="container-fluid">
-      <div class="row g-5">
-        <div class="col-md-3">
-          <span class="d-block py-3 text-white text-uppercase fs-7 ls-1">01. Electronic Gadgets</span>
-          <div class="jarallax position-relative mb-4" style="height: 480px;">
-            <img src="images/category-thumb-1.jpg" alt="categories" class="jarallax-img img-fluid">
-            <div class="category-content position-absolute bottom-0 p-5 text-uppercase">
-              <a href="shop-four-column-wide.html" class="text-white btn-link">Shop it Now</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-2">
-          <span class="d-block py-3 text-white text-uppercase fs-7 ls-1">02. Cool Stuff</span>
-          <div class="jarallax position-relative mb-3" style="height: 480px;">
-            <img src="images/category-thumb-2.jpg" alt="categories" class="jarallax-img img-fluid">
-            <div class="category-content position-absolute bottom-0 p-5 text-uppercase">
-              <a href="shop-four-column-wide.html" class="text-white btn-link">Shop it Now</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-5">
-          <span class="d-block py-3 text-white text-uppercase fs-7 ls-1">03. Accessories</span>
-          <div class="jarallax position-relative mb-3" style="height: 480px;">
-            <img src="images/category-thumb-3.jpg" alt="categories" class="jarallax-img img-fluid">
-            <div class="category-content position-absolute bottom-0 p-5 text-uppercase">
-              <a href="shop-four-column-wide.html" class="text-white btn-link">Shop it Now</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-2">
-          <span class="d-block py-3 text-white text-uppercase fs-7 ls-1">04. Display Units</span>
-          <div class="jarallax position-relative mb-3" style="height: 480px;">
-            <img src="images/category-thumb-4.jpg" alt="categories" class="jarallax-img img-fluid">
-            <div class="category-content position-absolute bottom-0 p-5 text-uppercase">
-              <a href="shop-four-column-wide.html" class="text-white btn-link">Shop it Now</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <script>
-  var swiper = new Swiper('.slideshow', {
-    loop: true,
-    autoplay: {
-      delay: 3000, // 3 seconds
-      disableOnInteraction: false,
-    },
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true,
-    },
-    navigation: {
-      nextEl: '.icon-arrow-right',
-      prevEl: '.icon-arrow-left',
-    },
-  });
-</script>
-
   <section id="best-sellers"
     class="best-sellers py-5 mb-5">
     <div class="container-fluid">
       <div class="d-flex flex-wrap justify-content-between align-items-center mt-5 mb-3">
-        <h4 class="text-uppercase">Best Sellers</h4>
+        <h4 class="text-uppercase">Categories</h4>
         <a href="shop.php" class="btn-link">View All Products</a>
       </div>
 
@@ -446,129 +386,86 @@
           <div class="col">
             <div class="product-item hover-effect-slide">
               <div class="image-holder position-relative">
-                <a href="single-product.html">
-                  <img src="images/product-thumbnail-1.jpg" alt="categories" class="product-image img-fluid">
-                </a>
-                <a href="#" class="btn btn-primary w-100 mt-2 rounded-1">Add to cart</a>
-              </div>
-              <div class="product-content d-flex flex-column flex-md-row justify-content-between align-items-md-center">
-                <h5 class="fs-5 mt-3">
-                  <a href="single-product.html">Phone Cover 5.6 inches</a>
-                </h5>
-                <a href="#" class="text-decoration-none" data-after="Add to cart"><span>$95.00</span></a>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="product-item hover-effect-slide">
-              <div class="image-holder position-relative">
+              <a href="#" class="btn btn-primary w-100 mt-2 rounded-1">Smartphones</a>
                 <a href="single-product.html">
                   <img src="images/product-thumbnail-2.jpg" alt="categories" class="product-image img-fluid">
                 </a>
-                <a href="#" class="btn btn-primary w-100 mt-2 rounded-1">Add to cart</a>
-              </div>
-              <div class="product-content d-flex flex-column flex-md-row justify-content-between align-items-md-center">
-                <h5 class="fs-5 mt-3">
-                  <a href="single-product.html">Smart Phone 128GB RAM</a>
-                </h5>
-                <a href="#" class="text-decoration-none" data-after="Add to cart"><span>$55.00</span></a>
               </div>
             </div>
           </div>
           <div class="col">
             <div class="product-item hover-effect-slide">
               <div class="image-holder position-relative">
-                <a href="single-product.html">
-                  <img src="images/product-thumbnail-3.jpg" alt="categories" class="product-image img-fluid">
-                </a>
-                <a href="#" class="btn btn-primary w-100 mt-2 rounded-1">Add to cart</a>
-              </div>
-              <div class="product-content d-flex flex-column flex-md-row justify-content-between align-items-md-center">
-                <h5 class="fs-5 mt-3">
-                  <a href="single-product.html">Smart Phone 128GB RAM</a>
-                </h5>
-                <a href="#" class="text-decoration-none" data-after="Add to cart"><span>$55.00</span></a>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="product-item hover-effect-slide">
-              <div class="image-holder position-relative">
-                <a href="single-product.html">
-                  <img src="images/product-thumbnail-4.jpg" alt="categories" class="product-image img-fluid">
-                </a>
-                <a href="#" class="btn btn-primary w-100 mt-2 rounded-1">Add to cart</a>
-              </div>
-              <div class="product-content d-flex flex-column flex-md-row justify-content-between align-items-md-center">
-                <h5 class="fs-5 mt-3">
-                  <a href="single-product.html">Phone Cover 5.6 inches</a>
-                </h5>
-                <a href="#" class="text-decoration-none" data-after="Add to cart"><span>$95.00</span></a>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="product-item hover-effect-slide">
-              <div class="image-holder position-relative">
-                <a href="single-product.html">
-                  <img src="images/product-thumbnail-5.jpg" alt="categories" class="product-image img-fluid">
-                </a>
-                <a href="#" class="btn btn-primary w-100 mt-2 rounded-1">Add to cart</a>
-              </div>
-              <div class="product-content d-flex flex-column flex-md-row justify-content-between align-items-md-center">
-                <h5 class="fs-5 mt-3">
-                  <a href="single-product.html">Smart Phone 128GB RAM</a>
-                </h5>
-                <a href="#" class="text-decoration-none" data-after="Add to cart"><span>$55.00</span></a>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="product-item hover-effect-slide">
-              <div class="image-holder position-relative">
-                <a href="single-product.html">
-                  <img src="images/product-thumbnail-6.jpg" alt="categories" class="product-image img-fluid">
-                </a>
-                <a href="#" class="btn btn-primary w-100 mt-2 rounded-1">Add to cart</a>
-              </div>
-              <div class="product-content d-flex flex-column flex-md-row justify-content-between align-items-md-center">
-                <h5 class="fs-5 mt-3">
-                  <a href="single-product.html">Smart Phone 128GB RAM</a>
-                </h5>
-                <a href="#" class="text-decoration-none" data-after="Add to cart"><span>$55.00</span></a>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="product-item hover-effect-slide">
-              <div class="image-holder position-relative">
+              <a href="#" class="btn btn-primary w-100 mt-2 rounded-1">Tablets</a>
                 <a href="single-product.html">
                   <img src="images/product-thumbnail-7.jpg" alt="categories" class="product-image img-fluid">
                 </a>
-                <a href="#" class="btn btn-primary w-100 mt-2 rounded-1">Add to cart</a>
-              </div>
-              <div class="product-content d-flex flex-column flex-md-row justify-content-between align-items-md-center">
-                <h5 class="fs-5 mt-3">
-                  <a href="single-product.html">Smart Phone 128GB RAM</a>
-                </h5>
-                <a href="#" class="text-decoration-none" data-after="Add to cart"><span>$55.00</span></a>
               </div>
             </div>
           </div>
           <div class="col">
             <div class="product-item hover-effect-slide">
               <div class="image-holder position-relative">
+              <a href="#" class="btn btn-primary w-100 mt-2 rounded-1">Earphones</a>
+
+                <a href="single-product.html">
+                  <img src="images/product-thumbnail-3.jpg" alt="categories" class="product-image img-fluid">
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="product-item hover-effect-slide">
+              <div class="image-holder position-relative">
+              <a href="#" class="btn btn-primary w-100 mt-2 rounded-1">Wearables</a>
+                <a href="single-product.html">
+                  <img src="images/product-thumbnail-4.jpg" alt="categories" class="product-image img-fluid">
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="product-item hover-effect-slide">
+              <div class="image-holder position-relative">
+              <a href="#" class="btn btn-primary w-100 mt-2 rounded-1">Add to cart</a>
+                <a href="single-product.html">
+                  <img src="images/product-thumbnail-5.jpg" alt="categories" class="product-image img-fluid">
+                </a>
+                
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="product-item hover-effect-slide">
+              <div class="image-holder position-relative">
+              <a href="#" class="btn btn-primary w-100 mt-2 rounded-1">Add to cart</a>
+                <a href="single-product.html">
+                  <img src="images/product-thumbnail-6.jpg" alt="categories" class="product-image img-fluid">
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="product-item hover-effect-slide">
+              <div class="image-holder position-relative">
+              <a href="#" class="btn btn-primary w-100 mt-2 rounded-1">Add to cart</a>
+
+                <a href="single-product.html">
+                  <img src="images/product-thumbnail-1.jpg" alt="categories" class="product-image img-fluid">
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="product-item hover-effect-slide">
+              <div class="image-holder position-relative">
+              <a href="#" class="btn btn-primary w-100 mt-2 rounded-1">Add to cart</a>
+
                 <a href="single-product.html">
                   <img src="images/product-thumbnail-8.jpg" alt="categories" class="product-image img-fluid">
                 </a>
-                <a href="#" class="btn btn-primary w-100 mt-2 rounded-1">Add to cart</a>
               </div>
-              <div class="product-content d-flex flex-column flex-md-row justify-content-between align-items-md-center">
-                <h5 class="fs-5 mt-3">
-                  <a href="single-product.html">22 Inch LED Display</a>
-                </h5>
-                <a href="#" class="text-decoration-none" data-after="Add to cart"><span>$65.00</span></a>
-              </div>
+              
             </div>
           </div>
         </div>
@@ -611,48 +508,29 @@
                 <a href="index.php" class="item-anchor">Home</a>
               </li>
               <li class="menu-item">
-                <a href="shop-four-column-wide.html" class="item-anchor">About</a>
+                <a href="shop-four-column-wide.html" class="item-anchor">All Product</a>
               </li>
               <li class="menu-item">
-                <a href="blog.html" class="item-anchor">Services</a>
+                <a href="blog.html" class="item-anchor">Categories</a>
               </li>
               <li class="menu-item">
-                <a href="styles.html" class="item-anchor">Single item</a>
+                <a href="styles.html" class="item-anchor">Order History</a>
               </li>
               <li class="menu-item">
-                <a href="#" class="item-anchor">Contact</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-md-2 col-sm-6">
-          <div class="footer-menu footer-menu-002">
-            <h5 class="widget-title mb-4">About</h5>
-            <ul class="menu-list list-unstyled fs-6">
-              <li class="menu-item">
-                <a href="index.php" class="item-anchor">How it works</a>
+                <a href="#" class="item-anchor">My Account</a>
               </li>
               <li class="menu-item">
-                <a href="about.php?eml=<?php echo $emml?>" class="item-anchor">About</a>
-              </li>
-              <li class="menu-item">
-                <a href="blog.html" class="item-anchor">Our packages</a>
-              </li>
-              <li class="menu-item">
-                <a href="styles.html" class="item-anchor">Promotions</a>
-              </li>
-              <li class="menu-item">
-                <a href="#" class="item-anchor">Refer a friend</a>
+                <a href="#" class="item-anchor">My Cart</a>
               </li>
             </ul>
           </div>
         </div>
         <div class="col-md-2 col-sm-6">
           <div class="footer-menu footer-menu-003">
-            <h5 class="widget-title mb-4">Help & Info</h5>
+            <h5 class="widget-title mb-4">Other Info</h5>
             <ul class="menu-list list-unstyled fs-6">
               <li class="menu-item">
-                <a href="#" class="item-anchor">Track Your Order</a>
+                <a href="#" class="item-anchor">About Us</a>
               </li>
               <li class="menu-item">
                 <a href="#" class="item-anchor">Returns + Exchanges</a>
@@ -661,13 +539,7 @@
                 <a href="#" class="item-anchor">Shipping + Delivery</a>
               </li>
               <li class="menu-item">
-                <a href="#" class="item-anchor">Contact Us</a>
-              </li>
-              <li class="menu-item">
-                <a href="#" class="item-anchor">Find us easy</a>
-              </li>
-              <li class="menu-item">
-                <a href="FAQ.php?eml=<?php echo $emml ?>" class="item-anchor">FAQs</a>
+                <a href="#" class="item-anchor">FAQ</a>
               </li>
             </ul>
           </div>
