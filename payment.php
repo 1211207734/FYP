@@ -141,17 +141,17 @@ $emml= isset($_GET['eml']) ? $_GET['eml'] : null;
 				<div><img src="images/visa-card.png" style="margin-right : 2%"><img src="images/master-card.png"></div>
 				<div class="input_container">
 					<label class="input_label">Card holder name</label>
-					<input class="input_field" type="text" name="name" readonly value="<?php echo $row['Customer_name'] ?>" required>
+					<input class="input_field" type="text" name="name1" readonly value="<?php echo $row['Customer_name'] ?>" required>
 				</div>
 				<div class="input_container">
 					<label class="input_label">Card Number</label>
-					<input class="input_field" type="number" name="num"placeholder="0000 0000 0000 0000" required>
+					<input class="input_field" type="number" name="num1"placeholder="0000 0000 0000 0000" required>
 				</div>
 				<div class="input_container">
 					<label class="input_label">Expiry Date / CVV</label>
 					<div class="split">
-						<input class="input_field" style="width: 250px;" type="text" name="ed" placeholder="01/23" required>
-						<input class="input_field" style="width: 110px;" type="number" name="cv" placeholder="CVV" required>
+						<input class="input_field" style="width: 250px;" type="text" name="ed1" placeholder="01/23" required>
+						<input class="input_field" style="width: 110px;" type="number" name="cv1" placeholder="CVV" required>
 					</div>
 				</div>
 			</div>
@@ -190,27 +190,57 @@ if(isset($_POST['dlt'])){
 	}
 }
 
+if(isset($_POST['ttng'])) {
+	$tngb= mysqli_query($connect, "SELECT Balance FROM tng WHERE Customer_ID='$emml'");
+	$row = mysqli_fetch_assoc($tngb);
+	$b=$row['Balance'];
+	$b=$b+$tng;
+	 if(mysqli_query($connect, "UPDATE tng SET Balance='$b' WHERE Customer_ID='$emml'")){
+				echo '<script>';
+				echo 'alert("Reload RM'.$tng.' Successfully!") ;';
+				echo 'window.location.href = "tng.php?eml=' . $emml . '&tt='.$total.'";';	 
+				echo '</script>';	
+				exit();
+	 }
+	 else{
+		 echo '<script>';
+		 echo 'alert("Error reloading TNG.") ;';
+		 echo 'window.location.href = "tng.php?eml=' . $emml . '&tt='.$total.'";';	 
+		 echo '</script>';	
+		 exit();
+	 }
+		
+}
+
 if(isset($_POST['ttnngg'])) {
 	// Retrieve form data
-	$n = $_POST['name'];
-	$num = $_POST['num'];
-	$date = $_POST['ed'];
-	$cvv = $_POST['cv'];
+	$n = $_POST['name1'];
+	$num = $_POST['num1'];
+	$date = $_POST['ed1'];
+	$cvv = $_POST['cv1'];
+
+	$tngb= mysqli_query($connect, "SELECT Balance FROM tng WHERE Customer_ID='$emml'");
+	$row = mysqli_fetch_assoc($tngb);
+	$b=$row['Balance'];
+	$b=$b+$tng;
 
 	// Prepare SQL statement
 	$sql = "INSERT INTO card (Card_name,Card_num,Card_edate,Card_cv) values ('$n','$num','$date','$cvv')";
 	
-	if (mysqli_query($connect, $sql))
+	if (mysqli_query($connect, $sql)&&mysqli_query($connect, "UPDATE tng SET Balance='$b' WHERE Customer_ID='$emml'"))
 	{
 		echo '<script type="text/javascript">';
-		echo 'window.location.href = "checkout.php?eml='. $emml . '&tt='. $total . '&cod='.$co.'&pm=Card";';
 		echo 'alert("Card Proceed Successfully!");';
+		echo 'alert("Error reloading TNG.") ;';
+		 echo 'window.location.href = "tng.php?eml=' . $emml . '&tt='.$total.'";';
 		echo '</script>';
 	
 	} else {
-	echo "<script type='text/javascript'>
-	alert('Error executing SQL statement:'.mysqli_error($connect));
-	</script>";
+		echo '<script>';
+		echo 'alert("Error reloading TNG.") ;';
+		echo 'window.location.href = "tng.php?eml=' . $emml . '&tt='.$total.'";';	 
+		echo '</script>';	
+		exit();
 	}	
 	
 		
