@@ -346,12 +346,28 @@ CREATE TABLE promotion (
   status text NOT NULL DEFAULT 'active'
 );
 
-INSERT INTO promotion (code_id, code, discount, valid, status)
-VALUES
+CREATE TABLE `promotion` (
+  `code_id` int(11) NOT NULL,
+  `code` text NOT NULL,
+  `discount` double NOT NULL,
+  `valid` int(11) NOT NULL DEFAULT 200,
+  `status` text NOT NULL DEFAULT 'active'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+INSERT INTO `promotion` (`code_id`, `code`, `discount`, `valid`, `status`) VALUES
+(0, 'No promo code applied', 0, 200, 'active'),
 (1, 'jbp111', 0.1, 200, 'active'),
 (2, 'jbp222', 0.2, 200, 'active'),
 (3, 'jbp555', 0.5, 200, 'active'),
-(4, 'jbp999', 0.9, 200, 'active');
+(4, 'jbp999', 0.9, 193, 'active');
+
+
+ALTER TABLE `promotion`
+  ADD PRIMARY KEY (`code_id`);
+
+
+ALTER TABLE `promotion`
+  MODIFY `code_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 
 CREATE TABLE `orderdetail` (

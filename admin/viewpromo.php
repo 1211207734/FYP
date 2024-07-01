@@ -335,7 +335,7 @@
         <div class="card card-default">
             <div class="card-header">
                 <h2>Promo Code Inventory</h2>
-                <a href="#" class="btn btn-primary btn-pill" data-toggle="modal" data-target="#modal-stock">Add Stock</a>
+                <a href="#" class="btn btn-primary btn-pill" data-toggle="modal" data-target="#modal-stock">Add New Code</a>
 
             </div>
             
@@ -449,25 +449,33 @@
                         $n = $_POST['pn'];
                         $s = $_POST['stock'];
                         $np = $_POST['netprice'];
-                        $p = $_POST['price'];
-                        $c = $_POST['customRadio'];
-                        $d = $_POST['description'];
+                        $np=1-$np/100;
+                        
                         if (!is_numeric($np)) {
                           echo "<script>alert('Net price must be a number');</script>";
                       } 
-                      else if (!is_numeric($p)) {
-                          echo "<script>alert('Price must be a number');</script>";
+                      else if($np>100){
+                        echo "<script>alert('Discount rate must be less than 100%');</script>";
                       }
+                      else if($np<0){
+                        echo "<script>alert('Discount rate must be more than 0%');</script>";
+                      }
+                      else if (!is_numeric($s)) {
+                          echo "<script>alert('Stock must be a number');</script>";
+                      } else if ($n == "" || $s == "" || $np == "") {
+                          echo "<script>alert('Please fill in all fields')</script>";
+                      } 
                       else {
-                        $sql = "INSERT INTO products (Product_name, Product_details, Product_stock, Product_netprice, Product_price, Category_ID) 
-                                VALUES ('$n', '$d', '$s', '$np', '$p', '$c')";
+                        $sql = "INSERT INTO promotion (code, valid, discount) 
+                                VALUES ('$n', '$s', '$np')";
                         if (mysqli_query($con, $sql)) {
-                            echo "<script>alert('New product Added Successfully');";
-                            echo 'window.location.href = "viewproduct.php?eml=' . $emml . '";</script>';
+                            echo "<script>alert('New promo code Added Successfully');";
+                            echo 'window.location.href = "viewpromo.php?eml=' . $emml . '";</script>';
                         } else {
-                            echo "<script>alert('Failed to Add New product')</script>";
+                            echo "<script>alert('Failed to Add New promo code')</script>";
                         }
-                    }
+                      }
+                    
                   }
                     ?>
                 </div>
