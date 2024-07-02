@@ -8,104 +8,91 @@ if (isset($_POST['login'])) {
     $password = $_POST['password'];
 
     // Corrected SQL query syntax and added prepared statement
-    $query = "SELECT Customer_ID,Customer_email, Customer_password FROM customer WHERE Customer_email = ?";
-    $q="SELECT id,email,np,status FROM admin WHERE email = '$email' and status='active'";
+    $query = "SELECT Customer_ID, Customer_email, Customer_password FROM customer WHERE Customer_email = ?";
+    $q="SELECT id, email, np, status FROM admin WHERE email = ? AND status = 'active'";
     
+    $stmt_admin = mysqli_prepare($connect, $q);
+    mysqli_stmt_bind_param($stmt_admin, "s", $email);
+    mysqli_stmt_execute($stmt_admin);
+    $result_admin = mysqli_stmt_get_result($stmt_admin);
+    $row_admin = mysqli_fetch_assoc($result_admin);
     
-    $mam=mysqli_query($connect,$q);
-    $row=mysqli_fetch_assoc($mam);
-    
-   
     $stmt = mysqli_prepare($connect, $query);
     mysqli_stmt_bind_param($stmt, "s", $email);
     mysqli_stmt_execute($stmt);
     $result = mysqli_stmt_get_result($stmt);
 
-    if($row){
-        $iii=$row['id'];
-        $ppassword = $row['np'];
-        if ($password == $ppassword) {
+    if ($row_admin) {
+        $admin_id = $row_admin['id'];
+        $admin_password = $row_admin['np'];
+        if ($password == $admin_password) {
             // Login successful
             echo '<script type="text/javascript">
                 alert("Login successfully.");
                 </script>';
-            // Redirect to home page or perform other actions
-            header("Location: /FYP/admin/index.php?eml=".$iii);
-            
+            header("Location: /FYP/admin/index.php?eml=" . $admin_id);
             exit();
-        }
-        else if($email=="admin@gmail.com" && $password=="admin"){
-            
-
-                echo '<script type="text/javascript">
-                alert("Login successfully.");
-                 </script>';
-        
-                header("Location: /FYP/admin/index.php?eml=".$iii);
-                exit();
-            
-        
-        }
-        else {
-            $error_message = "Invalid password";
-        }
-    }
-    
-    if (mysqli_num_rows($result) == 1) {
-        $row = mysqli_fetch_assoc($result);
-        $ppassword = $row['Customer_password'];
-        $ii=$row['Customer_ID'];
-        if ($password == $ppassword) {
-            // Login successful
+        } else if ($email == "admin@gmail.com" && $password == "admin") {
             echo '<script type="text/javascript">
                 alert("Login successfully.");
                 </script>';
-            // Redirect to home page or perform other actions
-            header("Location: home.php?eml=".$ii);
-            $useraccount++;
+            header("Location: /FYP/admin/index.php?eml=" . $admin_id);
             exit();
         } else {
             $error_message = "Invalid password";
         }
     }
-    
-    else {
+
+    if (mysqli_num_rows($result) == 1) {
+        $row = mysqli_fetch_assoc($result);
+        $customer_password = $row['Customer_password'];
+        $customer_id = $row['Customer_ID'];
+        if ($password == $customer_password) {
+            // Login successful
+            echo '<script type="text/javascript">
+                alert("Login successfully.");
+                </script>';
+            header("Location: home.php?eml=" . $customer_id);
+            exit();
+        } else {
+            $error_message = "Invalid password";
+        }
+    } else {
         $error_message = "Invalid email or password";
     }
-    
 }
+
 // Registration form submission handling
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])) {
-    // Establish connection to the database
     include('database.php'); // Include your database connection file here
 
     // Prepare and bind parameters
     $stmt = $connect->prepare("INSERT INTO Customer (Customer_name, Customer_email, Customer_password, Customer_HP, Customer_address_1, Customer_address_2, Customer_postcode) VALUES (?, concat(?,'@gmail.com'), ?, ?, ?, ?, ?)");
     $stmt->bind_param("sssssss", $fullname, $email, $npassword, $phone, $address1, $address2, $postcode);
 
-    /// Set parameters and execute
+    // Set parameters and execute
     $fullname = $_POST['fullname'];
-    
     $email = $_POST['email'];
-    $npassword = $_POST['password']; // Use $npassword instead of $passwor
+    $npassword = $_POST['password'];
     $cpassword = $_POST['confirm_password'];
     $phone = $_POST['phone'];
-    $address1 = $_POST['address1']; // Address Line 1
-    $address2 = $_POST['address2']; // Address Line 2
-    $postcode = $_POST['postcode']; // Postcode
+    $address1 = $_POST['address1'];
+    $address2 = $_POST['address2'];
+    $postcode = $_POST['postcode'];
 
-    if($npassword != $cpassword) {
+    // Validate email
+    if (strpos($email, '@') !== false) {
+        $error_message = "Email should not include '@' symbol.";
+    } elseif ($npassword != $cpassword) {
         $error_message = "Passwords do not match";
-        exit();
-    }else{
+    } else {
         $stmt->execute();
-
         echo '<script type="text/javascript">
         alert("Register successfully.");
         // Redirect to the login page after 3 seconds
         setTimeout(function(){
             window.location.href = "loginregister.php";
-        }, );
+        }, 3000);
         </script>';
     
         // Close statement and connection
@@ -115,7 +102,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])) {
         // Prevent further execution
         exit();
     }
-    
 }
 ?>
 
@@ -128,6 +114,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])) {
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.1.9/css/unicons.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/login.css">
+    <script>
+        function validateRegistrationForm() {
+            var email = document.forms["registrationForm"]["email"].value;
+            if (email.includes("@")) {
+                alert("Email should not include '@' symbol.");
+                return false;
+            }
+            return true;
+        }
+    </script>
 </head>
 <body>
 <div class="section">
@@ -169,13 +165,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])) {
                                                     // Redirect to the menu page or perform any other actions
                                                     window.location.href = "menu.html";
                                                 });
-                                                </script>
+                                            </script>
                                             <br>
                                             <!-- Removed redirecting back to index.php -->
                                         </form>
-                                        <a href="index.php"><button name="home" class="btn mt-4">back</button></a>
+                                        <a href="index.php"><button name="home" class="btn mt-4">Back</button></a>
                                         <a href="forgot-password.php"><button name="home" class="btn mt-4">Forgot Password?</button></a>
-
                                         <?php
                                         if (!empty($error_message)) {
                                             echo '<p class="text-danger">' . $error_message . '</p>';
@@ -190,7 +185,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])) {
                                     <div class="section text-center">
                                         <h4 class="mb-3 pb-3">Sign Up</h4>
                                         <!-- Sign Up section -->
-                                        <form method="post" action="">
+                                        <form method="post" action="" name="registrationForm" onsubmit="return validateRegistrationForm()">
                                             <div class="form-group">
                                                 <input type="text" class="form-style" placeholder="Full Name" name="fullname" required>
                                                 <i class="input-icon uil uil-user"></i>
@@ -225,8 +220,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])) {
                                             </div>
                                             <button type="submit" class="btn mt-4" name="register">Register</button>
                                         </form>
-
-
+                                        <?php
+                                        if (!empty($error_message)) {
+                                            echo '<p class="text-danger">' . $error_message . '</p>';
+                                        }
+                                        ?>
                                     </div>
                                 </div>
                             </div>
