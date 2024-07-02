@@ -431,7 +431,6 @@ window.onunload = function () { null };
         $sql = "UPDATE admin SET img='$folder' WHERE id='$emml'";
         $result = mysqli_query($connect, $sql);
         if($result && move_uploaded_file($ft,$folder)){
-          echo "<script>alert('Update successfully!')</script>";
           echo '<script type="text/javascript">';
           echo 'window.location.href = "user-profile-settings.php?eml='.$emml.'";';
           echo 'alert("Profile Updated Successfully.");';
