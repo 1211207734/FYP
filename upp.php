@@ -201,21 +201,6 @@ if(isset($_POST['save'])) {
 
 ?>
 
-                <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Add event listener to the "Save Changes" button
-            document.querySelector('button[name="save"]').addEventListener('click', function(event) {
-                // Submit the form
-                document.querySelector('form').submit();
-                // Redirect to p.php after showing the alert
-                window.location.href = "p.php?eml=<?php echo $emml ?>";
-                // Show alert message after form submission
-                alert("Profile Updated Successfully.");
-                
-                
-            });
-        });
-    </script>
                 
 <footer>
 	<p>&copy; 2024 JBPSTORE - Your Mobile Gadgets Shop. All rights reserved.</p>
