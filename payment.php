@@ -101,10 +101,14 @@ $emml= isset($_GET['eml']) ? $_GET['eml'] : null;
 			<div>
 				<a href="cart.php?eml=<?php echo $emml?>" class="checkout" style="width:100%; color:white; text-align:center; display:inline-block; padding:10px 0; background-color:#313bc9; border:none; cursor:pointer; text-decoration:none;">Back to Cart</a>
 			</div>
+			<div>
+			<button class="checkout" style="cursor: pointer;width:100%;"name="dlt" >Remove My Card</button>
+</div>
 			<div>	
 				<button class="checkout" style="cursor: pointer;width:100%;"name="check" >Proceed Payment</button>
-				<button class="dlt" style="cursor: pointer;width:100%;"name="check" >Remove My Card</button>
+				
 			</div>
+			
 		</form>
 	</div>
 

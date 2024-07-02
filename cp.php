@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Profile</title>
+    <title>Change Password</title>
     <link rel="stylesheet" href="css/cp.css">
 	<link rel="stylesheet" type="text/css" href="css/vendor.css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
@@ -46,7 +46,7 @@
 									<form method="post">
                                     <div class="row mt-2">
                                         <div class="col-md-6"><label class="labels">Old Password:</label>
-                                        <input type="password" class="form-control" id="password" name="password" value=""></div>
+                                        <input type="input" class="form-control" id="password" name="password" value=""></div>
                                     </div>
                                     <div class="row mt-3">
                                         <div class="col-md-12"><label class="labels">New Password:</label>

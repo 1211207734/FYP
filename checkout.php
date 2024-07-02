@@ -110,10 +110,11 @@
                     <form method="post">
                         <div class="summary">
                             <h3>Summary</h3>
-                            <div class="summary-item"><span class="text">Subtotal</span><span class="price">RM <?php echo $total?></span></div>
-                            <div class="summary-item" <?php echo $prop ?>><span class="text">Discount</span><span class="price" style="color:red;">RM <?php echo $total-$np ?></span></div>
+                            <div class="summary-item"><span class="text">Subtotal</span><span class="price">RM <?php echo number_format($np, 2)?></span></div>
+                            <div class="summary-item" <?php echo $prop ?>><span class="text">Discount</span><span class="price" style="color:red;">RM <?php echo number_format($total - $np, 2) ?></span></div>
                             <div class="summary-item" <?php echo $pop ?>><span class="text">Discount</span><span class="price" style="color:red;">No Voucher is applied</span></div>
-                            <div class="summary-item"><span class="text">Total</span><span class="price">RM <?php echo $np?></span></div>
+                            <div class="summary-item" <?php echo $prop ?>><span class="text">Total</span><span class="price" >RM <?php echo number_format($np, 2) ?></span></div>
+                            <div class="summary-item" <?php echo $pop ?>><span class="text">Total</span><span class="price">RM <?php echo $np?></span></div>
                             <div class="summary-item"><span class="text">Payment Method</span><span class="price">By <?php echo $payment?></span></div>
                             <button type="submit" class="btn btn-primary btn-lg" style="width:100%;" name="check">Checkout</button>
                         </div>

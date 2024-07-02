@@ -67,6 +67,7 @@ if (isset($_GET['eml'])) {
     $emml = $_GET['eml'];}
 if (isset($_GET['tt'])) {
 		$total = $_GET['tt'];}
+		$tng= isset($_GET['ba']) ? $_GET['ba'] : null;	
 	
 	$result = mysqli_query($connect, "SELECT * FROM tng where Customer_ID='$emml'");
 	if (mysqli_num_rows($result)==0) {
@@ -108,7 +109,7 @@ if (isset($_GET['tt'])) {
 				$update = mysqli_query($connect, "UPDATE tng SET Balance='$b' WHERE Customer_ID='$emml'");
 				echo '<script>';
 				echo 'alert("Reload RM50 Successfully!") ;';
-				echo 'window.location.href = "tng.php?eml=' . $emml . '&tt='.$total.'";';	 
+				echo 'window.location.href = "payment.php?eml=' . $emml . '&tt='.$np.'&ba='.$tng.'";'; 
 				echo '</script>';
 				exit();
 			}

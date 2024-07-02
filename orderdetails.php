@@ -58,7 +58,7 @@
                <?php }?>
             </tbody>
             <div display="block" style=""><span style="float:left; margin-left: 10px;">Order date : <?php echo $od?><br>Order time : <?php echo $ot?><br>Order status : <?php echo $st?></span>
-            <span style="float:right; margin-right: 10px;">Total Amount: RM <?php echo $tt ?></span></div>
+            <span style="float:right; margin-right: 10px;">Total Amount: RM <?php echo number_format($tt, 2) ?></span></div>
         </table>
     </div>
 

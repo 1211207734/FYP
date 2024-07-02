@@ -17,7 +17,7 @@ if (isset($_GET['eml'])) {
 			if (isset($_GET['cod'])) {
 				$co = $_GET['cod'];}
     
-    $npri =$total - ($total * $discou);
+    $npri =	number_format($total - ($total * $discou),2);
 	?>
 <body>
 	<div class="modal">
