@@ -54,6 +54,11 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
   <script src="plugins/nprogress/nprogress.js"></script>
+ <script>
+        function disableBack() { window.history.forward(); }
+setTimeout("disableBack()", 0);
+window.onunload = function () { null };
+    </script>
 </head>
 
 

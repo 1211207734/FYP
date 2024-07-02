@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - JBPSTORE</title>
     <link rel="stylesheet" href="css/about.css">
+     <script>
+        function disableBack() { window.history.forward(); }
+setTimeout("disableBack()", 0);
+window.onunload = function () { null };
+    </script>
+</head>
 </head>
 <?php
 			if (isset($_GET['eml'])) {

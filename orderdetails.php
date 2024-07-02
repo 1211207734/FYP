@@ -6,6 +6,11 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <title>Order History</title>
     <link rel="stylesheet" href="css/oh.css">
+ <script>
+        function disableBack() { window.history.forward(); }
+setTimeout("disableBack()", 0);
+window.onunload = function () { null };
+    </script>
 </head>
 
 <?php
@@ -42,8 +47,11 @@
             <tbody>
             <?php
             include('database.php');
+            $sqll = "SELECT code,discount FROM promotion,transaction_report where code_id=Promo_ID and Customer_ID='$emml'and Order_ID='$oid'";
             $sql = "SELECT products.Product_name,products.img,ooder.Order_date,ooder.Order_time,orderdetail.Quantity,products.Product_price,ooder.Total_price,transaction_report.status FROM products,orderdetail,ooder,transaction_report WHERE transaction_report.Order_ID=ooder.Order_ID and ooder.Order_ID=orderdetail.Order_ID and orderdetail.Product_ID=products.Product_ID and ooder.Customer_ID='$emml' and ooder.Order_ID='$oid'";
             $result = mysqli_query($connect, $sql);
+            $resultt = mysqli_query($connect, $sqll);
+            $rr = mysqli_fetch_assoc($resultt);
             while ($row = mysqli_fetch_assoc($result)) {
                 $tt=$row['Total_price'];
                 $od=$row['Order_date'];
@@ -58,7 +66,7 @@
                <?php }?>
             </tbody>
             <div display="block" style=""><span style="float:left; margin-left: 10px;">Order date : <?php echo $od?><br>Order time : <?php echo $ot?><br>Order status : <?php echo $st?></span>
-            <span style="float:right; margin-right: 10px;">Total Amount: RM <?php echo number_format($tt, 2) ?></span></div>
+            <span style="float:right; margin-right: 10px;">Total Amount  : RM <?php echo number_format($tt, 2) ?><br>Voucher Code : <?php echo$rr['code']?><br>Discount Price : RM <?php echo number_format($tt*$rr['discount'], 2)?></span></div>
         </table>
     </div>
 

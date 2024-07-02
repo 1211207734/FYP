@@ -3,6 +3,11 @@
 <head>
     <title>Update Profile</title>
     <link rel="stylesheet" href="css/account.css">
+ <script>
+        function disableBack() { window.history.forward(); }
+setTimeout("disableBack()", 0);
+window.onunload = function () { null };
+    </script>
 </head>
 <header>
     <div class="logo">

@@ -8,6 +8,11 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/cart.css">
+ <script>
+        function disableBack() { window.history.forward(); }
+setTimeout("disableBack()", 0);
+window.onunload = function () { null };
+    </script>
 </head>
 <body>
     <?php
@@ -110,7 +115,7 @@
                     <form method="post">
                         <div class="summary">
                             <h3>Summary</h3>
-                            <div class="summary-item"><span class="text">Subtotal</span><span class="price">RM <?php echo number_format($np, 2)?></span></div>
+                            <div class="summary-item"><span class="text">Subtotal</span><span class="price">RM <?php echo number_format($total, 2)?></span></div>
                             <div class="summary-item" <?php echo $prop ?>><span class="text">Discount</span><span class="price" style="color:red;">RM <?php echo number_format($total - $np, 2) ?></span></div>
                             <div class="summary-item" <?php echo $pop ?>><span class="text">Discount</span><span class="price" style="color:red;">No Voucher is applied</span></div>
                             <div class="summary-item" <?php echo $prop ?>><span class="text">Total</span><span class="price" >RM <?php echo number_format($np, 2) ?></span></div>
@@ -143,7 +148,7 @@
                         mysqli_query($connect,$sqlll);
                         mysqli_query($connect,$sqll); 
                         
-                        $sql2="SELECT Order_ID,Payment_ID FROM ooder,payment WHERE Order_date=Payment_date and Customer_ID=$emml and Payment_date=CURRENT_DATE";
+                        $sql2="SELECT Order_ID,Payment_ID FROM ooder,payment WHERE Order_date=Payment_date and Customer_ID=$emml and Payment_date=CURRENT_DATE ORDER BY Order_ID DESC , Payment_ID DESC";
                         $result = mysqli_query($connect, $sql2);
                         $row1 = mysqli_fetch_assoc($result);
                         $oi=$row1['Order_ID'];

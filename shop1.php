@@ -13,6 +13,11 @@
             background-color: black; /* Set background color */
         }
     </style>
+ <script>
+        function disableBack() { window.history.forward(); }
+setTimeout("disableBack()", 0);
+window.onunload = function () { null };
+    </script>
 </head>
 <body>
     <header>

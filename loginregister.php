@@ -105,6 +105,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])) {
 }
 ?>
 
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -115,6 +116,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/login.css">
     <script>
+        function disableBack() { window.history.forward(); }
+setTimeout("disableBack()", 0);
+window.onunload = function () { null };
         function validateRegistrationForm() {
             var email = document.forms["registrationForm"]["email"].value;
             if (email.includes("@")) {

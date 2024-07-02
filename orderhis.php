@@ -6,6 +6,11 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <title>Order History</title>
     <link rel="stylesheet" href="css/oh.css">
+ <script>
+        function disableBack() { window.history.forward(); }
+setTimeout("disableBack()", 0);
+window.onunload = function () { null };
+    </script>
 </head>
 
 <?php
@@ -46,7 +51,7 @@
             <tbody>
             <?php
             include('database.php');
-            $sql = "SELECT ooder.Order_date,ooder.Total_price,payment.Payment_method,transaction_report.status,ooder.Order_ID FROM transaction_report,ooder,payment WHERE transaction_report.Order_ID=ooder.Order_ID and transaction_report.Payment_ID=payment.Payment_ID and transaction_report.Customer_ID = '$emml' ORDER BY ooder.Order_date DESC";
+            $sql = "SELECT ooder.Order_date,ooder.Total_price,payment.Payment_method,transaction_report.status,ooder.Order_ID FROM transaction_report,ooder,payment WHERE transaction_report.Order_ID=ooder.Order_ID and transaction_report.Payment_ID=payment.Payment_ID and transaction_report.Customer_ID = '$emml' ORDER BY ooder.Order_ID DESC";
             $result = mysqli_query($connect, $sql);
             while ($row = mysqli_fetch_assoc($result)) {?>
                 <tr>

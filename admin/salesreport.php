@@ -38,6 +38,11 @@
   <![endif]-->
   <script src="plugins/nprogress/nprogress.js"></script>
   <script src="js/dist/jspdf.umd.js"></script>
+ <script>
+        function disableBack() { window.history.forward(); }
+setTimeout("disableBack()", 0);
+window.onunload = function () { null };
+    </script>
 </head>
 
 

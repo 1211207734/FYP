@@ -5,6 +5,11 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="stylesheet" href="css/card.css">
+ <script>
+        function disableBack() { window.history.forward(); }
+setTimeout("disableBack()", 0);
+window.onunload = function () { null };
+    </script>
 </head>
 <?php
 if (isset($_GET['eml'])) {
@@ -45,16 +50,19 @@ if(isset($_POST['save'])) {
     $re=mysqli_query($connect, $sql);
     $di=mysqli_fetch_assoc($re);
 	$dis=$di['discount'];
-	if ($re)
+	if (mysqli_num_rows($re) > 0)
 	{
 		echo '<script type="text/javascript">';
         echo 'alert("You got a DISCOUNT!");';
 		echo 'window.location.href = "promoo.php?eml='. $emml . '&dis='. $dis .'&tt='. $total .'&cod='. $p .'";';
 		echo '</script>';
 	} else {
-	echo "<script type='text/javascript'>
-	alert('INVALID CODE!');
-	</script>";
+		echo '<script type="text/javascript">';
+        echo 'alert("Invalid Code!");';
+		echo 'window.location.href = "promo.php?eml='. $emml . '&tt='. $total .'";';
+		echo '</script>';
+
+	exit();
 	}	
 	
 		
