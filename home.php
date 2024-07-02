@@ -483,7 +483,7 @@ if (isset($_GET['eml'])) {
                 <a href="index.php" class="item-anchor">Home</a>
               </li>
               <li class="menu-item">
-                <a href="shoptry.php?eml=<?php echo $emml ?>" class="item-anchor">All Product</a>
+                <a href="shop.php?eml=<?php echo $emml ?>" class="item-anchor">All Product</a>
               </li>
               <li class="menu-item">
                 <a href="shoptry.php?eml=<?php echo $emml ?>&cid=1"class="item-anchor">Categories</a>
