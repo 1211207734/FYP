@@ -453,9 +453,10 @@ window.onunload = function () { null };
     $sql = "UPDATE `admin` SET Fn='$f', Ln='$l', Un='$u', email='$email' WHERE id='$emml'";
       mysqli_query($connect,$sql);
     if (mysqli_query($connect, $sql)) {
-      echo '<script type="text/javascript">
-    alert("SQL statement executed successfully.");
-    </script>';
+      echo '<script type="text/javascript">';
+      echo 'window.location.href = "user-account-settings.php?eml='.$emml.'";';
+    echo 'alert("Your Profile Updated Successfully!");';
+    echo '</script>';
     } else {
       echo '<script type="text/javascript">
     alert("Error executing SQL statement: " . mysqli_error($connect));
