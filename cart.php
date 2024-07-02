@@ -147,7 +147,7 @@
                             echo '</script>';
                         } else {
 							echo '<script>';
-                            echo 'window.location.href = "tng.php?eml=' . $emml . '&tt='.$np.'";';
+                            echo 'window.location.href = "tng.php?eml=' . $emml . '&tt='.$np.'&cod='.$co.'";';
                             echo '</script>';                        }
                        }
                           else{

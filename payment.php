@@ -28,13 +28,13 @@ $emml= isset($_GET['eml']) ? $_GET['eml'] : null;
 		$ppop = "hidden";
 		$ppopp = "hidden";
 		$np=$total;}
-	else if(!$row2&&$tng!=null){
+	else if($row2&&$tng!=null){
 			$prop = "hidden";
 			$pop = "hidden";
 			$ppop = "";
 			$ppopp = "hidden";
 		}
-	else if($tng!=null){
+	else if($tng!=null&&!$row2){
 		$prop = "hidden";
 		$pop = "hidden";
 		$ppop = "hidden";
@@ -74,7 +74,7 @@ $emml= isset($_GET['eml']) ? $_GET['eml'] : null;
 				</div>
 			</div>
 			<div>
-				<a href="cart.php?eml=<?php echo $emml?>" class="checkout" style="width:100%; color:white; text-align:center; display:inline-block; padding:10px 0; background-color:#313bc9; border:none; cursor:pointer; text-decoration:none;">Back to Cart</a>
+				<a href="cart.php?eml=<?php echo $emml?>&cod=<?php echo $co?>&nt=<?php echo $total?>" class="checkout" style="width:100%; color:white; text-align:center; display:inline-block; padding:10px 0; background-color:#313bc9; border:none; cursor:pointer; text-decoration:none;">Back to Cart</a>
 			</div>
 			<div>	
 				<button class="checkout" style="cursor: pointer;width:100%;"name="save" >Proceed Payment</button>
@@ -99,7 +99,7 @@ $emml= isset($_GET['eml']) ? $_GET['eml'] : null;
 				
 			</div>
 			<div>
-				<a href="cart.php?eml=<?php echo $emml?>" class="checkout" style="width:100%; color:white; text-align:center; display:inline-block; padding:10px 0; background-color:#313bc9; border:none; cursor:pointer; text-decoration:none;">Back to Cart</a>
+				<a href="cart.php?eml=<?php echo $emml?>&cod=<?php echo $co?>&nt=<?php echo $total?>" class="checkout" style="width:100%; color:white; text-align:center; display:inline-block; padding:10px 0; background-color:#313bc9; border:none; cursor:pointer; text-decoration:none;">Back to Cart</a>
 			</div>
 			<div>
 			<button class="checkout" style="cursor: pointer;width:100%;"name="dlt" >Remove My Card</button>
@@ -129,7 +129,7 @@ $emml= isset($_GET['eml']) ? $_GET['eml'] : null;
 				
 			</div>
 			<div>
-				<a href="tng.php?eml=<?php echo $emml?>&tt=<?php echo $total?>" class="checkout" style="width:100%; color:white; text-align:center; display:inline-block; padding:10px 0; background-color:#313bc9; border:none; cursor:pointer; text-decoration:none;">Back to TNG Reload Page</a>
+				 <a href="tng.php?eml=<?php echo $emml?>&cod=<?php echo $co?>&tt=<?php echo $total?>" class="checkout" style="width:100%; color:white; text-align:center; display:inline-block; padding:10px 0; background-color:#313bc9; border:none; cursor:pointer; text-decoration:none;">Back to TNG Reload Page</a>
 			</div>
 			<div>	
 				<button class="checkout" style="cursor: pointer;width:100%;"name="ttng" >Proceed Ewallet Reload</button>
@@ -140,7 +140,7 @@ $emml= isset($_GET['eml']) ? $_GET['eml'] : null;
 	<div class="modal" <?php echo $ppopp ?>>
 		<form class="form" method="post">
 			<div class="card-info">
-				<div>Total Amount Needed to Pay : RM <?php echo $tng ?></div>
+				<div>Total Amount Needed to Reload : RM <?php echo $tng ?></div>
 				<div>Please Enter Your Card Details</div>
 				<div><img src="images/visa-card.png" style="margin-right : 2%"><img src="images/master-card.png"></div>
 				<div class="input_container">
@@ -160,7 +160,7 @@ $emml= isset($_GET['eml']) ? $_GET['eml'] : null;
 				</div>
 			</div>
 			<div>
-				<a href="cart.php?eml=<?php echo $emml?>" class="checkout" style="width:100%; color:white; text-align:center; display:inline-block; padding:10px 0; background-color:#313bc9; border:none; cursor:pointer; text-decoration:none;">Back to Cart</a>
+			<a href="tng.php?eml=<?php echo $emml?>&cod=<?php echo $co?>&tt=<?php echo $total?>" class="checkout" style="width:100%; color:white; text-align:center; display:inline-block; padding:10px 0; background-color:#313bc9; border:none; cursor:pointer; text-decoration:none;">Back to TNG Reload Page</a>
 			</div>
 			<div>	
 				<button class="checkout" style="cursor: pointer;width:100%;"name="ttngg" >Proceed Ewallet Reload</button>
@@ -202,14 +202,14 @@ if(isset($_POST['ttng'])) {
 	 if(mysqli_query($connect, "UPDATE tng SET Balance='$b' WHERE Customer_ID='$emml'")){
 				echo '<script>';
 				echo 'alert("Reload RM'.$tng.' Successfully!") ;';
-				echo 'window.location.href = "tng.php?eml=' . $emml . '&tt='.$total.'";';	 
+				echo 'window.location.href = "tng.php?eml=' . $emml . '&tt='.$total.'&cod='.$co.'";';	 
 				echo '</script>';	
 				exit();
 	 }
 	 else{
 		 echo '<script>';
 		 echo 'alert("Error reloading TNG.") ;';
-		 echo 'window.location.href = "tng.php?eml=' . $emml . '&tt='.$total.'";';	 
+		 echo 'window.location.href = "tng.php?eml=' . $emml . '&tt='.$total.'&cod='.$co.'";';	 
 		 echo '</script>';	
 		 exit();
 	 }
@@ -235,14 +235,14 @@ if(isset($_POST['ttnngg'])) {
 	{
 		echo '<script type="text/javascript">';
 		echo 'alert("Card Proceed Successfully!");';
-		echo 'alert("Error reloading TNG.") ;';
-		 echo 'window.location.href = "tng.php?eml=' . $emml . '&tt='.$total.'";';
+		echo 'alert(" Reload RM'.$tng.' Successfully!") ;';
+		 echo 'window.location.href = "tng.php?eml=' . $emml . '&tt='.$total.'&cod='.$co.'";';
 		echo '</script>';
 	
 	} else {
 		echo '<script>';
 		echo 'alert("Error reloading TNG.") ;';
-		echo 'window.location.href = "tng.php?eml=' . $emml . '&tt='.$total.'";';	 
+		echo 'window.location.href = "tng.php?eml=' . $emml . '&tt='.$total.'&cod='.$co.'";';	 
 		echo '</script>';	
 		exit();
 	}	

@@ -67,7 +67,8 @@ if (isset($_GET['eml'])) {
     $emml = $_GET['eml'];}
 if (isset($_GET['tt'])) {
 		$total = $_GET['tt'];}
-		$tng= isset($_GET['ba']) ? $_GET['ba'] : null;	
+		$co= isset($_GET['cod']) ? $_GET['cod'] : null;
+
 	
 	$result = mysqli_query($connect, "SELECT * FROM tng where Customer_ID='$emml'");
 	if (mysqli_num_rows($result)==0) {
@@ -78,7 +79,7 @@ if (isset($_GET['tt'])) {
 				echo '</script>';	
 				exit();
 	}
-	while($row = mysqli_fetch_assoc($result)) {
+	if($row = mysqli_fetch_assoc($result)) {
 ?>
 
 <body>
@@ -103,44 +104,43 @@ if (isset($_GET['tt'])) {
 					<br>RM <input class="input_field" type="text" name="name" placeholder="Others Amount">
 					<button class="button" type="submit" name="am">Reload</button>
 			</div>
-			<?php
-			if (isset($_POST['r50'])) {
-				$b += 50;
-				$update = mysqli_query($connect, "UPDATE tng SET Balance='$b' WHERE Customer_ID='$emml'");
-				echo '<script>';
-				echo 'alert("Reload RM50 Successfully!") ;';
-				echo 'window.location.href = "payment.php?eml=' . $emml . '&tt='.$np.'&ba='.$tng.'";'; 
-				echo '</script>';
-				exit();
-			}
-			else if (isset($_POST['r100'])) {
-				$b += 100;
-				$update = mysqli_query($connect, "UPDATE tng SET Balance='$b' WHERE Customer_ID='$emml'");
-				echo '<script>';
-				echo 'alert("Reload RM100 Successfully!") ;';
-				echo 'window.location.href = "tng.php?eml=' . $emml . '&tt='.$total.'";';	 
-				echo '</script>';	
-				exit();	
-			}
-			else if (isset($_POST['am'])) {
-				$nn=$_POST['name'];
-				$b += $nn;
-				$update = mysqli_query($connect, "UPDATE tng SET Balance='$b' WHERE Customer_ID='$emml'");
-				echo '<script>';
-				echo 'alert("Reload RM'.$nn.' Successfully!") ;';
-				echo 'window.location.href = "tng.php?eml=' . $emml . '&tt='.$total.'";';	 
-				echo '</script>';	
-				exit();	
-			}
-			?>
+			
 		</form>
 	
 </body>
+
 <?php }
+else {
+	echo '<script>';
+	echo 'alert("Error! Please try again!") ;';	 
+	echo '</script>';	
+}
+if (isset($_POST['r50'])) {
+	$tng = 50;
+	echo '<script>';
+	echo 'window.location.href = "payment.php?eml='.$emml.'&cod='.$co.'&tt='.$total.'&ba='.$tng.'";';
+	echo '</script>';
+	exit();
+}
+else if (isset($_POST['r100'])) {
+	$tng = 100;
+	echo '<script>';
+	echo 'window.location.href = "payment.php?eml='.$emml.'&tt='.$total.'&ba='.$tng.'&cod='.$co.'";'; 
+	echo '</script>';	
+	exit();	
+}
+else if (isset($_POST['am'])) {
+	$tng=$_POST['name'];
+	
+	echo '<script>';
+	echo 'window.location.href = "payment.php?eml=' . $emml . '&tt='.$total.'&ba='.$tng.'&cod='.$co.'";'; 
+	echo '</script>';	
+	exit();	
+}
 if (isset($_POST['pay'])) {
 	if ($b >= $total){
 	 echo '<script>';
-	 echo 'window.location.href = "checkout.php?eml='. $emml . '&pm=TNG&ba='.$b.'&tt='.$total.'";';
+	 echo 'window.location.href = "checkout.php?eml='. $emml . '&pm=TNG&ba='.$b.'&tt='.$total.'&cod='.$co.'";';
 	 echo '</script>';
 	}
 
@@ -153,7 +153,7 @@ if (isset($_POST['pay'])) {
 else if (isset($_POST['backc']))
 {
 	echo '<script>';
-	echo 'window.location.href = "cart.php?eml='.$emml.'";';
+	echo 'window.location.href = "cart.php?eml='.$emml.'&cod='.$co.'&nt='.$total.'";';
 	echo '</script>';
 }
 ?>

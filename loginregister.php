@@ -94,6 +94,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])) {
     $address2 = $_POST['address2']; // Address Line 2
     $postcode = $_POST['postcode']; // Postcode
 
+    if(str_contains($email, '@')){
+        $error_message = "Invalid email";
+        exit();
+    }
     if($npassword != $cpassword) {
         $error_message = "Passwords do not match";
         exit();
@@ -200,7 +204,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])) {
                                                 <i class="input-icon uil uil-at"></i>
                                             </div>
                                             <div class="form-group mt-2">
-                                                <input type="text" class="form-style" placeholder="Phone Number" name="phone" required>
+                                                <input type="int" class="form-style" placeholder="Phone Number" name="phone" required>
                                                 <i class="input-icon uil uil-phone"></i>
                                             </div>
                                             <div class="form-group mt-2">
