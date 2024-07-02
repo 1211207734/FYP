@@ -112,7 +112,7 @@ window.onunload = function () { null };
                                 </div>
                                     <div class="row mt-2">
                                         <div class="col-md-6"><label class="labels">Full Name</label>
-                                        <input type="text" class="form-control" placeholder="" name="fullname" value="<?php echo $row['Customer_name']; ?>"></div>
+                                        <input type="text" class="form-control" placeholder="" name="fullname" value="<?php echo $cn=$row['Customer_name']; ?>"></div>
                                     </div>
                                     <div class="row mt-3">
                                         <div class="col-md-12"><label class="labels">Phone Number</label>
@@ -145,49 +145,62 @@ window.onunload = function () { null };
                     </div>
                     </div>
 				</body>						
-                <?php }
-                if(isset($_POST['save'])) {
-                    // Retrieve form data
-                    $f = $_POST['fullname'];
-                    $p = $_POST['phone'];
-                    $email = $_POST['email'];
-                    $a1 = $_POST['a1'];
-                    $a2 = $_POST['a2'];
-                    $pos = $_POST['pos'];
-                    $fn=basename($_FILES['profileImage']['name']);
-                    $ft=basename($_FILES['profileImage']['tmp_name']);
-                    $folder="images/user/".$fn;
-            
-                    
-            
-            
-            
-                    // Validate and sanitize form data (you may need more validation)
-                    // Connect to your MySQL database
-                    //$connect= mysqli_connect("localhost","root","","jbp");
-            
-                
-            
-                    // Prepare SQL statement
-                    $sql = "UPDATE `customer` SET Customer_name='$f', Customer_HP='$p', Customer_email='$email', Customer_address_1='$a1', Customer_address_2='$a2', Customer_postcode='$pos', img='$folder' WHERE Customer_ID='$emml'";
-                    mysqli_query($connect,$sql);
-                    if (mysqli_query($connect, $sql)&&move_uploaded_file($ft,$folder))
-                    {
-                    
-                        echo '<script type="text/javascript">';
-                        echo 'window.location.href = "p.php?eml='.$emml.'";';
-                        echo 'alert("Profile Updated Successfully.");';
-                        echo '</script>';
-                    
-                    } else {
-                    echo '<script type="text/javascript">';
-                    echo 'alert("Error executing SQL statement:".mysqli_error($connect));';
-                    echo '</script>';
-                    }	
-                    
-                    
-                    
-                } ?>
+                <?php
+                }
+// Check if the form is submitted
+if(isset($_POST['save'])) {
+    // Retrieve form data
+    $f = $_POST['fullname'];
+    $p = $_POST['phone'];
+    $email = $_POST['email'];
+    $a1 = $_POST['a1'];
+    $a2 = $_POST['a2'];
+    $pos = $_POST['pos'];
+    $emml = $_GET['eml']; // Retrieve the user ID from URL parameter
+    $fn = basename($_FILES['profileImage']['name']);
+    $ft = $_FILES['profileImage']['tmp_name'];
+    $folder = "images/user/";
+
+    // Validate and sanitize form data (you may need more validation)
+    // Connect to your MySQL database
+    $connect = mysqli_connect("localhost", "root", "", "jbp");
+
+    // Prepare SQL statement to update user profile
+    $sql = "UPDATE `customer` SET Customer_name='$f', Customer_HP='$p', Customer_email='$email', Customer_address_1='$a1', Customer_address_2='$a2', Customer_postcode='$pos' WHERE Customer_ID='$emml'";
+   
+    // Execute SQL update query
+    
+        // Check if a file is uploaded
+        if(!empty($fn)) {
+            // Append the file name to the folder path
+            $folder .= $fn;
+            if(mysqli_query($connect, $sql)) {
+            // Move the uploaded file to the destination folder
+            if(move_uploaded_file($ft, $folder)) {
+                $sqll="Update customer set img = '$folder' WHERE Customer_ID='$emml'";
+                mysqli_query($connect, $sqll);
+                echo '<script type="text/javascript">';
+                echo 'window.location.href = "p.php?eml='.$emml.'";';
+                echo 'alert("Profile Updated Successfully.");';
+                echo '</script>';
+            } else {
+                echo '<script type="text/javascript">';
+                echo 'alert("Error moving file.");';
+                echo '</script>';
+            }
+        } else {
+            echo '<script type="text/javascript">';
+            echo 'alert("Error updating profile: '.mysqli_error($connect).'");';
+            echo '</script>';
+        }
+    }}
+   
+    
+    // Close database connection
+    mysqli_close($connect);
+
+?>
+
                 <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Add event listener to the "Save Changes" button
