@@ -387,7 +387,7 @@
             <div class="product-item hover-effect-slide">
               <div class="image-holder position-relative">
               <a href="#" class="btn btn-primary w-100 mt-2 rounded-1">Smartphones</a>
-                <a href="single-product.html">
+                <a href="loginregister.php" onclick="return checkout()">
                   <img src="images/product-thumbnail-2.jpg" alt="categories" class="product-image img-fluid">
                 </a>
               </div>
@@ -397,7 +397,7 @@
             <div class="product-item hover-effect-slide">
               <div class="image-holder position-relative">
               <a href="#" class="btn btn-primary w-100 mt-2 rounded-1">Tablets</a>
-                <a href="single-product.html">
+                <a href="loginregister.php" onclick="return checkout()">
                   <img src="images/product-thumbnail-7.jpg" alt="categories" class="product-image img-fluid">
                 </a>
               </div>
@@ -408,7 +408,7 @@
               <div class="image-holder position-relative">
               <a href="#" class="btn btn-primary w-100 mt-2 rounded-1">Earphones</a>
 
-                <a href="single-product.html">
+                <a href="loginregister.php" onclick="return checkout()">
                   <img src="images/product-thumbnail-3.jpg" alt="categories" class="product-image img-fluid">
                 </a>
               </div>
@@ -418,7 +418,7 @@
             <div class="product-item hover-effect-slide">
               <div class="image-holder position-relative">
               <a href="#" class="btn btn-primary w-100 mt-2 rounded-1">Wearables</a>
-                <a href="single-product.html">
+                <a href="loginregister.php" onclick="return checkout()">
                   <img src="images/product-thumbnail-4.jpg" alt="categories" class="product-image img-fluid">
                 </a>
               </div>
@@ -428,7 +428,7 @@
             <div class="product-item hover-effect-slide">
               <div class="image-holder position-relative">
               <a href="#" class="btn btn-primary w-100 mt-2 rounded-1">Powerbanks</a>
-                <a href="single-product.html">
+                <a href="loginregister.php" onclick="return checkout()">
                   <img src="images/product-thumbnail-5.jpg" alt="categories" class="product-image img-fluid">
                 </a>
                 
@@ -439,7 +439,7 @@
             <div class="product-item hover-effect-slide">
               <div class="image-holder position-relative">
               <a href="#" class="btn btn-primary w-100 mt-2 rounded-1">Speakers</a>
-                <a href="single-product.html">
+                <a href="loginregister.php" onclick="return checkout()">
                   <img src="images/product-thumbnail-6.jpg" alt="categories" class="product-image img-fluid">
                 </a>
               </div>
@@ -450,7 +450,7 @@
               <div class="image-holder position-relative">
               <a href="#" class="btn btn-primary w-100 mt-2 rounded-1">Phone stands</a>
 
-                <a href="single-product.html">
+                <a href="loginregister.php" onclick="return checkout()">
                   <img src="images/product-thumbnail-1.jpg" alt="categories" class="product-image img-fluid">
                 </a>
               </div>
@@ -461,7 +461,7 @@
               <div class="image-holder position-relative">
               <a href="#" class="btn btn-primary w-100 mt-2 rounded-1">Storage Extender</a>
 
-                <a href="single-product.html">
+                <a href="loginregister.php" onclick="return checkout()">
                   <img src="images/product-thumbnail-8.jpg" alt="categories" class="product-image img-fluid">
                 </a>
               </div>
@@ -508,19 +508,19 @@
                 <a href="index.php" class="item-anchor">Home</a>
               </li>
               <li class="menu-item">
-                <a href="shop-four-column-wide.html" class="item-anchor">All Product</a>
+                <a href="loginregister.php" onclick="return checkout()" class="item-anchor">All Product</a>
               </li>
               <li class="menu-item">
-                <a href="blog.html" class="item-anchor">Categories</a>
+                <a href="loginregister.php" onclick="return checkout()" class="item-anchor">Categories</a>
               </li>
               <li class="menu-item">
-                <a href="styles.html" class="item-anchor">Order History</a>
+                <a href="loginregister.php" onclick="return checkout()" class="item-anchor">Order History</a>
               </li>
               <li class="menu-item">
-                <a href="#" class="item-anchor">My Account</a>
+                <a href="loginregister.php" onclick="return checkout()" class="item-anchor">My Account</a>
               </li>
               <li class="menu-item">
-                <a href="#" class="item-anchor">My Cart</a>
+                <a href="loginregister.php" onclick="return checkout()" class="item-anchor">My Cart</a>
               </li>
             </ul>
           </div>
@@ -530,16 +530,16 @@
             <h5 class="widget-title mb-4">Other Info</h5>
             <ul class="menu-list list-unstyled fs-6">
               <li class="menu-item">
-                <a href="#" class="item-anchor">About Us</a>
+                <a href="loginregister.php" onclick="return checkout()" class="item-anchor">About Us</a>
               </li>
               <li class="menu-item">
-                <a href="#" class="item-anchor">Returns + Exchanges</a>
+                <a href="loginregister.php" onclick="return checkout()" class="item-anchor">Returns + Exchanges</a>
               </li>
               <li class="menu-item">
-                <a href="#" class="item-anchor">Shipping + Delivery</a>
+                <a href="loginregister.php" onclick="return checkout()" class="item-anchor">Shipping + Delivery</a>
               </li>
               <li class="menu-item">
-                <a href="#" class="item-anchor">FAQ</a>
+                <a href="loginregister.php" onclick="return checkout()" class="item-anchor">FAQ</a>
               </li>
             </ul>
           </div>
