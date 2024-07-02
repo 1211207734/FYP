@@ -52,6 +52,7 @@ window.onunload = function () { null };
             $result = mysqli_query($connect, $sql);
             $resultt = mysqli_query($connect, $sqll);
             $rr = mysqli_fetch_assoc($resultt);
+            $tot=0;
             while ($row = mysqli_fetch_assoc($result)) {
                 $tt=$row['Total_price'];
                 $od=$row['Order_date'];
@@ -62,11 +63,12 @@ window.onunload = function () { null };
                     <td><?php echo $row['Product_name'] ?></td>
                     <td>RM <?php echo $row['Product_price'] ?></td>
                     <td><?php echo $row['Quantity'] ?></td>
+                    <?php $tot=$tot+($row['Product_price']*$row['Quantity'])?>
                 </tr>
                <?php }?>
             </tbody>
             <div display="block" style=""><span style="float:left; margin-left: 10px;">Order date : <?php echo $od?><br>Order time : <?php echo $ot?><br>Order status : <?php echo $st?></span>
-            <span style="float:right; margin-right: 10px;">Total Amount  : RM <?php echo number_format($tt, 2) ?><br>Voucher Code : <?php echo $rr['code']?><br>Discount Price : RM <?php echo number_format($tt*$rr['discount'], 2)?></span></div>
+            <span style="float:right; margin-right: 10px;">Total Amount  : RM <?php echo number_format($tt, 2) ?><br>Voucher Code : <?php echo $rr['code']?><br>Discount Price : RM <?php echo number_format($tot-($tot*(1-$rr['discount'])),2)?></span></div>
         </table>
     </div>
 
