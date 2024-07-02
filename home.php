@@ -483,19 +483,19 @@ if (isset($_GET['eml'])) {
                 <a href="index.php" class="item-anchor">Home</a>
               </li>
               <li class="menu-item">
-                <a href="shop-four-column-wide.html" class="item-anchor">All Product</a>
+                <a href="shoptry.php?eml=<?php echo $emml ?>" class="item-anchor">All Product</a>
               </li>
               <li class="menu-item">
-                <a href="blog.html" class="item-anchor">Categories</a>
+                <a href="shoptry.php?eml=<?php echo $emml ?>&cid=1"class="item-anchor">Categories</a>
               </li>
               <li class="menu-item">
-                <a href="styles.html" class="item-anchor">Order History</a>
+                <a href="orderhis.php?eml=<?php echo $emml ?>" class="item-anchor">Order History</a>
               </li>
               <li class="menu-item">
-                <a href="#" class="item-anchor">My Account</a>
+                <a href="p.php?eml=<?php echo $emml?>" class="item-anchor">My Account</a>
               </li>
               <li class="menu-item">
-                <a href="#" class="item-anchor">My Cart</a>
+                <a href="cart.php?eml=<?php echo $emml ?>" class="item-anchor">My Cart</a>
               </li>
             </ul>
           </div>
@@ -505,16 +505,16 @@ if (isset($_GET['eml'])) {
             <h5 class="widget-title mb-4">Other Info</h5>
             <ul class="menu-list list-unstyled fs-6">
               <li class="menu-item">
-                <a href="#" class="item-anchor">About Us</a>
+                <a href="about.php?eml=<?php echo $emml?>" class="item-anchor">About Us</a>
               </li>
               <li class="menu-item">
-                <a href="#" class="item-anchor">Returns + Exchanges</a>
+                <a href="FAQ.php?eml=<?php echo $emml ?>" class="item-anchor">Returns + Exchanges</a>
               </li>
               <li class="menu-item">
-                <a href="#" class="item-anchor">Shipping + Delivery</a>
+                <a href="FAQ.php?eml=<?php echo $emml ?>" class="item-anchor">Shipping + Delivery</a>
               </li>
               <li class="menu-item">
-                <a href="#" class="item-anchor">FAQ</a>
+                <a href="FAQ.php?eml=<?php echo $emml ?>" class="item-anchor">FAQ</a>
               </li>
             </ul>
           </div>
