@@ -158,9 +158,9 @@ window.onunload = function () { null };
                             alert("You have logout!");
                             }
                           </script>  
-                            <li >
-                              <a class="sidenav-item-link" href="reset-password.php?eml=<?php echo $emml ?>">
-                                <span class="nav-text">Reset Password</span>
+                              <li >
+                              <a class="sidenav-item-link" href="changepw.php?eml=<?php echo $emml ?>">
+                                <span class="nav-text">Change Password</span>
                                 
                               </a>
                             </li>
@@ -385,7 +385,7 @@ window.onunload = function () { null };
                 <td><?php echo $row['status'];?></td>
                 <td></td>
                 <td></td>
-                <td>
+                <td <?php echo $o ?>>
                   <div class="dropdown">
                     <a class="dropdown-toggle icon-burger-mini" href="#" role="button" id="dropdownMenuLink"
                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
@@ -394,7 +394,7 @@ window.onunload = function () { null };
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
                       <a class="dropdown-item" href="#" onclick="return manageStaff(<?php echo $row['id']; ?>, 'delete')">Delete Staff</a>
                       <a <?php echo $o ?> class="dropdown-item" href="#" onclick="return manageStaff(<?php echo $row['id']; ?>, 'activate')">Activate Staff</a>
-                      <a class="dropdown-item" href="#">Something else here</a>
+                      
                     </div>
                   </div>
                 </td>

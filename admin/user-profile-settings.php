@@ -148,9 +148,9 @@ window.onunload = function () { null };
                             alert("You have logout!");
                             }
                           </script>  
-                            <li >
-                              <a class="sidenav-item-link" href="reset-password.php?eml=<?php echo $emml ?>">
-                                <span class="nav-text">Reset Password</span>
+                              <li >
+                              <a class="sidenav-item-link" href="changepw.php?eml=<?php echo $emml ?>">
+                                <span class="nav-text">Change Password</span>
                                 
                               </a>
                             </li>

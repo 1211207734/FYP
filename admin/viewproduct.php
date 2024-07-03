@@ -159,9 +159,9 @@ window.onunload = function () { null };
                             alert("You have logout!");
                             }
                           </script>  
-                            <li >
-                              <a class="sidenav-item-link" href="reset-password.php?eml=<?php echo $emml ?>">
-                                <span class="nav-text">Reset Password</span>
+                              <li >
+                              <a class="sidenav-item-link" href="changepw.php?eml=<?php echo $emml ?>">
+                                <span class="nav-text">Change Password</span>
                                 
                               </a>
                             </li>
@@ -373,7 +373,7 @@ window.onunload = function () { null };
                     <tr>
                       <?php $selectedid = $row['Product_ID']; ?>
                         <td class="py-0">
-                            <img src="\FYP/<?php echo $row['img'] ?>" width="100px" height="100px" alt="<?php echo $row['img'] ?>">
+                            <img src="<?php echo $row['img'] ?>" width="100px" height="100px" alt="<?php echo $row['img'] ?>">
                         </td>
                         <td><?php echo $row['Product_name'];?></td>
                         <td hidden><?php echo $row['Product_ID'] ?></tdhidden>
@@ -422,58 +422,56 @@ window.onunload = function () { null };
             
             <!-- Stock Modal -->
             <div class="modal fade modal-stock" id="modal-stock" aria-labelledby="modal-stock" aria-hidden="true">
-                <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
-                    <form method="post">
-                        <div class="modal-content">
-                            <div class="modal-header align-items-center p3 p-md-5">
-                                <h2 class="modal-title" id="exampleModalGridTitle">Add Stock</h2>
-                                <div>
-                                    <button type="button" class="btn btn-light btn-pill mr-1 mr-md-2" data-dismiss="modal">cancel</button>
-                                    <button type="submit" name="svbt" class="btn btn-primary btn-pill">save</button>
+    <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+        <form method="post" enctype="multipart/form-data">
+            <div class="modal-content">
+                <div class="modal-header align-items-center p3 p-md-5">
+                    <h2 class="modal-title" id="exampleModalGridTitle">Add Stock</h2>
+                    <div>
+                        <button type="button" class="btn btn-light btn-pill mr-1 mr-md-2" data-dismiss="modal">Cancel</button>
+                        <button type="submit" name="svbt" class="btn btn-primary btn-pill">Save</button>
+                    </div>
+                </div>
+                <div class="modal-body p3 p-md-5">
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <h3 class="h5 mb-5">Product Information</h3>
+                            <div class="form-group mb-5">
+                                <label for="new-product">Product Title</label>
+                                <input type="text" class="form-control" id="new-product" name="pn" placeholder="Add Product" required>
+                            </div>
+                            <div class="form-group mb-5">
+                                <label for="stock">Product Stock</label>
+                                <input type="text" class="form-control" id="stock" name="stock" placeholder="Stock" required>
+                            </div>
+                            <div class="form-group mb-5">
+                                <label for="quantity">Product Quantity</label>
+                                <input type="text" class="form-control" id="quantity" name="quantity" placeholder="Quantity" required>
+                            </div>
+                            <div class="form-row mb-4">
+                                <div class="col">
+                                    <label for="price">Price</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon1">$</span>
+                                        </div>
+                                        <input type="text" class="form-control" id="price" name="netprice" placeholder="Price" aria-label="Price" aria-describedby="basic-addon1" required>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <label for="sale-price">Sale Price</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon2">$</span>
+                                        </div>
+                                        <input type="text" class="form-control" id="sale-price" name="price" placeholder="Sale Price" aria-label="SalePrice" aria-describedby="basic-addon2">
+                                    </div>
                                 </div>
                             </div>
-                            <div class="modal-body p3 p-md-5">
-                                <div class="row">
-                                    <div class="col-lg-8">
-                                        <h3 class="h5 mb-5">Product Information</h3>
-                                        <div class="form-group mb-5">
-                                            <label for="new-product">Product Title</label>
-                                            <input type="text" class="form-control" id="new-product" name="pn" placeholder="Add Product">
-                                        </div>
-                                        <div class="form-group mb-5">
-                                            <label for="new-product">Product Stock</label>
-                                            <input type="text" class="form-control" id="stock" name="stock" placeholder="Stock">
-                                        </div>
-                                        <div class="form-group mb-5">
-                                            <label for="new-product">Product quantity</label>
-                                            <input type="text" class="form-control" id="quantity" name="quantity" placeholder="quantity">
-                                        </div>
-                                        <div class="form-row mb-4">
-                                            <div class="col">
-                                                <label for="price">Price</label>
-                                                <div class="input-group">
-                                                    <div class="input-group-prepend">
-                                                        <span class="input-group-text" id="basic-addon1">$</span>
-                                                    </div>
-                                                    <input type="text" class="form-control" id="price" name="netprice" placeholder="Price" aria-label="Price"
-                                                        aria-describedby="basic-addon1">
-                                                </div>
-                                            </div>
-                                            <div class="col">
-                                                <label for="sale-price">Sale Price</label>
-                                                <div class="input-group">
-                                                    <div class="input-group-prepend">
-                                                        <span class="input-group-text" id="basic-addon1">$</span>
-                                                    </div>
-                                                    <input type="text" class="form-control" id="sale-price" name="price" placeholder="Sale Price" aria-label="SalePrice"
-                                                        aria-describedby="basic-addon1">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="product-type mb-3">
-                                            <label class="d-block" for="sale-price">Product Type <i class="mdi mdi-help-circle-outline"></i> </label>
-                                            <div>
-                                                <div class="custom-control custom-radio d-inline-block mr-3 mb-3">
+                            <div class="product-type mb-3">
+                                <label class="d-block">Product Type <i class="mdi mdi-help-circle-outline"></i> </label>
+                                <div>
+                                <div class="custom-control custom-radio d-inline-block mr-3 mb-3">
                                                     <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input" value="1" checked="checked">
                                                     <label class="custom-control-label" for="customRadio1">Smartphones</label>
                                                 </div>
@@ -513,58 +511,74 @@ window.onunload = function () { null };
                                                     <input type="radio" id="customRadio10" name="customRadio" class="custom-control-input" value="10">
                                                     <label class="custom-control-label" for="customRadio10">Mobile Photography Accessories</label>
                                                 </div>
-                                            </div>
-                                        </div>
-                                        <div class="editor">
-                                            <label class="d-block" for="sale-price">Description <i class="mdi mdi-help-circle-outline"></i></label>
-                                            <input type="text" class="form-control" id="description" name="description" placeholder="Add Description">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <div class="custom-file">
-                                            <input type="file" class="custom-file-input" id="customFile" name="customFile" placeholder="please imgae here">
-                                            <span class="upload-image">Click here to <span class="text-primary">add product image.</span> </span>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
+                            <div class="editor">
+                                <label class="d-block">Description <i class="mdi mdi-help-circle-outline"></i></label>
+                                <textarea class="form-control" id="description" name="description" placeholder="Add Description" rows="4"></textarea>
+                            </div>
                         </div>
-                    </form>
+                        <div class="col-lg-4">
+                            <div class="custom-file mt-4">
+                                <input type="file" class="custom-file-input" id="customFile" name="customFile" required>
+                                <label class="custom-file-label" for="customFile">Choose file</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
 
                     <?php
-                    $con = mysqli_connect("localhost", "root", "", "jbp");
-                    if (isset($_POST['svbt'])) {
-                        $n = $_POST['pn'];
-                        $s = $_POST['stock'];
-                        $q= $_POST['quantity'];
-                        $np = $_POST['netprice'];
-                        $p = $_POST['price'];
-                        $c = $_POST['customRadio'];
-                        $d = $_POST['description'];
-                        $fn=$_FILES['customFile']['name'];
-                        $ft=$_FILES['customFile']['tmp_name'];
-                        $folder="images/user/".$fn;
-                        if (!is_numeric($np)&&$np<=0) {
-                          echo "<script>alert('Net price must be a number');</script>";
-                      } 
-                      else if (!is_numeric($p)&&$p<=0) {
-                          echo "<script>alert('Price must be a number');</script>";
-                      }
-                      else if (!is_numeric($s)&&$s<0) {
-                        echo "<script>alert('Invalid input');</script>";
-                    }
-                      else {
-                        $sql = "INSERT INTO products (Product_name, Product_details, Product_stock,Product_quantity, Product_netprice, Product_price, Category_ID, img) 
-                                VALUES ('$n', '$d', '$s', '$q', '$np', '$p', '$c','$img')";
-                        if (mysqli_query($con, $sql)&&move_uploaded_file($ft,$folder)) {
-                            echo "<script>alert('New product Added Successfully');";
-                            echo 'window.location.href = "viewproduct.php?eml=' . $emml . '";</script>';
-                        } else {
-                            echo "<script>alert('Failed to Add New product')</script>";
-                        }
-                    }
-                  }
-                    ?>
+$con = mysqli_connect("localhost", "root", "", "jbp");
+
+if (!$con) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+if (isset($_POST['svbt'])) {
+    $n = mysqli_real_escape_string($con, $_POST['pn']);
+    $s = mysqli_real_escape_string($con, $_POST['stock']);
+    $q = mysqli_real_escape_string($con, $_POST['quantity']);
+    $np = mysqli_real_escape_string($con, $_POST['netprice']);
+    $p = mysqli_real_escape_string($con, $_POST['price']);
+    $c = mysqli_real_escape_string($con, $_POST['customRadio']);
+    $d = mysqli_real_escape_string($con, $_POST['description']);
+    $fn = basename($_FILES['customFile']['name']);
+    $ft = $_FILES['customFile']['tmp_name'];
+    $folder = "images/pro/" . $fn;
+    $ffold = "\FYP/images/" . $fn;
+
+    // Validate inputs
+    if (!is_numeric($np) || $np <= 0) {
+        echo "<script>alert('Net price must be a positive number');</script>";
+    } elseif (!is_numeric($p) || $p <= 0) {
+        echo "<script>alert('Price must be a positive number');</script>";
+    } elseif (!is_numeric($s) || $s < 0) {
+        echo "<script>alert('Stock must be a non-negative number');</script>";
+    } else {
+        // Upload file
+        if (move_uploaded_file($ft, $folder)) {
+          move_uploaded_file($ft, $ffold);
+            // Insert into database
+            $sql = "INSERT INTO products (Product_name, Product_details, Product_stock, Product_quantity, Product_netprice, Product_price, Category_ID, img) 
+                    VALUES ('$n', '$d', '$s', '$q', '$np', '$p', '$c', '$folder')";
+
+            if (mysqli_query($con, $sql)) {
+                echo "<script>alert('New product added successfully');";
+                echo 'window.location.href = "viewproduct.php?eml='.$emml.'";</script>';
+            } else {
+                echo "<script>alert('Failed to add new product');</script>";
+            }
+        } else {
+            echo "<script>alert('Failed to upload file');</script>";
+        }
+    }
+}
+
+mysqli_close($con);
+?>
+
                 </div>
             </div>
         </div>

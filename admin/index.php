@@ -174,9 +174,9 @@ window.onunload = function () { null };
                             alert("You have logout!");
                             }
                           </script>  
-                            <li >
-                              <a class="sidenav-item-link" href="reset-password.php?eml=<?php echo $emml ?>">
-                                <span class="nav-text">Reset Password</span>
+                              <li >
+                              <a class="sidenav-item-link" href="changepw.php?eml=<?php echo $emml ?>">
+                                <span class="nav-text">Change Password</span>
                                 
                               </a>
                             </li>
@@ -477,7 +477,7 @@ $dd=mysqli_fetch_assoc($rusl);
                     <tr>
                       <?php $selectedid = $row['Product_ID']; ?>
                         <td class="py-0">
-                            <img src="\FYP/<?php echo $row['img'] ?>" width="100px" height="100px" alt="<?php echo $row['img'] ?>">
+                            <img src="<?php echo $row['img'] ?>" width="100px" height="100px" alt="<?php echo $row['img'] ?>">
                         </td>
                         <td><?php echo $row['Product_name'];?></td>
                         <td hidden><?php echo $row['Product_ID'] ?></tdhidden>

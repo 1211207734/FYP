@@ -161,9 +161,9 @@ window.onunload = function () { null };
                             alert("You have logout!");
                             }
                           </script>  
-                            <li >
-                              <a class="sidenav-item-link" href="reset-password.php?eml=<?php echo $emml ?>">
-                                <span class="nav-text">Reset Password</span>
+                              <li >
+                              <a class="sidenav-item-link" href="changepw.php?eml=<?php echo $emml ?>">
+                                <span class="nav-text">Change Password</span>
                                 
                               </a>
                             </li>
@@ -336,7 +336,7 @@ window.onunload = function () { null };
         <div class="card card-default">
             <div class="card-header">
                 <h2>Products Inventory</h2>
-                <a href="#" class="btn btn-primary btn-pill" data-toggle="modal" data-target="#modal-stock">Add Stock</a>
+                <a hidden href="#" class="btn btn-primary btn-pill" data-toggle="modal" data-target="#modal-stock">Add Stock</a>
             </div>
             <div class="card-footer card-profile-footer ">
                 <ul class="nav nav-border-top justify-content-center">
@@ -374,7 +374,7 @@ window.onunload = function () { null };
                     <tr>
                       <?php $selectedid = $row['Product_ID']; ?>
                         <td class="py-0">
-                            <img src="\FYP/<?php echo $row['img'] ?>" width="100px" height="100px" alt="<?php echo $row['img'] ?>">
+                            <img src="<?php echo $row['img'] ?>" width="100px" height="100px" alt="<?php echo $row['img'] ?>">
                         </td>
                         <td><?php echo $row['Product_name'];?></td>
                         <td><?php echo number_format($row['Product_price'], 2);?></td>
