@@ -174,7 +174,7 @@ window.onunload = function () { null };
                                             <!-- Removed redirecting back to index.php -->
                                         </form>
                                         <a href="index.php"><button name="home" class="btn mt-4">Back</button></a>
-                                        <a href="forgot-password.php"><button name="home" class="btn mt-4">Forgot Password?</button></a>
+                                        <a hidden href="forgot-password.php"><button name="home" class="btn mt-4">Forgot Password?</button></a>
                                         <?php
                                         if (!empty($error_message)) {
                                             echo '<p class="text-danger">' . $error_message . '</p>';
